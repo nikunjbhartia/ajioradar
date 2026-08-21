@@ -53,6 +53,8 @@ class SyncHistoryItem(BaseModel):
     active_70_count: int = 0
     total_campaigns: int = 0
     total_deals: int = 0
+    highlights: List[str] = Field(default_factory=list)
+    changes: List[Dict[str, Any]] = Field(default_factory=list)
 
 class SyncStatusReport(BaseModel):
     is_active: bool

@@ -147,7 +147,6 @@
     "Dipi",
     "Divine Casa",
     "Diwaah",
-    "Dollar",
     "Donmora",
     "Draax Fashions",
     "Dream. Immerse. Play.",
@@ -760,15 +759,16 @@
     "BEAUTY",
     "KIDS",
     "MEN",
+    "Multi-Category",
     "WOMEN"
   ],
   "stats": {
-    "verified_70_plus_campaigns": 433,
-    "total_campaigns": 584,
-    "verified_70_plus_products": 11863,
-    "total_brands": 635,
-    "total_departments": 4
+    "verified_70_plus_campaigns": 440,
+    "total_campaigns": 591,
+    "verified_70_plus_products": 9381,
+    "total_brands": 634,
+    "total_departments": 5
   },
-  "exported_at": 1787342981.9844403,
-  "exported_iso": "2026-08-21 20:09:41 UTC"
+  "exported_at": 1787343675.921129,
+  "exported_iso": "2026-08-21 20:21:15 UTC"
 }

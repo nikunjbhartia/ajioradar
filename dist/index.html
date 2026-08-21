@@ -778,6 +778,52 @@
                 <div class="flex flex-wrap gap-1">${removedBadges}</div>
               </div>
             </div>
+
+            ${h.highlights && h.highlights.length > 0 ? `
+              <div class="bg-indigo-50/60 border border-indigo-100/80 rounded-xl p-3 text-xs space-y-1">
+                <div class="font-bold flex items-center space-x-1.5 text-indigo-900 text-[11px]">
+                  <i class="fa-solid fa-bolt text-amber-500"></i>
+                  <span>Sync Cycle Executive Highlights</span>
+                </div>
+                <ul class="space-y-1 text-[11px] text-slate-700 pl-4 list-disc">
+                  ${h.highlights.map(hl => `<li>${hl}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+
+            ${h.changes && h.changes.length > 0 ? `
+              <details class="group bg-slate-50/80 border border-slate-200/80 rounded-xl overflow-hidden text-xs">
+                <summary class="flex items-center justify-between p-3 cursor-pointer select-none font-bold text-slate-800 hover:bg-slate-100 transition text-[11px]">
+                  <span class="flex items-center space-x-2">
+                    <i class="fa-solid fa-clock-rotate-left text-indigo-600"></i>
+                    <span>Detailed Changes & Price Adjustments (${h.changes.length} events logged)</span>
+                  </span>
+                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+                </summary>
+                <div class="p-3 pt-1 border-t border-slate-200/60 space-y-2 max-h-80 overflow-y-auto mt-1">
+                  ${h.changes.map(ch => `
+                    <div class="p-2.5 rounded-lg bg-white border border-slate-150 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+                      <div class="space-y-0.5 min-w-[220px] flex-1">
+                        <div class="flex items-center space-x-2">
+                          <span class="px-1.5 py-0.5 text-[9px] font-bold rounded font-mono ${
+                            ch.badge === 'NEW' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
+                            ch.badge === 'UPDATED' ? 'bg-sky-100 text-sky-800 border border-sky-300' :
+                            'bg-rose-100 text-rose-800 border border-rose-300'
+                          }">${ch.badge} · ${ch.code}</span>
+                          <span class="font-bold text-slate-800 text-xs">${ch.title}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600">${ch.detail}</p>
+                      </div>
+                      <div class="flex items-center space-x-2 text-[11px] font-mono shrink-0">
+                        <span class="text-slate-400 line-through text-[10px]">${ch.before}</span>
+                        <i class="fa-solid fa-arrow-right text-slate-300 text-[9px]"></i>
+                        <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 text-[10px]">${ch.after}</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </details>
+            ` : ''}
           </div>
         `;
       }).join('');
