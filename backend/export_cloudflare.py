@@ -42,6 +42,10 @@ def export_for_cloudflare():
     with open(os.path.join(data_dir, "products.json"), "w") as f:
         json.dump([p.model_dump() for p in products], f, indent=2)
 
+    history = storage.get_sync_history(days=30, limit=50)
+    with open(os.path.join(data_dir, "history.json"), "w") as f:
+        json.dump([h.model_dump() for h in history], f, indent=2)
+
     featured_file = os.path.join(os.path.dirname(__file__), "app", "database", "featured_brands.json")
     featured_brands_dict = {}
     if os.path.exists(featured_file):

@@ -439,7 +439,7 @@
 
     async function init() {
       const initBust = Date.now();
-      await Promise.all([loadCampaigns(initBust), loadProducts(initBust), loadBrands(initBust), loadTaxonomy(initBust), loadSyncStatus(initBust), loadSyncHistory()]);
+      await Promise.all([loadCampaigns(initBust), loadProducts(initBust), loadBrands(initBust), loadTaxonomy(initBust), loadSyncStatus(initBust), loadSyncHistory(initBust)]);
       setInterval(loadSyncStatus, 20000);
       
       // Close dropdowns on outside click
@@ -596,14 +596,23 @@
       }
     }
 
-    async function loadSyncHistory() {
+    async function loadSyncHistory(cacheBust) {
       try {
-        const res = await fetch('/api/sync/history?days=7&limit=30');
-        if (res.ok) {
-          syncHistoryList = await res.json();
-          renderSyncHistory();
+        const res = await fetch('/api/sync/history?days=30&limit=50');
+        if (!res.ok) throw new Error('Fallback to static edge');
+        syncHistoryList = await res.json();
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/history.json${q}`);
+          if (res.ok) {
+            syncHistoryList = await res.json();
+          }
+        } catch (e) {
+          syncHistoryList = [];
         }
-      } catch (e) {}
+      }
+      renderSyncHistory();
     }
 
     async function triggerManualSync() {
@@ -733,11 +742,14 @@
                 <span class="font-bold text-xs sm:text-sm text-slate-900">${h.formatted_time}</span>
                 <span class="text-[10px] text-slate-400 font-mono bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">${h.duration_seconds}s</span>
               </div>
-              <div class="flex items-center space-x-2 text-xs">
-                <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">
-                  ${h.active_70_count} Active &ge;70% Deals
+              <div class="flex items-center space-x-2 text-xs flex-wrap gap-y-1">
+                <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
+                  ${h.active_70_count || 0} Campaigns &ge;70%
                 </span>
-                <span class="text-slate-500 font-medium">Total Scanned: ${h.total_campaigns}</span>
+                <span class="text-sky-700 font-bold bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md">
+                  ${h.total_deals || 0} Verified Products
+                </span>
+                <span class="text-slate-500 font-medium text-[11px]">Total Seeds: ${h.total_campaigns || 0}</span>
               </div>
             </div>
 
