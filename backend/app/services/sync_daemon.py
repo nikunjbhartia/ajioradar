@@ -56,6 +56,14 @@ class ContinuousSyncDaemon:
             except Exception as exp_err:
                 logger.debug(f"[SyncDaemon] Static export note: {exp_err}")
 
+            # 5. Backup SQLite database to Cloudflare R2 bucket for permanent persistence
+            try:
+                from app.database.r2_sync import backup_database_to_r2
+                db_path = self.storage.db_path
+                backup_database_to_r2(local_path=db_path)
+            except Exception as r2_err:
+                logger.debug(f"[SyncDaemon] R2 backup note: {r2_err}")
+
             logger.info(f"[SyncDaemon] Dual sync complete in {self.last_sync_duration}s. Total campaigns: {len(self.in_memory_campaigns)}, Total 70%+ items across categories: {len(self.in_memory_deals)}.")
         except Exception as e:
             logger.error(f"[SyncDaemon] Sync error: {e}")

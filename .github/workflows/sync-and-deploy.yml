@@ -27,9 +27,25 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
 
+      - name: Restore Previous SQLite Database from Cloudflare R2
+        env:
+          PYTHONPATH: backend
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_S3_API_ENDPOINT: ${{ secrets.R2_S3_API_ENDPOINT }}
+        run: |
+          python3 backend/app/database/r2_sync.py restore
+
       - name: Run Live Validation & Category Sweeps
         env:
           PYTHONPATH: backend
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_S3_API_ENDPOINT: ${{ secrets.R2_S3_API_ENDPOINT }}
         run: |
           cd backend
           python -c "
@@ -44,6 +60,17 @@ jobs:
         run: |
           cd backend
           python export_cloudflare.py
+
+      - name: Backup Updated Database to Cloudflare R2
+        env:
+          PYTHONPATH: backend
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_S3_API_ENDPOINT: ${{ secrets.R2_S3_API_ENDPOINT }}
+        run: |
+          python3 backend/app/database/r2_sync.py backup
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
