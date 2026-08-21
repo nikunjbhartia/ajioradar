@@ -67,16 +67,35 @@ def export_for_cloudflare():
     if os.path.exists(tax_file):
         shutil.copy(tax_file, os.path.join(data_dir, "taxonomy.json"))
 
-    # 5. Copy static index.html to dist/index.html
+    # 5. Copy static index.html to dist/index.html, dist/404.html and configure SPA redirects
     frontend_index = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html"))
     if os.path.exists(frontend_index):
         shutil.copy(frontend_index, os.path.join(dist_dir, "index.html"))
+        shutil.copy(frontend_index, os.path.join(dist_dir, "404.html"))
+    
+    # 5b. Write Cloudflare Pages SPA 200 rewrite rule in _redirects
+    with open(os.path.join(dist_dir, "_redirects"), "w") as f:
+        f.write("/*    /index.html   200\n")
+
+    # 5c. Write Cloudflare Pages _headers for cache control and security headers
+    with open(os.path.join(dist_dir, "_headers"), "w") as f:
+        f.write("""/data/*
+  Cache-Control: public, max-age=60, s-maxage=60, must-revalidate
+  Access-Control-Allow-Origin: *
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+""")
 
     print(f"[+] Static bundle successfully exported to '{dist_dir}/'!")
     print(f"    * Campaigns exported: {len(campaigns)}")
     print(f"    * Real 70%+ Products exported: {len(products)}")
     print(f"    * Brands indexed: {len(brands)}")
     print(f"    * Complete Taxonomy exported: {os.path.join(data_dir, 'taxonomy.json')}")
+    print(f"    * SPA 200 Rewrite configured: {os.path.join(dist_dir, '_redirects')}")
+    print(f"    * Edge Headers configured: {os.path.join(dist_dir, '_headers')}")
     print(f"    * Ready to deploy directly with: npx wrangler pages deploy dist")
 
     # 6. Write rich summary in GitHub Actions UI if available

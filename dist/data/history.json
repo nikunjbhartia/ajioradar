@@ -1,5 +1,24 @@
 [
   {
+    "sync_id": "sync_1787345617",
+    "timestamp": 1787345617.810526,
+    "formatted_time": "Aug 22, 02:23 AM",
+    "duration_seconds": 1.23,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 196,
+    "total_campaigns": 286,
+    "total_deals": 9451,
+    "highlights": [
+      "\u2728 Catalog steady \u2014 verified 591 campaign collections with 0 delta shifts"
+    ],
+    "changes": []
+  },
+  {
     "sync_id": "sync_1787343699",
     "timestamp": 1787343699.6305861,
     "formatted_time": "Aug 22, 01:51 AM",
@@ -12,61 +31,10 @@
     "removed_count": 0,
     "active_70_count": 440,
     "total_campaigns": 591,
-    "total_deals": 0,
+    "total_deals": 9451,
     "highlights": [
       "\u2728 Catalog steady \u2014 verified 591 campaign collections & active clearance inventory"
     ],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787342483",
-    "timestamp": 1787342483.933006,
-    "formatted_time": "Aug 22, 01:31 AM",
-    "duration_seconds": 17.49,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "total_deals": 6262,
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787340434",
-    "timestamp": 1787340434.6601548,
-    "formatted_time": "Aug 22, 12:57 AM",
-    "duration_seconds": 16.23,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "total_deals": 673,
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787337679",
-    "timestamp": 1787337679.948718,
-    "formatted_time": "Aug 22, 12:11 AM",
-    "duration_seconds": 3.4,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 281,
-    "total_campaigns": 430,
-    "total_deals": 254,
-    "highlights": [],
     "changes": []
   }
 ]

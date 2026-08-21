@@ -1,15 +1,17 @@
 import os
 import time
 import json
+import hmac
 import logging
 import asyncio
+from pathlib import Path
 from typing import Optional, List, Dict, Any
-from fastapi import FastAPI, BackgroundTasks, Query
+from fastapi import FastAPI, BackgroundTasks, Query, Header, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
-from app.models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncStatusReport
+from app.models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncStatusReport, SyncHistoryItem
 from app.database.storage import DealStorage
 from app.services.sync_daemon import daemon_instance
 
@@ -96,8 +98,6 @@ def list_brands():
 def list_departments():
     return storage.get_departments()
 
-from app.models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncStatusReport, SyncHistoryItem
-
 @app.get("/api/sync/status", response_model=SyncStatusReport)
 def sync_status():
     now = time.time()
@@ -126,7 +126,16 @@ def get_sync_history(days: int = Query(7, ge=1, le=30), limit: int = Query(50, g
     return storage.get_sync_history(days=days, limit=limit)
 
 @app.post("/api/sync/trigger")
-async def trigger_sync(background_tasks: BackgroundTasks):
+async def trigger_sync(background_tasks: BackgroundTasks, authorization: Optional[str] = Header(default=None)):
+    sync_token = os.environ.get("AJIORADAR_SYNC_TOKEN")
+    if sync_token:
+        expected = f"Bearer {sync_token}"
+        if not authorization or not hmac.compare_digest(authorization, expected):
+            raise HTTPException(status_code=401, detail="Unauthorized sync trigger request.")
+
+    if daemon_instance.is_running:
+        return JSONResponse({"status": "in_progress", "message": "Deal validation sweep is already actively running."}, status_code=409)
+
     background_tasks.add_task(daemon_instance.perform_full_sync)
     return {"status": "triggered", "message": "Deal validation sweep dispatched in background."}
 
@@ -151,3 +160,31 @@ def serve_home():
     if index_file and os.path.exists(index_file):
         return FileResponse(index_file)
     return {"message": "Ajio Flash Deals API is online. Access /docs or static dashboard."}
+
+@app.get("/{full_path:path}")
+def serve_spa(full_path: str):
+    if full_path.startswith("api/") or full_path == "api":
+        return JSONResponse({"error": "API route not found"}, status_code=404)
+    # Check if a static asset/data file matches safely without directory traversal
+    for base_dir in [
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "dist")),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend")),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "static")),
+        os.path.abspath(os.path.join(os.getcwd(), "dist")),
+        os.path.abspath(os.path.join(os.getcwd(), "frontend")),
+    ]:
+        if not os.path.exists(base_dir):
+            continue
+        try:
+            base_resolved = Path(base_dir).resolve()
+            target_candidate = (base_resolved / full_path).resolve()
+            if target_candidate.is_relative_to(base_resolved) and target_candidate.is_file():
+                return FileResponse(str(target_candidate))
+        except (ValueError, OSError):
+            continue
+
+    index_file = find_index_file()
+    if index_file and os.path.exists(index_file):
+        return FileResponse(index_file)
+    return JSONResponse({"error": "Resource not found"}, status_code=404)
+

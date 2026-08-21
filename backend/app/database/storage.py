@@ -6,8 +6,10 @@ import logging
 from typing import List, Dict, Any, Optional, Tuple
 try:
     from app.models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncHistoryItem
+    from app.core.classifier import classify_campaign
 except ImportError:
     from models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncHistoryItem
+    from core.classifier import classify_campaign
 
 logger = logging.getLogger("storage")
 
@@ -29,6 +31,9 @@ class DealStorage:
         with self._get_conn() as conn:
             cursor = conn.cursor()
             cursor.execute('PRAGMA journal_mode=WAL;')
+            cursor.execute('PRAGMA synchronous=NORMAL;')
+            cursor.execute('PRAGMA temp_store=MEMORY;')
+            cursor.execute('PRAGMA cache_size=-65536;')
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS filtered_campaigns (
                     curated_id TEXT PRIMARY KEY,
@@ -90,6 +95,14 @@ class DealStorage:
                     changes TEXT
                 )
             ''')
+            # Indexes on hot filter and sort columns
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_vp_dept_disc ON verified_products(department, net_discount_percent DESC);')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_vp_brand ON verified_products(brand);')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_vp_cat ON verified_products(category);')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_fc_code ON filtered_campaigns(code);')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_fc_dept ON filtered_campaigns(department);')
+            cursor.execute('CREATE INDEX IF NOT EXISTS idx_sh_timestamp ON sync_history(timestamp DESC);')
+
             # Ensure all schema columns exist in existing DBs
             cursor.execute("PRAGMA table_info(verified_products)")
             vp_cols = [c[1] for c in cursor.fetchall()]
@@ -112,88 +125,33 @@ class DealStorage:
         with self._get_conn() as conn:
             cursor = conn.cursor()
             
-            # 1. Fetch previous state to calculate delta audit trail
-            previous_map = {}
+            # 1. Fetch previous baseline state aggregated per clean coupon code
+            previous_coupons = {}
             try:
-                cursor.execute('SELECT curated_id, code, has_70_plus_verified, max_realized_discount, total_verified_skus FROM filtered_campaigns')
+                cursor.execute('''
+                    SELECT 
+                        UPPER(TRIM(code)) as clean_code,
+                        MAX(has_70_plus_verified) as has_70,
+                        MAX(max_realized_discount) as max_disc,
+                        SUM(total_verified_skus) as skus,
+                        MIN(title) as title
+                    FROM filtered_campaigns
+                    WHERE code IS NOT NULL AND TRIM(code) != ''
+                    GROUP BY clean_code
+                ''')
                 for r in cursor.fetchall():
-                    previous_map[r['curated_id']] = {
-                        'code': r['code'],
-                        'has_70': bool(r['has_70_plus_verified']),
-                        'max_disc': r['max_realized_discount'],
-                        'skus': r['total_verified_skus']
+                    previous_coupons[r['clean_code']] = {
+                        'code': r['clean_code'],
+                        'has_70': bool(r['has_70']),
+                        'max_disc': float(r['max_disc'] or 0.0),
+                        'skus': int(r['skus'] or 0),
+                        'title': r['title'] or r['clean_code']
                     }
             except Exception as e:
                 logger.debug(f"Delta baseline fetch error: {e}")
 
-            added_codes = []
-            updated_codes = []
-            removed_codes = []
-            detailed_changes = []
-            new_curated_ids = set()
-
+            # 2. Upsert newly validated campaigns
             for c in campaigns:
-                c_id = c['curated_id']
-                code = c.get('code', 'PROMO')
-                title = c.get('title', code)
-                new_curated_ids.add(c_id)
-                has_70 = bool(c.get('has_70_plus_verified', False))
-                curr_disc = float(c.get('max_realized_discount', 0.0) or 0.0)
-                curr_skus = int(c.get('total_verified_skus', 0) or 0)
-
-                if c_id not in previous_map:
-                    if code and code not in added_codes:
-                        added_codes.append(code)
-                    if has_70:
-                        detailed_changes.append({
-                            "type": "new_campaign",
-                            "code": code,
-                            "title": title,
-                            "detail": f"Discovered new collection: {title} ({curr_disc:.1f}% max off, {curr_skus} verified items)",
-                            "before": "New Entry",
-                            "after": f"{curr_disc:.1f}% Max ({curr_skus} items)",
-                            "badge": "NEW"
-                        })
-                else:
-                    prev = previous_map[c_id]
-                    prev_disc = float(prev.get('max_disc', 0.0) or 0.0)
-                    prev_skus = int(prev.get('skus', 0) or 0)
-
-                    if prev['has_70'] and not has_70:
-                        if code and code not in removed_codes:
-                            removed_codes.append(code)
-                        detailed_changes.append({
-                            "type": "expired",
-                            "code": code,
-                            "title": title,
-                            "detail": f"Discount dropped from {prev_disc:.1f}% to {curr_disc:.1f}% (sub-70% / degraded)",
-                            "before": f"{prev_disc:.1f}% ({prev_skus} items)",
-                            "after": f"{curr_disc:.1f}% (Sub-70% / Expired)",
-                            "badge": "EXPIRED"
-                        })
-                    elif abs(prev_disc - curr_disc) >= 0.1 or prev_skus != curr_skus:
-                        if code and code not in updated_codes:
-                            updated_codes.append(code)
-                        
-                        diff_parts = []
-                        disc_diff = curr_disc - prev_disc
-                        sku_diff = curr_skus - prev_skus
-                        if abs(disc_diff) >= 0.1:
-                            diff_parts.append(f"Discount {prev_disc:.1f}% → {curr_disc:.1f}% ({'+' if disc_diff > 0 else ''}{disc_diff:.1f}%)")
-                        if sku_diff != 0:
-                            diff_parts.append(f"Catalog {'+' if sku_diff > 0 else ''}{sku_diff} items ({prev_skus} → {curr_skus})")
-                        
-                        detailed_changes.append({
-                            "type": "updated",
-                            "code": code,
-                            "title": title,
-                            "detail": " · ".join(diff_parts) if diff_parts else "Catalog refreshed",
-                            "before": f"{prev_disc:.1f}% ({prev_skus} items)",
-                            "after": f"{curr_disc:.1f}% ({curr_skus} items)",
-                            "badge": "UPDATED"
-                        })
-
-                # Upsert campaign
                 cursor.execute('''
                     INSERT OR REPLACE INTO filtered_campaigns (
                         curated_id, code, title, description, details_url,
@@ -203,25 +161,110 @@ class DealStorage:
                         total_verified_skus, scanned_at
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
                 ''', (
-                    c['curated_id'], c['code'], c['title'], c['description'], c['details_url'],
-                    c['promo_type'], c['department'], c['brands'], c['min_realized_discount'],
-                    c['max_realized_discount'], c['min_price'], c['max_price'], c['min_base_needed'],
-                    c['applied_filter_tier'], 1 if c['has_70_plus_verified'] else 0,
-                    1 if c['is_standalone_deal'] else 0, c['total_verified_skus']
+                    c['curated_id'], c.get('code', 'PROMO'), c.get('title', ''), c.get('description', ''), c.get('details_url', ''),
+                    c.get('promo_type', 'Promo Voucher'), c.get('department', 'Multi-Category'), c.get('brands', ''),
+                    c.get('min_realized_discount', 0.0), c.get('max_realized_discount', 0.0),
+                    c.get('min_price', 0.0), c.get('max_price', 0.0), c.get('min_base_needed', 0.0),
+                    c.get('applied_filter_tier', 'Verified'), 1 if c.get('has_70_plus_verified') else 0,
+                    1 if c.get('is_standalone_deal') else 0, c.get('total_verified_skus', 0)
                 ))
 
-            # Check if any previous campaigns were removed entirely
-            for prev_id, prev in previous_map.items():
-                if prev_id not in new_curated_ids and prev.get('has_70'):
-                    p_code = prev.get('code', '')
-                    if p_code and p_code not in removed_codes:
-                        removed_codes.append(p_code)
+            # 3. Fetch updated current coupon state from database
+            current_coupons = {}
+            cursor.execute('''
+                SELECT 
+                    UPPER(TRIM(code)) as clean_code,
+                    MAX(has_70_plus_verified) as has_70,
+                    MAX(max_realized_discount) as max_disc,
+                    SUM(total_verified_skus) as skus,
+                    MIN(title) as title
+                FROM filtered_campaigns
+                WHERE code IS NOT NULL AND TRIM(code) != ''
+                GROUP BY clean_code
+            ''')
+            for r in cursor.fetchall():
+                current_coupons[r['clean_code']] = {
+                    'code': r['clean_code'],
+                    'has_70': bool(r['has_70']),
+                    'max_disc': float(r['max_disc'] or 0.0),
+                    'skus': int(r['skus'] or 0),
+                    'title': r['title'] or r['clean_code']
+                }
+
+            added_codes = []
+            updated_codes = []
+            removed_codes = []
+            detailed_changes = []
+
+            # Compare deltas only on meaningful shifts
+            for code, curr in current_coupons.items():
+                prev = previous_coupons.get(code)
+                if prev is None:
+                    if curr['has_70']:
+                        added_codes.append(code)
+                        detailed_changes.append({
+                            "type": "new_campaign",
+                            "code": code,
+                            "title": curr['title'],
+                            "detail": f"Discovered new collection ({curr['max_disc']:.0f}% max off, {curr['skus']} verified deals)",
+                            "before": "New Code",
+                            "after": f"{curr['max_disc']:.1f}% ({curr['skus']} items)",
+                            "badge": "NEW"
+                        })
+                else:
+                    if not prev['has_70'] and curr['has_70']:
+                        added_codes.append(code)
+                        detailed_changes.append({
+                            "type": "new_campaign",
+                            "code": code,
+                            "title": curr['title'],
+                            "detail": f"Voucher boosted to ≥70%: {prev['max_disc']:.0f}% → {curr['max_disc']:.0f}% ({curr['skus']} items ≥70%)",
+                            "before": f"{prev['max_disc']:.1f}% (Sub-70%)",
+                            "after": f"{curr['max_disc']:.1f}% ({curr['skus']} items)",
+                            "badge": "NEW"
+                        })
+                    elif prev['has_70'] and not curr['has_70']:
+                        removed_codes.append(code)
+                        detailed_changes.append({
+                            "type": "expired",
+                            "code": code,
+                            "title": curr['title'],
+                            "detail": f"Discount fell below 70% threshold ({prev['max_disc']:.0f}% → {curr['max_disc']:.0f}%, 0 qualifying steals)",
+                            "before": f"{prev['max_disc']:.1f}% ({prev['skus']} items)",
+                            "after": f"{curr['max_disc']:.1f}% (Sub-70% / Expired)",
+                            "badge": "EXPIRED"
+                        })
+                    elif prev['has_70'] and curr['has_70']:
+                        disc_diff = curr['max_disc'] - prev['max_disc']
+                        sku_diff = curr['skus'] - prev['skus']
+                        is_material_disc = abs(disc_diff) >= 1.0
+                        is_material_sku = abs(sku_diff) >= 10 and (abs(sku_diff) / max(1, prev['skus'])) >= 0.20
+                        if is_material_disc or is_material_sku:
+                            updated_codes.append(code)
+                            diff_parts = []
+                            if is_material_disc:
+                                diff_parts.append(f"Discount {prev['max_disc']:.0f}% → {curr['max_disc']:.0f}% ({'+' if disc_diff > 0 else ''}{disc_diff:.0f}%)")
+                            if is_material_sku:
+                                diff_parts.append(f"Catalog {'+' if sku_diff > 0 else ''}{sku_diff} deals ({prev['skus']} → {curr['skus']})")
+                            detailed_changes.append({
+                                "type": "updated",
+                                "code": code,
+                                "title": curr['title'],
+                                "detail": " · ".join(diff_parts),
+                                "before": f"{prev['max_disc']:.1f}% ({prev['skus']} items)",
+                                "after": f"{curr['max_disc']:.1f}% ({curr['skus']} items)",
+                                "badge": "UPDATED"
+                            })
+
+            for code, prev in previous_coupons.items():
+                if code not in current_coupons and prev['has_70'] and code not in removed_codes:
+                    removed_codes.append(code)
                     detailed_changes.append({
                         "type": "expired",
-                        "code": p_code,
-                        "title": p_code,
-                        "detail": f"Offer no longer active on Ajio (0 catalog items)",
-                        "before": f"{prev.get('max_disc', 0):.1f}% ({prev.get('skus', 0)} items)",
+                        "code": code,
+                        "title": prev['title'],
+                        "detail": "Promotion no longer active on Ajio (delisted / inactive)",
+                        "before": f"{prev['max_disc']:.1f}% ({prev['skus']} items)",
                         "after": "Delisted / Inactive",
                         "badge": "DELISTED"
                     })
@@ -235,13 +278,13 @@ class DealStorage:
             if removed_codes:
                 highlights.append(f"📉 {len(removed_codes)} promotions expired/sub-70%: {', '.join(removed_codes[:4])}")
             if not highlights:
-                highlights.append(f"✨ Catalog steady — verified {len(campaigns)} campaign collections & active clearance inventory")
+                highlights.append(f"✨ Catalog steady — verified {len(campaigns)} campaign collections with 0 delta shifts")
 
-            # 2. Record sync history event
+            # 4. Record sync history event
             now = time.time()
             sync_id = f"sync_{int(now)}"
             formatted_time = time.strftime("%b %d, %I:%M %p", time.localtime(now))
-            active_70_count = sum(1 for c in campaigns if c.get('has_70_plus_verified'))
+            active_70_count = sum(1 for c in current_coupons.values() if c['has_70'])
 
             delta_record = SyncHistoryItem(
                 sync_id=sync_id,
@@ -255,7 +298,7 @@ class DealStorage:
                 updated_count=len(updated_codes),
                 removed_count=len(removed_codes),
                 active_70_count=active_70_count,
-                total_campaigns=len(campaigns),
+                total_campaigns=len(current_coupons),
                 total_deals=0,
                 highlights=highlights,
                 changes=detailed_changes[:60]
@@ -281,7 +324,7 @@ class DealStorage:
                 json.dumps(delta_record.changes)
             ))
 
-            # 3. Prune history older than 7 days (7 * 86400 = 604800s)
+            # 5. Prune history older than 7 days (7 * 86400 = 604800s)
             seven_days_ago = now - (7 * 86400)
             cursor.execute('DELETE FROM sync_history WHERE timestamp < ?', (seven_days_ago,))
 
@@ -306,9 +349,13 @@ class DealStorage:
                     p['product_url'], p.get('image_url', '')
                 ))
 
-            # Update deal count in latest sync history item if exists
+            # Update deal count in latest sync history item
             try:
-                cursor.execute('UPDATE sync_history SET total_deals = ? WHERE sync_id = (SELECT sync_id FROM sync_history ORDER BY timestamp DESC LIMIT 1)', (len(products),))
+                cursor.execute('''
+                    UPDATE sync_history 
+                    SET total_deals = (SELECT COUNT(*) FROM verified_products WHERE net_discount_percent >= 70.0) 
+                    WHERE sync_id = (SELECT sync_id FROM sync_history ORDER BY timestamp DESC LIMIT 1)
+                ''')
             except Exception:
                 pass
 
@@ -343,7 +390,7 @@ class DealStorage:
                 cursor.execute('''
                     SELECT 
                         coupon_code,
-                        department,
+                        GROUP_CONCAT(DISTINCT department) as depts_agg,
                         GROUP_CONCAT(DISTINCT brand) as brand_agg,
                         MIN(net_discount_percent) as min_disc,
                         MAX(net_discount_percent) as max_disc,
@@ -360,7 +407,7 @@ class DealStorage:
                     code = r[0].strip().upper()
                     if not code or len(code) < 2:
                         continue
-                    dept = r[1] or "Multi-Category"
+                    depts_raw = r[1] or ""
                     brands = r[2] or ""
                     min_disc = round(r[3], 1) if r[3] else 70.0
                     max_disc = round(r[4], 1) if r[4] else 70.0
@@ -372,6 +419,15 @@ class DealStorage:
                     title = f"{code} - Live Verified Clearance Collection"
                     description = f"Autonomous live aggregated collection with {sku_cnt} verified items up to {max_disc}% off."
                     details_url = f"https://www.ajio.com/c/83?query=%3Adiscount-desc%3Adiscountranges%3A60%25%20and%20above%3Apromotions%3A{code}"
+
+                    seed_dept = depts_raw if ("," not in depts_raw and depts_raw) else "Multi-Category"
+                    dept = classify_campaign(
+                        title=title,
+                        desc=description,
+                        brands_str=brands,
+                        slug=code.lower(),
+                        seed_dept=seed_dept
+                    )
 
                     cursor.execute('''
                         INSERT OR REPLACE INTO filtered_campaigns (

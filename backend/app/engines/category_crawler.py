@@ -9,9 +9,11 @@ from typing import List, Dict, Any, Optional, Tuple
 try:
     from app.core.stealth_client import stealth_manager
     from app.database.storage import DealStorage
+    from app.core.classifier import classify_product
 except ImportError:
     from core.stealth_client import stealth_manager
     from database.storage import DealStorage
+    from core.classifier import classify_product
 
 logger = logging.getLogger("category_crawler")
 
@@ -103,22 +105,13 @@ class UniversalCategoryCrawler:
                             if net_d >= 70.0:
                                 sku = p_url.split('/p/')[-1] if '/p/' in p_url else pid
                                 
-                                # Canonical department resolution
-                                cat_dept = dept
-                                if any(k in (name + ' ' + brick).lower() for k in ['wearable', 'smartwatch', 'headphone', 'speaker', 'gadget']):
-                                    cat_dept = "GADGETS & TECH"
-                                elif any(k in (name + ' ' + brick).lower() for k in ['shoe', 'sneaker', 'sandal', 'boot', 'heel', 'flat']):
-                                    cat_dept = "FOOTWEAR"
-                                elif any(k in (name + ' ' + brick).lower() for k in ['jewel', 'earring', 'necklace', 'ring', 'bangle', 'bracelet']):
-                                    cat_dept = "FASHION JEWELLERY"
-                                elif any(k in (name + ' ' + brick).lower() for k in ['bag', 'backpack', 'luggage', 'trolley', 'wallet', 'belt', 'sunglass']):
-                                    cat_dept = "ACCESSORIES & LUGGAGE"
-                                elif 'men' in (name + ' ' + p_name).lower():
-                                    cat_dept = "MEN"
-                                elif 'women' in (name + ' ' + p_name).lower():
-                                    cat_dept = "WOMEN"
-                                elif any(k in (name + ' ' + p_name).lower() for k in ['boy', 'girl', 'infant', 'kid']):
-                                    cat_dept = "KIDS & INFANTS"
+                                # Canonical department resolution via authoritative classifier
+                                cat_dept = classify_product(
+                                    name=f"{name} {p_name}",
+                                    brand=brand,
+                                    cat=brick,
+                                    existing_dept=dept
+                                )
 
                                 full_product_url = f"https://www.ajio.com{p_url}" if p_url.startswith('/') else f"https://www.ajio.com/p/{sku}"
 

@@ -88,9 +88,9 @@
       
       <!-- Brand Identity & Logo -->
       <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-3 min-w-0">
+        <a href="/campaigns" onclick="navigateToRoute('campaigns', event)" class="flex items-center space-x-3 min-w-0 hover:opacity-95 transition group">
           <!-- Sleek Vector Radar Logo -->
-          <div class="h-11 w-11 shrink-0 rounded-2xl bg-gradient-to-br from-sky-500 via-sky-600 to-blue-700 p-0.5 shadow-md shadow-sky-500/25 flex items-center justify-center">
+          <div class="h-11 w-11 shrink-0 rounded-2xl bg-gradient-to-br from-sky-500 via-sky-600 to-blue-700 p-0.5 shadow-md shadow-sky-500/25 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
             <div class="h-full w-full bg-white/10 rounded-[14px] flex items-center justify-center text-white backdrop-blur-xs">
               <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="9" stroke-opacity="0.35"/>
@@ -113,7 +113,7 @@
             </div>
             <p class="text-xs text-slate-500 font-medium truncate">Autonomous 70%+ Flash Deal &amp; Deep Clearance Intelligence Engine</p>
           </div>
-        </div>
+        </a>
 
         <!-- Mobile Quick Outbound Button -->
         <div class="flex items-center space-x-2 md:hidden">
@@ -173,26 +173,26 @@
   <!-- Main Workspace -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 lg:px-12 py-5 sm:py-7 space-y-5 sm:space-y-6">
 
-    <!-- 3 High-Yield Navigation Tabs -->
+    <!-- 3 High-Yield Navigation Tabs with Slugs -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3.5">
       <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar flex-nowrap pb-1 sm:pb-0 -mx-1 px-1">
         <!-- Tab 1: Promo Collections -->
-        <button onclick="switchView('campaigns')" id="tabCampaignsBtn" class="px-4 py-2.5 rounded-xl text-xs font-extrabold bg-sky-600 text-white shadow-sm shadow-sky-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <a href="/campaigns" onclick="navigateToRoute('campaigns', event)" id="tabCampaignsBtn" class="px-4 py-2.5 rounded-xl text-xs font-extrabold bg-sky-600 text-white shadow-sm shadow-sky-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
           <i class="fa-solid fa-ticket"></i>
           <span>Flash Promo Collections (<span id="countCampaignsTab">...</span>)</span>
-        </button>
+        </a>
         
         <!-- Tab 2: Individual 70%+ Products -->
-        <button onclick="switchView('products')" id="tabProductsBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <a href="/products" onclick="navigateToRoute('products', event)" id="tabProductsBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
           <i class="fa-solid fa-bag-shopping text-sky-600"></i>
           <span>Verified 70%+ Products (<span id="countProductsTab">...</span>)</span>
-        </button>
+        </a>
 
         <!-- Tab 3: Sync Changelog & Audit -->
-        <button onclick="switchView('history')" id="tabHistoryBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <a href="/history" onclick="navigateToRoute('history', event)" id="tabHistoryBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
           <i class="fa-solid fa-clock-rotate-left text-indigo-500"></i>
           <span>Sync Changelog (7 Days)</span>
-        </button>
+        </a>
       </div>
 
       <!-- Verified 70% Only Toggle -->
@@ -349,6 +349,9 @@
       </div>
     </section>
 
+    <!-- Dynamic Route Hierarchy & Slug Breadcrumbs Trail -->
+    <nav id="routeBreadcrumbs" class="hidden items-center gap-1.5 text-xs text-slate-500 bg-white border border-slate-200/80 px-3.5 py-2 rounded-xl flex-wrap shadow-2xs"></nav>
+
     <!-- Results Status Bar -->
     <div id="resultsStatusBar" class="flex items-center justify-between text-xs text-slate-500 px-1">
       <div>
@@ -376,20 +379,33 @@
 
     <!-- View 3: Sync Audit & Changelog Feed (Last 7 Days) -->
     <section id="historySection" class="hidden space-y-3 sm:space-y-4">
-      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-2">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-2">
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-2.5">
             <div class="h-8 w-8 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
               <i class="fa-solid fa-clock-rotate-left text-xs sm:text-sm"></i>
             </div>
             <div>
               <h2 class="text-xs sm:text-sm font-bold text-slate-900">7-Day Continuous Sync Changelog &amp; Audit Trail</h2>
-              <p class="text-[11px] sm:text-xs text-slate-500">Track exact newly discovered vouchers, updated category markdown discounts, and purged promotions.</p>
+              <p class="text-[11px] sm:text-xs text-slate-500">Track exact newly discovered vouchers, updated markdown discounts, and purged promotions.</p>
             </div>
           </div>
-          <button onclick="loadSyncHistory()" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition shrink-0">
-            <i class="fa-solid fa-rotate mr-1 text-slate-400"></i> Refresh
-          </button>
+          <div class="flex items-center space-x-2">
+            <div class="inline-flex rounded-xl bg-slate-100 p-0.5 border border-slate-200 text-xs font-semibold">
+              <button id="histFilterDeltasBtn" type="button" onclick="setHistoryFilter('deltas')" class="px-2.5 py-1 rounded-lg transition text-indigo-700 bg-white font-bold shadow-2xs cursor-pointer flex items-center space-x-1">
+                <i class="fa-solid fa-bolt text-amber-500 text-[10px]"></i>
+                <span>Delta Changes</span>
+                <span id="histDeltaCountBadge" class="ml-1 px-1.5 py-0.2 rounded-full bg-indigo-50 text-[10px] text-indigo-700 border border-indigo-200 font-mono">0</span>
+              </button>
+              <button id="histFilterAllBtn" type="button" onclick="setHistoryFilter('all')" class="px-2.5 py-1 rounded-lg transition text-slate-600 hover:text-slate-900 cursor-pointer flex items-center space-x-1">
+                <span>All Cycles</span>
+                <span id="histAllCountBadge" class="ml-1 px-1.5 py-0.2 rounded-full bg-slate-200 text-[10px] text-slate-700 font-mono">0</span>
+              </button>
+            </div>
+            <button onclick="loadSyncHistory(Date.now())" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition shrink-0 cursor-pointer" title="Refresh sync history">
+              <i class="fa-solid fa-rotate mr-1 text-slate-400"></i> Refresh
+            </button>
+          </div>
         </div>
       </div>
 
@@ -404,11 +420,13 @@
       <div class="h-12 w-12 rounded-full bg-slate-100 mx-auto flex items-center justify-center mb-3 text-slate-400 text-lg">
         <i class="fa-solid fa-filter-circle-xmark"></i>
       </div>
-      <h3 class="text-sm font-bold text-slate-900">No matching 70%+ verified deals found</h3>
-      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try clearing category or brand filters or switching between collections and single product items.</p>
-      <button onclick="resetAllFilters()" class="mt-4 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition shadow-xs">
-        Reset All Filters
-      </button>
+      <h3 id="emptyStateTitle" class="text-sm font-bold text-slate-900">No matching 70%+ verified deals found</h3>
+      <p id="emptyStateDesc" class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try clearing category or brand filters or switching between collections and single product items.</p>
+      <div id="emptyStateActions" class="mt-4 flex items-center justify-center gap-2 flex-wrap">
+        <button onclick="resetAllFilters()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition shadow-xs">
+          Reset All Filters
+        </button>
+      </div>
     </div>
 
   </main>
@@ -419,7 +437,7 @@
     <p class="text-[10px] sm:text-[11px] text-slate-400">Continuous dual verification across all 11 departments and 498 subcategories.</p>
   </footer>
 
-  <!-- Application Logic -->
+  <!-- Application Logic & Slug Routing Engine -->
   <script>
     let activeView = 'campaigns'; // 'campaigns' | 'products' | 'history'
     let masterCampaigns = [];
@@ -437,9 +455,643 @@
     let isStandaloneOnly = false;
     let searchQuery = '';
 
+    let isNavigatingState = false;
+    let searchDebounceTimer = null;
+    let initialPendingRoute = null;
+
+    // Slug Mapping Lookups
+    const brandSlugMap = new Map();
+    const categorySlugMap = new Map();
+    const categoryToDeptMap = new Map();
+    const deptSlugMap = new Map();
+
+    function safeDecode(s) {
+      if (!s) return '';
+      try {
+        return decodeURIComponent(s);
+      } catch (e) {
+        return s;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function slugify(text) {
+      if (!text) return '';
+      return text
+        .toString()
+        .toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/\+/g, 'plus')
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/[\s_]+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    function normalizeSlug(text) {
+      if (!text) return '';
+      return text
+        .toString()
+        .toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/\+/g, 'plus')
+        .replace(/[^a-z0-9]/g, '');
+    }
+
+    function registerBrandSlugs(brands) {
+      brands.forEach(b => {
+        const s = slugify(b);
+        const n = normalizeSlug(b);
+        const raw = b.toLowerCase().replace(/[^a-z0-9]/g, '');
+        brandSlugMap.set(s, b);
+        brandSlugMap.set(n, b);
+        brandSlugMap.set(raw, b);
+        brandSlugMap.set(b.toLowerCase(), b);
+      });
+      // Custom Aliases
+      brandSlugMap.set('us-polo-assn', 'U.S. POLO ASSN.');
+      brandSlugMap.set('u-s-polo-assn', 'U.S. POLO ASSN.');
+      brandSlugMap.set('us-polo', 'U.S. POLO ASSN.');
+      brandSlugMap.set('hm', 'H&M');
+      brandSlugMap.set('handm', 'H&M');
+      brandSlugMap.set('jack-jones', 'JACK & JONES');
+      brandSlugMap.set('levis', "LEVI'S");
+      brandSlugMap.set('levi-s', "LEVI'S");
+      brandSlugMap.set('buda-jeans', 'BUDA JEANS CO');
+    }
+
+    function registerTaxonomySlugs(tax) {
+      Object.keys(tax).forEach(dept => {
+        const s = slugify(dept);
+        const n = normalizeSlug(dept);
+        const raw = dept.toLowerCase().replace(/[^a-z0-9]/g, '');
+        deptSlugMap.set(s, dept);
+        deptSlugMap.set(n, dept);
+        deptSlugMap.set(raw, dept);
+        deptSlugMap.set(dept.toLowerCase(), dept);
+
+        const groups = tax[dept] || {};
+        Object.entries(groups).forEach(([groupName, leaves]) => {
+          leaves.forEach(leaf => {
+            const ls = slugify(leaf);
+            const ln = normalizeSlug(leaf);
+            const lraw = leaf.toLowerCase().replace(/[^a-z0-9]/g, '');
+            categorySlugMap.set(ls, leaf);
+            categorySlugMap.set(ln, leaf);
+            categorySlugMap.set(lraw, leaf);
+            categorySlugMap.set(leaf.toLowerCase(), leaf);
+            categoryToDeptMap.set(leaf.toLowerCase(), dept);
+          });
+        });
+      });
+
+      // Department Shorthand Aliases
+      deptSlugMap.set('men', 'MEN');
+      deptSlugMap.set('women', 'WOMEN');
+      deptSlugMap.set('footwear', 'FOOTWEAR');
+      deptSlugMap.set('shoes', 'FOOTWEAR');
+      deptSlugMap.set('gadgets', 'GADGETS & TECH');
+      deptSlugMap.set('gadgets-tech', 'GADGETS & TECH');
+      deptSlugMap.set('gadgetstech', 'GADGETS & TECH');
+      deptSlugMap.set('tech', 'GADGETS & TECH');
+      deptSlugMap.set('home', 'HOME & KITCHEN');
+      deptSlugMap.set('home-kitchen', 'HOME & KITCHEN');
+      deptSlugMap.set('beauty', 'BEAUTY & GROOMING');
+      deptSlugMap.set('beauty-grooming', 'BEAUTY & GROOMING');
+      deptSlugMap.set('jewellery', 'FASHION JEWELLERY');
+      deptSlugMap.set('jewelry', 'FASHION JEWELLERY');
+      deptSlugMap.set('accessories', 'ACCESSORIES & LUGGAGE');
+      deptSlugMap.set('kids', 'KIDS & INFANTS');
+      deptSlugMap.set('indie', 'INDIE & HANDLOOM');
+      deptSlugMap.set('luxe', 'LUXE & DESIGNER');
+    }
+
+    function resolveBrand(input) {
+      if (!input) return null;
+      const s = slugify(input);
+      const n = normalizeSlug(input);
+      const raw = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return brandSlugMap.get(s) || brandSlugMap.get(n) || brandSlugMap.get(raw) || brandSlugMap.get(input.toLowerCase()) || null;
+    }
+
+    function resolveCategory(input) {
+      if (!input) return null;
+      const s = slugify(input);
+      const n = normalizeSlug(input);
+      const raw = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return categorySlugMap.get(s) || categorySlugMap.get(n) || categorySlugMap.get(raw) || categorySlugMap.get(input.toLowerCase()) || null;
+    }
+
+    function resolveDept(input) {
+      if (!input) return null;
+      const s = slugify(input);
+      const n = normalizeSlug(input);
+      const raw = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return deptSlugMap.get(s) || deptSlugMap.get(n) || deptSlugMap.get(raw) || deptSlugMap.get(input.toLowerCase()) || null;
+    }
+
+    function parseUrlRoute() {
+      let pathname = window.location.pathname || '/';
+      let search = window.location.search || '';
+
+      // Support hash routing fallback (e.g. #/products/category/sneakers?discount=80)
+      if (window.location.hash && (window.location.hash.startsWith('#/') || window.location.hash.startsWith('#'))) {
+        const hashContent = window.location.hash.replace(/^#\/?/, '/');
+        const qIdx = hashContent.indexOf('?');
+        if (qIdx !== -1) {
+          pathname = hashContent.slice(0, qIdx) || '/';
+          search = hashContent.slice(qIdx);
+        } else {
+          pathname = hashContent || '/';
+        }
+      }
+
+      const params = new URLSearchParams(search);
+      const rawSegments = pathname.split('/').filter(Boolean);
+
+      let routeView = 'campaigns';
+      let rawDept = null;
+      let rawCategories = [];
+      let rawBrands = [];
+      let rawSearch = '';
+      let rawDiscount = null;
+      let rawStandalone = false;
+      let rawOnly70 = true;
+      let rawSort = 'discount_desc';
+
+      let i = 0;
+      if (rawSegments.length > 0) {
+        const first = rawSegments[0].toLowerCase();
+        if (first === 'products' || first === 'deals' || first === 'steals') {
+          routeView = 'products';
+          i = 1;
+        } else if (first === 'campaigns' || first === 'collections' || first === 'vouchers' || first === 'coupons') {
+          routeView = 'campaigns';
+          i = 1;
+        } else if (first === 'history' || first === 'changelog' || first === 'audit' || first === 'sync-log') {
+          routeView = 'history';
+          i = 1;
+        }
+      }
+
+      while (i < rawSegments.length) {
+        const seg = rawSegments[i].toLowerCase();
+        const nextVal = rawSegments[i + 1] ? safeDecode(rawSegments[i + 1]) : null;
+
+        if ((seg === 'category' || seg === 'c' || seg === 'cat') && nextVal) {
+          rawCategories.push(nextVal);
+          i += 2;
+        } else if ((seg === 'brand' || seg === 'b') && nextVal) {
+          rawBrands.push(nextVal);
+          i += 2;
+        } else if ((seg === 'department' || seg === 'dept' || seg === 'd') && nextVal) {
+          rawDept = nextVal;
+          i += 2;
+        } else if ((seg === 'coupon' || seg === 'code' || seg === 'voucher') && nextVal) {
+          rawSearch = nextVal;
+          i += 2;
+        } else {
+          const segVal = safeDecode(rawSegments[i]);
+          const matchedBrand = resolveBrand(segVal);
+          const matchedCat = resolveCategory(segVal);
+          const matchedDept = resolveDept(segVal);
+
+          if (matchedBrand) {
+            rawBrands.push(segVal);
+          } else if (matchedCat) {
+            rawCategories.push(segVal);
+          } else if (matchedDept) {
+            rawDept = segVal;
+          } else if (rawSegments.length === 1 && routeView === 'campaigns') {
+            rawSearch = segVal;
+          }
+          i += 1;
+        }
+      }
+
+      // Query param overrides & single-tier resolution
+      if (params.has('view')) {
+        const v = (params.get('view') || '').toLowerCase();
+        if (['campaigns', 'products', 'history'].includes(v)) routeView = v;
+      }
+      if (params.has('tab')) {
+        const t = (params.get('tab') || '').toLowerCase();
+        if (['campaigns', 'products', 'history'].includes(t)) routeView = t;
+      }
+      if (params.has('q') || params.has('search')) {
+        rawSearch = params.get('q') || params.get('search') || '';
+      }
+      if (params.has('category') || params.has('cat') || params.has('categories')) {
+        const val = params.get('category') || params.get('cat') || params.get('categories') || '';
+        val.split(',').map(s => safeDecode(s).trim()).filter(Boolean).forEach(c => rawCategories.push(c));
+      }
+      if (params.has('brand') || params.has('brands')) {
+        const val = params.get('brand') || params.get('brands') || '';
+        val.split(',').map(s => safeDecode(s).trim()).filter(Boolean).forEach(b => rawBrands.push(b));
+      }
+      if (params.has('dept') || params.has('department')) {
+        rawDept = safeDecode(params.get('dept') || params.get('department') || '');
+      }
+
+      // Unified Tier Resolution
+      if (params.has('tier')) {
+        const t = params.get('tier');
+        if (t === 'standalone' || t === 'bogo') {
+          rawStandalone = true;
+          rawDiscount = null;
+        } else {
+          const td = parseFloat(t);
+          if (!isNaN(td)) {
+            rawDiscount = td;
+            rawStandalone = false;
+          }
+        }
+      } else if (params.has('standalone') || params.get('bogo') === '1') {
+        rawStandalone = true;
+        rawDiscount = null;
+      } else if (params.has('discount') || params.has('min_discount')) {
+        const d = parseFloat(params.get('discount') || params.get('min_discount'));
+        if (!isNaN(d)) {
+          rawDiscount = d;
+          rawStandalone = false;
+        }
+      }
+
+      if (params.has('only70')) {
+        const v = (params.get('only70') || '').toLowerCase();
+        rawOnly70 = (v === '1' || v === 'true');
+      }
+      if (params.has('sort') || params.has('sort_by')) {
+        const s = params.get('sort') || params.get('sort_by');
+        if (['discount_desc', 'skus_desc', 'price_asc', 'code_asc'].includes(s)) {
+          rawSort = s;
+        }
+      }
+
+      return {
+        view: routeView,
+        dept: rawDept,
+        categories: rawCategories,
+        brands: rawBrands,
+        search: rawSearch,
+        discount: rawDiscount,
+        standalone: rawStandalone,
+        only70: rawOnly70,
+        sort: rawSort
+      };
+    }
+
+    function applyRouteToState(route) {
+      isNavigatingState = true;
+      activeView = route.view || 'campaigns';
+
+      // Dept resolution (whitelist validated)
+      if (route.dept) {
+        activeDeptTab = resolveDept(route.dept) || 'ALL';
+      } else {
+        activeDeptTab = 'ALL';
+      }
+
+      // Categories resolution (whitelist validated)
+      selectedCategories.clear();
+      if (route.categories && route.categories.length > 0) {
+        route.categories.forEach(rawC => {
+          const resolved = resolveCategory(rawC);
+          if (resolved) selectedCategories.add(resolved);
+        });
+      }
+
+      // Brands resolution (whitelist validated)
+      selectedBrands.clear();
+      if (route.brands && route.brands.length > 0) {
+        route.brands.forEach(rawB => {
+          const resolved = resolveBrand(rawB);
+          if (resolved) selectedBrands.add(resolved);
+        });
+      }
+
+      searchQuery = (route.search || '').trim().toLowerCase();
+      minDiscountFilter = route.discount;
+      isStandaloneOnly = !!route.standalone;
+
+      // Sync DOM elements
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.value = route.search || '';
+        document.getElementById('clearSearchBtn')?.classList.toggle('hidden', !searchQuery);
+      }
+
+      const toggleOnly70 = document.getElementById('toggleOnly70');
+      if (toggleOnly70) {
+        toggleOnly70.checked = route.only70;
+      }
+
+      const sortSelect = document.getElementById('sortSelect');
+      if (sortSelect) {
+        sortSelect.value = route.sort;
+      }
+
+      // Tier buttons DOM sync
+      document.querySelectorAll('.tier-btn').forEach(b => {
+        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+      });
+
+      if (isStandaloneOnly) {
+        const bogoBtn = document.getElementById('tier-standalone');
+        if (bogoBtn) {
+          bogoBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+          bogoBtn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        }
+      } else if (minDiscountFilter) {
+        const btnId = `tier-${minDiscountFilter}`;
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+          btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        }
+      } else {
+        const allBtn = document.getElementById('tier-all');
+        if (allBtn) {
+          allBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+          allBtn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        }
+      }
+
+      updateCategoryDropdownUI();
+      updateBrandDropdownUI();
+      selectTaxDept(activeDeptTab);
+      renderBrandList(availableBrands);
+
+      switchViewDomOnly(activeView);
+
+      isNavigatingState = false;
+      if (activeView === 'history') {
+        renderSyncHistory();
+      } else {
+        applyFilters(false);
+      }
+      updatePageTitle();
+      renderBreadcrumbs();
+    }
+
+    function generateCurrentSlugUrl() {
+      let path = '/';
+      
+      if (activeView === 'history') {
+        return '/history';
+      }
+
+      const hasSingleCat = selectedCategories.size === 1 && selectedBrands.size === 0;
+      const hasSingleBrand = selectedBrands.size === 1 && selectedCategories.size === 0;
+      const hasSingleDept = activeDeptTab !== 'ALL' && selectedCategories.size === 0 && selectedBrands.size === 0;
+
+      if (activeView === 'products') {
+        if (hasSingleCat) {
+          const cat = Array.from(selectedCategories)[0];
+          path = `/products/category/${slugify(cat)}`;
+        } else if (hasSingleBrand) {
+          const brand = Array.from(selectedBrands)[0];
+          path = `/products/brand/${slugify(brand)}`;
+        } else if (hasSingleDept) {
+          path = `/products/department/${slugify(activeDeptTab)}`;
+        } else {
+          path = '/products';
+        }
+      } else {
+        // campaigns view
+        if (hasSingleBrand) {
+          const brand = Array.from(selectedBrands)[0];
+          path = `/campaigns/brand/${slugify(brand)}`;
+        } else if (hasSingleDept) {
+          path = `/campaigns/department/${slugify(activeDeptTab)}`;
+        } else if (hasSingleCat) {
+          const cat = Array.from(selectedCategories)[0];
+          path = `/campaigns/category/${slugify(cat)}`;
+        } else {
+          path = '/campaigns';
+        }
+      }
+
+      const qParams = new URLSearchParams();
+
+      if (selectedCategories.size > 0 && !hasSingleCat) {
+        qParams.set('category', Array.from(selectedCategories).map(c => slugify(c)).join(','));
+      }
+      if (selectedBrands.size > 0 && !hasSingleBrand) {
+        qParams.set('brand', Array.from(selectedBrands).map(b => slugify(b)).join(','));
+      }
+      if (activeDeptTab && activeDeptTab !== 'ALL' && !hasSingleDept) {
+        qParams.set('dept', slugify(activeDeptTab));
+      }
+      if (searchQuery && searchQuery.trim()) {
+        qParams.set('q', searchQuery.trim());
+      }
+      if (minDiscountFilter) {
+        qParams.set('discount', minDiscountFilter);
+      }
+      if (isStandaloneOnly) {
+        qParams.set('tier', 'bogo');
+      }
+      const toggleOnly70 = document.getElementById('toggleOnly70')?.checked ?? true;
+      if (!toggleOnly70) {
+        qParams.set('only70', 'false');
+      }
+      const sortSelect = document.getElementById('sortSelect')?.value || 'discount_desc';
+      if (sortSelect !== 'discount_desc') {
+        qParams.set('sort', sortSelect);
+      }
+
+      const queryStr = qParams.toString();
+      return queryStr ? `${path}?${queryStr}` : path;
+    }
+
+    function updateUrl(pushHistory = false) {
+      if (isNavigatingState) return;
+      const newUrl = generateCurrentSlugUrl();
+      const currentUrl = (window.location.pathname || '') + (window.location.search || '');
+      
+      if (newUrl !== currentUrl) {
+        if (pushHistory) {
+          window.history.pushState({ activeView, searchQuery }, '', newUrl);
+        } else {
+          window.history.replaceState({ activeView, searchQuery }, '', newUrl);
+        }
+      }
+      updatePageTitle();
+      renderBreadcrumbs();
+    }
+
+    function updatePageTitle() {
+      let title = 'AjioRadar • Real-Time Flash Codes & 70%+ Deep Steals Platform';
+      if (activeView === 'history') {
+        title = '7-Day Sync Changelog & Deal Audit • AjioRadar';
+      } else if (selectedBrands.size === 1) {
+        const b = Array.from(selectedBrands)[0];
+        title = `${b} Deals (≥70% Off) • AjioRadar`;
+      } else if (selectedCategories.size === 1) {
+        const c = Array.from(selectedCategories)[0];
+        title = `${c} (≥70% Off Steals) • AjioRadar`;
+      } else if (activeDeptTab !== 'ALL') {
+        title = `${activeDeptTab} Deals (≥70% Off) • AjioRadar`;
+      } else if (searchQuery) {
+        title = `"${searchQuery}" Flash Deals • AjioRadar`;
+      } else if (activeView === 'products') {
+        title = 'Verified 70%+ Deep Steals Catalog • AjioRadar';
+      } else {
+        title = 'Flash Promo Voucher Collections • AjioRadar';
+      }
+      document.title = title;
+    }
+
+    function renderBreadcrumbs() {
+      const container = document.getElementById('routeBreadcrumbs');
+      if (!container) return;
+
+      let crumbs = [
+        `<a href="/campaigns" onclick="navigateToRoute('campaigns', event)" class="hover:text-sky-600 font-bold transition flex items-center gap-1"><i class="fa-solid fa-house text-[10px]"></i> Home</a>`
+      ];
+
+      if (activeView === 'campaigns') {
+        crumbs.push(`<a href="/campaigns" onclick="navigateToRoute('campaigns', event)" class="hover:text-sky-600 transition font-semibold">Flash Promo Collections</a>`);
+      } else if (activeView === 'products') {
+        crumbs.push(`<a href="/products" onclick="navigateToRoute('products', event)" class="hover:text-sky-600 transition font-semibold">Verified 70%+ Products</a>`);
+      } else if (activeView === 'history') {
+        crumbs.push(`<span class="text-slate-800 font-bold">Sync Changelog</span>`);
+        container.innerHTML = crumbs.join(' <i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> ');
+        container.classList.remove('hidden');
+        container.classList.add('flex');
+        return;
+      }
+
+      if (activeDeptTab !== 'ALL') {
+        const safeD = escapeHtml(activeDeptTab);
+        crumbs.push(`<button type="button" onclick="navigateByDept('${safeD.replace(/'/g, "\\'")}', event)" class="hover:text-sky-600 font-semibold transition cursor-pointer">${safeD}</button>`);
+      }
+
+      if (selectedCategories.size === 1) {
+        const cat = Array.from(selectedCategories)[0];
+        crumbs.push(`<span class="text-sky-700 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200">${escapeHtml(cat)}</span>`);
+      } else if (selectedCategories.size > 1) {
+        crumbs.push(`<span class="text-sky-700 font-bold">${selectedCategories.size} Categories</span>`);
+      }
+
+      if (selectedBrands.size === 1) {
+        const brand = Array.from(selectedBrands)[0];
+        crumbs.push(`<span class="text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">${escapeHtml(brand)}</span>`);
+      } else if (selectedBrands.size > 1) {
+        crumbs.push(`<span class="text-amber-800 font-bold">${selectedBrands.size} Brands</span>`);
+      }
+
+      if (searchQuery) {
+        crumbs.push(`<span class="text-slate-700 font-mono italic">"${escapeHtml(searchQuery)}"</span>`);
+      }
+
+      if (minDiscountFilter) {
+        crumbs.push(`<span class="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 text-[10px]">&ge;${minDiscountFilter}% Off</span>`);
+      } else if (isStandaloneOnly) {
+        crumbs.push(`<span class="text-indigo-700 font-bold bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200 text-[10px]">Buy 1 Get Free</span>`);
+      }
+
+      if (crumbs.length > 2) {
+        container.innerHTML = crumbs.join(' <i class="fa-solid fa-chevron-right text-[8px] text-slate-300 shrink-0"></i> ');
+        container.classList.remove('hidden');
+        container.classList.add('flex');
+      } else {
+        container.innerHTML = '';
+        container.classList.add('hidden');
+        container.classList.remove('flex');
+      }
+    }
+
+    function navigateToRoute(view, e) {
+      if (e) e.preventDefault();
+      switchView(view, true);
+    }
+
+    function navigateByBrand(brand, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      selectedBrands.clear();
+      selectedBrands.add(brand);
+      updateBrandDropdownUI();
+      applyFilters(true);
+      showToast(`Filtered for brand: ${brand}`, 'fa-award');
+    }
+
+    function navigateByCategory(cat, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      selectedCategories.clear();
+      selectedCategories.add(cat);
+      updateCategoryDropdownUI();
+      applyFilters(true);
+      showToast(`Filtered for category: ${cat}`, 'fa-folder-tree');
+    }
+
+    function navigateByDept(dept, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      selectTaxDept(dept);
+      applyFilters(true);
+      showToast(`Filtered for department: ${dept}`, 'fa-layer-group');
+    }
+
+    function navigateByCode(code, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const cleanCode = (code === 'DIRECT_CLEARANCE' ? '' : code).trim();
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.value = cleanCode;
+        searchQuery = cleanCode.toLowerCase();
+        document.getElementById('clearSearchBtn')?.classList.toggle('hidden', !cleanCode);
+      }
+      if (activeView === 'history') {
+        switchView('campaigns', true);
+      } else {
+        applyFilters(true);
+      }
+      if (cleanCode) showToast(`Searching promo code: ${cleanCode}`, 'fa-ticket');
+    }
+
     async function init() {
+      initialPendingRoute = parseUrlRoute();
+      applyRouteToState(initialPendingRoute);
+
       const initBust = Date.now();
-      await Promise.all([loadCampaigns(initBust), loadProducts(initBust), loadBrands(initBust), loadTaxonomy(initBust), loadSyncStatus(initBust), loadSyncHistory(initBust)]);
+      await Promise.all([
+        loadCampaigns(initBust),
+        loadProducts(initBust),
+        loadBrands(initBust),
+        loadTaxonomy(initBust),
+        loadSyncStatus(initBust),
+        loadSyncHistory(initBust)
+      ]);
+
+      // Reconcile any category/brand slugs that needed taxonomy/brand tables
+      if (initialPendingRoute) {
+        applyRouteToState(initialPendingRoute);
+      }
+
       setInterval(loadSyncStatus, 20000);
       
       // Close dropdowns on outside click
@@ -453,6 +1105,11 @@
         if (document.getElementById('brandDropdownMenu').classList.contains('hidden') && document.getElementById('catDropdownMenu').classList.contains('hidden')) {
           document.getElementById('modalBackdrop').classList.add('hidden');
         }
+      });
+
+      window.addEventListener('popstate', () => {
+        const route = parseUrlRoute();
+        applyRouteToState(route);
       });
     }
 
@@ -496,7 +1153,7 @@
       document.getElementById('countCampaignsTab').innerText = `${active70.length}/${masterCampaigns.length}`;
       document.getElementById('metricTotalCoupons').innerText = masterCampaigns.length;
       document.getElementById('metricActive70').innerText = active70.length;
-      if (activeView === 'campaigns') applyFilters();
+      if (activeView === 'campaigns') applyFilters(false);
     }
 
     async function loadProducts(cacheBust) {
@@ -515,7 +1172,7 @@
       }
       document.getElementById('countProductsTab').innerText = masterProducts.length;
       document.getElementById('metricTotalProducts').innerText = `${masterProducts.length}+`;
-      if (activeView === 'products') applyFilters();
+      if (activeView === 'products') applyFilters(false);
     }
 
     let featuredBrandsData = {};
@@ -555,6 +1212,7 @@
           }
         } catch (e) {}
       }
+      registerBrandSlugs(availableBrands);
       renderBrandList(availableBrands);
     }
 
@@ -572,6 +1230,7 @@
           console.error('Failed to load taxonomy:', e);
         }
       }
+      registerTaxonomySlugs(masterTaxonomy);
       renderCategoryTree();
     }
 
@@ -596,14 +1255,33 @@
       }
     }
 
+    let historyFilterMode = 'deltas'; // 'deltas' | 'all'
+
+    function setHistoryFilter(mode) {
+      historyFilterMode = mode;
+      const btnDeltas = document.getElementById('histFilterDeltasBtn');
+      const btnAll = document.getElementById('histFilterAllBtn');
+      if (btnDeltas && btnAll) {
+        if (mode === 'deltas') {
+          btnDeltas.className = 'px-2.5 py-1 rounded-lg transition text-indigo-700 bg-white font-bold shadow-2xs cursor-pointer flex items-center space-x-1';
+          btnAll.className = 'px-2.5 py-1 rounded-lg transition text-slate-600 hover:text-slate-900 cursor-pointer flex items-center space-x-1';
+        } else {
+          btnDeltas.className = 'px-2.5 py-1 rounded-lg transition text-slate-600 hover:text-slate-900 cursor-pointer flex items-center space-x-1';
+          btnAll.className = 'px-2.5 py-1 rounded-lg transition text-indigo-700 bg-white font-bold shadow-2xs cursor-pointer flex items-center space-x-1';
+        }
+      }
+      renderSyncHistory();
+    }
+
     async function loadSyncHistory(cacheBust) {
       try {
-        const res = await fetch('/api/sync/history?days=30&limit=50');
+        const bustParam = cacheBust ? `&_t=${cacheBust}` : `&_t=${Date.now()}`;
+        const res = await fetch(`/api/sync/history?days=30&limit=50${bustParam}`);
         if (!res.ok) throw new Error('Fallback to static edge');
         syncHistoryList = await res.json();
       } catch (err) {
         try {
-          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const q = cacheBust ? `?t=${cacheBust}` : `?t=${Date.now()}`;
           const res = await fetch(`data/history.json${q}`);
           if (res.ok) {
             syncHistoryList = await res.json();
@@ -612,7 +1290,7 @@
           syncHistoryList = [];
         }
       }
-      renderSyncHistory();
+      if (activeView === 'history') renderSyncHistory();
     }
 
     async function triggerManualSync() {
@@ -643,7 +1321,7 @@
           loadBrands(bust),
           loadTaxonomy(bust),
           loadSyncStatus(bust),
-          loadSyncHistory()
+          loadSyncHistory(bust)
         ]);
         if (icon) icon.classList.remove('fa-spin');
         if (mobileIcon) mobileIcon.classList.remove('fa-spin');
@@ -663,8 +1341,7 @@
       }, 1500);
     }
 
-    function switchView(mode) {
-      activeView = mode;
+    function switchViewDomOnly(mode) {
       const tabCamp = document.getElementById('tabCampaignsBtn');
       const tabProd = document.getElementById('tabProductsBtn');
       const tabHist = document.getElementById('tabHistoryBtn');
@@ -701,11 +1378,20 @@
         resultsStatusBar.classList.add('hidden');
         toggleContainer.classList.add('hidden');
         document.getElementById('emptyState').classList.add('hidden');
+      }
+    }
+
+    function switchView(mode, pushHistory = true) {
+      activeView = mode;
+      switchViewDomOnly(mode);
+
+      if (mode === 'history') {
         renderSyncHistory();
+        updateUrl(pushHistory);
         return;
       }
 
-      applyFilters();
+      applyFilters(pushHistory);
     }
 
     function renderSyncHistory() {
@@ -721,30 +1407,58 @@
         return;
       }
 
-      container.innerHTML = syncHistoryList.map(h => {
+      const deltaCycles = syncHistoryList.filter(h => (h.added_count > 0 || h.updated_count > 0 || h.removed_count > 0 || (h.changes && h.changes.length > 0)));
+      
+      const badgeDeltas = document.getElementById('histDeltaCountBadge');
+      const badgeAll = document.getElementById('histAllCountBadge');
+      if (badgeDeltas) badgeDeltas.innerText = deltaCycles.length;
+      if (badgeAll) badgeAll.innerText = syncHistoryList.length;
+
+      const displayList = historyFilterMode === 'deltas' ? deltaCycles : syncHistoryList;
+
+      if (displayList.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 text-center text-slate-500 text-xs space-y-2">
+            <div class="h-10 w-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto text-base">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <p class="font-bold text-slate-800 text-sm">All Monitored Promotions Steady</p>
+            <p class="text-slate-500 text-xs max-w-md mx-auto">Zero promo coupon changes or pricing degradations occurred across recorded sync sweeps. All verified 70%+ clearance deals remain active.</p>
+            <button type="button" onclick="setHistoryFilter('all')" class="mt-2 text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition cursor-pointer">
+              View All ${syncHistoryList.length} Continuous Sync Sweeps
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = displayList.map(h => {
+        const hasDeltas = (h.added_count > 0 || h.updated_count > 0 || h.removed_count > 0 || (h.changes && h.changes.length > 0));
+
         const addedBadges = h.added_coupons && h.added_coupons.length > 0 
-          ? h.added_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-[11px] font-bold">+ ${c}</span>`).join(' ')
+          ? h.added_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-[11px] font-bold hover:bg-emerald-100 transition cursor-pointer" title="Find deals for ${escapeHtml(c)}">+ ${escapeHtml(c)}</button>`).join(' ')
           : '<span class="text-slate-400 text-[11px] italic">No newly added codes</span>';
 
         const updatedBadges = h.updated_coupons && h.updated_coupons.length > 0
-          ? h.updated_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-mono text-[11px] font-bold">~ ${c}</span>`).join(' ')
+          ? h.updated_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-mono text-[11px] font-bold hover:bg-sky-100 transition cursor-pointer" title="Find deals for ${escapeHtml(c)}">~ ${escapeHtml(c)}</button>`).join(' ')
           : '<span class="text-slate-400 text-[11px] italic">Discounts steady</span>';
 
         const removedBadges = h.removed_coupons && h.removed_coupons.length > 0
-          ? h.removed_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-200 font-mono text-[11px] font-bold line-through">- ${c}</span>`).join(' ')
+          ? h.removed_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-200 font-mono text-[11px] font-bold line-through hover:bg-rose-100 transition cursor-pointer" title="Check expired / sub-70% code: ${escapeHtml(c)}">- ${escapeHtml(c)}</button>`).join(' ')
           : '<span class="text-slate-400 text-[11px] italic">Zero expired</span>';
 
         return `
           <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
               <div class="flex items-center space-x-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-sky-500"></span>
-                <span class="font-bold text-xs sm:text-sm text-slate-900">${h.formatted_time}</span>
-                <span class="text-[10px] text-slate-400 font-mono bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">${h.duration_seconds}s</span>
+                <span class="h-2.5 w-2.5 rounded-full ${hasDeltas ? 'bg-amber-500' : 'bg-emerald-500'}"></span>
+                <span class="font-bold text-xs sm:text-sm text-slate-900">${escapeHtml(h.formatted_time || '')}</span>
+                <span class="text-[10px] text-slate-400 font-mono bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">${h.duration_seconds || 0}s</span>
+                ${!hasDeltas ? '<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Catalog Steady</span>' : '<span class="text-[10px] font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Delta Events</span>'}
               </div>
               <div class="flex items-center space-x-2 text-xs flex-wrap gap-y-1">
                 <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
-                  ${h.active_70_count || 0} Campaigns &ge;70%
+                  ${h.active_70_count || 0} Active &ge;70%
                 </span>
                 <span class="text-sky-700 font-bold bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md">
                   ${h.total_deals || 0} Verified Products
@@ -753,31 +1467,41 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
-                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
-                  <span class="text-emerald-700"><i class="fa-solid fa-circle-plus mr-1"></i>New Discovered Codes</span>
-                  <span class="font-mono">${h.added_count}</span>
+            ${hasDeltas ? `
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                    <span class="text-emerald-700"><i class="fa-solid fa-circle-plus mr-1"></i>New Discovered Codes</span>
+                    <span class="font-mono">${h.added_count || 0}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1">${addedBadges}</div>
                 </div>
-                <div class="flex flex-wrap gap-1">${addedBadges}</div>
-              </div>
 
-              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
-                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
-                  <span class="text-sky-700"><i class="fa-solid fa-arrows-rotate mr-1"></i>Updated Promotions</span>
-                  <span class="font-mono">${h.updated_count}</span>
+                <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                    <span class="text-sky-700"><i class="fa-solid fa-arrows-rotate mr-1"></i>Updated Promotions</span>
+                    <span class="font-mono">${h.updated_count || 0}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1">${updatedBadges}</div>
                 </div>
-                <div class="flex flex-wrap gap-1">${updatedBadges}</div>
-              </div>
 
-              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
-                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
-                  <span class="text-rose-700"><i class="fa-solid fa-circle-xmark mr-1"></i>Purged / Expired</span>
-                  <span class="font-mono">${h.removed_count}</span>
+                <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                    <span class="text-rose-700"><i class="fa-solid fa-circle-xmark mr-1"></i>Purged / Expired</span>
+                    <span class="font-mono">${h.removed_count || 0}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1">${removedBadges}</div>
                 </div>
-                <div class="flex flex-wrap gap-1">${removedBadges}</div>
               </div>
-            </div>
+            ` : `
+              <div class="p-2.5 rounded-xl bg-slate-50/80 border border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                <span class="flex items-center space-x-2 text-[11px]">
+                  <i class="fa-solid fa-check-double text-emerald-600"></i>
+                  <span>No discount drops or newly expired codes detected — inventory &amp; coupons confirmed 100% active.</span>
+                </span>
+                <span class="text-[10px] font-mono text-slate-400 shrink-0">0 Discrepancies</span>
+              </div>
+            `}
 
             ${h.highlights && h.highlights.length > 0 ? `
               <div class="bg-indigo-50/60 border border-indigo-100/80 rounded-xl p-3 text-xs space-y-1">
@@ -786,13 +1510,13 @@
                   <span>Sync Cycle Executive Highlights</span>
                 </div>
                 <ul class="space-y-1 text-[11px] text-slate-700 pl-4 list-disc">
-                  ${h.highlights.map(hl => `<li>${hl}</li>`).join('')}
+                  ${h.highlights.map(hl => `<li>${escapeHtml(hl)}</li>`).join('')}
                 </ul>
               </div>
             ` : ''}
 
             ${h.changes && h.changes.length > 0 ? `
-              <details class="group bg-slate-50/80 border border-slate-200/80 rounded-xl overflow-hidden text-xs">
+              <details class="group bg-slate-50/80 border border-slate-200/80 rounded-xl overflow-hidden text-xs" open>
                 <summary class="flex items-center justify-between p-3 cursor-pointer select-none font-bold text-slate-800 hover:bg-slate-100 transition text-[11px]">
                   <span class="flex items-center space-x-2">
                     <i class="fa-solid fa-clock-rotate-left text-indigo-600"></i>
@@ -801,26 +1525,29 @@
                   <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
                 </summary>
                 <div class="p-3 pt-1 border-t border-slate-200/60 space-y-2 max-h-80 overflow-y-auto mt-1">
-                  ${h.changes.map(ch => `
-                    <div class="p-2.5 rounded-lg bg-white border border-slate-150 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
-                      <div class="space-y-0.5 min-w-[220px] flex-1">
-                        <div class="flex items-center space-x-2">
-                          <span class="px-1.5 py-0.5 text-[9px] font-bold rounded font-mono ${
-                            ch.badge === 'NEW' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
-                            ch.badge === 'UPDATED' ? 'bg-sky-100 text-sky-800 border border-sky-300' :
-                            'bg-rose-100 text-rose-800 border border-rose-300'
-                          }">${ch.badge} · ${ch.code}</span>
-                          <span class="font-bold text-slate-800 text-xs">${ch.title}</span>
+                  ${h.changes.map(ch => {
+                    const safeChCode = escapeHtml(ch.code || '');
+                    return `
+                      <div class="p-2.5 rounded-lg bg-white border border-slate-150 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+                        <div class="space-y-0.5 min-w-[220px] flex-1">
+                          <div class="flex items-center space-x-2">
+                            <button type="button" onclick="navigateByCode('${safeChCode}', event)" class="px-1.5 py-0.5 text-[9px] font-bold rounded font-mono hover:opacity-80 transition cursor-pointer ${
+                              ch.badge === 'NEW' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
+                              ch.badge === 'UPDATED' ? 'bg-sky-100 text-sky-800 border border-sky-300' :
+                              'bg-rose-100 text-rose-800 border border-rose-300'
+                            }">${escapeHtml(ch.badge || 'INFO')} · ${safeChCode}</button>
+                            <span class="font-bold text-slate-800 text-xs">${escapeHtml(ch.title || safeChCode)}</span>
+                          </div>
+                          <p class="text-[11px] text-slate-600">${escapeHtml(ch.detail || '')}</p>
                         </div>
-                        <p class="text-[11px] text-slate-600">${ch.detail}</p>
+                        <div class="flex items-center space-x-2 text-[11px] font-mono shrink-0">
+                          <span class="text-slate-400 line-through text-[10px]">${escapeHtml(ch.before || '')}</span>
+                          <i class="fa-solid fa-arrow-right text-slate-300 text-[9px]"></i>
+                          <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 text-[10px]">${escapeHtml(ch.after || '')}</span>
+                        </div>
                       </div>
-                      <div class="flex items-center space-x-2 text-[11px] font-mono shrink-0">
-                        <span class="text-slate-400 line-through text-[10px]">${ch.before}</span>
-                        <i class="fa-solid fa-arrow-right text-slate-300 text-[9px]"></i>
-                        <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 text-[10px]">${ch.after}</span>
-                      </div>
-                    </div>
-                  `).join('')}
+                    `;
+                  }).join('')}
                 </div>
               </details>
             ` : ''}
@@ -865,6 +1592,7 @@
 
     function renderCategoryTree(filterKeyword = '') {
       const container = document.getElementById('catTreeContainer');
+      if (!container) return;
       const q = filterKeyword.toLowerCase().trim();
       let html = '';
 
@@ -939,8 +1667,8 @@
       if (selectedCategories.has(leaf)) selectedCategories.delete(leaf);
       else selectedCategories.add(leaf);
       updateCategoryDropdownUI();
-      renderCategoryTree(document.getElementById('catSearchInput').value);
-      applyFilters();
+      renderCategoryTree(document.getElementById('catSearchInput')?.value || '');
+      applyFilters(false);
     }
 
     function toggleAllDeptLeaves(dept) {
@@ -960,31 +1688,33 @@
       });
 
       updateCategoryDropdownUI();
-      renderCategoryTree(document.getElementById('catSearchInput').value);
-      applyFilters();
+      renderCategoryTree(document.getElementById('catSearchInput')?.value || '');
+      applyFilters(false);
     }
 
     function clearAllCategories() {
       selectedCategories.clear();
       updateCategoryDropdownUI();
       renderCategoryTree();
-      applyFilters();
+      applyFilters(false);
     }
 
     function updateCategoryDropdownUI() {
       const cnt = selectedCategories.size;
-      document.getElementById('catSelectedCount').innerText = `${cnt} categories selected`;
-      document.getElementById('catBtnLabel').innerText = cnt === 0 ? 'All Categories & Depts' : `${cnt} Selected`;
+      const catCountElem = document.getElementById('catSelectedCount');
+      if (catCountElem) catCountElem.innerText = `${cnt} categories selected`;
+      const catLabelElem = document.getElementById('catBtnLabel');
+      if (catLabelElem) catLabelElem.innerText = cnt === 0 ? 'All Categories & Depts' : (cnt === 1 ? Array.from(selectedCategories)[0] : `${cnt} Categories Selected`);
       renderActivePills();
     }
 
     function renderBrandList(brands) {
       const container = document.getElementById('brandListContainer');
+      if (!container) return;
       const q = (document.getElementById('brandSearchInput')?.value || '').trim().toLowerCase();
       
       const isFeatured = (b) => flatFeaturedBrands.has(b.toUpperCase()) || Array.from(flatFeaturedBrands).some(fb => fb.toLowerCase() === b.toLowerCase());
       
-      // Sort brands: featured brands first, then alphabetical
       const sorted = [...brands].sort((a, b) => {
         const fa = isFeatured(a) ? 1 : 0;
         const fb = isFeatured(b) ? 1 : 0;
@@ -998,7 +1728,6 @@
       let html = '';
 
       if (q === '') {
-        // Default state: Pinned Featured Section + All Brands
         if (featuredList.length > 0) {
           html += `
             <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-2 mb-2">
@@ -1033,7 +1762,6 @@
           `;
         }).join('');
       } else {
-        // Search state: Render all matching brands, with Featured items clearly tagged at the top of results
         html = sorted.map(b => {
           const featured = isFeatured(b);
           const safeB = b.replace(/'/g, "\\'");
@@ -1057,35 +1785,40 @@
     }
 
     function toggleBrandSelection(b) {
-      if (selectedBrands.has(b)) selectedBrands.delete(b);
+      const bLow = b.toLowerCase();
+      const existing = Array.from(selectedBrands).find(sb => sb.toLowerCase() === bLow);
+      if (existing) selectedBrands.delete(existing);
       else selectedBrands.add(b);
       updateBrandDropdownUI();
-      applyFilters();
+      applyFilters(false);
     }
 
     function selectAllBrands(state) {
       if (!state) selectedBrands.clear();
       updateBrandDropdownUI();
       renderBrandList(availableBrands);
-      applyFilters();
+      applyFilters(false);
     }
 
     function updateBrandDropdownUI() {
       const cnt = selectedBrands.size;
-      document.getElementById('brandSelectedCount').innerText = `${cnt} selected`;
-      document.getElementById('brandBtnLabel').innerText = cnt === 0 ? 'Select Brands (All 496+)' : `${cnt} Brands`;
+      const countElem = document.getElementById('brandSelectedCount');
+      if (countElem) countElem.innerText = `${cnt} selected`;
+      const labelElem = document.getElementById('brandBtnLabel');
+      if (labelElem) labelElem.innerText = cnt === 0 ? 'Select Brands (All 496+)' : (cnt === 1 ? Array.from(selectedBrands)[0] : `${cnt} Brands Selected`);
       renderActivePills();
     }
 
     function renderActivePills() {
       const container = document.getElementById('activePillsContainer');
+      if (!container) return;
       let pills = [];
       
       selectedCategories.forEach(c => {
         pills.push(`
           <span class="inline-flex items-center bg-sky-50 border border-sky-200 text-sky-800 px-2.5 py-0.5 rounded-md font-medium text-[11px]">
             <i class="fa-solid fa-tag mr-1 text-[9px] text-sky-600"></i> ${c}
-            <button onclick="toggleCategorySelection('${c}')" class="ml-1 text-sky-400 hover:text-sky-700">&times;</button>
+            <button onclick="toggleCategorySelection('${c.replace(/'/g, "\\'")}')" class="ml-1 text-sky-400 hover:text-sky-700">&times;</button>
           </span>
         `);
       });
@@ -1094,7 +1827,7 @@
         pills.push(`
           <span class="inline-flex items-center bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-0.5 rounded-md font-medium text-[11px]">
             <i class="fa-solid fa-award mr-1 text-[9px] text-amber-500"></i> ${b}
-            <button onclick="toggleBrandSelection('${b}')" class="ml-1 text-slate-400 hover:text-slate-700">&times;</button>
+            <button onclick="toggleBrandSelection('${b.replace(/'/g, "\\'")}')" class="ml-1 text-slate-400 hover:text-slate-700">&times;</button>
           </span>
         `);
       });
@@ -1105,14 +1838,20 @@
     function handleSearchInput() {
       searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
       document.getElementById('clearSearchBtn').classList.toggle('hidden', searchQuery.length === 0);
-      applyFilters();
+      applyFilters(false);
+
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        updateUrl(false);
+      }, 300);
     }
 
     function clearSearch() {
       document.getElementById('searchInput').value = '';
       searchQuery = '';
       document.getElementById('clearSearchBtn').classList.add('hidden');
-      applyFilters();
+      applyFilters(false);
+      updateUrl(false);
     }
 
     function setDiscountFilter(val) {
@@ -1129,7 +1868,7 @@
         btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
         btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
       }
-      applyFilters();
+      applyFilters(false);
     }
 
     function setStandaloneToggle() {
@@ -1141,32 +1880,37 @@
       });
       if (isStandaloneOnly) {
         const btn = document.getElementById('tier-standalone');
-        btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
-        btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        if (btn) {
+          btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+          btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        }
       } else {
         setDiscountFilter(null);
       }
-      applyFilters();
+      applyFilters(false);
     }
 
     function resetAllFilters() {
       clearSearch();
       selectAllBrands(false);
       clearAllCategories();
+      activeDeptTab = 'ALL';
+      selectTaxDept('ALL');
       document.getElementById('sortSelect').value = 'discount_desc';
       document.getElementById('toggleOnly70').checked = true;
       setDiscountFilter(null);
+      updateUrl(true);
     }
 
     function handleFilterChange() {
-      applyFilters();
+      applyFilters(false);
     }
 
-    function applyFilters() {
+    function applyFilters(pushHistory = false) {
       if (activeView === 'history') return;
 
-      const only70 = document.getElementById('toggleOnly70').checked;
-      const sortBy = document.getElementById('sortSelect').value;
+      const only70 = document.getElementById('toggleOnly70')?.checked ?? true;
+      const sortBy = document.getElementById('sortSelect')?.value || 'discount_desc';
 
       if (activeView === 'campaigns') {
         let filtered = masterCampaigns;
@@ -1183,10 +1927,20 @@
           filtered = filtered.filter(c => (c.max_realized_discount || 0) >= minDiscountFilter);
         }
 
+        if (activeDeptTab !== 'ALL') {
+          const deptLow = activeDeptTab.toLowerCase();
+          filtered = filtered.filter(c => {
+            const cDept = (c.department || '').toLowerCase();
+            if (deptLow === 'men') return cDept === 'men' || cDept.startsWith('men ');
+            return cDept === deptLow || cDept.includes(deptLow);
+          });
+        }
+
         if (selectedBrands.size > 0) {
+          const selBrandsLow = Array.from(selectedBrands).map(b => b.toLowerCase());
           filtered = filtered.filter(c => {
             const brandsStr = (c.brands || '').toLowerCase();
-            return Array.from(selectedBrands).some(b => brandsStr.includes(b.toLowerCase()));
+            return selBrandsLow.some(b => brandsStr.includes(b));
           });
         }
 
@@ -1248,8 +2002,21 @@
           filtered = filtered.filter(p => (p.net_discount_percent || 0) >= minDiscountFilter);
         }
 
+        if (activeDeptTab !== 'ALL') {
+          const deptLow = activeDeptTab.toLowerCase();
+          filtered = filtered.filter(p => {
+            const pDept = (p.department || '').toLowerCase();
+            if (deptLow === 'men') return pDept === 'men' || pDept.startsWith('men ');
+            return pDept === deptLow || pDept.includes(deptLow);
+          });
+        }
+
         if (selectedBrands.size > 0) {
-          filtered = filtered.filter(p => selectedBrands.has(p.brand));
+          const selBrandsLow = Array.from(selectedBrands).map(b => b.toLowerCase());
+          filtered = filtered.filter(p => {
+            const pBrandLow = (p.brand || '').toLowerCase();
+            return selBrandsLow.some(b => pBrandLow === b || pBrandLow.includes(b) || b.includes(pBrandLow));
+          });
         }
 
         if (selectedCategories.size > 0) {
@@ -1321,6 +2088,38 @@
         document.getElementById('visibleCount').innerText = `${filtered.length} Verified Products`;
         renderProductsGrid(filtered);
       }
+
+      updateUrl(pushHistory);
+    }
+
+    function updateEmptyState(viewType) {
+      const title = document.getElementById('emptyStateTitle');
+      const desc = document.getElementById('emptyStateDesc');
+      const actions = document.getElementById('emptyStateActions');
+      if (!title || !desc || !actions) return;
+
+      if (searchQuery) {
+        const cleanQ = searchQuery.trim().toUpperCase();
+        title.innerText = `No active ≥70% deals found for "${cleanQ}"`;
+        desc.innerText = `Coupon code or search phrase "${cleanQ}" currently has 0 qualifying items sitting at or above 70% net discount (the voucher may be expired on Ajio or its deals currently sit at lower markdown tiers).`;
+        actions.innerHTML = `
+          <a href="https://www.ajio.com/s/${encodeURIComponent(searchQuery)}?query=%3Adiscount-desc" target="_blank" rel="noopener" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl transition border border-slate-200 inline-flex items-center space-x-1.5 shadow-2xs">
+            <span>Check Ajio Storefront for "${escapeHtml(cleanQ)}"</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+          </a>
+          <button onclick="resetAllFilters()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition shadow-xs">
+            View All Active ≥70% Deals
+          </button>
+        `;
+      } else {
+        title.innerText = 'No matching 70%+ verified deals found';
+        desc.innerText = 'Try clearing category or brand filters or switching between collections and single product items.';
+        actions.innerHTML = `
+          <button onclick="resetAllFilters()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition shadow-xs">
+            Reset All Filters
+          </button>
+        `;
+      }
     }
 
     function renderCampaignsGrid(campaigns) {
@@ -1330,6 +2129,7 @@
       if (!campaigns || campaigns.length === 0) {
         container.innerHTML = '';
         emptyState.classList.remove('hidden');
+        updateEmptyState('campaigns');
         return;
       }
 
@@ -1346,38 +2146,73 @@
         else if (maxDisc >= 80) discountColor = 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
         else if (maxDisc >= 70) discountColor = 'bg-sky-50 text-sky-800 border-sky-200 font-bold';
 
-        const brandsSnippet = c.brands ? `
-          <div class="mt-2.5 text-[11px] text-slate-500 flex items-center gap-1.5 truncate">
-            <i class="fa-solid fa-award text-amber-500 text-[10px] shrink-0"></i>
-            <span class="font-semibold text-slate-700 shrink-0">Brands:</span>
-            <span class="truncate text-slate-600">${c.brands}</span>
-          </div>` : '';
+        let brandsSnippet = '';
+        if (c.brands) {
+          const brandTokens = c.brands.split(',').map(b => b.trim()).filter(Boolean);
+          const brandChips = brandTokens.map(b => {
+            const safeB = b.replace(/'/g, "\\'");
+            return `<button type="button" onclick="navigateByBrand('${escapeHtml(safeB)}', event)" class="hover:text-sky-600 hover:underline transition font-semibold text-slate-700 cursor-pointer">${escapeHtml(b)}</button>`;
+          }).join(', ');
 
-        const priceRangeSnippet = (c.min_price > 0 && c.max_price > 0) ? `
-          <div class="mt-2.5 flex items-center gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-100">
-            <span>Price Range:</span>
-            <span class="text-slate-900 font-extrabold font-mono">₹${Math.round(c.min_price)} – ₹${Math.round(c.max_price)}</span>
-          </div>` : '';
+          brandsSnippet = `
+            <div class="mt-2.5 text-[11px] text-slate-500 flex items-center gap-1.5 truncate">
+              <i class="fa-solid fa-award text-amber-500 text-[10px] shrink-0"></i>
+              <span class="font-semibold text-slate-700 shrink-0">Brands:</span>
+              <span class="truncate text-slate-600">${brandChips}</span>
+            </div>`;
+        }
 
-        const filterRuleBanner = c.applied_filter_tier !== 'None (0 Qualifying Items)' ? `
+        let priceRangeSnippet = '';
+        if (c.min_price > 0) {
+          const minP = Math.round(c.min_price);
+          const maxP = Math.round(c.max_price);
+          const priceLabel = (maxP > minP && c.total_verified_skus > 0 && c.total_verified_skus <= 5) 
+            ? `₹${minP} – ₹${maxP}` 
+            : `From ₹${minP}`;
+
+          priceRangeSnippet = `
+            <div class="mt-2.5 flex items-center justify-between gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-100" title="Verified clearance items start from ₹${minP} after applying promo discount at checkout.">
+              <span class="flex items-center gap-1.5 text-slate-600 truncate">
+                <i class="fa-solid fa-tags text-emerald-600 text-[10px] shrink-0"></i>
+                <span>Post-Coupon Deals:</span>
+              </span>
+              <div class="flex items-baseline space-x-1 shrink-0">
+                <span class="text-emerald-700 font-extrabold font-mono text-xs">${priceLabel}</span>
+                <span class="text-[9px] text-slate-400 font-normal">(At Checkout)</span>
+              </div>
+            </div>`;
+        }
+
+        const isVerifiedActive = c.has_70_plus_verified && (c.total_verified_skus || 0) > 0;
+
+        const filterRuleBanner = isVerifiedActive ? `
           <div class="mt-2.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-[11px] leading-relaxed text-emerald-900 flex items-start gap-1.5">
             <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5 text-[10px] shrink-0"></i>
-            <span class="truncate">Pre-filtered for <strong>${c.applied_filter_tier}</strong> (${c.total_verified_skus} verified deals)</span>
+            <span class="truncate">Pre-filtered for <strong>${escapeHtml(c.applied_filter_tier || 'Verified')}</strong> (${c.total_verified_skus} verified deals)</span>
           </div>` : `
           <div class="mt-2.5 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] leading-relaxed text-amber-900 flex items-start gap-1.5">
             <i class="fa-solid fa-circle-exclamation text-amber-600 mt-0.5 text-[10px] shrink-0"></i>
-            <span>0 current items reach &ge;70% net savings.</span>
+            <span>0 current items reach &ge;70% net savings. Promotion sits sub-70% or expired.</span>
           </div>`;
+
+        const rawCode = c.code || '';
+        const safeCode = rawCode.replace(/'/g, "\\'");
+        const rawDept = c.department || 'Multi-Category';
+        const safeDept = rawDept.replace(/'/g, "\\'");
+        const safeTitle = escapeHtml(c.title || rawCode);
+        const safeDesc = escapeHtml(c.description || '');
+        const safeCuratedId = escapeHtml(c.curated_id || '');
+        const safePromoType = escapeHtml(c.promo_type || 'Promo Voucher');
 
         return `
           <div class="deal-card bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs min-w-0">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2.5">
                 <div class="flex items-center space-x-1.5">
-                  <span class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 text-sky-800 border border-sky-200 tracking-wider">
-                    ${c.code}
-                  </span>
-                  <button onclick="copyToClipboard('${c.code}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs">
+                  <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 tracking-wider transition cursor-pointer" title="Find deals using code ${escapeHtml(rawCode)}">
+                    ${escapeHtml(rawCode)}
+                  </button>
+                  <button onclick="copyToClipboard('${escapeHtml(safeCode)}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs cursor-pointer">
                     <i class="fa-regular fa-copy"></i>
                   </button>
                 </div>
@@ -1388,28 +2223,35 @@
               </div>
 
               <div class="flex flex-wrap items-center gap-1.5 mb-2.5">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
-                  ${c.department || 'Multi-Category'}
-                </span>
+                <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer" title="Filter by ${escapeHtml(rawDept)}">
+                  ${escapeHtml(rawDept)}
+                </button>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-slate-600 truncate">
-                  ${c.promo_type || 'Promo Voucher'}
+                  ${safePromoType}
                 </span>
               </div>
 
-              <p class="text-xs text-slate-800 leading-snug font-semibold line-clamp-2">${c.description}</p>
+              <p class="text-xs text-slate-800 leading-snug font-semibold line-clamp-2" title="${safeTitle}">${safeDesc || safeTitle}</p>
               
               ${brandsSnippet}
               ${priceRangeSnippet}
               ${filterRuleBanner}
             </div>
 
-            <!-- Sleek Sky Blue Action CTA -->
+            <!-- Action CTA -->
             <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[120px]" title="${c.curated_id}">${c.curated_id}</span>
-              <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-sm shadow-sky-600/20">
-                <span>View &ge;70% Deals</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
+              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[120px]" title="${safeCuratedId}">${safeCuratedId}</span>
+              ${isVerifiedActive ? `
+                <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-sm shadow-sky-600/20">
+                  <span>View &ge;70% Deals</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              ` : `
+                <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% / catalog clearance items">
+                  <span>Check Ajio Storefront (0 &ge;70%)</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
+                </a>
+              `}
             </div>
           </div>
         `;
@@ -1423,6 +2265,7 @@
       if (!products || products.length === 0) {
         container.innerHTML = '';
         emptyState.classList.remove('hidden');
+        updateEmptyState('products');
         return;
       }
 
@@ -1430,20 +2273,32 @@
       container.innerHTML = products.map(p => {
         const netD = Math.round(p.net_discount_percent);
         const baseD = Math.round(p.base_discount_percent);
-        const codeLabel = p.coupon_code === 'DIRECT_CLEARANCE' ? 'Clearance' : p.coupon_code;
+        const rawCode = p.coupon_code || '';
+        const codeLabel = rawCode === 'DIRECT_CLEARANCE' ? 'Clearance' : rawCode;
+
+        const rawBrand = p.brand || '';
+        const safeBrand = rawBrand.replace(/'/g, "\\'");
+        const rawCat = p.category || '';
+        const safeCat = rawCat.replace(/'/g, "\\'");
+        const rawDept = p.department || 'General';
+        const safeDept = rawDept.replace(/'/g, "\\'");
+        const safeCode = rawCode.replace(/'/g, "\\'");
+        const safeName = escapeHtml(p.name || '');
+        const safeImg = escapeHtml(p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png');
+        const safeProductUrl = escapeHtml(p.product_url || '#');
 
         return `
           <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
             <!-- 3:4 Responsive Image Frame -->
             <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
-              <img src="${p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png'}" alt="${p.name}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
+              <img src="${safeImg}" alt="${safeName}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
               
               <div class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
                 ${netD}% NET OFF
               </div>
 
               <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
-                <span class="font-mono truncate text-sky-800">${codeLabel}</span>
+                <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono truncate text-sky-800 hover:text-sky-950 hover:underline transition cursor-pointer" title="Find items with voucher ${escapeHtml(rawCode)}">${escapeHtml(codeLabel)}</button>
                 <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} OFF</span>
               </div>
             </div>
@@ -1451,12 +2306,16 @@
             <!-- Card Content -->
             <div class="p-2.5 sm:p-3.5 space-y-2 flex-1 flex flex-col justify-between min-w-0">
               <div class="min-w-0">
-                <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider truncate">${p.brand}</div>
-                <h4 class="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mt-0.5 min-w-0" title="${p.name}">${p.name}</h4>
-                <div class="text-[10px] text-slate-400 mt-0.5 truncate">${p.category} &bull; ${p.department || 'General'}</div>
+                <button type="button" onclick="navigateByBrand('${escapeHtml(safeBrand)}', event)" class="text-[11px] font-bold text-slate-500 hover:text-sky-600 uppercase tracking-wider truncate block transition text-left cursor-pointer" title="Filter brand: ${escapeHtml(rawBrand)}">${escapeHtml(rawBrand)}</button>
+                <h4 class="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mt-0.5 min-w-0" title="${safeName}">${safeName}</h4>
+                <div class="text-[10px] text-slate-400 mt-0.5 truncate space-x-1">
+                  <button type="button" onclick="navigateByCategory('${escapeHtml(safeCat)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter category: ${escapeHtml(rawCat)}">${escapeHtml(rawCat)}</button>
+                  <span>&bull;</span>
+                  <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter department: ${escapeHtml(rawDept)}">${escapeHtml(rawDept)}</button>
+                </div>
               </div>
 
-              <!-- Sleek Sky Blue Buy Button -->
+              <!-- Buy Button -->
               <div class="pt-2 border-t border-slate-100">
                 <div class="flex items-baseline flex-wrap gap-1.5">
                   <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
@@ -1464,7 +2323,7 @@
                   ${baseD > 0 ? `<span class="text-[10px] text-sky-600 font-semibold">(${baseD}%)</span>` : ''}
                 </div>
                 
-                <a href="${p.product_url}" target="_blank" rel="noopener" class="mt-2.5 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
+                <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2.5 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
                   <span>Buy on Ajio</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>

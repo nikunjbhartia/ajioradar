@@ -8,29 +8,30 @@ from typing import Dict, List, Any, Optional, Tuple
 from app.core.dynamic_parser import DynamicPromoParser
 from app.core.stealth_client import stealth_manager
 from app.database.storage import DealStorage
+from app.core.classifier import classify_product, classify_campaign
 
 logger = logging.getLogger("deal_validator")
 
 # Full Platform Category Roots across all of Ajio
 ALL_CATEGORY_ROOTS = [
     {"name": "Men Western Wear", "dept": "MEN", "url": "https://www.ajio.com/c/830216"},
-    {"name": "Men Footwear", "dept": "MEN", "url": "https://www.ajio.com/c/830207"},
+    {"name": "Men Footwear", "dept": "FOOTWEAR", "url": "https://www.ajio.com/c/830207"},
     {"name": "Men Ethnic Wear", "dept": "MEN", "url": "https://www.ajio.com/c/830208"},
-    {"name": "Men Accessories", "dept": "MEN", "url": "https://www.ajio.com/c/830201"},
+    {"name": "Men Accessories", "dept": "ACCESSORIES & LUGGAGE", "url": "https://www.ajio.com/c/830201"},
     {"name": "Women Western Wear", "dept": "WOMEN", "url": "https://www.ajio.com/c/830316"},
     {"name": "Women Ethnic Wear", "dept": "WOMEN", "url": "https://www.ajio.com/c/830303"},
-    {"name": "Women Footwear", "dept": "WOMEN", "url": "https://www.ajio.com/c/830302"},
+    {"name": "Women Footwear", "dept": "FOOTWEAR", "url": "https://www.ajio.com/c/830302"},
     {"name": "Women Lingerie", "dept": "WOMEN", "url": "https://www.ajio.com/c/830313"},
-    {"name": "Women Jewellery", "dept": "WOMEN", "url": "https://www.ajio.com/c/830309"},
-    {"name": "Boys Wear", "dept": "KIDS", "url": "https://www.ajio.com/c/830101"},
-    {"name": "Girls Wear", "dept": "KIDS", "url": "https://www.ajio.com/c/830102"},
-    {"name": "Infants & Babies", "dept": "KIDS", "url": "https://www.ajio.com/c/830103"},
-    {"name": "Kids Footwear", "dept": "KIDS", "url": "https://www.ajio.com/c/830104"},
-    {"name": "Toys & Babycare", "dept": "KIDS", "url": "https://www.ajio.com/c/830105"},
-    {"name": "Skincare", "dept": "BEAUTY", "url": "https://www.ajio.com/c/830501"},
-    {"name": "Makeup & Cosmetics", "dept": "BEAUTY", "url": "https://www.ajio.com/c/830502"},
-    {"name": "Fragrances & EDP", "dept": "BEAUTY", "url": "https://www.ajio.com/c/830504"},
-    {"name": "Men Grooming", "dept": "BEAUTY", "url": "https://www.ajio.com/c/830505"},
+    {"name": "Women Jewellery", "dept": "FASHION JEWELLERY", "url": "https://www.ajio.com/c/830309"},
+    {"name": "Boys Wear", "dept": "KIDS & INFANTS", "url": "https://www.ajio.com/c/830101"},
+    {"name": "Girls Wear", "dept": "KIDS & INFANTS", "url": "https://www.ajio.com/c/830102"},
+    {"name": "Infants & Babies", "dept": "KIDS & INFANTS", "url": "https://www.ajio.com/c/830103"},
+    {"name": "Kids Footwear", "dept": "FOOTWEAR", "url": "https://www.ajio.com/c/830104"},
+    {"name": "Toys & Babycare", "dept": "KIDS & INFANTS", "url": "https://www.ajio.com/c/830105"},
+    {"name": "Skincare", "dept": "BEAUTY & GROOMING", "url": "https://www.ajio.com/c/830501"},
+    {"name": "Makeup & Cosmetics", "dept": "BEAUTY & GROOMING", "url": "https://www.ajio.com/c/830502"},
+    {"name": "Fragrances & EDP", "dept": "BEAUTY & GROOMING", "url": "https://www.ajio.com/c/830504"},
+    {"name": "Men Grooming", "dept": "BEAUTY & GROOMING", "url": "https://www.ajio.com/c/830505"},
     {"name": "Bedding & Linen", "dept": "HOME & KITCHEN", "url": "https://www.ajio.com/c/830401"},
     {"name": "Cushions & Curtains", "dept": "HOME & KITCHEN", "url": "https://www.ajio.com/c/830402"},
     {"name": "Kitchen & Dining", "dept": "HOME & KITCHEN", "url": "https://www.ajio.com/c/830403"},
@@ -44,15 +45,25 @@ class DealValidatorEngine:
     def _extract_grid_entities(self, html_text: str) -> Tuple[Dict[str, Any], int]:
         match = re.search(r'window\.__PRELOADED_STATE__\s*=\s*(\{[\s\S]*?\});\s*(?:window\.|\n|<\/script>)', html_text)
         if match:
+            raw_json = match.group(1)
             try:
-                st = json.loads(match.group(1))
+                st = json.loads(raw_json)
                 grid = st.get('grid', {})
                 entities = grid.get('entities', {})
                 pagination = grid.get('pagination', {})
                 total_results = pagination.get('totalResults', len(entities))
                 return entities, total_results
             except Exception:
-                pass
+                try:
+                    import html
+                    st = json.loads(html.unescape(raw_json))
+                    grid = st.get('grid', {})
+                    entities = grid.get('entities', {})
+                    pagination = grid.get('pagination', {})
+                    total_results = pagination.get('totalResults', len(entities))
+                    return entities, total_results
+                except Exception:
+                    pass
         return {}, 0
 
     def validate_campaign(self, camp: Dict[str, Any]) -> Optional[Dict[str, Any]]:
@@ -145,7 +156,7 @@ class DealValidatorEngine:
             categories_found = set()
             sample_deals = []
 
-            for pid, it in list(entities.items())[:15]:
+            for pid, it in entities.items():
                 mrp = float(it.get('wasPriceData', {}).get('value', 0) or 0)
                 price = float(it.get('price', {}).get('value', 0) or 0)
                 brand = it.get('fnlColorVariantData', {}).get('brandName') or it.get('brandTypeName', '')
@@ -158,13 +169,14 @@ class DealValidatorEngine:
                 if cat: categories_found.add(cat)
 
                 if mrp > 0 and price > 0:
-                    base_d = ((mrp - price) / mrp) * 100.0
+                    base_d = max(0.0, min(100.0, ((mrp - price) / mrp) * 100.0))
                     if is_standalone:
-                        net_d = nominal_r
                         final_p = mrp * (1.0 - (nominal_r / 100.0))
                     else:
                         final_p = price * (1.0 - (nominal_r / 100.0))
-                        net_d = ((mrp - final_p) / mrp) * 100.0
+
+                    final_p = max(0.0, min(mrp, final_p))
+                    net_d = max(0.0, min(100.0, ((mrp - final_p) / mrp) * 100.0))
 
                     net_d = round(net_d, 1)
                     final_p = round(final_p, 2)
@@ -172,11 +184,14 @@ class DealValidatorEngine:
                     effective_prices.append(final_p)
 
                     sku = p_url.split('/p/')[-1] if '/p/' in p_url else pid
+                    prod_dept = classify_product(p_name, brand, cat)
+
                     sample_deals.append({
                         "id": sku,
                         "name": p_name,
                         "brand": brand,
                         "category": cat,
+                        "department": prod_dept,
                         "mrp": mrp,
                         "selling_price": price,
                         "final_price": final_p,
@@ -192,19 +207,15 @@ class DealValidatorEngine:
             min_p = min(effective_prices) if effective_prices else 0.0
             max_p = max(effective_prices) if effective_prices else 0.0
 
-            # Accurate Department Classification
-            cats_str = " ".join(categories_found).lower()
-            dept = "MEN"
-            if any(k in cats_str for k in ['saree', 'kurta', 'dress', 'top', 'lingerie', 'skirt', 'bra', 'panty', 'lehenga']) or 'women' in slug.lower():
-                dept = "WOMEN"
-            elif any(k in cats_str for k in ['infant', 'baby', 'toy', 'kids', 'frock', 'romper']) or 'kid' in slug.lower() or 'infant' in slug.lower():
-                dept = "KIDS"
-            elif any(k in cats_str for k in ['fragrance', 'perfume', 'makeup', 'serum', 'shampoo', 'lipstick', 'moisturizer']) or 'beauty' in slug.lower():
-                dept = "BEAUTY"
-            elif any(k in cats_str for k in ['bed', 'cushion', 'towel', 'kitchen', 'crockery', 'curtain', 'sheet', 'pan', 'cookware']) or 'home' in slug.lower():
-                dept = "HOME & KITCHEN"
-            elif any(k in cats_str for k in ['shirt', 'jeans', 'tshirt', 'jacket', 'trousers', 'boxer', 'brief']) or 'men' in slug.lower():
-                dept = "MEN"
+            brands_str = ", ".join(list(brands_found)[:6])
+            camp_dept = classify_campaign(
+                title=title,
+                desc=desc,
+                brands_str=brands_str,
+                slug=slug,
+                sample_deals=sample_deals,
+                seed_dept=c.get('department', 'Multi-Category')
+            )
 
             return {
                 "curated_id": slug,
@@ -213,8 +224,8 @@ class DealValidatorEngine:
                 "description": desc,
                 "details_url": user_outbound_url,
                 "promo_type": parsed['promo_type'],
-                "department": dept,
-                "brands": ", ".join(list(brands_found)[:6]),
+                "department": camp_dept,
+                "brands": brands_str,
                 "brand_list": list(brands_found),
                 "min_realized_discount": round(min_net, 1),
                 "max_realized_discount": round(max_net, 1),
@@ -229,6 +240,15 @@ class DealValidatorEngine:
             }
         else:
             # 0 items qualifying currently
+            fallback_dept = classify_campaign(
+                title=title,
+                desc=desc,
+                brands_str="",
+                slug=slug,
+                sample_deals=None,
+                seed_dept=c.get('department', 'Multi-Category')
+            )
+
             return {
                 "curated_id": slug,
                 "code": code,
@@ -236,7 +256,7 @@ class DealValidatorEngine:
                 "description": desc,
                 "details_url": f"https://www.ajio.com/s/{slug}?query=:discount-desc",
                 "promo_type": parsed['promo_type'],
-                "department": "MEN",
+                "department": fallback_dept,
                 "brands": "",
                 "brand_list": [],
                 "min_realized_discount": nominal_r,

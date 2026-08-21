@@ -80,6 +80,30 @@ def pull_live_data():
                     1 if c.get('is_standalone_deal') else 0, c.get('total_verified_skus', 0)
                 ))
 
+        # Import history
+        history = pulled_data.get("history.json", [])
+        if isinstance(history, list) and history:
+            for h in history:
+                cur.execute('''
+                    INSERT OR REPLACE INTO sync_history (
+                        sync_id, timestamp, formatted_time, duration_seconds,
+                        added_coupons, updated_coupons, removed_coupons,
+                        added_count, updated_count, removed_count,
+                        active_70_count, total_campaigns, total_deals,
+                        highlights, changes
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    h.get('sync_id'), h.get('timestamp'), h.get('formatted_time'),
+                    h.get('duration_seconds', 0.0),
+                    json.dumps(h.get('added_coupons', [])),
+                    json.dumps(h.get('updated_coupons', [])),
+                    json.dumps(h.get('removed_coupons', [])),
+                    h.get('added_count', 0), h.get('updated_count', 0), h.get('removed_count', 0),
+                    h.get('active_70_count', 0), h.get('total_campaigns', 0), h.get('total_deals', 0),
+                    json.dumps(h.get('highlights', [])),
+                    json.dumps(h.get('changes', []))
+                ))
+
         conn.commit()
         conn.close()
         print("  ✓ Local SQLite database fully synchronized!")

@@ -1,0 +1,8 @@
+/data/*
+  Cache-Control: public, max-age=60, s-maxage=60, must-revalidate
+  Access-Control-Allow-Origin: *
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
