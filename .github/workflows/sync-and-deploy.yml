@@ -50,6 +50,11 @@ jobs:
         run: |
           python3 backend/app/database/r2_sync.py restore || true
 
+      - name: Bootstrap Cumulative Baseline Dataset from Cloudflare Edge (Zero Cold-Start)
+        continue-on-error: true
+        run: |
+          python3 backend/pull_live_data.py || true
+
       - name: Run Live Validation & Category Sweeps
         env:
           PYTHONPATH: backend

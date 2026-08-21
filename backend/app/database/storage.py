@@ -229,8 +229,23 @@ class DealStorage:
 
             conn.commit()
 
-        # Dynamically synthesize campaign collections from newly scanned products
+        # 1. Prune expired or out-of-stock items unseen for > 7 days
+        self.prune_stale_deals(max_age_days=7)
+
+        # 2. Dynamically synthesize campaign collections from newly scanned products
         self.synthesize_campaigns_from_products()
+
+    def prune_stale_deals(self, max_age_days: int = 7):
+        """
+        Prunes deals that have not been re-verified or present in live sweeps for over max_age_days.
+        """
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            try:
+                cursor.execute(f"DELETE FROM verified_products WHERE datetime(scanned_at) < datetime('now', '-{max_age_days} days')")
+                conn.commit()
+            except Exception as e:
+                logger.debug(f"[Storage] Stale deal cleanup note: {e}")
 
     def synthesize_campaigns_from_products(self):
         """
