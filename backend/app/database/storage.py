@@ -229,6 +229,67 @@ class DealStorage:
 
             conn.commit()
 
+        # Dynamically synthesize campaign collections from newly scanned products
+        self.synthesize_campaigns_from_products()
+
+    def synthesize_campaigns_from_products(self):
+        """
+        Dynamically aggregates all verified clearance products carrying coupon codes
+        into first-class Verified Campaigns. Ensures 100% dynamic coupon discovery from cold boot.
+        """
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            try:
+                cursor.execute('''
+                    SELECT 
+                        coupon_code,
+                        department,
+                        GROUP_CONCAT(DISTINCT brand) as brand_agg,
+                        MIN(net_discount_percent) as min_disc,
+                        MAX(net_discount_percent) as max_disc,
+                        MIN(final_price) as min_p,
+                        MAX(final_price) as max_p,
+                        COUNT(*) as sku_cnt,
+                        coupon_slug
+                    FROM verified_products
+                    WHERE coupon_code IS NOT NULL AND coupon_code != '' AND net_discount_percent >= 70.0
+                    GROUP BY coupon_code
+                ''')
+                rows = cursor.fetchall()
+                for r in rows:
+                    code = r[0].strip().upper()
+                    if not code or len(code) < 2:
+                        continue
+                    dept = r[1] or "Multi-Category"
+                    brands = r[2] or ""
+                    min_disc = round(r[3], 1) if r[3] else 70.0
+                    max_disc = round(r[4], 1) if r[4] else 70.0
+                    min_p = round(r[5], 2) if r[5] else 0.0
+                    max_p = round(r[6], 2) if r[6] else 0.0
+                    sku_cnt = r[7]
+                    
+                    curated_id = f"dyn-{code.lower()}"
+                    title = f"{code} - Live Verified Clearance Collection"
+                    description = f"Autonomous live aggregated collection with {sku_cnt} verified items up to {max_disc}% off."
+                    details_url = f"https://www.ajio.com/c/83?query=%3Adiscount-desc%3Adiscountranges%3A60%25%20and%20above%3Apromotions%3A{code}"
+
+                    cursor.execute('''
+                        INSERT OR REPLACE INTO filtered_campaigns (
+                            curated_id, code, title, description, details_url, promo_type,
+                            department, brands, min_realized_discount, max_realized_discount,
+                            min_price, max_price, min_base_needed, applied_filter_tier,
+                            has_70_plus_verified, is_standalone_deal, total_verified_skus, scanned_at
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                    ''', (
+                        curated_id, code, title, description, details_url, "Verified Promo Sweep",
+                        dept, brands, min_disc, max_disc,
+                        min_p, max_p, 0.0, "Live Feed",
+                        1, 1, sku_cnt
+                    ))
+                conn.commit()
+            except Exception as e:
+                logger.debug(f"[Storage] Campaign synthesis note: {e}")
+
     def get_sync_history(self, days: int = 7, limit: int = 50) -> List[SyncHistoryItem]:
         min_time = time.time() - (days * 86400)
         with self._get_conn() as conn:

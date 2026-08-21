@@ -520,19 +520,21 @@
   ],
   "departments": [
     "Beauty & Grooming",
+    "FASHION JEWELLERY",
     "Kids & Infants",
     "Luxe & Designer",
+    "MEN",
     "Men's Collection",
     "Multi-Category",
     "Women's Collection"
   ],
   "stats": {
-    "verified_70_plus_campaigns": 281,
-    "total_campaigns": 430,
+    "verified_70_plus_campaigns": 393,
+    "total_campaigns": 542,
     "verified_70_plus_products": 6923,
     "total_brands": 517,
-    "total_departments": 6
+    "total_departments": 8
   },
-  "exported_at": 1787340911.813072,
-  "exported_iso": "2026-08-21 19:35:11 UTC"
+  "exported_at": 1787341065.2877,
+  "exported_iso": "2026-08-21 19:37:45 UTC"
 }
