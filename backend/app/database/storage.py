@@ -513,6 +513,9 @@ class DealStorage:
                 for r in rows
             ]
 
+    def get_filtered_deals(self, *args, **kwargs):
+        return self.get_verified_products(*args, **kwargs)
+
     def get_taxonomy(self) -> Dict[str, Any]:
         tax_path = os.path.join(os.path.dirname(__file__), "taxonomy_master.json")
         if os.path.exists(tax_path):
