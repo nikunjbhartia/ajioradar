@@ -438,7 +438,8 @@
     let searchQuery = '';
 
     async function init() {
-      await Promise.all([loadCampaigns(), loadProducts(), loadBrands(), loadTaxonomy(), loadSyncStatus(), loadSyncHistory()]);
+      const initBust = Date.now();
+      await Promise.all([loadCampaigns(initBust), loadProducts(initBust), loadBrands(initBust), loadTaxonomy(initBust), loadSyncStatus(initBust), loadSyncHistory()]);
       setInterval(loadSyncStatus, 20000);
       
       // Close dropdowns on outside click
