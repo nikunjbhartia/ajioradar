@@ -37,6 +37,7 @@
     "Aeropostale",
     "Alakhdhani Creation",
     "Alena",
+    "Alpha Tribe",
     "Altheory by AZORTE",
     "Amante",
     "American Eagle",
@@ -529,12 +530,12 @@
     "Women's Collection"
   ],
   "stats": {
-    "verified_70_plus_campaigns": 393,
-    "total_campaigns": 542,
-    "verified_70_plus_products": 6923,
-    "total_brands": 517,
+    "verified_70_plus_campaigns": 395,
+    "total_campaigns": 544,
+    "verified_70_plus_products": 7098,
+    "total_brands": 518,
     "total_departments": 8
   },
-  "exported_at": 1787341065.2877,
-  "exported_iso": "2026-08-21 19:37:45 UTC"
+  "exported_at": 1787341364.54929,
+  "exported_iso": "2026-08-21 19:42:44 UTC"
 }

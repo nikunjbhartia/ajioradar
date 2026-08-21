@@ -35,14 +35,23 @@ class UniversalCategoryCrawler:
         slug = target.get('slug', '').strip()
         dept = target.get('dept', 'MULTI-CATEGORY')
         group = target.get('group', 'GENERAL')
+        facet_type = target.get('facet_type')
+        facet_val = target.get('facet_value')
 
-        if not slug:
+        if not slug and not facet_val:
             return []
 
-        # High-yield Bloomreach query for category
-        raw_q = f':discount-desc:discountranges:{min_discount_tier}:curated:true:curatedId:{slug}'
-        encoded_q = urllib.parse.quote(raw_q)
-        api_url = f"https://www.ajio.com/c/83?query={encoded_q}&curated=true&curatedid={slug}&gridColumns=3&sort=discount-desc"
+        # Construct optimal search bridge query based on facet type
+        if facet_type == 'l1l3nestedcategory':
+            raw_q = f':discount-desc:discountranges:{min_discount_tier}:l1l3nestedcategory:{facet_val}'
+            api_url = f"https://www.ajio.com/c/83?query={urllib.parse.quote(raw_q)}&gridColumns=3&sort=discount-desc"
+        elif facet_type == 'brand':
+            raw_q = f':discount-desc:discountranges:{min_discount_tier}:brand:{facet_val}'
+            api_url = f"https://www.ajio.com/c/83?query={urllib.parse.quote(raw_q)}&gridColumns=3&sort=discount-desc"
+        else:
+            clean_slug = slug.replace('/s/', '').strip('/')
+            raw_q = f':discount-desc:discountranges:{min_discount_tier}:curated:true:curatedId:{clean_slug}'
+            api_url = f"https://www.ajio.com/c/83?query={urllib.parse.quote(raw_q)}&curated=true&curatedid={clean_slug}&gridColumns=3&sort=discount-desc"
 
         session = stealth_manager.get_session()
         headers = stealth_manager.get_headers()
@@ -57,25 +66,32 @@ class UniversalCategoryCrawler:
                     grid = st.get('grid', {})
                     entities = grid.get('entities', {})
 
-                    for pid, it in list(entities.items())[:25]:
+                    for pid, it in list(entities.items())[:35]:
                         mrp = float(it.get('wasPriceData', {}).get('value', 0) or 0)
                         price = float(it.get('price', {}).get('value', 0) or 0)
+                        offer_price = float(it.get('offerPrice', {}).get('value', 0) or 0)
                         p_name = it.get('name', '')
-                        brand = it.get('fnlColorVariantData', {}).get('brandName') or it.get('brandTypeName', '')
-                        brick = it.get('brickCategoryName') or name or 'Fashion'
+                        brand = it.get('fnlColorVariantData', {}).get('brandName') or it.get('brandTypeName', '') or target.get('facet_value', 'Generic')
+                        brick = it.get('brickNameText') or it.get('brickCategoryName') or name or 'Fashion'
                         p_url = it.get('url', '')
-                        img_url = it.get('fnlColorVariantData', {}).get('outfitPictureURL') or ''
+                        img_url = it.get('fnlColorVariantData', {}).get('outfitPictureURL') or (it.get('images', [{}])[0].get('url', ''))
 
                         if mrp > 0 and price > 0:
                             base_d = ((mrp - price) / mrp) * 100.0
                             
-                            # 1. Direct Markdown >= 70%
-                            if base_d >= 70.0:
+                            # Check if live offerPrice provides deeper savings (e.g. Benetton Parachute pants: ₹1015 on ₹4999 -> 79.7%)
+                            if offer_price > 0 and offer_price < price:
+                                f_price = offer_price
+                                net_d = round(((mrp - f_price) / mrp) * 100.0, 1)
+                                c_code = "PREMIUM_OFFER"
+                                f_desc = f"Instant Offer: ₹{int(f_price)} on MRP ₹{int(mrp)} ({net_d:.0f}% Off)"
+                            # Direct Markdown >= 70%
+                            elif base_d >= 70.0:
                                 net_d = round(base_d, 1)
                                 f_price = price
                                 c_code = "DIRECT_CLEARANCE"
                                 f_desc = f"Direct Clearance: {base_d:.0f}% Off"
-                            # 2. Stacked Flash Voucher (+20% coupon on base >= 60%)
+                            # Stacked Flash Voucher (+20% coupon on base >= 58%)
                             elif base_d >= 58.0:
                                 f_price = round(price * 0.80, 2)
                                 net_d = round(((mrp - f_price) / mrp) * 100.0, 1)
@@ -89,20 +105,28 @@ class UniversalCategoryCrawler:
                                 
                                 # Canonical department resolution
                                 cat_dept = dept
-                                if any(k in name.lower() for k in ['wearable', 'smartwatch', 'headphone', 'speaker', 'gadget']):
+                                if any(k in (name + ' ' + brick).lower() for k in ['wearable', 'smartwatch', 'headphone', 'speaker', 'gadget']):
                                     cat_dept = "GADGETS & TECH"
-                                elif any(k in name.lower() for k in ['shoe', 'sneaker', 'sandal', 'boot', 'heel', 'flat']):
+                                elif any(k in (name + ' ' + brick).lower() for k in ['shoe', 'sneaker', 'sandal', 'boot', 'heel', 'flat']):
                                     cat_dept = "FOOTWEAR"
-                                elif any(k in name.lower() for k in ['jewel', 'earring', 'necklace', 'ring', 'bangle', 'bracelet']):
+                                elif any(k in (name + ' ' + brick).lower() for k in ['jewel', 'earring', 'necklace', 'ring', 'bangle', 'bracelet']):
                                     cat_dept = "FASHION JEWELLERY"
-                                elif any(k in name.lower() for k in ['bag', 'backpack', 'luggage', 'trolley', 'wallet', 'belt', 'sunglass']):
+                                elif any(k in (name + ' ' + brick).lower() for k in ['bag', 'backpack', 'luggage', 'trolley', 'wallet', 'belt', 'sunglass']):
                                     cat_dept = "ACCESSORIES & LUGGAGE"
+                                elif 'men' in (name + ' ' + p_name).lower():
+                                    cat_dept = "MEN"
+                                elif 'women' in (name + ' ' + p_name).lower():
+                                    cat_dept = "WOMEN"
+                                elif any(k in (name + ' ' + p_name).lower() for k in ['boy', 'girl', 'infant', 'kid']):
+                                    cat_dept = "KIDS & INFANTS"
+
+                                full_product_url = f"https://www.ajio.com{p_url}" if p_url.startswith('/') else f"https://www.ajio.com/p/{sku}"
 
                                 deals_found.append({
                                     "id": sku,
                                     "name": p_name,
                                     "brand": brand,
-                                    "category": name,
+                                    "category": brick,
                                     "department": cat_dept,
                                     "mrp": mrp,
                                     "selling_price": price,
@@ -111,8 +135,8 @@ class UniversalCategoryCrawler:
                                     "net_discount_percent": net_d,
                                     "formula_desc": f_desc,
                                     "coupon_code": c_code,
-                                    "coupon_slug": slug,
-                                    "product_url": f"https://www.ajio.com/p/{sku}",
+                                    "coupon_slug": slug or f"brand-{brand.lower().replace(' ', '-')}",
+                                    "product_url": full_product_url,
                                     "image_url": img_url
                                 })
         except Exception as e:

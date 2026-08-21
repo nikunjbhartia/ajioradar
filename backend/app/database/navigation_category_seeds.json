@@ -3484,5 +3484,893 @@
     "dept": "HOME & KITCHEN",
     "group": "GENERAL",
     "url": "/s/the-better-home-5159-48611"
+  },
+  {
+    "name": "Men - Trousers & Pants",
+    "slug": "l1l3:Men - Trousers & Pants",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Trousers & Pants"
+  },
+  {
+    "name": "Men - Track Pants",
+    "slug": "l1l3:Men - Track Pants",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Track Pants"
+  },
+  {
+    "name": "Men - Jeans",
+    "slug": "l1l3:Men - Jeans",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Jeans"
+  },
+  {
+    "name": "Men - Shirts",
+    "slug": "l1l3:Men - Shirts",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Shirts"
+  },
+  {
+    "name": "Men - Tshirts",
+    "slug": "l1l3:Men - Tshirts",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Tshirts"
+  },
+  {
+    "name": "Men - Shorts & 3/4ths",
+    "slug": "l1l3:Men - Shorts & 3/4ths",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Shorts & 3/4ths"
+  },
+  {
+    "name": "Men - Sneakers & Sports Shoes",
+    "slug": "l1l3:Men - Sneakers & Sports Shoes",
+    "dept": "FOOTWEAR",
+    "group": "MEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Sneakers & Sports Shoes"
+  },
+  {
+    "name": "Men - Casual Shoes",
+    "slug": "l1l3:Men - Casual Shoes",
+    "dept": "FOOTWEAR",
+    "group": "MEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Casual Shoes"
+  },
+  {
+    "name": "Men - Flip Flop & Slippers",
+    "slug": "l1l3:Men - Flip Flop & Slippers",
+    "dept": "FOOTWEAR",
+    "group": "MEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Flip Flop & Slippers"
+  },
+  {
+    "name": "Men - Sweatshirt & Hoodies",
+    "slug": "l1l3:Men - Sweatshirt & Hoodies",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Sweatshirt & Hoodies"
+  },
+  {
+    "name": "Men - Sweaters & Cardigans",
+    "slug": "l1l3:Men - Sweaters & Cardigans",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Sweaters & Cardigans"
+  },
+  {
+    "name": "Men - Jackets & Coats",
+    "slug": "l1l3:Men - Jackets & Coats",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Jackets & Coats"
+  },
+  {
+    "name": "Men - Boxers, Briefs & Trunks",
+    "slug": "l1l3:Men - Boxers, Briefs & Trunks",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Boxers, Briefs & Trunks"
+  },
+  {
+    "name": "Men - Socks",
+    "slug": "l1l3:Men - Socks",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Socks"
+  },
+  {
+    "name": "Men - Belts",
+    "slug": "l1l3:Men - Belts",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Belts"
+  },
+  {
+    "name": "Men - Wallets",
+    "slug": "l1l3:Men - Wallets",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Wallets"
+  },
+  {
+    "name": "Men - Watches",
+    "slug": "l1l3:Men - Watches",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Watches"
+  },
+  {
+    "name": "Men - Sunglasses",
+    "slug": "l1l3:Men - Sunglasses",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Sunglasses"
+  },
+  {
+    "name": "Men - Backpacks",
+    "slug": "l1l3:Men - Backpacks",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Backpacks"
+  },
+  {
+    "name": "Men - Laptop Bags",
+    "slug": "l1l3:Men - Laptop Bags",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "MEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Laptop Bags"
+  },
+  {
+    "name": "Men - Luggage & Trolley Bags",
+    "slug": "l1l3:Men - Luggage & Trolley Bags",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "LUGGAGE",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Luggage & Trolley Bags"
+  },
+  {
+    "name": "Men - Colognes & Deodorants",
+    "slug": "l1l3:Men - Colognes & Deodorants",
+    "dept": "BEAUTY & GROOMING",
+    "group": "FRAGRANCES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Men - Colognes & Deodorants"
+  },
+  {
+    "name": "Women - Dresses",
+    "slug": "l1l3:Women - Dresses",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Dresses"
+  },
+  {
+    "name": "Women - Trousers & Pants",
+    "slug": "l1l3:Women - Trousers & Pants",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Trousers & Pants"
+  },
+  {
+    "name": "Women - Jeans & Jeggings",
+    "slug": "l1l3:Women - Jeans & Jeggings",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Jeans & Jeggings"
+  },
+  {
+    "name": "Women - Shirts, Tops & Tunics",
+    "slug": "l1l3:Women - Shirts, Tops & Tunics",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Shirts, Tops & Tunics"
+  },
+  {
+    "name": "Women - Tshirts",
+    "slug": "l1l3:Women - Tshirts",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Tshirts"
+  },
+  {
+    "name": "Women - Shorts",
+    "slug": "l1l3:Women - Shorts",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Shorts"
+  },
+  {
+    "name": "Women - Skirts & Ghagras",
+    "slug": "l1l3:Women - Skirts & Ghagras",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Skirts & Ghagras"
+  },
+  {
+    "name": "Women - Sweaters & Sweatshirts",
+    "slug": "l1l3:Women - Sweaters & Sweatshirts",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Sweaters & Sweatshirts"
+  },
+  {
+    "name": "Women - Jackets & Shrugs",
+    "slug": "l1l3:Women - Jackets & Shrugs",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Jackets & Shrugs"
+  },
+  {
+    "name": "Women - Handbags",
+    "slug": "l1l3:Women - Handbags",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "WOMEN BAGS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Handbags"
+  },
+  {
+    "name": "Women - Wallets",
+    "slug": "l1l3:Women - Wallets",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "WOMEN BAGS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Wallets"
+  },
+  {
+    "name": "Women - Flats",
+    "slug": "l1l3:Women - Flats",
+    "dept": "FOOTWEAR",
+    "group": "WOMEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Flats"
+  },
+  {
+    "name": "Women - Casual Shoes",
+    "slug": "l1l3:Women - Casual Shoes",
+    "dept": "FOOTWEAR",
+    "group": "WOMEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Casual Shoes"
+  },
+  {
+    "name": "Women - Flip Flop & Slippers",
+    "slug": "l1l3:Women - Flip Flop & Slippers",
+    "dept": "FOOTWEAR",
+    "group": "WOMEN FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Flip Flop & Slippers"
+  },
+  {
+    "name": "Women - Watches",
+    "slug": "l1l3:Women - Watches",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "WATCHES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Watches"
+  },
+  {
+    "name": "Women - Belts",
+    "slug": "l1l3:Women - Belts",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "WOMEN ACCESSORIES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Belts"
+  },
+  {
+    "name": "Women - Backpacks",
+    "slug": "l1l3:Women - Backpacks",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "WOMEN BAGS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Backpacks"
+  },
+  {
+    "name": "Women - Luggage & Trolley Bags",
+    "slug": "l1l3:Women - Luggage & Trolley Bags",
+    "dept": "ACCESSORIES & LUGGAGE",
+    "group": "LUGGAGE",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Luggage & Trolley Bags"
+  },
+  {
+    "name": "Women - Fragrances & Deodorants",
+    "slug": "l1l3:Women - Fragrances & Deodorants",
+    "dept": "BEAUTY & GROOMING",
+    "group": "FRAGRANCES",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Women - Fragrances & Deodorants"
+  },
+  {
+    "name": "Boys - Trousers & Pants",
+    "slug": "l1l3:Boys - Trousers & Pants",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Trousers & Pants"
+  },
+  {
+    "name": "Boys - Track Pants",
+    "slug": "l1l3:Boys - Track Pants",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Track Pants"
+  },
+  {
+    "name": "Boys - Jeans",
+    "slug": "l1l3:Boys - Jeans",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Jeans"
+  },
+  {
+    "name": "Boys - Shirts",
+    "slug": "l1l3:Boys - Shirts",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Shirts"
+  },
+  {
+    "name": "Boys - Tshirts",
+    "slug": "l1l3:Boys - Tshirts",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Tshirts"
+  },
+  {
+    "name": "Boys - Shorts",
+    "slug": "l1l3:Boys - Shorts",
+    "dept": "KIDS",
+    "group": "BOYS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Shorts"
+  },
+  {
+    "name": "Boys - Shoes",
+    "slug": "l1l3:Boys - Shoes",
+    "dept": "FOOTWEAR",
+    "group": "KIDS FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Shoes"
+  },
+  {
+    "name": "Boys - Sneakers",
+    "slug": "l1l3:Boys - Sneakers",
+    "dept": "FOOTWEAR",
+    "group": "KIDS FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Boys - Sneakers"
+  },
+  {
+    "name": "Girls - Dresses & Frocks",
+    "slug": "l1l3:Girls - Dresses & Frocks",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Dresses & Frocks"
+  },
+  {
+    "name": "Girls - Trousers & Pants",
+    "slug": "l1l3:Girls - Trousers & Pants",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Trousers & Pants"
+  },
+  {
+    "name": "Girls - Track Pants",
+    "slug": "l1l3:Girls - Track Pants",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Track Pants"
+  },
+  {
+    "name": "Girls - Jeans & Jeggings",
+    "slug": "l1l3:Girls - Jeans & Jeggings",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Jeans & Jeggings"
+  },
+  {
+    "name": "Girls - Tops, Tunics & Shirts",
+    "slug": "l1l3:Girls - Tops, Tunics & Shirts",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Tops, Tunics & Shirts"
+  },
+  {
+    "name": "Girls - Tshirts",
+    "slug": "l1l3:Girls - Tshirts",
+    "dept": "KIDS",
+    "group": "GIRLS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Tshirts"
+  },
+  {
+    "name": "Girls - Casual Shoes",
+    "slug": "l1l3:Girls - Casual Shoes",
+    "dept": "FOOTWEAR",
+    "group": "KIDS FOOTWEAR",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Girls - Casual Shoes"
+  },
+  {
+    "name": "Infants - Onesies & Dungarees",
+    "slug": "l1l3:Infants - Onesies & Dungarees",
+    "dept": "KIDS",
+    "group": "INFANTS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Infants - Onesies & Dungarees"
+  },
+  {
+    "name": "Infants - Tees, Tops & Shirts",
+    "slug": "l1l3:Infants - Tees, Tops & Shirts",
+    "dept": "KIDS",
+    "group": "INFANTS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Infants - Tees, Tops & Shirts"
+  },
+  {
+    "name": "Infants - Trousers & Pants",
+    "slug": "l1l3:Infants - Trousers & Pants",
+    "dept": "KIDS",
+    "group": "INFANTS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Infants - Trousers & Pants"
+  },
+  {
+    "name": "Infants - Dresses & Frocks",
+    "slug": "l1l3:Infants - Dresses & Frocks",
+    "dept": "KIDS",
+    "group": "INFANTS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Infants - Dresses & Frocks"
+  },
+  {
+    "name": "Infants - Jeans & Jeggings",
+    "slug": "l1l3:Infants - Jeans & Jeggings",
+    "dept": "KIDS",
+    "group": "INFANTS",
+    "facet_type": "l1l3nestedcategory",
+    "facet_value": "Infants - Jeans & Jeggings"
+  },
+  {
+    "name": "UNITED COLORS OF BENETTON Clearance",
+    "slug": "brand:UNITED COLORS OF BENETTON",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "UNITED COLORS OF BENETTON"
+  },
+  {
+    "name": "Puma Clearance",
+    "slug": "brand:Puma",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Puma"
+  },
+  {
+    "name": "Nike Clearance",
+    "slug": "brand:Nike",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Nike"
+  },
+  {
+    "name": "Adidas Clearance",
+    "slug": "brand:Adidas",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Adidas"
+  },
+  {
+    "name": "LEVIS Clearance",
+    "slug": "brand:LEVIS",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "LEVIS"
+  },
+  {
+    "name": "SUPERDRY Clearance",
+    "slug": "brand:SUPERDRY",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "SUPERDRY"
+  },
+  {
+    "name": "TOMMY HILFIGER Clearance",
+    "slug": "brand:TOMMY HILFIGER",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "TOMMY HILFIGER"
+  },
+  {
+    "name": "ARMANI EXCHANGE Clearance",
+    "slug": "brand:ARMANI EXCHANGE",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "ARMANI EXCHANGE"
+  },
+  {
+    "name": "Snitch Clearance",
+    "slug": "brand:Snitch",
+    "dept": "MEN",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Snitch"
+  },
+  {
+    "name": "The Indian Garage Co Clearance",
+    "slug": "brand:The Indian Garage Co",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "The Indian Garage Co"
+  },
+  {
+    "name": "Cover Story Clearance",
+    "slug": "brand:Cover Story",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Cover Story"
+  },
+  {
+    "name": "ONLY Clearance",
+    "slug": "brand:ONLY",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "ONLY"
+  },
+  {
+    "name": "Vero Moda Clearance",
+    "slug": "brand:Vero Moda",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Vero Moda"
+  },
+  {
+    "name": "Red Tape Clearance",
+    "slug": "brand:Red Tape",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Red Tape"
+  },
+  {
+    "name": "Campus Clearance",
+    "slug": "brand:Campus",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Campus"
+  },
+  {
+    "name": "STEVE MADDEN Clearance",
+    "slug": "brand:STEVE MADDEN",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "STEVE MADDEN"
+  },
+  {
+    "name": "BIBA Clearance",
+    "slug": "brand:BIBA",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "BIBA"
+  },
+  {
+    "name": "AURELIA Clearance",
+    "slug": "brand:AURELIA",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "AURELIA"
+  },
+  {
+    "name": "SOCH Clearance",
+    "slug": "brand:SOCH",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "SOCH"
+  },
+  {
+    "name": "W Clearance",
+    "slug": "brand:W",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "W"
+  },
+  {
+    "name": "U.S. Polo Assn. Clearance",
+    "slug": "brand:U.S. Polo Assn.",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "U.S. Polo Assn."
+  },
+  {
+    "name": "Flying Machine Clearance",
+    "slug": "brand:Flying Machine",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Flying Machine"
+  },
+  {
+    "name": "GAP Clearance",
+    "slug": "brand:GAP",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "GAP"
+  },
+  {
+    "name": "DIESEL Clearance",
+    "slug": "brand:DIESEL",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "DIESEL"
+  },
+  {
+    "name": "ALDO Clearance",
+    "slug": "brand:ALDO",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "ALDO"
+  },
+  {
+    "name": "SKECHERS Clearance",
+    "slug": "brand:SKECHERS",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "SKECHERS"
+  },
+  {
+    "name": "WOODLAND Clearance",
+    "slug": "brand:WOODLAND",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "WOODLAND"
+  },
+  {
+    "name": "BATA Clearance",
+    "slug": "brand:BATA",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "BATA"
+  },
+  {
+    "name": "JOCKEY Clearance",
+    "slug": "brand:JOCKEY",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "JOCKEY"
+  },
+  {
+    "name": "ZIVAME Clearance",
+    "slug": "brand:ZIVAME",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "ZIVAME"
+  },
+  {
+    "name": "MOKOBARA Clearance",
+    "slug": "brand:MOKOBARA",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "MOKOBARA"
+  },
+  {
+    "name": "BEARDO Clearance",
+    "slug": "brand:BEARDO",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "BEARDO"
+  },
+  {
+    "name": "PEPE JEANS Clearance",
+    "slug": "brand:PEPE JEANS",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "PEPE JEANS"
+  },
+  {
+    "name": "SPYKAR Clearance",
+    "slug": "brand:SPYKAR",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "SPYKAR"
+  },
+  {
+    "name": "MUFTI Clearance",
+    "slug": "brand:MUFTI",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "MUFTI"
+  },
+  {
+    "name": "KILLER Clearance",
+    "slug": "brand:KILLER",
+    "dept": "MEN",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "KILLER"
+  },
+  {
+    "name": "RARE RABBIT Clearance",
+    "slug": "brand:RARE RABBIT",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "RARE RABBIT"
+  },
+  {
+    "name": "ANDAMEN Clearance",
+    "slug": "brand:ANDAMEN",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "ANDAMEN"
+  },
+  {
+    "name": "WROGN Clearance",
+    "slug": "brand:WROGN",
+    "dept": "MEN",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "WROGN"
+  },
+  {
+    "name": "Forever New Clearance",
+    "slug": "brand:Forever New",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Forever New"
+  },
+  {
+    "name": "Giva Clearance",
+    "slug": "brand:Giva",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Giva"
+  },
+  {
+    "name": "Fossil Clearance",
+    "slug": "brand:Fossil",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Fossil"
+  },
+  {
+    "name": "Timex Clearance",
+    "slug": "brand:Timex",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Timex"
+  },
+  {
+    "name": "Fastrack Clearance",
+    "slug": "brand:Fastrack",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Fastrack"
+  },
+  {
+    "name": "Crocs Clearance",
+    "slug": "brand:Crocs",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Crocs"
+  },
+  {
+    "name": "Decathlon Clearance",
+    "slug": "brand:Decathlon",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Decathlon"
+  },
+  {
+    "name": "Under Armour Clearance",
+    "slug": "brand:Under Armour",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Under Armour"
+  },
+  {
+    "name": "Cellecor Clearance",
+    "slug": "brand:Cellecor",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Cellecor"
+  },
+  {
+    "name": "Hammer Clearance",
+    "slug": "brand:Hammer",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Hammer"
+  },
+  {
+    "name": "Noise Clearance",
+    "slug": "brand:Noise",
+    "dept": "MULTI-CATEGORY",
+    "group": "BRAND STORES",
+    "facet_type": "brand",
+    "facet_value": "Noise"
   }
 ]
