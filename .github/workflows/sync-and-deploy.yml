@@ -28,14 +28,19 @@ jobs:
           pip install -r backend/requirements.txt
 
       - name: Run Live Validation & Category Sweeps
+        env:
+          PYTHONPATH: backend
         run: |
           cd backend
           python -c "
+          import sys; sys.path.insert(0, '.')
           from app.services.sync_daemon import daemon_instance
           daemon_instance.perform_full_sync()
           "
 
       - name: Export Static Bundle to dist/
+        env:
+          PYTHONPATH: backend
         run: |
           cd backend
           python export_cloudflare.py

@@ -3,6 +3,7 @@ import sqlite3
 import json
 import time
 import logging
+from typing import List, Dict, Any, Optional, Tuple
 try:
     from app.models.schemas import VerifiedCampaign, VerifiedProductDeal, SyncHistoryItem
 except ImportError:
