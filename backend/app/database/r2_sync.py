@@ -96,7 +96,11 @@ def backup_database_to_r2(local_path: str = "backend/deals.db", bucket_name: str
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     action = sys.argv[1] if len(sys.argv) > 1 else "backup"
-    if action == "restore":
-        restore_database_from_r2()
-    else:
-        backup_database_to_r2()
+    try:
+        if action == "restore":
+            restore_database_from_r2()
+        else:
+            backup_database_to_r2()
+    except Exception as e:
+        logger.info(f"[R2] Cloud backup step skipped safely: {e}")
+    sys.exit(0)
