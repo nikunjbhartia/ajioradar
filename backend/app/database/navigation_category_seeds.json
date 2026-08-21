@@ -1,0 +1,3488 @@
+[
+  {
+    "name": "CLOTHING",
+    "slug": "clothing-4461-74581",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/clothing-4461-74581"
+  },
+  {
+    "name": "FOOTWEAR",
+    "slug": "footwear-4792-56591",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-4792-56591"
+  },
+  {
+    "name": "ACCESSORIES",
+    "slug": "accessories-4792-56591",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-4792-56591"
+  },
+  {
+    "name": "ALL THATS NEW",
+    "slug": "latest-collections-4461-74581",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/latest-collections-4461-74581"
+  },
+  {
+    "name": "Clothing",
+    "slug": "clothing-4461-74582",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/clothing-4461-74582"
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear-4461-74581",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-4461-74581"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-4461-74581",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-4461-74581"
+  },
+  {
+    "name": "Plus Size",
+    "slug": "plus-size-5061-69371",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/plus-size-5061-69371"
+  },
+  {
+    "name": "GROOMING",
+    "slug": "grooming-4384-57431",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/grooming-4384-57431"
+  },
+  {
+    "name": "Winterwear",
+    "slug": "winterwear-167732",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "url": "/s/winterwear-167732"
+  },
+  {
+    "name": "Blazers & Waistcoats",
+    "slug": "blazersandwaistcoats-167733",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "url": "/s/blazersandwaistcoats-167733"
+  },
+  {
+    "name": "Jackets & Coats",
+    "slug": "jacketsandcoats-167734",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "url": "/s/jacketsandcoats-167734"
+  },
+  {
+    "name": "Sweaters & Cardigans",
+    "slug": "sweatersandcardigans-167735",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatersandcardigans-167735"
+  },
+  {
+    "name": "Sweatshirts & Hoodie",
+    "slug": "sweatshirtsandhoodie-167736",
+    "dept": "MEN",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatshirtsandhoodie-167736"
+  },
+  {
+    "name": "Suit Sets",
+    "slug": "suitsets-167835",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/suitsets-167835"
+  },
+  {
+    "name": "Tracksuits",
+    "slug": "tracksuits-167836",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/tracksuits-167836"
+  },
+  {
+    "name": "Boots",
+    "slug": "boots-182267",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/boots-182267"
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals-5149-55061",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/sandals-5149-55061"
+  },
+  {
+    "name": "Ethnic Wear",
+    "slug": "ethnicwear-167752",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/ethnicwear-167752"
+  },
+  {
+    "name": "Ethnic Jackets",
+    "slug": "ethnicjackets-167753",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/ethnicjackets-167753"
+  },
+  {
+    "name": "Ethnic Suit Sets",
+    "slug": "ethnicsuitsets-167754",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/ethnicsuitsets-167754"
+  },
+  {
+    "name": "Kurtas",
+    "slug": "kurtas-167755",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/kurtas-167755"
+  },
+  {
+    "name": "Pyjamas & Churidars",
+    "slug": "pyjamasandchuridars-167756",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/pyjamasandchuridars-167756"
+  },
+  {
+    "name": "Sherwani Sets",
+    "slug": "sherwanisets-167757",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/sherwanisets-167757"
+  },
+  {
+    "name": "Stoles",
+    "slug": "stoles-167758",
+    "dept": "MEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/stoles-167758"
+  },
+  {
+    "name": "Accessories",
+    "slug": "men-accessories-brands",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/men-accessories-brands"
+  },
+  {
+    "name": "Luggage & Trolley Bags",
+    "slug": "luggage-and-trolleys-4875-38751",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/luggage-and-trolleys-4875-38751"
+  },
+  {
+    "name": "Perfumes & Colognes",
+    "slug": "perfumesandcolognes-168013",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/perfumesandcolognes-168013"
+  },
+  {
+    "name": "Sunglasses",
+    "slug": "mhp-sunglasses-and-frames-4119-33682",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/mhp-sunglasses-and-frames-4119-33682"
+  },
+  {
+    "name": "Wallets",
+    "slug": "wallets-167874",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/wallets-167874"
+  },
+  {
+    "name": "Watches",
+    "slug": "men-watches-3991-40341",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/men-watches-3991-40341"
+  },
+  {
+    "name": "Boxers",
+    "slug": "boxers-167760",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "url": "/s/boxers-167760"
+  },
+  {
+    "name": "Briefs",
+    "slug": "briefs-167761",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "url": "/s/briefs-167761"
+  },
+  {
+    "name": "Pyjamas",
+    "slug": "pyjamas-167762",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "url": "/s/pyjamas-167762"
+  },
+  {
+    "name": "Thermal Wear",
+    "slug": "thermalwear-167763",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "url": "/s/thermalwear-167763"
+  },
+  {
+    "name": "Trunks",
+    "slug": "trunks-167764",
+    "dept": "MEN",
+    "group": "INNERWEAR",
+    "url": "/s/trunks-167764"
+  },
+  {
+    "name": "Jewellery",
+    "slug": "jewellery-176606",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/jewellery-176606"
+  },
+  {
+    "name": "Bracelets & Kadas",
+    "slug": "braceletsandkadas-167766",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/braceletsandkadas-167766"
+  },
+  {
+    "name": "Chains",
+    "slug": "chains-167767",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/chains-167767"
+  },
+  {
+    "name": "Cufflinks & Tiepins",
+    "slug": "cufflinksandtiepins-167768",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/cufflinksandtiepins-167768"
+  },
+  {
+    "name": "Earrings",
+    "slug": "earrings-167769",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/earrings-167769"
+  },
+  {
+    "name": "Rings",
+    "slug": "rings-167770",
+    "dept": "MEN",
+    "group": "JEWELLERY",
+    "url": "/s/rings-167770"
+  },
+  {
+    "name": "Gadgets",
+    "slug": "gadgets-167771",
+    "dept": "MEN",
+    "group": "GADGETS",
+    "url": "/s/gadgets-167771"
+  },
+  {
+    "name": "Smart Wearables",
+    "slug": "smartwearables-167772",
+    "dept": "MEN",
+    "group": "GADGETS",
+    "url": "/s/smartwearables-167772"
+  },
+  {
+    "name": "Fitness Gadgets",
+    "slug": "fitnessgadgets-167773",
+    "dept": "MEN",
+    "group": "GADGETS",
+    "url": "/s/fitnessgadgets-167773"
+  },
+  {
+    "name": "Headphones",
+    "slug": "headphones-167774",
+    "dept": "MEN",
+    "group": "GADGETS",
+    "url": "/s/headphones-167774"
+  },
+  {
+    "name": "Speakers",
+    "slug": "speakers-167775",
+    "dept": "MEN",
+    "group": "GADGETS",
+    "url": "/s/speakers-167775"
+  },
+  {
+    "name": "ARMANI EXCHANGE",
+    "slug": "armaniexchange-167737",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/armaniexchange-167737"
+  },
+  {
+    "name": "BROOKS BROTHERS",
+    "slug": "brooksbrothers-167738",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/brooksbrothers-167738"
+  },
+  {
+    "name": "CONVERSE",
+    "slug": "converse-167739",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/converse-167739"
+  },
+  {
+    "name": "GANT",
+    "slug": "gant-167740",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/gant-167740"
+  },
+  {
+    "name": "GAP",
+    "slug": "gap-167741",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/gap-167741"
+  },
+  {
+    "name": "GAS",
+    "slug": "gas-167742",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/gas-167742"
+  },
+  {
+    "name": "LA MARTINA",
+    "slug": "lamartina-167743",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/lamartina-167743"
+  },
+  {
+    "name": "STEVE MADDEN",
+    "slug": "stevemadden-167744",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/stevemadden-167744"
+  },
+  {
+    "name": "SUPERDRY",
+    "slug": "superdry-167745",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/superdry-167745"
+  },
+  {
+    "name": "TOMMY HILFIGER",
+    "slug": "tommyhilfiger-167746",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/tommyhilfiger-167746"
+  },
+  {
+    "name": "Innerwear & Loungewear",
+    "slug": "innerwearandloungewear-167802",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/innerwearandloungewear-167802"
+  },
+  {
+    "name": "JOCKEY",
+    "slug": "jockey-167803",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/jockey-167803"
+  },
+  {
+    "name": "LEVIS",
+    "slug": "levis-167804",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/levis-167804"
+  },
+  {
+    "name": "GAP",
+    "slug": "gap-167806",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/gap-167806"
+  },
+  {
+    "name": "U.S. POLO ASSN.",
+    "slug": "uspoloassn-167807",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/uspoloassn-167807"
+  },
+  {
+    "name": "ALLEN SOLLY",
+    "slug": "allen-solly-5061-69371",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/allen-solly-5061-69371"
+  },
+  {
+    "name": "ARROW",
+    "slug": "arrow-167882",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/arrow-167882"
+  },
+  {
+    "name": "EYEBOGLER",
+    "slug": "eyebogler-167883",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/eyebogler-167883"
+  },
+  {
+    "name": "FORT COLLINS",
+    "slug": "fortcollins-167884",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/fortcollins-167884"
+  },
+  {
+    "name": "LEE COOPER",
+    "slug": "leecooper-167809",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/leecooper-167809"
+  },
+  {
+    "name": "LEVIS",
+    "slug": "levis-167941",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/levis-167941"
+  },
+  {
+    "name": "LOUIS PHILIPPE",
+    "slug": "louisphilippe-167811",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/louisphilippe-167811"
+  },
+  {
+    "name": "PERFORMAX",
+    "slug": "performax-167812",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/performax-167812"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-167813",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/puma-167813"
+  },
+  {
+    "name": "RARE RABBIT",
+    "slug": "rarerabbit-167814",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/rarerabbit-167814"
+  },
+  {
+    "name": "SNITCH",
+    "slug": "snitch-167815",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/snitch-167815"
+  },
+  {
+    "name": "SPYKAR",
+    "slug": "spykar-167816",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/spykar-167816"
+  },
+  {
+    "name": "THE BEAR HOUSE",
+    "slug": "thebearhouse-167817",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/thebearhouse-167817"
+  },
+  {
+    "name": "THE INDIAN GARAGE CO",
+    "slug": "theindiangarageco-167818",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/theindiangarageco-167818"
+  },
+  {
+    "name": "U.S. POLO ASSN.",
+    "slug": "uspoloassn-167819",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/uspoloassn-167819"
+  },
+  {
+    "name": "VAN HEUSEN",
+    "slug": "vanheusen-167820",
+    "dept": "MEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/vanheusen-167820"
+  },
+  {
+    "name": "Exclusive Brands",
+    "slug": "exclusive-brands-5155-65971",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/exclusive-brands-5155-65971"
+  },
+  {
+    "name": "ASOS",
+    "slug": "asos-5561-61451",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "https://asos.ajio.com/s/asos-5561-61451"
+  },
+  {
+    "name": "BUDA JEANS CO",
+    "slug": "buda-jeans-co-5062-62431",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/buda-jeans-co-5062-62431"
+  },
+  {
+    "name": "DNMX",
+    "slug": "men-dnmx-brand",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/men-dnmx-brand"
+  },
+  {
+    "name": "JOHN PLAYERS",
+    "slug": "john-players-4042-45201",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/john-players-4042-45201"
+  },
+  {
+    "name": "LEE COOPER",
+    "slug": "lee-cooper-4697-78681",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/lee-cooper-4697-78681"
+  },
+  {
+    "name": "NEONOMAD",
+    "slug": "neonomad-167747",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/neonomad-167747"
+  },
+  {
+    "name": "NETPLAY",
+    "slug": "netplay-4042-45201",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/netplay-4042-45201"
+  },
+  {
+    "name": "SHEIN",
+    "slug": "shein-167748",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/shein-167748"
+  },
+  {
+    "name": "TEAMSPIRIT",
+    "slug": "men-teamspirit-brand",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/men-teamspirit-brand"
+  },
+  {
+    "name": "INDIE PICKS",
+    "slug": "indiepicks-204131",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/indiepicks-204131"
+  },
+  {
+    "name": "Ethnicwear",
+    "slug": "ethnicwear-167821",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/ethnicwear-167821"
+  },
+  {
+    "name": "FABINDIA",
+    "slug": "fabindia-167822",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/fabindia-167822"
+  },
+  {
+    "name": "JOMPERS",
+    "slug": "jompers-167823",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/jompers-167823"
+  },
+  {
+    "name": "KISAH",
+    "slug": "kisah-167824",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/kisah-167824"
+  },
+  {
+    "name": "MANYAVAR",
+    "slug": "manyavar-167825",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/manyavar-167825"
+  },
+  {
+    "name": "SAMAV",
+    "slug": "samav-167826",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/samav-167826"
+  },
+  {
+    "name": "SOJANYA",
+    "slug": "sojanya-167827",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/sojanya-167827"
+  },
+  {
+    "name": "VASTRAMAY",
+    "slug": "vastramay-167828",
+    "dept": "MEN",
+    "group": "GENERAL",
+    "url": "/s/vastramay-167828"
+  },
+  {
+    "name": "ADIDAS",
+    "slug": "adidas-4042-45201",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/adidas-4042-45201"
+  },
+  {
+    "name": "ASICS",
+    "slug": "asics-167786",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/asics-167786"
+  },
+  {
+    "name": "CLARKS",
+    "slug": "clarks-167787",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/clarks-167787"
+  },
+  {
+    "name": "CROCS",
+    "slug": "crocs-167788",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/crocs-167788"
+  },
+  {
+    "name": "NEW BALANCE",
+    "slug": "newbalance-167789",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/newbalance-167789"
+  },
+  {
+    "name": "NIKE",
+    "slug": "nike-167790",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/nike-167790"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-167791",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/puma-167791"
+  },
+  {
+    "name": "RED TAPE",
+    "slug": "redtape-167792",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/redtape-167792"
+  },
+  {
+    "name": "SKECHERS",
+    "slug": "skechers-167793",
+    "dept": "MEN",
+    "group": "FOOTWEAR",
+    "url": "/s/skechers-167793"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-167794",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-167794"
+  },
+  {
+    "name": "CASIO",
+    "slug": "casio-167795",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/casio-167795"
+  },
+  {
+    "name": "ARMANI EXCHANGE",
+    "slug": "armaniexchange-167796",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/armaniexchange-167796"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-167797",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/puma-167797"
+  },
+  {
+    "name": "TITAN",
+    "slug": "titan-167798",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/titan-167798"
+  },
+  {
+    "name": "TOMMY HILFIGER",
+    "slug": "tommyhilfiger-167799",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/tommyhilfiger-167799"
+  },
+  {
+    "name": "GUESS",
+    "slug": "guess-167800",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/guess-167800"
+  },
+  {
+    "name": "FOSSIL",
+    "slug": "fossil-167801",
+    "dept": "MEN",
+    "group": "ACCESSORIES",
+    "url": "/s/fossil-167801"
+  },
+  {
+    "name": "CLOTHING",
+    "slug": "clothing-4461-75481",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/clothing-4461-75481"
+  },
+  {
+    "name": "FOOTWEAR",
+    "slug": "footwear-4792-56592",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-4792-56592"
+  },
+  {
+    "name": "ACCESSORIES",
+    "slug": "accessories-4792-56592",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-4792-56592"
+  },
+  {
+    "name": "ALL THATS NEW",
+    "slug": "allthatsnew-168270",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/allthatsnew-168270"
+  },
+  {
+    "name": "Clothing",
+    "slug": "clothing-168271",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/clothing-168271"
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear-168272",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-168272"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-168273",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-168273"
+  },
+  {
+    "name": "CURVE SIZE",
+    "slug": "curve-size-5061-69371",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/curve-size-5061-69371"
+  },
+  {
+    "name": "BEAUTY",
+    "slug": "beauty-4384-57431",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/beauty-4384-57431"
+  },
+  {
+    "name": "ATHLEISURE",
+    "slug": "athleisure-3683-44441",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/athleisure-3683-44441"
+  },
+  {
+    "name": "WINTERWEAR",
+    "slug": "winterwear-168274",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "url": "/s/winterwear-168274"
+  },
+  {
+    "name": "Blazers & Waistcoats",
+    "slug": "blazersandwaistcoats-168275",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "url": "/s/blazersandwaistcoats-168275"
+  },
+  {
+    "name": "Jackets & Coats",
+    "slug": "jacketsandcoats-168276",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "url": "/s/jacketsandcoats-168276"
+  },
+  {
+    "name": "Sweaters & Cardigans",
+    "slug": "sweatersandcardigans-168277",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatersandcardigans-168277"
+  },
+  {
+    "name": "Sweatshirts &Hoodies",
+    "slug": "sweatshirtsandhoodies-168278",
+    "dept": "WOMEN",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatshirtsandhoodies-168278"
+  },
+  {
+    "name": "FOOTWEAR",
+    "slug": "footwear-168299",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-168299"
+  },
+  {
+    "name": "Boots",
+    "slug": "boots-182266",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/boots-182266"
+  },
+  {
+    "name": "Casual Shoes",
+    "slug": "casualshoes-168301",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/casualshoes-168301"
+  },
+  {
+    "name": "Flip Flops & Slipper",
+    "slug": "flipflopsandslipper-168302",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/flipflopsandslipper-168302"
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals-168303",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/sandals-168303"
+  },
+  {
+    "name": "Sneakers",
+    "slug": "sneakers-168304",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/sneakers-168304"
+  },
+  {
+    "name": "Sports Shoes",
+    "slug": "sportsshoes-168305",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/sportsshoes-168305"
+  },
+  {
+    "name": "Gadgets",
+    "slug": "gadgets-168328",
+    "dept": "WOMEN",
+    "group": "GADGETS",
+    "url": "/s/gadgets-168328"
+  },
+  {
+    "name": "Smart Wearables",
+    "slug": "smartwearables-168329",
+    "dept": "WOMEN",
+    "group": "GADGETS",
+    "url": "/s/smartwearables-168329"
+  },
+  {
+    "name": "Fitness Gadgets",
+    "slug": "fitnessgadgets-168330",
+    "dept": "WOMEN",
+    "group": "GADGETS",
+    "url": "/s/fitnessgadgets-168330"
+  },
+  {
+    "name": "Headphones",
+    "slug": "headphones-168331",
+    "dept": "WOMEN",
+    "group": "GADGETS",
+    "url": "/s/headphones-168331"
+  },
+  {
+    "name": "Speakers",
+    "slug": "speakers-168332",
+    "dept": "WOMEN",
+    "group": "GADGETS",
+    "url": "/s/speakers-168332"
+  },
+  {
+    "name": "JEWELLERY",
+    "slug": "jewellery-168323",
+    "dept": "WOMEN",
+    "group": "JEWELLERY",
+    "url": "/s/jewellery-168323"
+  },
+  {
+    "name": "Gold and Silver Idols & Coins",
+    "slug": "goldandsilveridolsandcoins-168324",
+    "dept": "WOMEN",
+    "group": "JEWELLERY",
+    "url": "/s/goldandsilveridolsandcoins-168324"
+  },
+  {
+    "name": "Gold and Diamond Jewellery",
+    "slug": "goldanddiamondjewellery-168325",
+    "dept": "WOMEN",
+    "group": "JEWELLERY",
+    "url": "/s/goldanddiamondjewellery-168325"
+  },
+  {
+    "name": "Silver Jewellery",
+    "slug": "silverjewellery-168326",
+    "dept": "WOMEN",
+    "group": "JEWELLERY",
+    "url": "/s/silverjewellery-168326"
+  },
+  {
+    "name": "Fashion Jewellery",
+    "slug": "fashionjewellery-168327",
+    "dept": "WOMEN",
+    "group": "JEWELLERY",
+    "url": "/s/fashionjewellery-168327"
+  },
+  {
+    "name": "WESTERN WEAR",
+    "slug": "westernwear-168279",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/westernwear-168279"
+  },
+  {
+    "name": "Jeans & Jeggings",
+    "slug": "jeansandjeggings-168281",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/jeansandjeggings-168281"
+  },
+  {
+    "name": "Tops",
+    "slug": "tops-168282",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/tops-168282"
+  },
+  {
+    "name": "Trousers & Pants",
+    "slug": "trousersandpants-168283",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/trousersandpants-168283"
+  },
+  {
+    "name": "Tshirts",
+    "slug": "tshirts-168284",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/tshirts-168284"
+  },
+  {
+    "name": "Track Pants",
+    "slug": "trackpants-168285",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/trackpants-168285"
+  },
+  {
+    "name": "Shirts",
+    "slug": "shirts-168286",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/shirts-168286"
+  },
+  {
+    "name": "Leggings",
+    "slug": "leggings-168287",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/leggings-168287"
+  },
+  {
+    "name": "Co-ord Sets",
+    "slug": "co-ordsets-168288",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/co-ordsets-168288"
+  },
+  {
+    "name": "ETHNIC WEAR",
+    "slug": "ethnicwear-168289",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/ethnicwear-168289"
+  },
+  {
+    "name": "Co-ord Sets",
+    "slug": "co-ordsets-168290",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/co-ordsets-168290"
+  },
+  {
+    "name": "Dresses & Gowns",
+    "slug": "dressesandgowns-168291",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/dressesandgowns-168291"
+  },
+  {
+    "name": "Kurta Suit Sets",
+    "slug": "kurtasuitsets-168292",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/kurtasuitsets-168292"
+  },
+  {
+    "name": "Kurta-Bottom Set",
+    "slug": "kurta-bottomset-168293",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/kurta-bottomset-168293"
+  },
+  {
+    "name": "Kurtas",
+    "slug": "kurtas-168294",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/kurtas-168294"
+  },
+  {
+    "name": "Kurtis & Tunics",
+    "slug": "kurtisandtunics-168295",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/kurtisandtunics-168295"
+  },
+  {
+    "name": "Lehenga Choli Sets",
+    "slug": "lehengacholisets-168296",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/lehengacholisets-168296"
+  },
+  {
+    "name": "Salwars & Churidars",
+    "slug": "salwarsandchuridars-168297",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/salwarsandchuridars-168297"
+  },
+  {
+    "name": "Sarees",
+    "slug": "sarees-168298",
+    "dept": "WOMEN",
+    "group": "ETHNIC WEAR",
+    "url": "/s/sarees-168298"
+  },
+  {
+    "name": "ACCESSORIES",
+    "slug": "accessories-168306",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-168306"
+  },
+  {
+    "name": "Backpacks",
+    "slug": "backpacks-168307",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/backpacks-168307"
+  },
+  {
+    "name": "Belts",
+    "slug": "belts-168308",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/belts-168308"
+  },
+  {
+    "name": "Caps & Hats",
+    "slug": "capsandhats-168309",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/capsandhats-168309"
+  },
+  {
+    "name": "Clutches & Wristlets",
+    "slug": "clutchesandwristlets-168310",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/clutchesandwristlets-168310"
+  },
+  {
+    "name": "Handbags",
+    "slug": "handbags-168311",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/handbags-168311"
+  },
+  {
+    "name": "Shawls & Wraps",
+    "slug": "shawlsandwraps-168312",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/shawlsandwraps-168312"
+  },
+  {
+    "name": "Socks & Stockings",
+    "slug": "socksandstockings-168395",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/socksandstockings-168395"
+  },
+  {
+    "name": "Stoles & Scarves",
+    "slug": "stolesandscarves-168396",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/stolesandscarves-168396"
+  },
+  {
+    "name": "Sunglasses",
+    "slug": "sunglasses-168313",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/sunglasses-168313"
+  },
+  {
+    "name": "Wallets",
+    "slug": "wallets-168314",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/wallets-168314"
+  },
+  {
+    "name": "Watches",
+    "slug": "watches-168315",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/watches-168315"
+  },
+  {
+    "name": "LINGERIE & INNERWEAR",
+    "slug": "innerwearandloungewear-168397",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/innerwearandloungewear-168397"
+  },
+  {
+    "name": "Bras",
+    "slug": "bras-168316",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/bras-168316"
+  },
+  {
+    "name": "Night & Lounge Wear Sets",
+    "slug": "nightandloungewearsets-168317",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/nightandloungewearsets-168317"
+  },
+  {
+    "name": "Night shirts & Nighties",
+    "slug": "nightshirtsandnighties-168318",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/nightshirtsandnighties-168318"
+  },
+  {
+    "name": "Panties",
+    "slug": "panties-168319",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/panties-168319"
+  },
+  {
+    "name": "Pyjamas & Shorts",
+    "slug": "pyjamasandshorts-168320",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/pyjamasandshorts-168320"
+  },
+  {
+    "name": "Shapewear",
+    "slug": "shapewear-168321",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/shapewear-168321"
+  },
+  {
+    "name": "Thermal Wear",
+    "slug": "thermalwear-168322",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/thermalwear-168322"
+  },
+  {
+    "name": "ALDO",
+    "slug": "aldo-5061-69371",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/aldo-5061-69371"
+  },
+  {
+    "name": "ARMANI EXCHANGE",
+    "slug": "armani-exchange-4042-53541",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/armani-exchange-4042-53541"
+  },
+  {
+    "name": "CLARKS",
+    "slug": "clarks-5061-69372",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/clarks-5061-69372"
+  },
+  {
+    "name": "FOREVER NEW",
+    "slug": "forevernew-168398",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/forevernew-168398"
+  },
+  {
+    "name": "GAP",
+    "slug": "gap-168399",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/gap-168399"
+  },
+  {
+    "name": "GUESS",
+    "slug": "guess-168333",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/guess-168333"
+  },
+  {
+    "name": "MARKS & SPENCER",
+    "slug": "marksandspencer-168401",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/marksandspencer-168401"
+  },
+  {
+    "name": "STEVE MADDEN",
+    "slug": "stevemadden-168336",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/stevemadden-168336"
+  },
+  {
+    "name": "SUPERDRY",
+    "slug": "superdry-168337",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/superdry-168337"
+  },
+  {
+    "name": "TOMMY HILFIGER",
+    "slug": "tommyhilfiger-168338",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/tommyhilfiger-168338"
+  },
+  {
+    "name": "FOOTWEAR",
+    "slug": "footwear-168404",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-168404"
+  },
+  {
+    "name": "ADIDAS",
+    "slug": "adidas-168405",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/adidas-168405"
+  },
+  {
+    "name": "ALDO",
+    "slug": "aldo-168406",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/aldo-168406"
+  },
+  {
+    "name": "BATA",
+    "slug": "bata-168343",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/bata-168343"
+  },
+  {
+    "name": "CATWALK",
+    "slug": "catwalk-168344",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/catwalk-168344"
+  },
+  {
+    "name": "NIKE",
+    "slug": "nike-168345",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/nike-168345"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-168346",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/puma-168346"
+  },
+  {
+    "name": "RED TAPE",
+    "slug": "redtape-168347",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/redtape-168347"
+  },
+  {
+    "name": "SHOETOPIA",
+    "slug": "shoetopia-168348",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/shoetopia-168348"
+  },
+  {
+    "name": "SKECHERS",
+    "slug": "skechers-168349",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/skechers-168349"
+  },
+  {
+    "name": "STEVE MADDEN",
+    "slug": "stevemadden-168350",
+    "dept": "WOMEN",
+    "group": "FOOTWEAR",
+    "url": "/s/stevemadden-168350"
+  },
+  {
+    "name": "LINGERIE & INNERWEAR",
+    "slug": "innerwear&loungewear-168361",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/innerwear&loungewear-168361"
+  },
+  {
+    "name": "AMANTE",
+    "slug": "amante-168403",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/amante-168403"
+  },
+  {
+    "name": "CLOVIA",
+    "slug": "clovia-168362",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/clovia-168362"
+  },
+  {
+    "name": "HUNKEMOLLER",
+    "slug": "hunkemoller-168363",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/hunkemoller-168363"
+  },
+  {
+    "name": "JOCKEY",
+    "slug": "jockey-168364",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/jockey-168364"
+  },
+  {
+    "name": "MARKS & SPENCER",
+    "slug": "marksandspencer-168402",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/marksandspencer-168402"
+  },
+  {
+    "name": "ZIVAME",
+    "slug": "zivame-168366",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/zivame-168366"
+  },
+  {
+    "name": "EXCLUSIVE BRANDS",
+    "slug": "exclusive-brands",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/exclusive-brands"
+  },
+  {
+    "name": "ACAI",
+    "slug": "acai-5061-69371",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/acai-5061-69371"
+  },
+  {
+    "name": "ASOS DESIGN",
+    "slug": "asos-5561-61453",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "https://asos.ajio.com/s/asos-5561-61453"
+  },
+  {
+    "name": "BUDA JEANS CO",
+    "slug": "buda-jeans-5061-69371",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/buda-jeans-5061-69371"
+  },
+  {
+    "name": "FYRE ROSE",
+    "slug": "fyre-rose-5061-69371",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/fyre-rose-5061-69371"
+  },
+  {
+    "name": "SHEIN",
+    "slug": "shein-168339",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/shein-168339"
+  },
+  {
+    "name": "SVARAA",
+    "slug": "svaraa-168340",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/svaraa-168340"
+  },
+  {
+    "name": "TANUKA",
+    "slug": "tanuka-168341",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/tanuka-168341"
+  },
+  {
+    "name": "YOUSTA",
+    "slug": "yousta-168342",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/yousta-168342"
+  },
+  {
+    "name": "WESTERN WEAR",
+    "slug": "westernwear-168424",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/westernwear-168424"
+  },
+  {
+    "name": "DNMX",
+    "slug": "dnmx-168423",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/dnmx-168423"
+  },
+  {
+    "name": "FIG",
+    "slug": "fig-168367",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/fig-168367"
+  },
+  {
+    "name": "FORT COLLINS",
+    "slug": "fortcollins-168368",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/fortcollins-168368"
+  },
+  {
+    "name": "KOTTY",
+    "slug": "kotty-168369",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/kotty-168369"
+  },
+  {
+    "name": "LEE COOPER",
+    "slug": "leecooper-168370",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/leecooper-168370"
+  },
+  {
+    "name": "LEIA",
+    "slug": "leia-168371",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/leia-168371"
+  },
+  {
+    "name": "LEVIS",
+    "slug": "levis-168372",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/levis-168372"
+  },
+  {
+    "name": "MAX",
+    "slug": "max-168373",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/max-168373"
+  },
+  {
+    "name": "NIKE",
+    "slug": "nike-168374",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/nike-168374"
+  },
+  {
+    "name": "ONLY",
+    "slug": "only-168375",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/only-168375"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-168376",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/puma-168376"
+  },
+  {
+    "name": "RIO",
+    "slug": "rio-168377",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/rio-168377"
+  },
+  {
+    "name": "TEAMSPIRIT",
+    "slug": "teamspirit-168378",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/teamspirit-168378"
+  },
+  {
+    "name": "U.S. POLO ASSN.",
+    "slug": "uspoloassn-168379",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/uspoloassn-168379"
+  },
+  {
+    "name": "VERO MODA",
+    "slug": "veromoda-168380",
+    "dept": "WOMEN",
+    "group": "WESTERN WEAR",
+    "url": "/s/veromoda-168380"
+  },
+  {
+    "name": "ETHNICWEAR",
+    "slug": "ethnicwear-168381",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/ethnicwear-168381"
+  },
+  {
+    "name": "ANNI DESIGNER",
+    "slug": "annidesigner-168382",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/annidesigner-168382"
+  },
+  {
+    "name": "AVAASA MIX N MATCH",
+    "slug": "avaasamixnmatch-168383",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/avaasamixnmatch-168383"
+  },
+  {
+    "name": "AVAASA SET",
+    "slug": "avaasaset-168384",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/avaasaset-168384"
+  },
+  {
+    "name": "BIBA",
+    "slug": "biba-168385",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/biba-168385"
+  },
+  {
+    "name": "FABNEX",
+    "slug": "fabnex-168386",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/fabnex-168386"
+  },
+  {
+    "name": "FUSION",
+    "slug": "fusion-168387",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/fusion-168387"
+  },
+  {
+    "name": "GOSRIKI",
+    "slug": "gosriki-168388",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/gosriki-168388"
+  },
+  {
+    "name": "GULMOHAR JAIPUR",
+    "slug": "gulmoharjaipur-168389",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/gulmoharjaipur-168389"
+  },
+  {
+    "name": "KIANA HOUSE OF FASHION",
+    "slug": "kianahouseoffashion-168390",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/kianahouseoffashion-168390"
+  },
+  {
+    "name": "KVS FAB",
+    "slug": "kvsfab-168391",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/kvsfab-168391"
+  },
+  {
+    "name": "SOCH",
+    "slug": "soch-168392",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/soch-168392"
+  },
+  {
+    "name": "W",
+    "slug": "w-168393",
+    "dept": "WOMEN",
+    "group": "GENERAL",
+    "url": "/s/w-168393"
+  },
+  {
+    "name": "ACCESSORIES",
+    "slug": "accessories-168351",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-168351"
+  },
+  {
+    "name": "ALDO",
+    "slug": "aldo-168352",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/aldo-168352"
+  },
+  {
+    "name": "ARMANI EXCHANGE",
+    "slug": "armaniexchange-168353",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/armaniexchange-168353"
+  },
+  {
+    "name": "FIG",
+    "slug": "fig-168354",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/fig-168354"
+  },
+  {
+    "name": "FOSSIL",
+    "slug": "fossil-168355",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/fossil-168355"
+  },
+  {
+    "name": "GUESS",
+    "slug": "guess-168356",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/guess-168356"
+  },
+  {
+    "name": "JUST CAVALLI",
+    "slug": "justcavalli-168357",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/justcavalli-168357"
+  },
+  {
+    "name": "MIRAGGIO",
+    "slug": "miraggio-168358",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/miraggio-168358"
+  },
+  {
+    "name": "PUMA",
+    "slug": "puma-168359",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/puma-168359"
+  },
+  {
+    "name": "STEVE MADDEN",
+    "slug": "stevemadden-168360",
+    "dept": "WOMEN",
+    "group": "ACCESSORIES",
+    "url": "/s/stevemadden-168360"
+  },
+  {
+    "name": "Clothing",
+    "slug": "clothing-169356",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/clothing-169356"
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear-169357",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-169357"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-169358",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-169358"
+  },
+  {
+    "name": "All thats New",
+    "slug": "allthatsnew-169359",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/allthatsnew-169359"
+  },
+  {
+    "name": "Clothing",
+    "slug": "clothing-169360",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/clothing-169360"
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear-169361",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-169361"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-169362",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-169362"
+  },
+  {
+    "name": "Toys",
+    "slug": "toys-169363",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/toys-169363"
+  },
+  {
+    "name": "Shop by Age",
+    "slug": "shop-by-age-3844-11111",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/shop-by-age-3844-11111"
+  },
+  {
+    "name": "0 to 2 Years",
+    "slug": "0-to-2-years-4867-45971",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/0-to-2-years-4867-45971"
+  },
+  {
+    "name": "3 to 5 Years",
+    "slug": "3-5years-169364",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/3-5years-169364"
+  },
+  {
+    "name": "6 to 8 Years",
+    "slug": "6-8years-169365",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/6-8years-169365"
+  },
+  {
+    "name": "9 to 12 Years",
+    "slug": "9-12years-169366",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/9-12years-169366"
+  },
+  {
+    "name": "12 Years and Above",
+    "slug": "12-years-and-above-4867-45971",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/12-years-and-above-4867-45971"
+  },
+  {
+    "name": "Winterwear",
+    "slug": "winterwear-169367",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/winterwear-169367"
+  },
+  {
+    "name": "Jackets & Coats",
+    "slug": "jacketsncoats-169368",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/jacketsncoats-169368"
+  },
+  {
+    "name": "Jackets & Shrugs",
+    "slug": "jacketsnshrugs-169369",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/jacketsnshrugs-169369"
+  },
+  {
+    "name": "Sweaters & Cardigans",
+    "slug": "sweatersncardigans-169370",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatersncardigans-169370"
+  },
+  {
+    "name": "Sweatshirts & Hoodie",
+    "slug": "sweatshirtsnhoodie-169371",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatshirtsnhoodie-169371"
+  },
+  {
+    "name": "Sweatshirts & Jacket",
+    "slug": "sweatshirtsnjacket-169372",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/sweatshirtsnjacket-169372"
+  },
+  {
+    "name": "Boys",
+    "slug": "boys-169373",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/boys-169373"
+  },
+  {
+    "name": "Jeans",
+    "slug": "jeans-169374",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/jeans-169374"
+  },
+  {
+    "name": "Shirts",
+    "slug": "boys-shirts",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/boys-shirts"
+  },
+  {
+    "name": "Shorts & 3/4ths",
+    "slug": "shortsn34ths-169375",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/shortsn34ths-169375"
+  },
+  {
+    "name": "Track Pants",
+    "slug": "trackpants-169376",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/trackpants-169376"
+  },
+  {
+    "name": "Trousers & Pants",
+    "slug": "trousersnpants-169377",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/trousersnpants-169377"
+  },
+  {
+    "name": "Tshirts",
+    "slug": "tshirts-169378",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/tshirts-169378"
+  },
+  {
+    "name": "Girls",
+    "slug": "girls-169379",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/girls-169379"
+  },
+  {
+    "name": "Dresses & Frocks",
+    "slug": "dressesnfrocks-169380",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/dressesnfrocks-169380"
+  },
+  {
+    "name": "Jeans & Jeggings",
+    "slug": "jeansnjeggings-169381",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/jeansnjeggings-169381"
+  },
+  {
+    "name": "Leggings",
+    "slug": "leggings-169382",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/leggings-169382"
+  },
+  {
+    "name": "Tops & Tunics",
+    "slug": "topsntunics-169383",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/topsntunics-169383"
+  },
+  {
+    "name": "Tshirts",
+    "slug": "tshirts-169384",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/tshirts-169384"
+  },
+  {
+    "name": "Infants",
+    "slug": "infants-169385",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/infants-169385"
+  },
+  {
+    "name": "2 Piece-Sets",
+    "slug": "2piece-sets-169386",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/2piece-sets-169386"
+  },
+  {
+    "name": "Dungarees & Playsuit",
+    "slug": "dungareesnplaysuit-169387",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/dungareesnplaysuit-169387"
+  },
+  {
+    "name": "Rompers & Onesies",
+    "slug": "rompersnonesies-169388",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/rompersnonesies-169388"
+  },
+  {
+    "name": "Sets",
+    "slug": "sets-169389",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/sets-169389"
+  },
+  {
+    "name": "Winterwear",
+    "slug": "winterwear-169390",
+    "dept": "KIDS",
+    "group": "WINTERWEAR",
+    "url": "/s/winterwear-169390"
+  },
+  {
+    "name": "Footwear",
+    "slug": "footwear-169391",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/footwear-169391"
+  },
+  {
+    "name": "Shoes",
+    "slug": "shoes-169392",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/shoes-169392"
+  },
+  {
+    "name": "Sneakers",
+    "slug": "sneakers-169393",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/sneakers-169393"
+  },
+  {
+    "name": "Casual Shoes",
+    "slug": "casualshoes-169394",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/casualshoes-169394"
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals-169395",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/sandals-169395"
+  },
+  {
+    "name": "Flip Flops & Slipper",
+    "slug": "flipflopsnslipper-169396",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/flipflopsnslipper-169396"
+  },
+  {
+    "name": "School Shoes",
+    "slug": "schoolshoes-169397",
+    "dept": "KIDS",
+    "group": "FOOTWEAR",
+    "url": "/s/schoolshoes-169397"
+  },
+  {
+    "name": "Accessories",
+    "slug": "accessories-169398",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/accessories-169398"
+  },
+  {
+    "name": "Backpacks",
+    "slug": "backpacks-169399",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/backpacks-169399"
+  },
+  {
+    "name": "Socks & Stockings",
+    "slug": "socksnstockings-169400",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/socksnstockings-169400"
+  },
+  {
+    "name": "Baby Bed & Furniture",
+    "slug": "babybednfurniture-169401",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/babybednfurniture-169401"
+  },
+  {
+    "name": "Creative & Educational",
+    "slug": "creativeneducational-169402",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/creativeneducational-169402"
+  },
+  {
+    "name": "BathGroom & diaper",
+    "slug": "bathgroomndiaper-169403",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/bathgroomndiaper-169403"
+  },
+  {
+    "name": "Sport Games & Equipment",
+    "slug": "sportgamesnequipment-169404",
+    "dept": "KIDS",
+    "group": "ACCESSORIES",
+    "url": "/s/sportgamesnequipment-169404"
+  },
+  {
+    "name": "Featured Brands",
+    "slug": "featured-brands-3844-11111",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/featured-brands-3844-11111"
+  },
+  {
+    "name": "ADIDAS KIDS",
+    "slug": "adidas-kids-5469-47561",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/adidas-kids-5469-47561"
+  },
+  {
+    "name": "BUMZEE",
+    "slug": "bumzee-169405",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/bumzee-169405"
+  },
+  {
+    "name": "GAP KIDS",
+    "slug": "gapkids-169406",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/gapkids-169406"
+  },
+  {
+    "name": "HELLCAT",
+    "slug": "hellcat-169407",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/hellcat-169407"
+  },
+  {
+    "name": "HOPSCOTCH",
+    "slug": "hopscotch-169408",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/hopscotch-169408"
+  },
+  {
+    "name": "KUCHIPOO",
+    "slug": "kuchipoo-169409",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/kuchipoo-169409"
+  },
+  {
+    "name": "MAX",
+    "slug": "max-169410",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/max-169410"
+  },
+  {
+    "name": "POINT COVE",
+    "slug": "pointcove-169411",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/pointcove-169411"
+  },
+  {
+    "name": "PSPEACHES",
+    "slug": "pspeaches-169412",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/pspeaches-169412"
+  },
+  {
+    "name": "TRAMPOLINE",
+    "slug": "trampoline-169413",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/trampoline-169413"
+  },
+  {
+    "name": "U.S. POLO ASSN.",
+    "slug": "uspoloassn-169414",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/uspoloassn-169414"
+  },
+  {
+    "name": "Ajio Exclusives",
+    "slug": "kids-ajio-exclusives",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/kids-ajio-exclusives"
+  },
+  {
+    "name": "INF FRENDZ",
+    "slug": "inffrendz-169415",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/inffrendz-169415"
+  },
+  {
+    "name": "KB TEAM SPIRIT",
+    "slug": "kbteamspirit-169416",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/kbteamspirit-169416"
+  },
+  {
+    "name": "KG FRENDZ",
+    "slug": "kgfrendz-169417",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/kgfrendz-169417"
+  },
+  {
+    "name": "LEE COOPER",
+    "slug": "leecooper-169418",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/leecooper-169418"
+  },
+  {
+    "name": "RIO GIRLS",
+    "slug": "riogirls-169419",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/riogirls-169419"
+  },
+  {
+    "name": "YB DNMX",
+    "slug": "ybdnmx-169420",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/ybdnmx-169420"
+  },
+  {
+    "name": "YOUSTA",
+    "slug": "yousta-169421",
+    "dept": "KIDS",
+    "group": "GENERAL",
+    "url": "/s/yousta-169421"
+  },
+  {
+    "name": "BEAUTY",
+    "slug": "beauty-5269-65820",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/beauty-5269-65820"
+  },
+  {
+    "name": "Trending",
+    "slug": "winter-skin-care-5257-74161",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/winter-skin-care-5257-74161"
+  },
+  {
+    "name": "Whats New",
+    "slug": "whats-new-5267-54231",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/whats-new-5267-54231"
+  },
+  {
+    "name": "Ajio Luxe",
+    "slug": "ajio-luxe-5267-54231",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "https://luxe.ajio.com/s/ajio-luxe-5267-54231"
+  },
+  {
+    "name": "Baby Care",
+    "slug": "baby-care-5267-52631",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/baby-care-5267-52631"
+  },
+  {
+    "name": "Appliances",
+    "slug": "appliances-5267-52631",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/appliances-5267-52631"
+  },
+  {
+    "name": "Skin Care",
+    "slug": "skin-care-essentials-5253-65691",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/skin-care-essentials-5253-65691"
+  },
+  {
+    "name": "Cleanser",
+    "slug": "cleanser-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/cleanser-5260-44721"
+  },
+  {
+    "name": "Moisturisers",
+    "slug": "moisturiser-169634",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/moisturiser-169634"
+  },
+  {
+    "name": "Serum",
+    "slug": "serum-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/serum-5260-44721"
+  },
+  {
+    "name": "Sunscreen",
+    "slug": "sunscreen-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/sunscreen-5260-44721"
+  },
+  {
+    "name": "Masks",
+    "slug": "masks-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/masks-5260-44721"
+  },
+  {
+    "name": "Eye Cream",
+    "slug": "eye-cream-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/eye-cream-5260-44721"
+  },
+  {
+    "name": "Lip Balm",
+    "slug": "lip-balm-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/lip-balm-5260-44721"
+  },
+  {
+    "name": "Face Wash",
+    "slug": "facewash-169605",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/facewash-169605"
+  },
+  {
+    "name": "Makeup",
+    "slug": "make-up-4508-64721",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/make-up-4508-64721"
+  },
+  {
+    "name": "Lipstick",
+    "slug": "lipstick-175677",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/lipstick-175677"
+  },
+  {
+    "name": "Lip Gloss",
+    "slug": "lipgloss-175678",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/lipgloss-175678"
+  },
+  {
+    "name": "Lip Liner",
+    "slug": "lipliner-175679",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/lipliner-175679"
+  },
+  {
+    "name": "Lip Balm",
+    "slug": "lipbalm-175680",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/lipbalm-175680"
+  },
+  {
+    "name": "Nail Care",
+    "slug": "nail-care-5260-44721",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/nail-care-5260-44721"
+  },
+  {
+    "name": "Mascara",
+    "slug": "mascara-175681",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/mascara-175681"
+  },
+  {
+    "name": "Eyeliner & Kajals",
+    "slug": "eyelinerandkajals-175682",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/eyelinerandkajals-175682"
+  },
+  {
+    "name": "Foundation",
+    "slug": "foundation-175683",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/foundation-175683"
+  },
+  {
+    "name": "Concealer",
+    "slug": "concealer-175684",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/concealer-175684"
+  },
+  {
+    "name": "Tools",
+    "slug": "tools-5260-44721",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/tools-5260-44721"
+  },
+  {
+    "name": "Eyeshadow",
+    "slug": "eyeshadow-175685",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/eyeshadow-175685"
+  },
+  {
+    "name": "Primer",
+    "slug": "primer-175686",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/primer-175686"
+  },
+  {
+    "name": "Nail Polish",
+    "slug": "nailpolish-175687",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/nailpolish-175687"
+  },
+  {
+    "name": "Compact",
+    "slug": "compact-175688",
+    "dept": "BEAUTY",
+    "group": "MAKEUP",
+    "url": "/s/compact-175688"
+  },
+  {
+    "name": "Hair Care",
+    "slug": "hair-care-5267-54231",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hair-care-5267-54231"
+  },
+  {
+    "name": "Shampoo",
+    "slug": "shampoo-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/shampoo-5260-44721"
+  },
+  {
+    "name": "Conditioner",
+    "slug": "conditioner-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/conditioner-5260-44721"
+  },
+  {
+    "name": "Hair Oil",
+    "slug": "hair-oil-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hair-oil-5260-44721"
+  },
+  {
+    "name": "Hair Serum",
+    "slug": "hairserum-169609",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hairserum-169609"
+  },
+  {
+    "name": "Hair Styling",
+    "slug": "hair-styling-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hair-styling-5260-44721"
+  },
+  {
+    "name": "Bath & Body",
+    "slug": "bath-and-body-5258-35761",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/bath-and-body-5258-35761"
+  },
+  {
+    "name": "Body Wash",
+    "slug": "body-wash-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/body-wash-5260-44721"
+  },
+  {
+    "name": "Body Scrub",
+    "slug": "body-scrub-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/body-scrub-5260-44721"
+  },
+  {
+    "name": "Body Lotion",
+    "slug": "bodylotion-169610",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/bodylotion-169610"
+  },
+  {
+    "name": "Hand Cream",
+    "slug": "hand-cream-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hand-cream-5260-44721"
+  },
+  {
+    "name": "Fragrances",
+    "slug": "fragrance-5239-53881",
+    "dept": "BEAUTY",
+    "group": "FRAGRANCES",
+    "url": "/s/fragrance-5239-53881"
+  },
+  {
+    "name": "Perfumes",
+    "slug": "perfumes-5260-44721",
+    "dept": "BEAUTY",
+    "group": "FRAGRANCES",
+    "url": "/s/perfumes-5260-44721"
+  },
+  {
+    "name": "Deodrants",
+    "slug": "deodrants-5260-44721",
+    "dept": "BEAUTY",
+    "group": "FRAGRANCES",
+    "url": "/s/deodrants-5260-44721"
+  },
+  {
+    "name": "Spray Mist",
+    "slug": "spray-mist-5260-44721",
+    "dept": "BEAUTY",
+    "group": "FRAGRANCES",
+    "url": "/s/spray-mist-5260-44721"
+  },
+  {
+    "name": "Men Grooming",
+    "slug": "mens-grooming-4508-64721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/mens-grooming-4508-64721"
+  },
+  {
+    "name": "Shaving Essentials",
+    "slug": "shaving-essentials-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/shaving-essentials-5260-44721"
+  },
+  {
+    "name": "Beard Essentials",
+    "slug": "beard-essentials-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/beard-essentials-5260-44721"
+  },
+  {
+    "name": "Hair Wax",
+    "slug": "hair-wax-5260-44721",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/hair-wax-5260-44721"
+  },
+  {
+    "name": "Deodrants",
+    "slug": "deodrants-5260-44722",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/deodrants-5260-44722"
+  },
+  {
+    "name": "Skincare Sets",
+    "slug": "skincaresets-169611",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/skincaresets-169611"
+  },
+  {
+    "name": "Makeup Kits",
+    "slug": "makeupkits-169612",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/makeupkits-169612"
+  },
+  {
+    "name": "Wellness & Hygiene",
+    "slug": "wellnesshygiene-169664",
+    "dept": "BEAUTY",
+    "group": "GENERAL",
+    "url": "/s/wellnesshygiene-169664"
+  },
+  {
+    "name": "BED LINEN",
+    "slug": "bed-linen-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bed-linen-4720-51871"
+  },
+  {
+    "name": "Bedsheets",
+    "slug": "bedsheets-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bedsheets-4720-51871"
+  },
+  {
+    "name": "Bedding Sets",
+    "slug": "bedding-sets-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bedding-sets-4720-51871"
+  },
+  {
+    "name": "Blankets, Dohars & Quilts",
+    "slug": "blankets-dohars-quilts-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/blankets-dohars-quilts-4720-51871"
+  },
+  {
+    "name": "Comforters",
+    "slug": "comforters-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/comforters-4720-51871"
+  },
+  {
+    "name": "Bed Covers",
+    "slug": "bed-covers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bed-covers-4720-51871"
+  },
+  {
+    "name": "Mattress Protectors",
+    "slug": "mattress-protectors-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/mattress-protectors-4720-51871"
+  },
+  {
+    "name": "Quilt & Duvet Covers",
+    "slug": "quilt-and-duvet-covers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/quilt-and-duvet-covers-4720-51871"
+  },
+  {
+    "name": "CUSHIONS & PILLOWS",
+    "slug": "cushions-and-pillows-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/cushions-and-pillows-4720-51871"
+  },
+  {
+    "name": "Cushions",
+    "slug": "cushions-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/cushions-4720-51871"
+  },
+  {
+    "name": "Pillows",
+    "slug": "pillows-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/pillows-4720-51871"
+  },
+  {
+    "name": "Bed Wedges & Neck Pillows",
+    "slug": "bed-wedges-and-neck-pillows-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bed-wedges-and-neck-pillows-4720-51871"
+  },
+  {
+    "name": "Bolsters",
+    "slug": "bolsters-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bolsters-4720-51871"
+  },
+  {
+    "name": "Cushion Covers",
+    "slug": "cushion-covers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/cushion-covers-4720-51871"
+  },
+  {
+    "name": "Pillow Covers",
+    "slug": "pillow-covers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/pillow-covers-4720-51871"
+  },
+  {
+    "name": "RUGS, CARPETS & MATS",
+    "slug": "rugs-carpets-and-mats-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/rugs-carpets-and-mats-4720-51871"
+  },
+  {
+    "name": "CURTAIN & ACCESSORIES",
+    "slug": "curtain-and-accessories-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/curtain-and-accessories-4720-51871"
+  },
+  {
+    "name": "Window Curtains",
+    "slug": "window-curtains-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/window-curtains-4720-51871"
+  },
+  {
+    "name": "Door Curtains",
+    "slug": "door-curtains-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/door-curtains-4720-51871"
+  },
+  {
+    "name": "KITCHEN",
+    "slug": "kitchen-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/kitchen-4720-51871"
+  },
+  {
+    "name": "Cookware & Cutlery",
+    "slug": "cookwareandcutlery-212259",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/cookwareandcutlery-212259"
+  },
+  {
+    "name": "Bakeware",
+    "slug": "bakeware-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bakeware-4720-51871"
+  },
+  {
+    "name": "Kitchen Tools",
+    "slug": "kitchen-tools-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/kitchen-tools-4720-51871"
+  },
+  {
+    "name": "Kitchen Aprons, Gloves & Towel",
+    "slug": "kitchen-aprons-gloves-and-towel-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/kitchen-aprons-gloves-and-towel-4720-51871"
+  },
+  {
+    "name": "Kitchen Organisers",
+    "slug": "kitchen-organisers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/kitchen-organisers-4720-51871"
+  },
+  {
+    "name": "DINING",
+    "slug": "dining-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/dining-4720-51871"
+  },
+  {
+    "name": "Serveware & Drinkware",
+    "slug": "serveware-and-drinkware-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/serveware-and-drinkware-4720-51871"
+  },
+  {
+    "name": "Table Linen Sets",
+    "slug": "table-linen-sets-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/table-linen-sets-4720-51871"
+  },
+  {
+    "name": "Table Covers & Runners",
+    "slug": "table-covers-and-runners-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/table-covers-and-runners-4720-51871"
+  },
+  {
+    "name": "Table Napkins",
+    "slug": "table-napkins-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/table-napkins-4720-51871"
+  },
+  {
+    "name": "Placemats & Coasters",
+    "slug": "placemats-and-coasters-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/placemats-and-coasters-4720-51871"
+  },
+  {
+    "name": "STATIONERY & ORGANISERS",
+    "slug": "stationery-and-organisers-4720-61521",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/stationery-and-organisers-4720-61521"
+  },
+  {
+    "name": "HOME DECOR",
+    "slug": "home-decor-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/home-decor-4720-51871"
+  },
+  {
+    "name": "Wall Decor",
+    "slug": "wall-decor-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/wall-decor-4720-51871"
+  },
+  {
+    "name": "Wall Shelves",
+    "slug": "wall-shelves-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/wall-shelves-4720-51871"
+  },
+  {
+    "name": "Clocks",
+    "slug": "clocks-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/clocks-4720-51871"
+  },
+  {
+    "name": "Photo Frames",
+    "slug": "photo-frames-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/photo-frames-4720-51871"
+  },
+  {
+    "name": "Mirrors",
+    "slug": "mirrors-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/mirrors-4720-51871"
+  },
+  {
+    "name": "Lamp, Diyas & Candle",
+    "slug": "lamp-diyas-and-candle-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/lamp-diyas-and-candle-4720-51871"
+  },
+  {
+    "name": "Home Fragrances",
+    "slug": "homefragrance-212260",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/homefragrance-212260"
+  },
+  {
+    "name": "Plants & Flowers",
+    "slug": "plants-and-flowers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/plants-and-flowers-4720-51871"
+  },
+  {
+    "name": "FESTIVE GIFTS",
+    "slug": "showpieces-figurines-and-festive-gifts-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/showpieces-figurines-and-festive-gifts-4720-51871"
+  },
+  {
+    "name": "Bells & Wind Chimes",
+    "slug": "bells-and-wind-chimes-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bells-and-wind-chimes-4720-51871"
+  },
+  {
+    "name": "Decorative Pots, Plates & Jars",
+    "slug": "decorative-pots-plates-and-jars-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/decorative-pots-plates-and-jars-4720-51871"
+  },
+  {
+    "name": "Fengshui",
+    "slug": "fengshui-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/fengshui-4720-51871"
+  },
+  {
+    "name": "Indoor Fountains",
+    "slug": "indoor-fountains-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/indoor-fountains-4720-51871"
+  },
+  {
+    "name": "Religious Idols",
+    "slug": "religious-idols-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/religious-idols-4720-51871"
+  },
+  {
+    "name": "Vases",
+    "slug": "vases-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/vases-4720-51871"
+  },
+  {
+    "name": "GARDENING & PLANTERS",
+    "slug": "gardening-and-planters-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/gardening-and-planters-4720-51871"
+  },
+  {
+    "name": "BATH",
+    "slug": "bath-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bath-4720-51871"
+  },
+  {
+    "name": "Bath Towel & Robes",
+    "slug": "bath-towel-and-robes-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bath-towel-and-robes-4720-51871"
+  },
+  {
+    "name": "Hand & Face Towels",
+    "slug": "hand-and-face-towels-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/hand-and-face-towels-4720-51871"
+  },
+  {
+    "name": "Towel Sets",
+    "slug": "towel-sets-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/towel-sets-4720-51871"
+  },
+  {
+    "name": "Bath Curtains & Mats",
+    "slug": "bath-curtains-and-mats-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bath-curtains-and-mats-4720-51871"
+  },
+  {
+    "name": "Bathroom Organisers",
+    "slug": "bathroom-organisers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bathroom-organisers-4720-51871"
+  },
+  {
+    "name": "Laundry Baskets & Dryers",
+    "slug": "laundry-baskets-and-dryers-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/laundry-baskets-and-dryers-4720-51871"
+  },
+  {
+    "name": "Holders & More",
+    "slug": "holders-dispensers-and-soap-dish-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/holders-dispensers-and-soap-dish-4720-51871"
+  },
+  {
+    "name": "HOME  ESSENTIALS",
+    "slug": "home-essentials-4720-62701",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/home-essentials-4720-62701"
+  },
+  {
+    "name": "GIFT For Everyone Under 999",
+    "slug": "under-rs-999-4445-76181",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/under-rs-999-4445-76181"
+  },
+  {
+    "name": "Winter Carnival Upto 60",
+    "slug": "up-to-60-percent-off-4445-76181",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/up-to-60-percent-off-4445-76181"
+  },
+  {
+    "name": "Kids Room Min 40",
+    "slug": "min-40-percent-off-4445-76181",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/min-40-percent-off-4445-76181"
+  },
+  {
+    "name": "Heritage Of India",
+    "slug": "heritage-of-india-4390-45131",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/heritage-of-india-4390-45131"
+  },
+  {
+    "name": "Portico",
+    "slug": "rv-portico-5433-33401",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/rv-portico-5433-33401"
+  },
+  {
+    "name": "Home Expressions",
+    "slug": "home-expressions-5412-67081",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/home-expressions-5412-67081"
+  },
+  {
+    "name": "Stellar Home",
+    "slug": "stellar-home-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/stellar-home-5159-48611"
+  },
+  {
+    "name": "MUJI",
+    "slug": "muji-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/muji-5159-48611"
+  },
+  {
+    "name": "Indie Picks",
+    "slug": "indie-picks-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/indie-picks-5159-48611"
+  },
+  {
+    "name": "Bichauna",
+    "slug": "bichauna-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bichauna-5159-48611"
+  },
+  {
+    "name": "Westa Home",
+    "slug": "westa-home-4694-46871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/westa-home-4694-46871"
+  },
+  {
+    "name": "Marks & Spencer",
+    "slug": "marks-and-spencer-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/marks-and-spencer-4720-51871"
+  },
+  {
+    "name": "HOMESAKE",
+    "slug": "homesake-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/homesake-4720-51871"
+  },
+  {
+    "name": "Urban Magic",
+    "slug": "urban-magic-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/urban-magic-5159-48611"
+  },
+  {
+    "name": "Arrabi",
+    "slug": "arrabi-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/arrabi-4720-51871"
+  },
+  {
+    "name": "Urban Space",
+    "slug": "urban-space-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/urban-space-5159-48611"
+  },
+  {
+    "name": "Haus & Kinder",
+    "slug": "haus-&-kinder-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/haus-&-kinder-5159-48611"
+  },
+  {
+    "name": "Homez Sparrow",
+    "slug": "homez-sparrow-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/homez-sparrow-4720-51871"
+  },
+  {
+    "name": "ExclusiveLane",
+    "slug": "exclusivelane-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/exclusivelane-4720-51871"
+  },
+  {
+    "name": "Pure Home & Living",
+    "slug": "pure-home-and-living-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/pure-home-and-living-5159-48611"
+  },
+  {
+    "name": "Mafatlal",
+    "slug": "mafatlal-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/mafatlal-5159-48611"
+  },
+  {
+    "name": "Aapno Rajasthan",
+    "slug": "aapno-rajasthan-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/aapno-rajasthan-4720-51871"
+  },
+  {
+    "name": "Random",
+    "slug": "random-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/random-4720-51871"
+  },
+  {
+    "name": "Bianca",
+    "slug": "bianca-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bianca-5159-48611"
+  },
+  {
+    "name": "999 Store",
+    "slug": "999-store-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/999-store-5159-48611"
+  },
+  {
+    "name": "La Verne",
+    "slug": "la-verne-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/la-verne-5159-48611"
+  },
+  {
+    "name": "Trance Home Linen",
+    "slug": "trance-home-linen-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/trance-home-linen-5159-48611"
+  },
+  {
+    "name": "Home Centre",
+    "slug": "home-centre-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/home-centre-4720-51871"
+  },
+  {
+    "name": "Raymond Home",
+    "slug": "raymond-home-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/raymond-home-4720-51871"
+  },
+  {
+    "name": "Story At Home",
+    "slug": "story-at-home-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/story-at-home-4720-51871"
+  },
+  {
+    "name": "Jaipur Fabric",
+    "slug": "jaipur-fabric-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/jaipur-fabric-4720-51871"
+  },
+  {
+    "name": "Spaces",
+    "slug": "spaces-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/spaces-5159-48611"
+  },
+  {
+    "name": "Divine Casa",
+    "slug": "divine-casa-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/divine-casa-4720-51871"
+  },
+  {
+    "name": "Home Sizzler",
+    "slug": "home-sizzler-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/home-sizzler-4720-51871"
+  },
+  {
+    "name": "Swayam",
+    "slug": "swayam-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/swayam-4720-51871"
+  },
+  {
+    "name": "DdEcor",
+    "slug": "ddecor-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/ddecor-4720-51871"
+  },
+  {
+    "name": "Good Homes",
+    "slug": "good-homes-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/good-homes-4720-51871"
+  },
+  {
+    "name": "Cortina",
+    "slug": "cortina-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/cortina-4720-51871"
+  },
+  {
+    "name": "Romee",
+    "slug": "romee-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/romee-4720-51871"
+  },
+  {
+    "name": "E Craft India",
+    "slug": "e-craft-india-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/e-craft-india-4720-51871"
+  },
+  {
+    "name": "Bella Casa",
+    "slug": "bella-casa-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bella-casa-4720-51871"
+  },
+  {
+    "name": "Trident",
+    "slug": "trident-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/trident-5159-48611"
+  },
+  {
+    "name": "Homefab India",
+    "slug": "homefab-india-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/homefab-india-5159-48611"
+  },
+  {
+    "name": "Kuber Industries",
+    "slug": "kuber-industries-4720-51871",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/kuber-industries-4720-51871"
+  },
+  {
+    "name": "Bergner",
+    "slug": "bergner-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/bergner-5159-48611"
+  },
+  {
+    "name": "Borosil",
+    "slug": "borosil-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/borosil-5159-48611"
+  },
+  {
+    "name": "Ellementry",
+    "slug": "ellementry-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/ellementry-5159-48611"
+  },
+  {
+    "name": "Hazel",
+    "slug": "hazel-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/hazel-5159-48611"
+  },
+  {
+    "name": "Hometales",
+    "slug": "hometales-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/hometales-5159-48611"
+  },
+  {
+    "name": "Market 99",
+    "slug": "market-99-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/market-99-5159-48611"
+  },
+  {
+    "name": "NIRLON",
+    "slug": "nirlon-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/nirlon-5159-48611"
+  },
+  {
+    "name": "MEYER",
+    "slug": "meyer-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/meyer-5159-48611"
+  },
+  {
+    "name": "The Better Home",
+    "slug": "the-better-home-5159-48611",
+    "dept": "HOME & KITCHEN",
+    "group": "GENERAL",
+    "url": "/s/the-better-home-5159-48611"
+  }
+]

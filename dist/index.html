@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AjioRadar • Real-Time Flash Codes &amp; 70%+ Deep Steals Platform</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            skybrand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      position: relative;
+      background-color: #f8fafc;
+      color: #0f172a;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .deal-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @media (hover: hover) {
+      .deal-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px -10px rgba(2, 132, 199, 0.18);
+        border-color: #38bdf8;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased bg-[#f8fafc] text-slate-800">
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none max-w-[90vw]"></div>
+
+  <!-- Modal Backdrop for Mobile Dropdowns -->
+  <div id="modalBackdrop" onclick="closeAllDropdowns()" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 transition-opacity"></div>
+
+  <!-- Top Navigation Header (Spacious, Executive, High-Impact) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+      
+      <!-- Brand Identity & Logo -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3 min-w-0">
+          <!-- Sleek Vector Radar Logo -->
+          <div class="h-11 w-11 shrink-0 rounded-2xl bg-gradient-to-br from-sky-500 via-sky-600 to-blue-700 p-0.5 shadow-md shadow-sky-500/25 flex items-center justify-center">
+            <div class="h-full w-full bg-white/10 rounded-[14px] flex items-center justify-center text-white backdrop-blur-xs">
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" stroke-opacity="0.35"/>
+                <circle cx="12" cy="12" r="5" stroke-opacity="0.65"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                <path d="M12 3v3m0 12v3M3 12h3m12 0h3"/>
+                <path d="m12 12 5-5" stroke-width="2.4" class="text-white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center space-x-2">
+              <h1 class="text-lg sm:text-xl font-black text-slate-900 tracking-tight flex items-center gap-1.5 truncate">
+                <span>Ajio<span class="text-sky-600">Radar</span></span>
+                <span class="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full shadow-xs">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                  LIVE STREAM
+                </span>
+              </h1>
+            </div>
+            <p class="text-xs text-slate-500 font-medium truncate">Autonomous 70%+ Flash Deal &amp; Deep Clearance Intelligence Engine</p>
+          </div>
+        </div>
+
+        <!-- Mobile Quick Outbound Button -->
+        <div class="flex items-center space-x-2 md:hidden">
+          <button onclick="triggerManualSync()" class="h-9 w-9 rounded-xl bg-sky-50 border border-sky-200 text-sky-700 flex items-center justify-center shadow-xs">
+            <i class="fa-solid fa-rotate text-xs" id="mobileRefreshIcon"></i>
+          </button>
+          <a href="https://www.ajio.com" target="_blank" rel="noopener" class="h-9 px-3 rounded-xl bg-sky-600 text-white font-bold text-xs flex items-center gap-1 shadow-xs">
+            <span>Ajio</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Discovery Metrics & Action Center -->
+      <div class="hidden md:flex items-center space-x-3 text-xs shrink-0">
+        <!-- Metric 1: Total Coupons Identified -->
+        <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200/90 px-3.5 py-2 rounded-xl text-slate-600 shadow-xs">
+          <i class="fa-solid fa-ticket text-sky-500 text-sm"></i>
+          <div>
+            <div class="text-[10px] uppercase font-bold text-slate-400 leading-none">Coupons Identified</div>
+            <div class="font-extrabold text-slate-900 text-xs mt-0.5"><span id="metricTotalCoupons">430</span> Harvested</div>
+          </div>
+        </div>
+
+        <!-- Metric 2: Active 70%+ Deals -->
+        <div class="flex items-center space-x-2 bg-emerald-50/80 border border-emerald-200 px-3.5 py-2 rounded-xl text-emerald-800 shadow-xs">
+          <i class="fa-solid fa-bolt-lightning text-emerald-600 text-sm"></i>
+          <div>
+            <div class="text-[10px] uppercase font-bold text-emerald-600 leading-none">Active &ge;70% Deals</div>
+            <div class="font-extrabold text-emerald-950 text-xs mt-0.5"><span id="metricActive70">281</span> Verified Live</div>
+          </div>
+        </div>
+
+        <!-- Metric 3: Total Products Indexed -->
+        <div class="flex items-center space-x-2 bg-sky-50/80 border border-sky-200 px-3.5 py-2 rounded-xl text-sky-800 shadow-xs">
+          <i class="fa-solid fa-bag-shopping text-sky-600 text-sm"></i>
+          <div>
+            <div class="text-[10px] uppercase font-bold text-sky-600 leading-none">Catalog Inventory</div>
+            <div class="font-extrabold text-sky-950 text-xs mt-0.5"><span id="metricTotalProducts">5,231+</span> Products</div>
+          </div>
+        </div>
+
+        <!-- Refresh / Sync Now Button -->
+        <button onclick="triggerManualSync()" id="refreshBtn" title="Sync fresh active catalog deals & log delta" class="bg-white border border-sky-200 hover:bg-sky-50 text-sky-700 font-bold px-3.5 py-2 rounded-xl transition flex items-center space-x-2 shadow-xs text-xs">
+          <i class="fa-solid fa-rotate text-xs text-sky-600" id="refreshIcon"></i>
+          <span>Sync Now</span>
+        </button>
+
+        <a href="https://www.ajio.com" target="_blank" rel="noopener" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-2 rounded-xl transition inline-flex items-center space-x-1.5 shadow-sm shadow-sky-600/20 text-xs">
+          <span>Go to Ajio</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 lg:px-12 py-5 sm:py-7 space-y-5 sm:space-y-6">
+
+    <!-- 3 High-Yield Navigation Tabs -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3.5">
+      <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar flex-nowrap pb-1 sm:pb-0 -mx-1 px-1">
+        <!-- Tab 1: Promo Collections -->
+        <button onclick="switchView('campaigns')" id="tabCampaignsBtn" class="px-4 py-2.5 rounded-xl text-xs font-extrabold bg-sky-600 text-white shadow-sm shadow-sky-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+          <i class="fa-solid fa-ticket"></i>
+          <span>Flash Promo Collections (<span id="countCampaignsTab">...</span>)</span>
+        </button>
+        
+        <!-- Tab 2: Individual 70%+ Products -->
+        <button onclick="switchView('products')" id="tabProductsBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+          <i class="fa-solid fa-bag-shopping text-sky-600"></i>
+          <span>Verified 70%+ Products (<span id="countProductsTab">...</span>)</span>
+        </button>
+
+        <!-- Tab 3: Sync Changelog & Audit -->
+        <button onclick="switchView('history')" id="tabHistoryBtn" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0">
+          <i class="fa-solid fa-clock-rotate-left text-indigo-500"></i>
+          <span>Sync Changelog (7 Days)</span>
+        </button>
+      </div>
+
+      <!-- Verified 70% Only Toggle -->
+      <div id="toggleContainer" class="flex items-center justify-between sm:justify-end space-x-2 text-xs bg-emerald-50 border border-emerald-200 px-3.5 py-2 rounded-xl text-emerald-800 font-semibold self-start sm:self-auto shadow-2xs">
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" id="toggleOnly70" checked onchange="handleFilterChange()" class="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4 cursor-pointer">
+          <label for="toggleOnly70" class="cursor-pointer select-none">
+            <i class="fa-solid fa-check-double mr-1 text-emerald-600"></i> Active &ge;70% Guaranteed Only
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter, Multi-Select & Search Panel -->
+    <section id="filterControlsSection" class="bg-white border border-slate-200 p-4 sm:p-6 rounded-2xl shadow-xs space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3">
+        <!-- Live Search Bar -->
+        <div class="relative sm:col-span-2 md:col-span-4">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs sm:text-sm"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search coupon code, brand, category (e.g. Hammer, Pulse, Puma, Sneakers)..." 
+            oninput="handleSearchInput()"
+            class="w-full pl-9 sm:pl-10 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/10 transition font-medium"
+          >
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-3 text-slate-400 hover:text-slate-700 transition">
+            <i class="fa-solid fa-xmark text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Hierarchical Multi-Stage Category Picker Dropdown -->
+        <div class="relative sm:col-span-1 md:col-span-3">
+          <button onclick="toggleCatDropdown(event)" id="catDropdownBtn" class="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3.5 py-2.5 rounded-xl flex items-center justify-between focus:outline-none focus:border-sky-500">
+            <span id="catBtnLabel" class="truncate">All Categories &amp; Depts</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 ml-1 shrink-0"></i>
+          </button>
+
+          <!-- Category Hierarchy Dropdown Modal (Mobile Responsive) -->
+          <div id="catDropdownMenu" class="hidden fixed inset-x-3 top-16 sm:absolute sm:inset-auto sm:left-0 sm:top-full mt-1.5 w-auto sm:w-[540px] max-w-[calc(100vw-1.5rem)] sm:max-w-xl max-h-[82vh] sm:max-h-[500px] bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 p-3 sm:p-4 space-y-2.5 overflow-hidden flex flex-col">
+            <!-- Modal Header (Mobile) -->
+            <div class="flex items-center justify-between pb-1 sm:hidden border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-900">Select Categories</span>
+              <button onclick="closeAllDropdowns()" class="text-slate-400 hover:text-slate-700 p-1 text-xs">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Search inside category hierarchy -->
+            <div class="relative shrink-0">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+              <input 
+                type="text" 
+                id="catSearchInput" 
+                placeholder="Search categories (e.g. Smart Wearables, Kurtas, Sneakers, Jeans)..." 
+                oninput="filterCategoryTree()"
+                class="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-sky-500"
+              >
+            </div>
+
+            <!-- Top Level Department Tabs (All 11 First-Class Departments) -->
+            <div class="flex items-center gap-1 border-b border-slate-100 pb-1.5 overflow-x-auto custom-scrollbar text-[11px] font-bold shrink-0">
+              <button onclick="selectTaxDept('ALL')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-900 text-white transition whitespace-nowrap text-[11px]" data-dept="ALL">All</button>
+              <button onclick="selectTaxDept('MEN')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="MEN">Men</button>
+              <button onclick="selectTaxDept('WOMEN')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="WOMEN">Women</button>
+              <button onclick="selectTaxDept('GADGETS & TECH')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="GADGETS & TECH"><i class="fa-solid fa-headphones text-sky-600 mr-1"></i>Gadgets</button>
+              <button onclick="selectTaxDept('FOOTWEAR')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="FOOTWEAR">Footwear</button>
+              <button onclick="selectTaxDept('BEAUTY & GROOMING')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="BEAUTY & GROOMING">Beauty</button>
+              <button onclick="selectTaxDept('HOME & KITCHEN')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="HOME & KITCHEN">Home</button>
+              <button onclick="selectTaxDept('FASHION JEWELLERY')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="FASHION JEWELLERY">Jewellery</button>
+              <button onclick="selectTaxDept('ACCESSORIES & LUGGAGE')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="ACCESSORIES & LUGGAGE">Accessories</button>
+              <button onclick="selectTaxDept('KIDS & INFANTS')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="KIDS & INFANTS">Kids</button>
+              <button onclick="selectTaxDept('INDIE & HANDLOOM')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="INDIE & HANDLOOM">Indie</button>
+              <button onclick="selectTaxDept('LUXE & DESIGNER')" class="tax-dept-tab px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px]" data-dept="LUXE & DESIGNER">Luxe</button>
+            </div>
+
+            <div class="flex justify-between items-center px-1 text-[11px] text-slate-500 shrink-0">
+              <span id="catSelectedCount" class="font-bold text-slate-700">0 categories selected</span>
+              <button onclick="clearAllCategories()" class="text-sky-600 hover:underline font-semibold">Clear All</button>
+            </div>
+
+            <!-- Multi-Stage Accordion Tree Container -->
+            <div id="catTreeContainer" class="flex-1 overflow-y-auto custom-scrollbar space-y-2 text-xs pr-1">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Apply Button on Mobile -->
+            <button onclick="closeAllDropdowns()" class="sm:hidden w-full py-2 bg-sky-600 text-white font-bold text-xs rounded-xl shadow-xs shrink-0">
+              Apply Category Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Multi-Select Brand Picker Dropdown -->
+        <div class="relative sm:col-span-1 md:col-span-3">
+          <button onclick="toggleBrandDropdown(event)" id="brandDropdownBtn" class="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3.5 py-2.5 rounded-xl flex items-center justify-between focus:outline-none focus:border-sky-500">
+            <span id="brandBtnLabel" class="truncate">Select Brands (All 496+)</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 ml-1 shrink-0"></i>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div id="brandDropdownMenu" class="hidden fixed inset-x-3 top-16 sm:absolute sm:inset-auto sm:left-0 sm:top-full mt-1.5 w-auto sm:w-80 max-w-[calc(100vw-1.5rem)] max-h-[75vh] sm:max-h-[400px] bg-white border border-slate-200 rounded-2xl shadow-xl z-50 p-3 space-y-2 flex flex-col">
+            <input 
+              type="text" 
+              id="brandSearchInput" 
+              placeholder="Search brands (e.g. Hammer, Puma, Nike, Giva)..." 
+              oninput="filterBrandList()"
+              class="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-sky-500 shrink-0"
+            >
+            <div class="flex justify-between items-center px-1 text-[11px] text-slate-500 shrink-0">
+              <button onclick="selectAllBrands(false)" class="text-sky-600 hover:underline font-semibold">Clear All</button>
+              <span id="brandSelectedCount" class="font-bold text-slate-700">0 selected</span>
+            </div>
+            <div id="brandListContainer" class="flex-1 overflow-y-auto custom-scrollbar space-y-1 text-xs">
+              <!-- Dynamically populated checkboxes -->
+            </div>
+            <button onclick="closeAllDropdowns()" class="sm:hidden w-full py-2 bg-sky-600 text-white font-bold text-xs rounded-xl shadow-xs shrink-0">
+              Apply Brand Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Sort By Dropdown -->
+        <div class="sm:col-span-2 md:col-span-2">
+          <select id="sortSelect" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3 py-2.5 rounded-xl focus:outline-none focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/10">
+            <option value="discount_desc">Sort: Highest % Off</option>
+            <option value="skus_desc">Sort: Most Deals Found</option>
+            <option value="price_asc">Sort: Lowest Price</option>
+            <option value="code_asc">Sort: Name (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Filter Pills (Removable) -->
+      <div id="activePillsContainer" class="flex flex-wrap items-center gap-1.5 text-xs empty:hidden"></div>
+
+      <!-- Discount Tier Chips -->
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 custom-scrollbar text-xs flex-nowrap -mx-1 px-1">
+        <button onclick="setDiscountFilter(null)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-sky-600 text-white font-bold transition whitespace-nowrap shadow-xs text-xs" id="tier-all">
+          All Verified 70%+ Deals
+        </button>
+        <button onclick="setDiscountFilter(85)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-85">
+          <i class="fa-solid fa-fire text-amber-500 mr-1"></i> &ge;85% Epic Clearance
+        </button>
+        <button onclick="setDiscountFilter(80)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-80">
+          <i class="fa-solid fa-tag text-emerald-600 mr-1"></i> &ge;80% Realized Off
+        </button>
+        <button onclick="setDiscountFilter(75)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-75">
+          <i class="fa-solid fa-star text-sky-500 mr-1"></i> &ge;75% Super Steals
+        </button>
+        <button onclick="setStandaloneToggle()" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-standalone">
+          <i class="fa-solid fa-gift text-indigo-500 mr-1"></i> Buy 1 Get 5 / 4 / 3 Free
+        </button>
+      </div>
+    </section>
+
+    <!-- Results Status Bar -->
+    <div id="resultsStatusBar" class="flex items-center justify-between text-xs text-slate-500 px-1">
+      <div>
+        Showing <span id="visibleCount" class="font-bold text-slate-900">0</span> results matching criteria
+      </div>
+      <div class="text-[11px] text-slate-400 hidden sm:block">
+        Every single card verified with exact pricing math
+      </div>
+    </div>
+
+    <!-- View 1: Promo Campaigns View Grid -->
+    <section id="campaignsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="h-44 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      <div class="h-44 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      <div class="h-44 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+    </section>
+
+    <!-- View 2: Verified 70%+ Products View Grid (Mobile 2-Cols, Desktop 4/5-Cols) -->
+    <section id="productsGrid" class="hidden grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+      <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+    </section>
+
+    <!-- View 3: Sync Audit & Changelog Feed (Last 7 Days) -->
+    <section id="historySection" class="hidden space-y-3 sm:space-y-4">
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div class="h-8 w-8 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shrink-0">
+              <i class="fa-solid fa-clock-rotate-left text-xs sm:text-sm"></i>
+            </div>
+            <div>
+              <h2 class="text-xs sm:text-sm font-bold text-slate-900">7-Day Continuous Sync Changelog &amp; Audit Trail</h2>
+              <p class="text-[11px] sm:text-xs text-slate-500">Track exact newly discovered vouchers, updated category markdown discounts, and purged promotions.</p>
+            </div>
+          </div>
+          <button onclick="loadSyncHistory()" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition shrink-0">
+            <i class="fa-solid fa-rotate mr-1 text-slate-400"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Sync Events Timeline -->
+      <div id="historyTimelineContainer" class="space-y-3">
+        <div class="h-24 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-12 sm:py-16 bg-white border border-slate-200 rounded-2xl shadow-xs px-4">
+      <div class="h-12 w-12 rounded-full bg-slate-100 mx-auto flex items-center justify-center mb-3 text-slate-400 text-lg">
+        <i class="fa-solid fa-filter-circle-xmark"></i>
+      </div>
+      <h3 class="text-sm font-bold text-slate-900">No matching 70%+ verified deals found</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try clearing category or brand filters or switching between collections and single product items.</p>
+      <button onclick="resetAllFilters()" class="mt-4 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition shadow-xs">
+        Reset All Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="border-t border-slate-200 bg-white py-5 px-4 text-center text-xs text-slate-500 space-y-1">
+    <p>AjioRadar &bull; Autonomous Multi-Category &amp; Flash Deal Discovery Engine</p>
+    <p class="text-[10px] sm:text-[11px] text-slate-400">Continuous dual verification across all 11 departments and 498 subcategories.</p>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    let activeView = 'campaigns'; // 'campaigns' | 'products' | 'history'
+    let masterCampaigns = [];
+    let masterProducts = [];
+    let availableBrands = [];
+    let masterTaxonomy = {};
+    let syncHistoryList = [];
+    
+    let selectedBrands = new Set();
+    let selectedCategories = new Set();
+    let selectedDepartments = new Set();
+    let activeDeptTab = 'ALL';
+    
+    let minDiscountFilter = null;
+    let isStandaloneOnly = false;
+    let searchQuery = '';
+
+    async function init() {
+      await Promise.all([loadCampaigns(), loadProducts(), loadBrands(), loadTaxonomy(), loadSyncStatus(), loadSyncHistory()]);
+      setInterval(loadSyncStatus, 20000);
+      
+      // Close dropdowns on outside click
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#brandDropdownBtn') && !e.target.closest('#brandDropdownMenu')) {
+          document.getElementById('brandDropdownMenu').classList.add('hidden');
+        }
+        if (!e.target.closest('#catDropdownBtn') && !e.target.closest('#catDropdownMenu')) {
+          document.getElementById('catDropdownMenu').classList.add('hidden');
+        }
+        if (document.getElementById('brandDropdownMenu').classList.contains('hidden') && document.getElementById('catDropdownMenu').classList.contains('hidden')) {
+          document.getElementById('modalBackdrop').classList.add('hidden');
+        }
+      });
+    }
+
+    function closeAllDropdowns() {
+      document.getElementById('brandDropdownMenu').classList.add('hidden');
+      document.getElementById('catDropdownMenu').classList.add('hidden');
+      document.getElementById('modalBackdrop').classList.add('hidden');
+    }
+
+    function showToast(msg, icon = 'fa-circle-check', type = 'sky') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto bg-slate-900/90 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 transition transform translate-y-2 opacity-0 duration-200`;
+      toast.innerHTML = `<i class="fa-solid ${icon} text-sky-400 shrink-0"></i> <span class="truncate">${msg}</span>`;
+      container.appendChild(toast);
+      
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    async function loadCampaigns(cacheBust) {
+      try {
+        let res = await fetch('/api/campaigns?only_verified_70=false');
+        if (!res.ok) throw new Error('Fallback');
+        masterCampaigns = await res.json();
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/campaigns.json${q}`);
+          masterCampaigns = await res.json();
+        } catch (e) {
+          console.error('Failed to load campaigns:', e);
+        }
+      }
+      const active70 = masterCampaigns.filter(c => c.has_70_plus_verified);
+      document.getElementById('countCampaignsTab').innerText = `${active70.length}/${masterCampaigns.length}`;
+      document.getElementById('metricTotalCoupons').innerText = masterCampaigns.length;
+      document.getElementById('metricActive70').innerText = active70.length;
+      if (activeView === 'campaigns') applyFilters();
+    }
+
+    async function loadProducts(cacheBust) {
+      try {
+        let res = await fetch('/api/products?min_discount=70.0&limit=5000');
+        if (!res.ok) throw new Error('Fallback');
+        masterProducts = await res.json();
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/products.json${q}`);
+          masterProducts = await res.json();
+        } catch (e) {
+          console.error('Failed to load products:', e);
+        }
+      }
+      document.getElementById('countProductsTab').innerText = masterProducts.length;
+      document.getElementById('metricTotalProducts').innerText = `${masterProducts.length}+`;
+      if (activeView === 'products') applyFilters();
+    }
+
+    async function loadBrands(cacheBust) {
+      try {
+        let res = await fetch('/api/brands');
+        if (!res.ok) throw new Error('Fallback');
+        availableBrands = await res.json();
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/metadata.json${q}`);
+          const meta = await res.json();
+          availableBrands = meta.brands || [];
+        } catch (e) {}
+      }
+      renderBrandList(availableBrands);
+    }
+
+    async function loadTaxonomy(cacheBust) {
+      try {
+        let res = await fetch('/api/taxonomy');
+        if (!res.ok) throw new Error('Fallback');
+        masterTaxonomy = await res.json();
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/taxonomy.json${q}`);
+          masterTaxonomy = await res.json();
+        } catch (e) {
+          console.error('Failed to load taxonomy:', e);
+        }
+      }
+      renderCategoryTree();
+    }
+
+    async function loadSyncStatus(cacheBust) {
+      try {
+        const res = await fetch('/api/sync/status');
+        if (!res.ok) throw new Error('Static fallback');
+        const st = await res.json();
+        if (st.total_campaigns) document.getElementById('metricTotalCoupons').innerText = st.total_campaigns;
+        if (st.verified_70_plus_campaigns) document.getElementById('metricActive70').innerText = st.verified_70_plus_campaigns;
+        if (st.verified_70_plus_products) document.getElementById('metricTotalProducts').innerText = `${st.verified_70_plus_products}+`;
+      } catch (err) {
+        try {
+          const q = cacheBust ? `?t=${cacheBust}` : '';
+          const res = await fetch(`data/metadata.json${q}`);
+          const meta = await res.json();
+          const st = meta.stats || {};
+          if (st.total_campaigns) document.getElementById('metricTotalCoupons').innerText = st.total_campaigns;
+          if (st.verified_70_plus_campaigns) document.getElementById('metricActive70').innerText = st.verified_70_plus_campaigns;
+          if (st.verified_70_plus_products) document.getElementById('metricTotalProducts').innerText = `${st.verified_70_plus_products}+`;
+        } catch (e) {}
+      }
+    }
+
+    async function loadSyncHistory() {
+      try {
+        const res = await fetch('/api/sync/history?days=7&limit=30');
+        if (res.ok) {
+          syncHistoryList = await res.json();
+          renderSyncHistory();
+        }
+      } catch (e) {}
+    }
+
+    async function triggerManualSync() {
+      const icon = document.getElementById('refreshIcon');
+      const mobileIcon = document.getElementById('mobileRefreshIcon');
+      if (icon) icon.classList.add('fa-spin');
+      if (mobileIcon) mobileIcon.classList.add('fa-spin');
+      
+      let isLiveApi = true;
+      try {
+        const res = await fetch('/api/sync/trigger', { method: 'POST' });
+        if (!res.ok) isLiveApi = false;
+      } catch (err) {
+        isLiveApi = false;
+      }
+
+      if (isLiveApi) {
+        showToast('Live backend active: sweeping 498 categories & campaigns...', 'fa-rotate');
+      } else {
+        showToast('Refreshing edge cache & reloading latest deal snapshots...', 'fa-cloud-arrow-down');
+      }
+
+      setTimeout(async () => {
+        const bust = Date.now();
+        await Promise.all([
+          loadCampaigns(bust),
+          loadProducts(bust),
+          loadBrands(bust),
+          loadTaxonomy(bust),
+          loadSyncStatus(bust),
+          loadSyncHistory()
+        ]);
+        if (icon) icon.classList.remove('fa-spin');
+        if (mobileIcon) mobileIcon.classList.remove('fa-spin');
+        
+        if (isLiveApi) {
+          let deltaMsg = `Sync complete! Verified ${masterCampaigns.filter(c => c.has_70_plus_verified).length} campaigns & ${masterProducts.length} items.`;
+          if (syncHistoryList.length > 0) {
+            const latest = syncHistoryList[0];
+            if (latest.added_count > 0 || latest.updated_count > 0 || latest.removed_count > 0) {
+              deltaMsg = `Sync: +${latest.added_count} new codes, ~${latest.updated_count} updated, -${latest.removed_count} purged.`;
+            }
+          }
+          showToast(deltaMsg, 'fa-bolt-lightning');
+        } else {
+          showToast(`Edge deals refreshed! ${masterProducts.length} verified deals loaded. Automated background sync runs every 30m.`, 'fa-bolt-lightning');
+        }
+      }, 1500);
+    }
+
+    function switchView(mode) {
+      activeView = mode;
+      const tabCamp = document.getElementById('tabCampaignsBtn');
+      const tabProd = document.getElementById('tabProductsBtn');
+      const tabHist = document.getElementById('tabHistoryBtn');
+      
+      const gridCamp = document.getElementById('campaignsGrid');
+      const gridProd = document.getElementById('productsGrid');
+      const secHist = document.getElementById('historySection');
+      
+      const filterSection = document.getElementById('filterControlsSection');
+      const resultsStatusBar = document.getElementById('resultsStatusBar');
+      const toggleContainer = document.getElementById('toggleContainer');
+
+      [tabCamp, tabProd, tabHist].forEach(b => {
+        b.className = 'px-4 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition flex items-center space-x-2 whitespace-nowrap shrink-0';
+      });
+
+      gridCamp.classList.add('hidden');
+      gridProd.classList.add('hidden');
+      secHist.classList.add('hidden');
+      filterSection.classList.remove('hidden');
+      resultsStatusBar.classList.remove('hidden');
+      toggleContainer.classList.remove('hidden');
+
+      if (mode === 'campaigns') {
+        tabCamp.className = 'px-4 py-2.5 rounded-xl text-xs font-extrabold bg-sky-600 text-white shadow-sm shadow-sky-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0';
+        gridCamp.classList.remove('hidden');
+      } else if (mode === 'products') {
+        tabProd.className = 'px-4 py-2.5 rounded-xl text-xs font-extrabold bg-sky-600 text-white shadow-sm shadow-sky-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0';
+        gridProd.classList.remove('hidden');
+      } else if (mode === 'history') {
+        tabHist.className = 'px-4 py-2.5 rounded-xl text-xs font-extrabold bg-indigo-600 text-white shadow-sm shadow-indigo-600/20 transition flex items-center space-x-2 whitespace-nowrap shrink-0';
+        secHist.classList.remove('hidden');
+        filterSection.classList.add('hidden');
+        resultsStatusBar.classList.add('hidden');
+        toggleContainer.classList.add('hidden');
+        document.getElementById('emptyState').classList.add('hidden');
+        renderSyncHistory();
+        return;
+      }
+
+      applyFilters();
+    }
+
+    function renderSyncHistory() {
+      const container = document.getElementById('historyTimelineContainer');
+      if (!syncHistoryList || syncHistoryList.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 text-center text-slate-500 text-xs">
+            <i class="fa-solid fa-clock-rotate-left text-2xl text-slate-300 mb-2"></i>
+            <p class="font-bold text-slate-700">Audit history initialized</p>
+            <p class="text-slate-400 mt-0.5">Click "Sync Now" to record rolling delta history.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = syncHistoryList.map(h => {
+        const addedBadges = h.added_coupons && h.added_coupons.length > 0 
+          ? h.added_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-[11px] font-bold">+ ${c}</span>`).join(' ')
+          : '<span class="text-slate-400 text-[11px] italic">No newly added codes</span>';
+
+        const updatedBadges = h.updated_coupons && h.updated_coupons.length > 0
+          ? h.updated_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-mono text-[11px] font-bold">~ ${c}</span>`).join(' ')
+          : '<span class="text-slate-400 text-[11px] italic">Discounts steady</span>';
+
+        const removedBadges = h.removed_coupons && h.removed_coupons.length > 0
+          ? h.removed_coupons.map(c => `<span class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-200 font-mono text-[11px] font-bold line-through">- ${c}</span>`).join(' ')
+          : '<span class="text-slate-400 text-[11px] italic">Zero expired</span>';
+
+        return `
+          <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+              <div class="flex items-center space-x-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-sky-500"></span>
+                <span class="font-bold text-xs sm:text-sm text-slate-900">${h.formatted_time}</span>
+                <span class="text-[10px] text-slate-400 font-mono bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">${h.duration_seconds}s</span>
+              </div>
+              <div class="flex items-center space-x-2 text-xs">
+                <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">
+                  ${h.active_70_count} Active &ge;70% Deals
+                </span>
+                <span class="text-slate-500 font-medium">Total Scanned: ${h.total_campaigns}</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                  <span class="text-emerald-700"><i class="fa-solid fa-circle-plus mr-1"></i>New Discovered Codes</span>
+                  <span class="font-mono">${h.added_count}</span>
+                </div>
+                <div class="flex flex-wrap gap-1">${addedBadges}</div>
+              </div>
+
+              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                  <span class="text-sky-700"><i class="fa-solid fa-arrows-rotate mr-1"></i>Updated Promotions</span>
+                  <span class="font-mono">${h.updated_count}</span>
+                </div>
+                <div class="flex flex-wrap gap-1">${updatedBadges}</div>
+              </div>
+
+              <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                  <span class="text-rose-700"><i class="fa-solid fa-circle-xmark mr-1"></i>Purged / Expired</span>
+                  <span class="font-mono">${h.removed_count}</span>
+                </div>
+                <div class="flex flex-wrap gap-1">${removedBadges}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleBrandDropdown(e) {
+      e.stopPropagation();
+      const menu = document.getElementById('brandDropdownMenu');
+      const isHidden = menu.classList.contains('hidden');
+      closeAllDropdowns();
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        document.getElementById('modalBackdrop').classList.remove('hidden');
+      }
+    }
+
+    function toggleCatDropdown(e) {
+      e.stopPropagation();
+      const menu = document.getElementById('catDropdownMenu');
+      const isHidden = menu.classList.contains('hidden');
+      closeAllDropdowns();
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        document.getElementById('modalBackdrop').classList.remove('hidden');
+      }
+    }
+
+    function selectTaxDept(dept) {
+      activeDeptTab = dept;
+      document.querySelectorAll('.tax-dept-tab').forEach(b => {
+        if (b.dataset.dept === dept) {
+          b.className = 'tax-dept-tab px-2.5 py-1 rounded-md bg-slate-900 text-white transition whitespace-nowrap text-[11px] font-bold';
+        } else {
+          b.className = 'tax-dept-tab px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition whitespace-nowrap text-[11px] font-bold';
+        }
+      });
+      renderCategoryTree();
+    }
+
+    function renderCategoryTree(filterKeyword = '') {
+      const container = document.getElementById('catTreeContainer');
+      const q = filterKeyword.toLowerCase().trim();
+      let html = '';
+
+      const deptsToRender = activeDeptTab === 'ALL' ? Object.keys(masterTaxonomy) : [activeDeptTab];
+
+      deptsToRender.forEach(dept => {
+        const groups = masterTaxonomy[dept] || {};
+        let deptHasMatches = false;
+
+        let deptContent = `
+          <div class="border border-slate-200/80 rounded-xl overflow-hidden mb-2 bg-slate-50/50">
+            <div class="bg-slate-100/90 px-3 py-1.5 flex items-center justify-between font-bold text-slate-800 text-[11px]">
+              <span class="flex items-center space-x-1.5 min-w-0">
+                <i class="fa-solid fa-folder-tree text-sky-600 shrink-0"></i>
+                <span class="truncate">${dept}</span>
+              </span>
+              <button onclick="toggleAllDeptLeaves('${dept}')" class="text-sky-600 text-[10px] hover:underline font-semibold shrink-0 ml-1">Select All in Dept</button>
+            </div>
+            <div class="p-2 space-y-1.5">
+        `;
+
+        Object.entries(groups).forEach(([groupName, leaves]) => {
+          const matchingLeaves = leaves.filter(l => q === '' || l.toLowerCase().includes(q) || groupName.toLowerCase().includes(q));
+          
+          if (matchingLeaves.length > 0) {
+            deptHasMatches = true;
+            deptContent += `
+              <div class="border-b border-slate-100 pb-1.5 last:border-b-0 last:pb-0">
+                <div class="font-semibold text-slate-500 text-[9px] uppercase tracking-wider mb-1 flex items-center justify-between">
+                  <span>${groupName}</span>
+                  <span class="text-[9px] text-slate-400 font-mono">${matchingLeaves.length} categories</span>
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  ${matchingLeaves.map(leaf => {
+                    const isSelected = selectedCategories.has(leaf);
+                    const tagClass = isSelected 
+                      ? 'bg-sky-600 text-white font-bold border-sky-600 shadow-xs' 
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50';
+                    return `
+                      <button 
+                        type="button"
+                        onclick="toggleCategorySelection('${leaf}', '${dept}')" 
+                        class="px-2 py-0.5 text-[11px] rounded-md border transition flex items-center space-x-1 ${tagClass}"
+                      >
+                        <span>${leaf}</span>
+                        ${isSelected ? '<i class="fa-solid fa-check text-[8px] ml-0.5"></i>' : ''}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        deptContent += `</div></div>`;
+        if (deptHasMatches) html += deptContent;
+      });
+
+      if (html === '') {
+        html = '<div class="text-center py-6 text-slate-400 text-xs">No categories match your search.</div>';
+      }
+      container.innerHTML = html;
+    }
+
+    function filterCategoryTree() {
+      const q = document.getElementById('catSearchInput').value;
+      renderCategoryTree(q);
+    }
+
+    function toggleCategorySelection(leaf, dept) {
+      if (selectedCategories.has(leaf)) selectedCategories.delete(leaf);
+      else selectedCategories.add(leaf);
+      updateCategoryDropdownUI();
+      renderCategoryTree(document.getElementById('catSearchInput').value);
+      applyFilters();
+    }
+
+    function toggleAllDeptLeaves(dept) {
+      const groups = masterTaxonomy[dept] || {};
+      let allSelected = true;
+      Object.values(groups).forEach(leaves => {
+        leaves.forEach(l => {
+          if (!selectedCategories.has(l)) allSelected = false;
+        });
+      });
+
+      Object.values(groups).forEach(leaves => {
+        leaves.forEach(l => {
+          if (allSelected) selectedCategories.delete(l);
+          else selectedCategories.add(l);
+        });
+      });
+
+      updateCategoryDropdownUI();
+      renderCategoryTree(document.getElementById('catSearchInput').value);
+      applyFilters();
+    }
+
+    function clearAllCategories() {
+      selectedCategories.clear();
+      updateCategoryDropdownUI();
+      renderCategoryTree();
+      applyFilters();
+    }
+
+    function updateCategoryDropdownUI() {
+      const cnt = selectedCategories.size;
+      document.getElementById('catSelectedCount').innerText = `${cnt} categories selected`;
+      document.getElementById('catBtnLabel').innerText = cnt === 0 ? 'All Categories & Depts' : `${cnt} Selected`;
+      renderActivePills();
+    }
+
+    function renderBrandList(brands) {
+      const container = document.getElementById('brandListContainer');
+      container.innerHTML = brands.map(b => `
+        <label class="flex items-center space-x-2 px-2 py-1 rounded-lg hover:bg-slate-50 cursor-pointer select-none">
+          <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${b}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
+          <span class="text-slate-700 truncate">${b}</span>
+        </label>
+      `).join('');
+    }
+
+    function filterBrandList() {
+      const q = document.getElementById('brandSearchInput').value.toLowerCase();
+      const filtered = availableBrands.filter(b => b.toLowerCase().includes(q));
+      renderBrandList(filtered);
+    }
+
+    function toggleBrandSelection(b) {
+      if (selectedBrands.has(b)) selectedBrands.delete(b);
+      else selectedBrands.add(b);
+      updateBrandDropdownUI();
+      applyFilters();
+    }
+
+    function selectAllBrands(state) {
+      if (!state) selectedBrands.clear();
+      updateBrandDropdownUI();
+      renderBrandList(availableBrands);
+      applyFilters();
+    }
+
+    function updateBrandDropdownUI() {
+      const cnt = selectedBrands.size;
+      document.getElementById('brandSelectedCount').innerText = `${cnt} selected`;
+      document.getElementById('brandBtnLabel').innerText = cnt === 0 ? 'Select Brands (All 496+)' : `${cnt} Brands`;
+      renderActivePills();
+    }
+
+    function renderActivePills() {
+      const container = document.getElementById('activePillsContainer');
+      let pills = [];
+      
+      selectedCategories.forEach(c => {
+        pills.push(`
+          <span class="inline-flex items-center bg-sky-50 border border-sky-200 text-sky-800 px-2.5 py-0.5 rounded-md font-medium text-[11px]">
+            <i class="fa-solid fa-tag mr-1 text-[9px] text-sky-600"></i> ${c}
+            <button onclick="toggleCategorySelection('${c}')" class="ml-1 text-sky-400 hover:text-sky-700">&times;</button>
+          </span>
+        `);
+      });
+
+      selectedBrands.forEach(b => {
+        pills.push(`
+          <span class="inline-flex items-center bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-0.5 rounded-md font-medium text-[11px]">
+            <i class="fa-solid fa-award mr-1 text-[9px] text-amber-500"></i> ${b}
+            <button onclick="toggleBrandSelection('${b}')" class="ml-1 text-slate-400 hover:text-slate-700">&times;</button>
+          </span>
+        `);
+      });
+
+      container.innerHTML = pills.join('');
+    }
+
+    function handleSearchInput() {
+      searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      document.getElementById('clearSearchBtn').classList.toggle('hidden', searchQuery.length === 0);
+      applyFilters();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      searchQuery = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      applyFilters();
+    }
+
+    function setDiscountFilter(val) {
+      minDiscountFilter = val;
+      isStandaloneOnly = false;
+      document.querySelectorAll('.tier-btn').forEach(b => {
+        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+      });
+
+      const btnId = val === null ? 'tier-all' : `tier-${val}`;
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+        btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+      }
+      applyFilters();
+    }
+
+    function setStandaloneToggle() {
+      isStandaloneOnly = !isStandaloneOnly;
+      minDiscountFilter = null;
+      document.querySelectorAll('.tier-btn').forEach(b => {
+        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+      });
+      if (isStandaloneOnly) {
+        const btn = document.getElementById('tier-standalone');
+        btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+        btn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+      } else {
+        setDiscountFilter(null);
+      }
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      clearSearch();
+      selectAllBrands(false);
+      clearAllCategories();
+      document.getElementById('sortSelect').value = 'discount_desc';
+      document.getElementById('toggleOnly70').checked = true;
+      setDiscountFilter(null);
+    }
+
+    function handleFilterChange() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      if (activeView === 'history') return;
+
+      const only70 = document.getElementById('toggleOnly70').checked;
+      const sortBy = document.getElementById('sortSelect').value;
+
+      if (activeView === 'campaigns') {
+        let filtered = masterCampaigns;
+
+        if (only70) {
+          filtered = filtered.filter(c => c.has_70_plus_verified && (c.total_verified_skus || 0) > 0);
+        }
+
+        if (isStandaloneOnly) {
+          filtered = filtered.filter(c => c.is_standalone_deal);
+        }
+
+        if (minDiscountFilter) {
+          filtered = filtered.filter(c => (c.max_realized_discount || 0) >= minDiscountFilter);
+        }
+
+        if (selectedBrands.size > 0) {
+          filtered = filtered.filter(c => {
+            const brandsStr = (c.brands || '').toLowerCase();
+            return Array.from(selectedBrands).some(b => brandsStr.includes(b.toLowerCase()));
+          });
+        }
+
+        if (selectedCategories.size > 0) {
+          const CAMP_SYNONYMS = {
+            'smart wearables': ['wearable', 'smartwatch', 'smart watch', 'pulse', 'gadget', 'tech'],
+            'smartwatches': ['smartwatch', 'smart watch', 'wearable', 'watch'],
+            'fitness gadgets & bands': ['fitness', 'band', 'gadget', 'wearable'],
+            'headphones': ['headphone', 'earphone', 'audio', 'sound'],
+            'speakers': ['speaker', 'audio', 'sound'],
+            'sneakers': ['sneaker', 'shoe', 'footwear', 'puma', 'nike'],
+            'casual shoes': ['casual shoe', 'sneaker', 'shoe', 'footwear'],
+            'jeans': ['jean', 'denim'],
+            'shirts': ['shirt'],
+            'kurtas': ['kurta', 'ethnic'],
+            'sarees': ['saree', 'ethnic', 'silk'],
+            'lipsticks': ['lipstick', 'beauty', 'makeup'],
+            'bedsheets': ['bedsheet', 'home', 'living', 'bed']
+          };
+
+          filtered = filtered.filter(c => {
+            const textToMatch = `${c.title} ${c.description} ${c.curated_id} ${c.department}`.toLowerCase();
+            return Array.from(selectedCategories).some(cat => {
+              const cLow = cat.toLowerCase();
+              const cClean = cLow.replace(/[^a-z0-9]/g, '');
+              if (textToMatch.includes(cLow) || textToMatch.replace(/[^a-z0-9]/g, '').includes(cClean)) return true;
+              const syns = CAMP_SYNONYMS[cLow];
+              if (syns && syns.some(s => textToMatch.includes(s))) return true;
+              return false;
+            });
+          });
+        }
+
+        if (searchQuery) {
+          const tokens = searchQuery.split(/\s+/).filter(Boolean);
+          filtered = filtered.filter(c => {
+            const rowText = `${c.code} ${c.title} ${c.description} ${c.curated_id} ${c.brands} ${c.department}`.toLowerCase();
+            return tokens.every(t => rowText.includes(t));
+          });
+        }
+
+        if (sortBy === 'discount_desc') {
+          filtered.sort((a, b) => (b.max_realized_discount || 0) - (a.max_realized_discount || 0));
+        } else if (sortBy === 'skus_desc') {
+          filtered.sort((a, b) => (b.total_verified_skus || 0) - (a.total_verified_skus || 0));
+        } else if (sortBy === 'price_asc') {
+          filtered.sort((a, b) => (a.min_price || 0) - (b.min_price || 0));
+        } else if (sortBy === 'code_asc') {
+          filtered.sort((a, b) => (a.code || '').localeCompare(b.code || ''));
+        }
+
+        document.getElementById('visibleCount').innerText = `${filtered.length} Promo Collections`;
+        renderCampaignsGrid(filtered);
+      } else {
+        // Products View Filtering
+        let filtered = masterProducts;
+
+        if (minDiscountFilter) {
+          filtered = filtered.filter(p => (p.net_discount_percent || 0) >= minDiscountFilter);
+        }
+
+        if (selectedBrands.size > 0) {
+          filtered = filtered.filter(p => selectedBrands.has(p.brand));
+        }
+
+        if (selectedCategories.size > 0) {
+          const SYNONYMS = {
+            'smart wearables': ['wearable', 'smartwatch', 'smart watch', 'pulse', 'fitness gadget', 'activity tracker', 'smart band', 'gadget', 'sw-'],
+            'smartwatches': ['smartwatch', 'smart watch', 'wearable', 'calling watch', 'pulse', 'sw-'],
+            'fitness gadgets & bands': ['fitness', 'band', 'tracker', 'smartwatch', 'pulse', 'gadget'],
+            'activity trackers': ['tracker', 'band', 'fitness', 'smartwatch', 'wearable'],
+            'headphones': ['headphone', 'earphone', 'airpod', 'earbud', 'neckband', 'tws', 'audio'],
+            'speakers': ['speaker', 'soundbar', 'bluetooth speaker', 'boombox', 'audio'],
+            'sneakers': ['sneaker', 'trainer', 'mid-top', 'low-top', 'canvas shoe', 'shoe'],
+            'casual shoes': ['casual shoe', 'sneaker', 'slip-on', 'loafer', 'shoe'],
+            'formal shoes': ['formal shoe', 'derby', 'oxford', 'brogue', 'shoe'],
+            'sandals': ['sandal', 'flip flop', 'slipper', 'slider', 'clog', 'shoe'],
+            'jeans': ['jean', 'denim', 'jegging', 'pant'],
+            'trousers & pants': ['trouser', 'pant', 'chino', 'cargo'],
+            'shirts': ['shirt', 'formal shirt', 'casual shirt', 'oxford shirt', 'checked shirt'],
+            'tshirts': ['tshirt', 't-shirt', 'tee', 'polo'],
+            't-shirts': ['tshirt', 't-shirt', 'tee', 'polo'],
+            'kurtas': ['kurta', 'kurti', 'kurta set', 'straight kurta', 'anarkali', 'suit'],
+            'sarees': ['saree', 'sari', 'silk saree', 'banarasi', 'chiffon'],
+            'lipsticks': ['lipstick', 'lip gloss', 'lip balm', 'lip crayon', 'liquid matte', 'lip'],
+            'bedsheets': ['bedsheet', 'bed sheet', 'bed cover', 'bed linen', 'fitted sheet', 'bed'],
+            'perfumes': ['perfume', 'eau de parfum', 'eau de toilette', 'fragrance', 'edp', 'edt', 'deodorant']
+          };
+
+          filtered = filtered.filter(p => {
+            const pCat = (p.category || '').toLowerCase();
+            const pName = (p.name || '').toLowerCase();
+            const pDept = (p.department || '').toLowerCase();
+            const pSlug = (p.coupon_slug || '').toLowerCase();
+            const pForm = (p.formula_desc || '').toLowerCase();
+            const targetText = `${pCat} ${pName} ${pDept} ${pSlug} ${pForm}`;
+
+            return Array.from(selectedCategories).some(cat => {
+              const cLow = cat.toLowerCase();
+              const cClean = cLow.replace(/[^a-z0-9]/g, '');
+              
+              if (targetText.includes(cLow) || targetText.replace(/[^a-z0-9]/g, '').includes(cClean)) {
+                return true;
+              }
+
+              const syns = SYNONYMS[cLow];
+              if (syns && syns.some(s => targetText.includes(s))) {
+                return true;
+              }
+
+              return false;
+            });
+          });
+        }
+
+        if (searchQuery) {
+          const tokens = searchQuery.split(/\s+/).filter(Boolean);
+          filtered = filtered.filter(p => {
+            const rowText = `${p.name} ${p.brand} ${p.category} ${p.department} ${p.coupon_code}`.toLowerCase();
+            return tokens.every(t => rowText.includes(t));
+          });
+        }
+
+        if (sortBy === 'discount_desc') {
+          filtered.sort((a, b) => (b.net_discount_percent || 0) - (a.net_discount_percent || 0));
+        } else if (sortBy === 'price_asc') {
+          filtered.sort((a, b) => (a.final_price || 0) - (b.final_price || 0));
+        } else if (sortBy === 'code_asc') {
+          filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+        }
+
+        document.getElementById('visibleCount').innerText = `${filtered.length} Verified Products`;
+        renderProductsGrid(filtered);
+      }
+    }
+
+    function renderCampaignsGrid(campaigns) {
+      const container = document.getElementById('campaignsGrid');
+      const emptyState = document.getElementById('emptyState');
+
+      if (!campaigns || campaigns.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = campaigns.map(c => {
+        const maxDisc = Math.round(c.max_realized_discount || 0);
+        const minDisc = Math.round(c.min_realized_discount || 0);
+        
+        let rangeBadge = `${minDisc}% - ${maxDisc}% OFF`;
+        if (minDisc === maxDisc || minDisc === 0) rangeBadge = `${maxDisc}% REALIZED OFF`;
+
+        let discountColor = 'bg-slate-100 text-slate-700 border-slate-200';
+        if (maxDisc >= 85) discountColor = 'bg-amber-50 text-amber-800 border-amber-200 font-extrabold';
+        else if (maxDisc >= 80) discountColor = 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
+        else if (maxDisc >= 70) discountColor = 'bg-sky-50 text-sky-800 border-sky-200 font-bold';
+
+        const brandsSnippet = c.brands ? `
+          <div class="mt-2.5 text-[11px] text-slate-500 flex items-center gap-1.5 truncate">
+            <i class="fa-solid fa-award text-amber-500 text-[10px] shrink-0"></i>
+            <span class="font-semibold text-slate-700 shrink-0">Brands:</span>
+            <span class="truncate text-slate-600">${c.brands}</span>
+          </div>` : '';
+
+        const priceRangeSnippet = (c.min_price > 0 && c.max_price > 0) ? `
+          <div class="mt-2.5 flex items-center gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-100">
+            <span>Price Range:</span>
+            <span class="text-slate-900 font-extrabold font-mono">₹${Math.round(c.min_price)} – ₹${Math.round(c.max_price)}</span>
+          </div>` : '';
+
+        const filterRuleBanner = c.applied_filter_tier !== 'None (0 Qualifying Items)' ? `
+          <div class="mt-2.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-[11px] leading-relaxed text-emerald-900 flex items-start gap-1.5">
+            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5 text-[10px] shrink-0"></i>
+            <span class="truncate">Pre-filtered for <strong>${c.applied_filter_tier}</strong> (${c.total_verified_skus} verified deals)</span>
+          </div>` : `
+          <div class="mt-2.5 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] leading-relaxed text-amber-900 flex items-start gap-1.5">
+            <i class="fa-solid fa-circle-exclamation text-amber-600 mt-0.5 text-[10px] shrink-0"></i>
+            <span>0 current items reach &ge;70% net savings.</span>
+          </div>`;
+
+        return `
+          <div class="deal-card bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs min-w-0">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center space-x-1.5">
+                  <span class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 text-sky-800 border border-sky-200 tracking-wider">
+                    ${c.code}
+                  </span>
+                  <button onclick="copyToClipboard('${c.code}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+
+                <span class="text-[11px] uppercase px-2.5 py-0.5 rounded-full border ${discountColor} shrink-0">
+                  ${rangeBadge}
+                </span>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-1.5 mb-2.5">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                  ${c.department || 'Multi-Category'}
+                </span>
+                <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-slate-600 truncate">
+                  ${c.promo_type || 'Promo Voucher'}
+                </span>
+              </div>
+
+              <p class="text-xs text-slate-800 leading-snug font-semibold line-clamp-2">${c.description}</p>
+              
+              ${brandsSnippet}
+              ${priceRangeSnippet}
+              ${filterRuleBanner}
+            </div>
+
+            <!-- Sleek Sky Blue Action CTA -->
+            <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[120px]" title="${c.curated_id}">${c.curated_id}</span>
+              <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-sm shadow-sky-600/20">
+                <span>View &ge;70% Deals</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderProductsGrid(products) {
+      const container = document.getElementById('productsGrid');
+      const emptyState = document.getElementById('emptyState');
+
+      if (!products || products.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = products.map(p => {
+        const netD = Math.round(p.net_discount_percent);
+        const baseD = Math.round(p.base_discount_percent);
+        const codeLabel = p.coupon_code === 'DIRECT_CLEARANCE' ? 'Clearance' : p.coupon_code;
+
+        return `
+          <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
+            <!-- 3:4 Responsive Image Frame -->
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
+              <img src="${p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png'}" alt="${p.name}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
+              
+              <div class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
+                ${netD}% NET OFF
+              </div>
+
+              <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
+                <span class="font-mono truncate text-sky-800">${codeLabel}</span>
+                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} OFF</span>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-2.5 sm:p-3.5 space-y-2 flex-1 flex flex-col justify-between min-w-0">
+              <div class="min-w-0">
+                <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider truncate">${p.brand}</div>
+                <h4 class="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mt-0.5 min-w-0" title="${p.name}">${p.name}</h4>
+                <div class="text-[10px] text-slate-400 mt-0.5 truncate">${p.category} &bull; ${p.department || 'General'}</div>
+              </div>
+
+              <!-- Sleek Sky Blue Buy Button -->
+              <div class="pt-2 border-t border-slate-100">
+                <div class="flex items-baseline flex-wrap gap-1.5">
+                  <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
+                  <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
+                  ${baseD > 0 ? `<span class="text-[10px] text-sky-600 font-semibold">(${baseD}%)</span>` : ''}
+                </div>
+                
+                <a href="${p.product_url}" target="_blank" rel="noopener" class="mt-2.5 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
+                  <span>Buy on Ajio</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      showToast(`Copied Coupon: ${text}`, 'fa-copy');
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

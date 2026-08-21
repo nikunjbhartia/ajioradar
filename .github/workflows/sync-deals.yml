@@ -1,0 +1,48 @@
+name: Autonomous 30-Min Ajio Deals Sync & Cloudflare Deployment
+
+on:
+  schedule:
+    # Run automatically every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Enable manual 1-click trigger
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r backend/requirements.txt
+
+      - name: Run Zero-Block Ajio Validation Engine
+        env:
+          PYTHONPATH: backend
+        run: |
+          python3 -c "
+          import sys
+          sys.path.insert(0, 'backend')
+          from app.services.sync_daemon import daemon_instance
+          daemon_instance.perform_full_sync()
+          "
+
+      - name: Export Cloudflare Pages Static Edge Bundles
+        run: |
+          python3 backend/export_cloudflare.py
+
+      - name: Deploy to Cloudflare Pages (100% Free Edge Hosting)
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: 'ajio-flash-deals'
+          directory: 'dist'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,352 @@
+{
+  "MEN": {
+    "WESTERN WEAR": [
+      "Jeans",
+      "Shirts",
+      "Shorts & 3/4ths",
+      "Suit Sets",
+      "Track Pants",
+      "Tracksuits",
+      "Trousers & Pants",
+      "Tshirts",
+      "Co-ord Sets",
+      "Polos",
+      "Cargo Pants"
+    ],
+    "ETHNIC WEAR": [
+      "Kurtas",
+      "Ethnic Suit Sets",
+      "Ethnic Jackets",
+      "Pyjamas & Churidars",
+      "Sherwani Sets",
+      "Stoles",
+      "Dhotis & Lungis"
+    ],
+    "WINTERWEAR": [
+      "Blazers & Waistcoats",
+      "Jackets & Coats",
+      "Sweaters & Cardigans",
+      "Sweatshirts & Hoodie",
+      "Thermals & Innerwear"
+    ],
+    "INNERWEAR": [
+      "Boxers",
+      "Briefs",
+      "Trunks",
+      "Vests",
+      "Thermal Wear",
+      "Pyjamas & Lounge Pants"
+    ],
+    "NIGHT & LOUNGEWEAR": [
+      "Nightwear Sets",
+      "Loungewear Bottoms",
+      "Lounge Tshirts & Robes"
+    ],
+    "PLUS SIZE": [
+      "Plus Size Shirts",
+      "Plus Size Tshirts",
+      "Plus Size Jeans & Trousers",
+      "Plus Size Ethnic Wear"
+    ]
+  },
+  "WOMEN": {
+    "WESTERN WEAR": [
+      "Dresses & Jumpsuits",
+      "Tops & Tunics",
+      "Tshirts",
+      "Shirts",
+      "Jeans & Jeggings",
+      "Trousers & Pants",
+      "Shorts & Skirts",
+      "Co-ord Sets",
+      "Shrugs & Boleros",
+      "Track Pants & Joggers"
+    ],
+    "ETHNIC WEAR": [
+      "Kurtas",
+      "Kurta Suit Sets",
+      "Sarees",
+      "Salwars & Churidars",
+      "Ethnic Dresses & Gowns",
+      "Lehenga Choli",
+      "Dupattas & Shawls",
+      "Dress Material",
+      "Palazzos & Culottes"
+    ],
+    "LINGERIE & INNERWEAR": [
+      "Bras",
+      "Panties",
+      "Nightwear & Loungewear",
+      "Nighties & Robes",
+      "Pyjama Sets",
+      "Shapewear",
+      "Camisoles & Slips",
+      "Thermal Wear"
+    ],
+    "HANDBAGS & WALLETS": [
+      "Handbags",
+      "Sling Bags",
+      "Tote Bags",
+      "Backpacks",
+      "Wallets & Clutches",
+      "Laptop Bags"
+    ],
+    "WINTERWEAR": [
+      "Jackets & Coats",
+      "Sweaters & Cardigans",
+      "Sweatshirts & Hoodies",
+      "Blazers & Waistcoats",
+      "Shawls & Wraps"
+    ],
+    "MATERNITY & PLUS SIZE": [
+      "Maternity Dresses",
+      "Maternity Tops",
+      "Plus Size Western Wear",
+      "Plus Size Ethnic Wear"
+    ]
+  },
+  "FOOTWEAR": {
+    "MEN'S FOOTWEAR": [
+      "Sneakers",
+      "Casual Shoes",
+      "Sports Shoes & Running",
+      "Formal Shoes",
+      "Sandals & Floaters",
+      "Flip Flops & Slippers",
+      "Boots",
+      "Ethnic Shoes & Juttis"
+    ],
+    "WOMEN'S FOOTWEAR": [
+      "Heels & Wedges",
+      "Flats & Ballerinas",
+      "Sneakers & Sports Shoes",
+      "Sandals",
+      "Flip Flops & Slippers",
+      "Boots",
+      "Ethnic Footwear & Mojaris"
+    ],
+    "KIDS' FOOTWEAR": [
+      "Casual Shoes",
+      "Sneakers",
+      "Sports Shoes",
+      "Sandals",
+      "Flip Flops",
+      "School Shoes",
+      "Booties"
+    ]
+  },
+  "GADGETS & TECH": {
+    "SMART WEARABLES": [
+      "Smart Wearables",
+      "Smartwatches",
+      "Fitness Gadgets & Bands",
+      "Activity Trackers"
+    ],
+    "AUDIO & ACCESSORIES": [
+      "Headphones",
+      "Wireless Earbuds (TWS)",
+      "Speakers & Soundbars",
+      "Neckbands"
+    ],
+    "SMART ACCESSORIES": [
+      "Power Banks",
+      "Cables & Chargers",
+      "Phone Grips & Cases"
+    ]
+  },
+  "FASHION JEWELLERY": {
+    "MEN'S JEWELLERY": [
+      "Bracelets & Kadas",
+      "Chains",
+      "Cufflinks & Tiepins",
+      "Earrings & Studs",
+      "Rings"
+    ],
+    "WOMEN'S JEWELLERY": [
+      "Earrings",
+      "Necklaces & Pendants",
+      "Bangles & Bracelets",
+      "Rings",
+      "Jewellery Sets",
+      "Anklets",
+      "Nose Rings & Pins",
+      "Silver Jewellery"
+    ]
+  },
+  "ACCESSORIES & LUGGAGE": {
+    "BAGS & LUGGAGE": [
+      "Backpacks",
+      "Luggage & Trolley Bags",
+      "Duffel Bags & Gym Bags",
+      "Travel Organisers"
+    ],
+    "DAILY ACCESSORIES": [
+      "Belts",
+      "Caps & Hats",
+      "Perfumes & Colognes",
+      "Socks",
+      "Sunglasses",
+      "Wallets & Cardholders",
+      "Watches",
+      "Ties, Bowties & Pocket Squares"
+    ]
+  },
+  "KIDS & INFANTS": {
+    "BOYS CLOTHING": [
+      "Tshirts",
+      "Shirts",
+      "Jeans",
+      "Trousers & Pants",
+      "Shorts & 3/4ths",
+      "Track Pants",
+      "Ethnic Wear",
+      "Jackets & Sweaters",
+      "Innerwear & Nightwear"
+    ],
+    "GIRLS CLOTHING": [
+      "Dresses & Frocks",
+      "Tops & Tshirts",
+      "Jeans & Jeggings",
+      "Leggings & Pants",
+      "Skirts & Shorts",
+      "Ethnic Wear",
+      "Jackets & Sweaters",
+      "Innerwear"
+    ],
+    "INFANTS (0-2 YEARS)": [
+      "Rompers & Onesies",
+      "Clothing Sets",
+      "Dungarees & Playsuits",
+      "Tops & Bottoms",
+      "Baby Bedding & Swaddles",
+      "Winterwear"
+    ],
+    "TOYS & BABYCARE": [
+      "Educational Toys",
+      "Action Figures",
+      "Soft Toys",
+      "School Bags & Backpacks",
+      "Baby Care Essentials",
+      "Hair Accessories"
+    ]
+  },
+  "BEAUTY & GROOMING": {
+    "SKINCARE": [
+      "Moisturizers & Creams",
+      "Face Washes & Cleansers",
+      "Serums & Essences",
+      "Sunscreens",
+      "Face Masks & Peels",
+      "Toners & Mists",
+      "Eye Care"
+    ],
+    "MAKEUP": [
+      "Lipsticks & Liquid Lips",
+      "Foundation & Concealers",
+      "Eyeliners & Kajal",
+      "Mascaras",
+      "Blush & Bronzers",
+      "Nail Polish",
+      "Makeup Removers & Kits"
+    ],
+    "HAIRCARE": [
+      "Shampoos",
+      "Conditioners",
+      "Hair Oils & Serums",
+      "Hair Masks & Spa",
+      "Styling Gels & Sprays"
+    ],
+    "FRAGRANCES": [
+      "Perfumes (EDP/EDT)",
+      "Body Mists & Sprays",
+      "Deodorants & Roll-ons",
+      "Attars & Concentrates"
+    ],
+    "MEN'S GROOMING": [
+      "Beard Care & Oils",
+      "Shaving Essentials",
+      "Men Face Washes",
+      "Hair Styling Wax",
+      "Body Wash & Soaps"
+    ]
+  },
+  "HOME & KITCHEN": {
+    "BEDDING & LINEN": [
+      "Bedsheets",
+      "Bedding Sets",
+      "Blankets, Dohars & Quilts",
+      "Comforters & Duvets",
+      "Pillow Covers",
+      "Bed Covers",
+      "Mattress Protectors"
+    ],
+    "CUSHIONS, CURTAINS & MATS": [
+      "Cushions & Covers",
+      "Curtains & Drapes",
+      "Pillows & Bolsters",
+      "Rugs, Carpets & Mats",
+      "Door Mats"
+    ],
+    "KITCHEN & DINING": [
+      "Cookware & Pans",
+      "Bakeware",
+      "Dinner Sets & Plates",
+      "Serveware & Bowls",
+      "Glasses & Mugs",
+      "Storage & Containers",
+      "Kitchen Tools & Cutlery"
+    ],
+    "HOME DECOR & GIFTING": [
+      "Wall Decor & Paintings",
+      "Clocks",
+      "Photo Frames",
+      "Candles & Diffusers",
+      "Vases & Planters",
+      "Lamps & Lighting",
+      "Idols & Figurines"
+    ],
+    "BATH & STORAGE": [
+      "Bath Towels & Robes",
+      "Hand & Face Towels",
+      "Bath Mats",
+      "Bathroom Accessories & Organizers",
+      "Storage Baskets & Boxes"
+    ]
+  },
+  "INDIE & HANDLOOM": {
+    "WOMEN'S INDIE": [
+      "Handloom Sarees",
+      "Chanderi & Banarasi",
+      "Ikat & Kalamkari",
+      "Handcrafted Kurtas",
+      "Artisanal Dupattas"
+    ],
+    "MEN'S INDIE": [
+      "Khadi Shirts & Kurtas",
+      "Handblock Printed Shirts",
+      "Handwoven Jackets"
+    ],
+    "HANDCRAFTED DECOR": [
+      "Block Print Bedsheets",
+      "Brass & Copper Handicrafts",
+      "Jute Mats & Rugs"
+    ]
+  },
+  "LUXE & DESIGNER": {
+    "LUXE MEN": [
+      "Armani Exchange Clothing",
+      "Superdry Streetwear",
+      "Tommy Hilfiger",
+      "Gas Jeans",
+      "Steve Madden Footwear",
+      "Diesel Premium Wear"
+    ],
+    "LUXE WOMEN": [
+      "Armani Exchange Dresses",
+      "Steve Madden Heels & Bags",
+      "Aldo Handbags & Footwear",
+      "Forever New Dresses",
+      "Calvin Klein Underwear"
+    ]
+  }
+}
