@@ -79,5 +79,39 @@ def export_for_cloudflare():
     print(f"    * Complete Taxonomy exported: {os.path.join(data_dir, 'taxonomy.json')}")
     print(f"    * Ready to deploy directly with: npx wrangler pages deploy dist")
 
+    # 6. Write rich summary in GitHub Actions UI if available
+    summary_file = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_file:
+        try:
+            with open(summary_file, "a") as sf:
+                sf.write(f"""
+## ⚡ AjioRadar Sync & Edge Deployment Report
+
+| Metric | Live Value |
+| :--- | :--- |
+| **Active ≥70% Campaigns** | **{stats.get('verified_70_plus_campaigns', 0)}** |
+| **Total Campaigns Harvested** | **{stats.get('total_campaigns', 0)}** |
+| **Real ≥70% Products** | **{stats.get('verified_70_plus_products', 0)}** |
+| **Indexed Brands** | **{stats.get('total_brands', 0)}** |
+| **Tracked Departments** | **{stats.get('total_departments', 0)}** |
+| **Deployment Time** | `{time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}` |
+
+### 🚀 Live Website: [https://ajioradar.pages.dev](https://ajioradar.pages.dev)
+""")
+                if history:
+                    latest = history[0]
+                    added_str = ", ".join(latest.added_coupons) if latest.added_coupons else "None"
+                    updated_str = ", ".join(latest.updated_coupons) if latest.updated_coupons else "Steady"
+                    removed_str = ", ".join(latest.removed_coupons) if latest.removed_coupons else "0 expired"
+                    sf.write(f"""
+### 📊 Rolling Delta Audit
+- **Newly Found Promo Codes (+)**: `{latest.added_count}` ({added_str})
+- **Updated Promotions (~)**: `{latest.updated_count}` ({updated_str})
+- **Purged Expired (-)**: `{latest.removed_count}` ({removed_str})
+- **Scan Duration**: `{latest.duration_seconds}s`
+""")
+        except Exception as e:
+            pass
+
 if __name__ == "__main__":
     export_for_cloudflare()
