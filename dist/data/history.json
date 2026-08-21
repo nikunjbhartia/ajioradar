@@ -1,5 +1,24 @@
 [
   {
+    "sync_id": "sync_1787343699",
+    "timestamp": 1787343699.6305861,
+    "formatted_time": "Aug 22, 01:51 AM",
+    "duration_seconds": 14.2,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 440,
+    "total_campaigns": 591,
+    "total_deals": 0,
+    "highlights": [
+      "\u2728 Catalog steady \u2014 verified 591 campaign collections & active clearance inventory"
+    ],
+    "changes": []
+  },
+  {
     "sync_id": "sync_1787342483",
     "timestamp": 1787342483.933006,
     "formatted_time": "Aug 22, 01:31 AM",
