@@ -5,6 +5,7 @@ import time
 import urllib.parse
 import logging
 import concurrent.futures
+from typing import List, Dict, Any, Optional, Tuple
 try:
     from app.core.stealth_client import stealth_manager
     from app.database.storage import DealStorage
