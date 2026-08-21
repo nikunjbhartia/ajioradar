@@ -42,9 +42,16 @@ def export_for_cloudflare():
     with open(os.path.join(data_dir, "products.json"), "w") as f:
         json.dump([p.model_dump() for p in products], f, indent=2)
 
+    featured_file = os.path.join(os.path.dirname(__file__), "app", "database", "featured_brands.json")
+    featured_brands_dict = {}
+    if os.path.exists(featured_file):
+        with open(featured_file) as f:
+            featured_brands_dict = json.load(f)
+
     with open(os.path.join(data_dir, "metadata.json"), "w") as f:
         json.dump({
             "brands": brands,
+            "featured_brands": featured_brands_dict,
             "departments": departments,
             "stats": stats,
             "exported_at": time.time(),
