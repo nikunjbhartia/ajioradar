@@ -52,7 +52,11 @@ class SyncHistoryItem(BaseModel):
     removed_count: int = 0
     active_70_count: int = 0
     total_campaigns: int = 0
+    active_codes_count: int = 0
+    total_codes_count: int = 0
     total_deals: int = 0
+    active_coupons: List[str] = Field(default_factory=list)
+    department_breakdown: Dict[str, int] = Field(default_factory=dict)
     highlights: List[str] = Field(default_factory=list)
     changes: List[Dict[str, Any]] = Field(default_factory=list)
 
@@ -61,6 +65,8 @@ class SyncStatusReport(BaseModel):
     verified_70_plus_campaigns: int
     total_campaigns: int
     verified_70_plus_products: int
+    verified_70_plus_codes: Optional[int] = 0
+    total_codes: Optional[int] = 0
     last_sync_timestamp: float
     seconds_since_last_sync: float
     last_sync_duration_seconds: float

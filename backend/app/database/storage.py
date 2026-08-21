@@ -119,6 +119,14 @@ class DealStorage:
                 cursor.execute("ALTER TABLE sync_history ADD COLUMN highlights TEXT")
             if 'changes' not in sh_cols and len(sh_cols) > 0:
                 cursor.execute("ALTER TABLE sync_history ADD COLUMN changes TEXT")
+            if 'active_codes_count' not in sh_cols and len(sh_cols) > 0:
+                cursor.execute("ALTER TABLE sync_history ADD COLUMN active_codes_count INTEGER")
+            if 'total_codes_count' not in sh_cols and len(sh_cols) > 0:
+                cursor.execute("ALTER TABLE sync_history ADD COLUMN total_codes_count INTEGER")
+            if 'active_coupons' not in sh_cols and len(sh_cols) > 0:
+                cursor.execute("ALTER TABLE sync_history ADD COLUMN active_coupons TEXT")
+            if 'department_breakdown' not in sh_cols and len(sh_cols) > 0:
+                cursor.execute("ALTER TABLE sync_history ADD COLUMN department_breakdown TEXT")
             conn.commit()
 
     def save_campaigns(self, campaigns: List[Dict[str, Any]], duration_seconds: float = 0.0) -> SyncHistoryItem:
@@ -269,6 +277,50 @@ class DealStorage:
                         "badge": "DELISTED"
                     })
 
+            # Query live comprehensive database metrics
+            try:
+                cursor.execute('SELECT COUNT(*), SUM(CASE WHEN has_70_plus_verified = 1 THEN 1 ELSE 0 END) FROM filtered_campaigns')
+                tot_camps_row = cursor.fetchone()
+                total_collections = (tot_camps_row[0] or len(campaigns)) if tot_camps_row else len(campaigns)
+                active_collections = (tot_camps_row[1] or 0) if tot_camps_row else sum(1 for c in campaigns if c.get('has_70_plus_verified'))
+            except Exception:
+                total_collections = len(campaigns)
+                active_collections = sum(1 for c in campaigns if c.get('has_70_plus_verified'))
+
+            active_codes_count = sum(1 for c in current_coupons.values() if c['has_70'])
+            total_codes_count = len(current_coupons)
+
+            try:
+                cursor.execute('SELECT COUNT(*) FROM verified_products WHERE net_discount_percent >= 70.0')
+                total_verified_deals = cursor.fetchone()[0] or 0
+            except Exception:
+                total_verified_deals = 0
+
+            try:
+                cursor.execute('''
+                    SELECT DISTINCT UPPER(TRIM(code)) as clean_code, MAX(max_realized_discount) as max_disc
+                    FROM filtered_campaigns 
+                    WHERE has_70_plus_verified = 1 AND code IS NOT NULL AND TRIM(code) != '' AND code != 'DIRECT_CLEARANCE'
+                    GROUP BY clean_code
+                    ORDER BY max_disc DESC
+                    LIMIT 30
+                ''')
+                active_coupons_list = [r[0] for r in cursor.fetchall() if r[0]]
+            except Exception:
+                active_coupons_list = [code for code, c in current_coupons.items() if c['has_70']][:30]
+
+            try:
+                cursor.execute('''
+                    SELECT department, COUNT(*) as cnt 
+                    FROM verified_products 
+                    WHERE net_discount_percent >= 70.0 
+                    GROUP BY department 
+                    ORDER BY cnt DESC
+                ''')
+                dept_breakdown = {r[0]: r[1] for r in cursor.fetchall() if r[0]}
+            except Exception:
+                dept_breakdown = {}
+
             # Build high-level highlights
             highlights = []
             if added_codes:
@@ -277,14 +329,13 @@ class DealStorage:
                 highlights.append(f"📈 Re-priced & updated {len(updated_codes)} promotional collections: {', '.join(updated_codes[:4])}{' +' + str(len(updated_codes)-4) + ' more' if len(updated_codes) > 4 else ''}")
             if removed_codes:
                 highlights.append(f"📉 {len(removed_codes)} promotions expired/sub-70%: {', '.join(removed_codes[:4])}")
-            if not highlights:
-                highlights.append(f"✨ Catalog steady — verified {len(campaigns)} campaign collections with 0 delta shifts")
+            if not added_codes and not updated_codes and not removed_codes:
+                highlights.append(f"✨ 100% active integrity: {active_collections}/{total_collections} collections & {active_codes_count}/{total_codes_count} promo codes verified live ({total_verified_deals:,} items ≥70%)")
 
             # 4. Record sync history event
             now = time.time()
             sync_id = f"sync_{int(now)}"
             formatted_time = time.strftime("%b %d, %I:%M %p", time.localtime(now))
-            active_70_count = sum(1 for c in current_coupons.values() if c['has_70'])
 
             delta_record = SyncHistoryItem(
                 sync_id=sync_id,
@@ -297,9 +348,13 @@ class DealStorage:
                 added_count=len(added_codes),
                 updated_count=len(updated_codes),
                 removed_count=len(removed_codes),
-                active_70_count=active_70_count,
-                total_campaigns=len(current_coupons),
-                total_deals=0,
+                active_70_count=active_collections,
+                total_campaigns=total_collections,
+                active_codes_count=active_codes_count,
+                total_codes_count=total_codes_count,
+                total_deals=total_verified_deals,
+                active_coupons=active_coupons_list,
+                department_breakdown=dept_breakdown,
                 highlights=highlights,
                 changes=detailed_changes[:60]
             )
@@ -310,8 +365,9 @@ class DealStorage:
                     added_coupons, updated_coupons, removed_coupons,
                     added_count, updated_count, removed_count,
                     active_70_count, total_campaigns, total_deals,
-                    highlights, changes
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    highlights, changes,
+                    active_codes_count, total_codes_count, active_coupons, department_breakdown
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''', (
                 delta_record.sync_id, delta_record.timestamp, delta_record.formatted_time,
                 delta_record.duration_seconds,
@@ -319,9 +375,12 @@ class DealStorage:
                 json.dumps(delta_record.updated_coupons),
                 json.dumps(delta_record.removed_coupons),
                 delta_record.added_count, delta_record.updated_count, delta_record.removed_count,
-                delta_record.active_70_count, delta_record.total_campaigns, 0,
+                delta_record.active_70_count, delta_record.total_campaigns, delta_record.total_deals,
                 json.dumps(delta_record.highlights),
-                json.dumps(delta_record.changes)
+                json.dumps(delta_record.changes),
+                delta_record.active_codes_count, delta_record.total_codes_count,
+                json.dumps(delta_record.active_coupons),
+                json.dumps(delta_record.department_breakdown)
             ))
 
             # 5. Prune history older than 7 days (7 * 86400 = 604800s)
@@ -483,6 +542,19 @@ class DealStorage:
                 except Exception:
                     changes = []
 
+                try:
+                    active_coups = json.loads(r['active_coupons']) if 'active_coupons' in r.keys() and r['active_coupons'] else []
+                except Exception:
+                    active_coups = []
+
+                try:
+                    dept_bd = json.loads(r['department_breakdown']) if 'department_breakdown' in r.keys() and r['department_breakdown'] else {}
+                except Exception:
+                    dept_bd = {}
+
+                active_codes_cnt = r['active_codes_count'] if 'active_codes_count' in r.keys() and r['active_codes_count'] is not None else 0
+                total_codes_cnt = r['total_codes_count'] if 'total_codes_count' in r.keys() and r['total_codes_count'] is not None else 0
+
                 history.append(SyncHistoryItem(
                     sync_id=r['sync_id'],
                     timestamp=r['timestamp'],
@@ -496,7 +568,11 @@ class DealStorage:
                     removed_count=r['removed_count'] if 'removed_count' in r.keys() else len(removed),
                     active_70_count=r['active_70_count'],
                     total_campaigns=r['total_campaigns'],
+                    active_codes_count=active_codes_cnt,
+                    total_codes_count=total_codes_cnt,
                     total_deals=r['total_deals'],
+                    active_coupons=active_coups,
+                    department_breakdown=dept_bd,
                     highlights=highlights,
                     changes=changes
                 ))
@@ -746,9 +822,23 @@ class DealStorage:
             except Exception:
                 total_prods_70 = 0
 
+            try:
+                cursor.execute('''
+                    SELECT 
+                        COUNT(DISTINCT UPPER(TRIM(code))),
+                        COUNT(DISTINCT CASE WHEN has_70_plus_verified = 1 THEN UPPER(TRIM(code)) END)
+                    FROM filtered_campaigns
+                    WHERE code IS NOT NULL AND TRIM(code) != ''
+                ''')
+                tot_codes, act_codes = cursor.fetchone()
+            except Exception:
+                tot_codes, act_codes = 0, 0
+
             return {
                 "verified_70_plus_campaigns": camp_70,
                 "total_campaigns": total_camps,
+                "verified_70_plus_codes": act_codes,
+                "total_codes": tot_codes,
                 "verified_70_plus_products": total_prods_70,
                 "total_brands": len(self.get_brands()),
                 "total_departments": len(self.get_departments())

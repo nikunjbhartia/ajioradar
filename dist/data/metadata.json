@@ -159,6 +159,7 @@
     "FOSSIL",
     "FOURFOLDS",
     "FOXYFOOT",
+    "FREEPLAY",
     "FRESH 1947 FEET",
     "FUSION",
     "FUTURO",
@@ -259,6 +260,7 @@
     "KAYRAH",
     "KB TEAM SPIRIT",
     "KG FRENDZ",
+    "KIDDEO",
     "KISAH",
     "KLOTTHE",
     "KOBURG",
@@ -711,10 +713,12 @@
   "stats": {
     "verified_70_plus_campaigns": 440,
     "total_campaigns": 591,
-    "verified_70_plus_products": 9451,
-    "total_brands": 576,
+    "verified_70_plus_codes": 196,
+    "total_codes": 286,
+    "verified_70_plus_products": 9556,
+    "total_brands": 578,
     "total_departments": 9
   },
-  "exported_at": 1787346340.108995,
-  "exported_iso": "2026-08-21 21:05:40 UTC"
+  "exported_at": 1787346689.392412,
+  "exported_iso": "2026-08-21 21:11:29 UTC"
 }

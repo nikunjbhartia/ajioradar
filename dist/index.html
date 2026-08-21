@@ -129,21 +129,21 @@
 
       <!-- Live Discovery Metrics & Action Center -->
       <div class="hidden md:flex items-center space-x-3 text-xs shrink-0">
-        <!-- Metric 1: Total Coupons Identified -->
+        <!-- Metric 1: Total Campaign Collections -->
         <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200/90 px-3.5 py-2 rounded-xl text-slate-600 shadow-xs">
-          <i class="fa-solid fa-ticket text-sky-500 text-sm"></i>
+          <i class="fa-solid fa-layer-group text-slate-500 text-sm"></i>
           <div>
-            <div class="text-[10px] uppercase font-bold text-slate-400 leading-none">Coupons Identified</div>
-            <div class="font-extrabold text-slate-900 text-xs mt-0.5"><span id="metricTotalCoupons">430</span> Harvested</div>
+            <div class="text-[10px] uppercase font-bold text-slate-400 leading-none">Campaign Collections</div>
+            <div class="font-extrabold text-slate-900 text-xs mt-0.5"><span id="metricTotalCoupons">591</span> Tracked</div>
           </div>
         </div>
 
-        <!-- Metric 2: Active 70%+ Deals -->
+        <!-- Metric 2: Active 70%+ Collections -->
         <div class="flex items-center space-x-2 bg-emerald-50/80 border border-emerald-200 px-3.5 py-2 rounded-xl text-emerald-800 shadow-xs">
-          <i class="fa-solid fa-bolt-lightning text-emerald-600 text-sm"></i>
+          <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i>
           <div>
-            <div class="text-[10px] uppercase font-bold text-emerald-600 leading-none">Active &ge;70% Deals</div>
-            <div class="font-extrabold text-emerald-950 text-xs mt-0.5"><span id="metricActive70">281</span> Verified Live</div>
+            <div class="text-[10px] uppercase font-bold text-emerald-600 leading-none">Active &ge;70% Collections</div>
+            <div class="font-extrabold text-emerald-950 text-xs mt-0.5"><span id="metricActive70">440</span> Verified Live</div>
           </div>
         </div>
 
@@ -151,8 +151,8 @@
         <div class="flex items-center space-x-2 bg-sky-50/80 border border-sky-200 px-3.5 py-2 rounded-xl text-sky-800 shadow-xs">
           <i class="fa-solid fa-bag-shopping text-sky-600 text-sm"></i>
           <div>
-            <div class="text-[10px] uppercase font-bold text-sky-600 leading-none">Catalog Inventory</div>
-            <div class="font-extrabold text-sky-950 text-xs mt-0.5"><span id="metricTotalProducts">5,231+</span> Products</div>
+            <div class="text-[10px] uppercase font-bold text-sky-600 leading-none">Clearance Inventory</div>
+            <div class="font-extrabold text-sky-950 text-xs mt-0.5"><span id="metricTotalProducts">9,451+</span> Products</div>
           </div>
         </div>
 
@@ -1447,6 +1447,24 @@
           ? h.removed_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-200 font-mono text-[11px] font-bold line-through hover:bg-rose-100 transition cursor-pointer" title="Check expired / sub-70% code: ${escapeHtml(c)}">- ${escapeHtml(c)}</button>`).join(' ')
           : '<span class="text-slate-400 text-[11px] italic">Zero expired</span>';
 
+        const activeCamps = h.active_70_count || 0;
+        const totalCamps = h.total_campaigns || 0;
+        const activeCodes = h.active_codes_count || (h.active_coupons ? h.active_coupons.length : 0) || 0;
+        const totalCodes = h.total_codes_count || 0;
+        const totalDeals = (h.total_deals || (masterProducts ? masterProducts.length : 9451)).toLocaleString();
+
+        const activeCouponsHtml = (h.active_coupons && h.active_coupons.length > 0)
+          ? h.active_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-mono text-[11px] font-bold transition cursor-pointer" title="Inspect live deals for voucher ${escapeHtml(c)}">${escapeHtml(c)}</button>`).join(' ')
+          : '';
+
+        const deptPillsHtml = (h.department_breakdown && Object.keys(h.department_breakdown).length > 0)
+          ? Object.entries(h.department_breakdown).map(([dept, cnt]) => `
+              <button type="button" onclick="navigateByDept('${escapeHtml(dept)}', event)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-medium transition cursor-pointer" title="Filter department: ${escapeHtml(dept)}">
+                ${escapeHtml(dept)}: <strong class="text-slate-900">${cnt}</strong>
+              </button>
+            `).join('')
+          : '';
+
         return `
           <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
@@ -1457,13 +1475,17 @@
                 ${!hasDeltas ? '<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Catalog Steady</span>' : '<span class="text-[10px] font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Delta Events</span>'}
               </div>
               <div class="flex items-center space-x-2 text-xs flex-wrap gap-y-1">
-                <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
-                  ${h.active_70_count || 0} Active &ge;70%
+                <span class="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md" title="Curated campaign pages on Ajio meeting >=70% discount criteria">
+                  ${activeCamps} / ${totalCamps} Active Collections
                 </span>
-                <span class="text-sky-700 font-bold bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md">
-                  ${h.total_deals || 0} Verified Products
+                ${activeCodes > 0 ? `
+                  <span class="text-indigo-700 font-bold bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-md" title="Distinct promo coupon codes unlocking >=70% net savings">
+                    ${activeCodes}${totalCodes ? ' / ' + totalCodes : ''} Active Promo Codes
+                  </span>
+                ` : ''}
+                <span class="text-sky-700 font-bold bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md" title="Individually crawled and verified items reaching >=70%">
+                  ${totalDeals} Products
                 </span>
-                <span class="text-slate-500 font-medium text-[11px]">Total Seeds: ${h.total_campaigns || 0}</span>
               </div>
             </div>
 
@@ -1497,10 +1519,30 @@
               <div class="p-2.5 rounded-xl bg-slate-50/80 border border-slate-100 flex items-center justify-between text-xs text-slate-600">
                 <span class="flex items-center space-x-2 text-[11px]">
                   <i class="fa-solid fa-check-double text-emerald-600"></i>
-                  <span>No discount drops or newly expired codes detected — inventory &amp; coupons confirmed 100% active.</span>
+                  <span>No discount drops or newly expired codes detected — all verified collections and inventory 100% active.</span>
                 </span>
                 <span class="text-[10px] font-mono text-slate-400 shrink-0">0 Discrepancies</span>
               </div>
+
+              ${activeCouponsHtml ? `
+                <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
+                    <span class="text-slate-800 flex items-center gap-1.5">
+                      <i class="fa-solid fa-ticket text-indigo-600"></i>
+                      <span>Live Verified Promo Vouchers (Click to Filter Deals)</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-normal">Active Vouchers</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1">${activeCouponsHtml}</div>
+                </div>
+              ` : ''}
+
+              ${deptPillsHtml ? `
+                <div class="bg-slate-50/50 p-2.5 rounded-xl border border-slate-100 flex flex-wrap items-center gap-1.5 text-xs">
+                  <span class="font-bold text-slate-500 text-[10px] uppercase tracking-wider mr-1">Clearance Volume By Department:</span>
+                  ${deptPillsHtml}
+                </div>
+              ` : ''}
             `}
 
             ${h.highlights && h.highlights.length > 0 ? `
