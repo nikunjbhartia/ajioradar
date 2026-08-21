@@ -926,50 +926,74 @@
       
       const isFeatured = (b) => flatFeaturedBrands.has(b.toUpperCase()) || Array.from(flatFeaturedBrands).some(fb => fb.toLowerCase() === b.toLowerCase());
       
+      // Sort brands: featured brands first, then alphabetical
       const sorted = [...brands].sort((a, b) => {
         const fa = isFeatured(a) ? 1 : 0;
         const fb = isFeatured(b) ? 1 : 0;
-        if (fa !== fb) return fb - fa; // Featured brands first
+        if (fa !== fb) return fb - fa;
         return a.localeCompare(b);
       });
 
-      const featuredMatches = sorted.filter(isFeatured);
-      const otherMatches = sorted.filter(b => !isFeatured(b));
+      const featuredList = sorted.filter(isFeatured);
+      const otherList = sorted.filter(b => !isFeatured(b));
 
       let html = '';
-      if (q === '' && featuredMatches.length > 0) {
-        html += `
-          <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-2 mb-2">
-            <div class="text-[10px] font-extrabold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-              <span><i class="fa-solid fa-star text-amber-500 mr-1"></i> Featured & Trending Brands</span>
-              <span class="text-[9px] text-amber-700 font-mono">${featuredMatches.length} active</span>
-            </div>
-            <div class="space-y-0.5 max-h-48 overflow-y-auto custom-scrollbar">
-              ${featuredMatches.map(b => `
-                <label class="flex items-center space-x-2 px-2 py-1 rounded-lg hover:bg-amber-100/60 cursor-pointer select-none">
-                  <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${b}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
-                  <span class="text-slate-900 font-semibold truncate flex-1">${b}</span>
-                  <span class="text-[8px] px-1.5 py-0.2 rounded bg-amber-200/80 text-amber-900 font-extrabold tracking-wider">FEATURED</span>
-                </label>
-              `).join('')}
-            </div>
-          </div>
-          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1 pt-1 pb-0.5">All Brands (A-Z)</div>
-        `;
-      }
 
-      html += otherMatches.map(b => `
-        <label class="flex items-center space-x-2 px-2 py-1 rounded-lg hover:bg-slate-50 cursor-pointer select-none">
-          <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${b}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
-          <span class="text-slate-700 truncate">${b}</span>
-        </label>
-      `).join('');
+      if (q === '') {
+        // Default state: Pinned Featured Section + All Brands
+        if (featuredList.length > 0) {
+          html += `
+            <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-2 mb-2">
+              <div class="text-[10px] font-extrabold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                <span><i class="fa-solid fa-star text-amber-500 mr-1"></i> Featured & Trending Brands</span>
+                <span class="text-[9px] text-amber-700 font-mono">${featuredList.length} active</span>
+              </div>
+              <div class="space-y-0.5 max-h-48 overflow-y-auto custom-scrollbar">
+                ${featuredList.map(b => {
+                  const safeB = b.replace(/'/g, "\\'");
+                  return `
+                    <label class="flex items-center space-x-2 px-2 py-1 rounded-lg hover:bg-amber-100/60 cursor-pointer select-none">
+                      <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${safeB}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
+                      <span class="text-slate-900 font-semibold truncate flex-1">${b}</span>
+                      <span class="text-[8px] px-1.5 py-0.2 rounded bg-amber-200/80 text-amber-900 font-extrabold tracking-wider">FEATURED</span>
+                    </label>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1 pt-1 pb-0.5">All Brands (A-Z)</div>
+          `;
+        }
+
+        html += otherList.map(b => {
+          const safeB = b.replace(/'/g, "\\'");
+          return `
+            <label class="flex items-center space-x-2 px-2 py-1 rounded-lg hover:bg-slate-50 cursor-pointer select-none">
+              <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${safeB}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
+              <span class="text-slate-700 truncate">${b}</span>
+            </label>
+          `;
+        }).join('');
+      } else {
+        // Search state: Render all matching brands, with Featured items clearly tagged at the top of results
+        html = sorted.map(b => {
+          const featured = isFeatured(b);
+          const safeB = b.replace(/'/g, "\\'");
+          return `
+            <label class="flex items-center space-x-2 px-2 py-1.5 rounded-lg ${featured ? 'bg-amber-50/70 hover:bg-amber-100/70 border border-amber-200/70 mb-1' : 'hover:bg-slate-50'} cursor-pointer select-none">
+              <input type="checkbox" value="${b}" ${selectedBrands.has(b) ? 'checked' : ''} onchange="toggleBrandSelection('${safeB}')" class="rounded text-sky-600 focus:ring-sky-500 h-3.5 w-3.5 cursor-pointer">
+              <span class="${featured ? 'text-slate-900 font-bold' : 'text-slate-700'} truncate flex-1">${b}</span>
+              ${featured ? '<span class="text-[8px] px-1.5 py-0.2 rounded bg-amber-200 text-amber-900 font-extrabold tracking-wider">FEATURED</span>' : ''}
+            </label>
+          `;
+        }).join('');
+      }
 
       container.innerHTML = html || '<div class="text-center py-4 text-slate-400 text-xs">No matching brands found.</div>';
     }
 
     function filterBrandList() {
-      const q = document.getElementById('brandSearchInput').value.toLowerCase();
+      const q = (document.getElementById('brandSearchInput')?.value || '').trim().toLowerCase();
       const filtered = availableBrands.filter(b => b.toLowerCase().includes(q));
       renderBrandList(filtered);
     }
