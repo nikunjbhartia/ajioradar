@@ -170,37 +170,42 @@ class DealValidatorEngine:
 
                 if mrp > 0 and price > 0:
                     base_d = max(0.0, min(100.0, ((mrp - price) / mrp) * 100.0))
-                    if is_standalone:
+                    if parsed.get('is_markdown_collection'):
+                        final_p = price
+                        net_d = base_d
+                    elif is_standalone:
                         final_p = mrp * (1.0 - (nominal_r / 100.0))
+                        net_d = nominal_r
                     else:
                         final_p = price * (1.0 - (nominal_r / 100.0))
+                        net_d = ((mrp - final_p) / mrp) * 100.0
 
-                    final_p = max(0.0, min(mrp, final_p))
-                    net_d = max(0.0, min(100.0, ((mrp - final_p) / mrp) * 100.0))
+                    final_p = max(0.0, min(mrp, round(final_p, 2)))
+                    net_d = max(0.0, min(100.0, round(net_d, 1)))
 
-                    net_d = round(net_d, 1)
-                    final_p = round(final_p, 2)
-                    realized_discounts.append(net_d)
-                    effective_prices.append(final_p)
+                    # Strictly enforce >= 70% net savings threshold
+                    if net_d >= 70.0:
+                        realized_discounts.append(net_d)
+                        effective_prices.append(final_p)
 
-                    sku = p_url.split('/p/')[-1] if '/p/' in p_url else pid
-                    prod_dept = classify_product(p_name, brand, cat)
+                        sku = p_url.split('/p/')[-1] if '/p/' in p_url else pid
+                        prod_dept = classify_product(p_name, brand, cat)
 
-                    sample_deals.append({
-                        "id": sku,
-                        "name": p_name,
-                        "brand": brand,
-                        "category": cat,
-                        "department": prod_dept,
-                        "mrp": mrp,
-                        "selling_price": price,
-                        "final_price": final_p,
-                        "base_discount_percent": round(base_d, 1),
-                        "net_discount_percent": net_d,
-                        "coupon_code": code,
-                        "product_url": f"https://www.ajio.com/p/{sku}",
-                        "image_url": img_url
-                    })
+                        sample_deals.append({
+                            "id": sku,
+                            "name": p_name,
+                            "brand": brand,
+                            "category": cat,
+                            "department": prod_dept,
+                            "mrp": mrp,
+                            "selling_price": price,
+                            "final_price": final_p,
+                            "base_discount_percent": round(base_d, 1),
+                            "net_discount_percent": net_d,
+                            "coupon_code": code,
+                            "product_url": f"https://www.ajio.com/p/{sku}",
+                            "image_url": img_url
+                        })
 
             min_net = min(realized_discounts) if realized_discounts else nominal_r
             max_net = max(realized_discounts) if realized_discounts else nominal_r

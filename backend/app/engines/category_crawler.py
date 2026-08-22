@@ -123,12 +123,6 @@ class UniversalCategoryCrawler:
                                 f_price = price
                                 c_code = "DIRECT_CLEARANCE"
                                 f_desc = f"Direct Clearance: {base_d:.0f}% Off"
-                            # Stacked Flash Voucher (+20% coupon on base >= 58%)
-                            elif base_d >= 58.0:
-                                f_price = round(price * 0.80, 2)
-                                net_d = round(((mrp - f_price) / mrp) * 100.0, 1)
-                                c_code = "FLASH_STACK_20"
-                                f_desc = f"Base {base_d:.0f}% + 20% Voucher -> {net_d:.0f}% Realized"
                             else:
                                 net_d = 0.0
 

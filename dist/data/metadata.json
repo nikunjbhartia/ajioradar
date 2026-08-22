@@ -69,7 +69,6 @@
     "BELLA CASA",
     "BELLA VITA LUXURY",
     "BERGNER",
-    "BERSACHE",
     "BERYX",
     "BEWAKOOF",
     "BHRM",
@@ -837,14 +836,14 @@
     "WOMEN"
   ],
   "stats": {
-    "verified_70_plus_campaigns": 465,
+    "verified_70_plus_campaigns": 94,
     "total_campaigns": 616,
-    "verified_70_plus_codes": 198,
+    "verified_70_plus_codes": 48,
     "total_codes": 286,
-    "verified_70_plus_products": 16511,
-    "total_brands": 702,
+    "verified_70_plus_products": 13805,
+    "total_brands": 701,
     "total_departments": 11
   },
-  "exported_at": 1787403857.584956,
-  "exported_iso": "2026-08-22 13:04:17 UTC"
+  "exported_at": 1787404188.2846332,
+  "exported_iso": "2026-08-22 13:09:48 UTC"
 }
