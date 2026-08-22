@@ -25,7 +25,7 @@ def export_for_cloudflare():
     
     # 1. Fetch campaigns, products, brands, departments, stats
     campaigns = storage.get_filtered_campaigns(only_verified_70=False)
-    products = storage.get_verified_products(min_discount=70.0, limit=5000)
+    products = storage.get_verified_products(min_discount=70.0, limit=25000)
     brands = storage.get_brands()
     departments = storage.get_departments()
     stats = storage.get_stats()

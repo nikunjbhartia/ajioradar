@@ -199,6 +199,7 @@ class DealStorage:
                     'title': r['title'] or r['clean_code']
                 }
 
+            SYSTEM_EXCLUDED_CODES = {'DIRECT_CLEARANCE', 'PREMIUM_OFFER', 'FLASH_STACK_20', 'FLASH_STACK_25', 'FLASH_STACK_30', 'INSTANT_OFFER'}
             added_codes = []
             updated_codes = []
             removed_codes = []
@@ -206,6 +207,8 @@ class DealStorage:
 
             # Compare deltas only on meaningful shifts
             for code, curr in current_coupons.items():
+                if code in SYSTEM_EXCLUDED_CODES:
+                    continue
                 prev = previous_coupons.get(code)
                 if prev is None:
                     if curr['has_70']:
@@ -265,7 +268,9 @@ class DealStorage:
                             })
 
             for code, prev in previous_coupons.items():
-                if code not in current_coupons and prev['has_70'] and code not in removed_codes:
+                if code in SYSTEM_EXCLUDED_CODES:
+                    continue
+                if code not in current_coupons and prev['has_70'] and code not in removed_codes and code not in added_codes and code not in updated_codes:
                     removed_codes.append(code)
                     detailed_changes.append({
                         "type": "expired",
@@ -723,6 +728,10 @@ class DealStorage:
             sort_sql = "final_price DESC"
         elif sort_by == "mrp_desc":
             sort_sql = "mrp DESC"
+        elif sort_by == "boost_desc":
+            sort_sql = "(net_discount_percent - base_discount_percent) DESC, net_discount_percent DESC"
+        elif sort_by == "base_desc":
+            sort_sql = "base_discount_percent DESC, net_discount_percent DESC"
 
         query_sql = f'''
             SELECT * FROM verified_products

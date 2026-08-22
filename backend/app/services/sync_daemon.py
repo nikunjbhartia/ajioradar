@@ -38,7 +38,7 @@ class ContinuousSyncDaemon:
             cat_deals = self.category_crawler.run_full_category_sweep(max_workers=15)
             
             # 3. Pull merged products from storage
-            merged_deals = self.storage.get_verified_products(min_discount=70.0, limit=5000)
+            merged_deals = self.storage.get_verified_products(min_discount=70.0, limit=25000)
 
             self.in_memory_campaigns = res['campaigns']
             self.in_memory_deals = [d.model_dump() for d in merged_deals]

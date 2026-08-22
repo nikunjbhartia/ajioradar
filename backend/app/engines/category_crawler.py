@@ -27,10 +27,37 @@ class UniversalCategoryCrawler:
         self.seeds_path = os.path.join(os.path.dirname(__file__), "..", "database", "navigation_category_seeds.json")
 
     def load_category_seeds(self) -> List[Dict[str, Any]]:
+        seeds = []
         if os.path.exists(self.seeds_path):
             with open(self.seeds_path) as f:
-                return json.load(f)
-        return []
+                seeds = json.load(f)
+
+        # Merge in all official Featured Brands
+        featured_file = os.path.join(os.path.dirname(__file__), "..", "database", "featured_brands.json")
+        if os.path.exists(featured_file):
+            try:
+                with open(featured_file) as f:
+                    fb = json.load(f)
+                seen_brands = set()
+                for dept, brand_list in fb.items():
+                    for b in brand_list:
+                        b_clean = b.strip()
+                        b_slug = b_clean.lower().replace('&', 'and').replace('+', 'plus').replace("'", "").replace('.', '').strip()
+                        b_slug = re.sub(r'[\s_]+', '-', b_slug)
+                        if b_slug not in seen_brands:
+                            seen_brands.add(b_slug)
+                            seeds.append({
+                                "name": b_clean,
+                                "slug": b_slug,
+                                "dept": dept,
+                                "group": "FEATURED_BRAND",
+                                "facet_type": "brand_url",
+                                "brand_slug": b_slug,
+                                "brand_name": b_clean
+                            })
+            except Exception as e:
+                logger.debug(f"Featured brands load note: {e}")
+        return seeds
 
     def sweep_single_category(self, target: Dict[str, Any], min_discount_tier: str = "50% and above") -> List[Dict[str, Any]]:
         name = target.get('name', '')
@@ -39,17 +66,20 @@ class UniversalCategoryCrawler:
         group = target.get('group', 'GENERAL')
         facet_type = target.get('facet_type')
         facet_val = target.get('facet_value')
+        brand_slug = target.get('brand_slug') or slug
 
-        if not slug and not facet_val:
+        if not slug and not facet_val and not brand_slug:
             return []
 
         # Construct optimal search bridge query based on facet type
-        if facet_type == 'l1l3nestedcategory':
+        if facet_type == 'brand_url' or (facet_type == 'brand' and brand_slug):
+            api_url = f"https://www.ajio.com/b/{brand_slug}?query=%3Adiscount-desc&gridColumns=3"
+        elif facet_type == 'l1l3nestedcategory':
             raw_q = f':discount-desc:discountranges:{min_discount_tier}:l1l3nestedcategory:{facet_val}'
             api_url = f"https://www.ajio.com/c/83?query={urllib.parse.quote(raw_q)}&gridColumns=3&sort=discount-desc"
         elif facet_type == 'brand':
-            raw_q = f':discount-desc:discountranges:{min_discount_tier}:brand:{facet_val}'
-            api_url = f"https://www.ajio.com/c/83?query={urllib.parse.quote(raw_q)}&gridColumns=3&sort=discount-desc"
+            clean_b = slug.lower().replace(' ', '-') if slug else facet_val
+            api_url = f"https://www.ajio.com/b/{clean_b}?query=%3Adiscount-desc&gridColumns=3"
         else:
             clean_slug = slug.replace('/s/', '').strip('/')
             raw_q = f':discount-desc:discountranges:{min_discount_tier}:curated:true:curatedId:{clean_slug}'

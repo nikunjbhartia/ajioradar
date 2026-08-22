@@ -214,7 +214,7 @@ class DealValidatorEngine:
                 brands_str=brands_str,
                 slug=slug,
                 sample_deals=sample_deals,
-                seed_dept=c.get('department', 'Multi-Category')
+                seed_dept=camp.get('department', 'Multi-Category')
             )
 
             return {
@@ -246,7 +246,7 @@ class DealValidatorEngine:
                 brands_str="",
                 slug=slug,
                 sample_deals=None,
-                seed_dept=c.get('department', 'Multi-Category')
+                seed_dept=camp.get('department', 'Multi-Category')
             )
 
             return {

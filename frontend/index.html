@@ -318,9 +318,12 @@
         <!-- Sort By Dropdown -->
         <div class="sm:col-span-2 md:col-span-2">
           <select id="sortSelect" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3 py-2.5 rounded-xl focus:outline-none focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/10">
-            <option value="discount_desc">Sort: Highest % Off</option>
+            <option value="discount_desc">Sort: Highest Net % Off</option>
+            <option value="boost_desc">⚡ Sort: Biggest Flash Code Boost (Base vs Final)</option>
+            <option value="price_asc">Sort: Lowest Final Price (₹)</option>
+            <option value="price_desc">Sort: Highest Final Price (₹)</option>
+            <option value="base_desc">Sort: Highest Base Markdown %</option>
             <option value="skus_desc">Sort: Most Deals Found</option>
-            <option value="price_asc">Sort: Lowest Price</option>
             <option value="code_asc">Sort: Name (A-Z)</option>
           </select>
         </div>
@@ -333,6 +336,9 @@
       <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 custom-scrollbar text-xs flex-nowrap -mx-1 px-1">
         <button onclick="setDiscountFilter(null)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-sky-600 text-white font-bold transition whitespace-nowrap shadow-xs text-xs" id="tier-all">
           All Verified 70%+ Deals
+        </button>
+        <button onclick="toggleCouponBoostFilter()" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-boost">
+          <i class="fa-solid fa-bolt text-amber-500 mr-1"></i> ⚡ Flash Code Boosts
         </button>
         <button onclick="setDiscountFilter(85)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-85">
           <i class="fa-solid fa-fire text-amber-500 mr-1"></i> &ge;85% Epic Clearance
@@ -453,6 +459,7 @@
     
     let minDiscountFilter = null;
     let isStandaloneOnly = false;
+    let isCouponBoostOnly = false;
     let searchQuery = '';
 
     let isNavigatingState = false;
@@ -464,6 +471,23 @@
     const categorySlugMap = new Map();
     const categoryToDeptMap = new Map();
     const deptSlugMap = new Map();
+
+    const PRELOADED_FEATURED_BRANDS = [
+      "ANDAMEN", "ARMANI EXCHANGE", "BROOKS BROTHERS", "CONVERSE", "GANT", "GAP", "GAS", 
+      "LA MARTINA", "STEVE MADDEN", "SUPERDRY", "TOMMY HILFIGER", "ALPHA TRIBE", "ASOS", 
+      "BUDA JEANS CO", "DNMX", "JOHN PLAYERS", "JOHN PLAYERS JEANS", "LEE COOPER", "NEONOMAD", 
+      "NETPLAY", "SHEIN", "TEAMSPIRIT", "ADIDAS", "ASICS", "CLARKS", "CROCS", "NEW BALANCE", 
+      "NIKE", "PUMA", "RED TAPE", "SKECHERS", "BATA", "ALDO", "CAMPUS", "CASIO", "TITAN", 
+      "GUESS", "FOSSIL", "TIMEX", "FASTRACK", "GIVA", "MOKOBARA", "JOCKEY", "LEVI'S", 
+      "MARKS & SPENCER", "U.S. POLO ASSN.", "ZIVAME", "AMANTE", "CALVIN KLEIN", "ALLEN SOLLY", 
+      "ARROW", "EYEBOGLER", "FORT COLLINS", "H&M", "LOUIS PHILIPPE", "PERFORMAX", "RARE RABBIT", 
+      "SNITCH", "SPYKAR", "THE BEAR HOUSE", "THE INDIAN GARAGE CO", "VAN HEUSEN", 
+      "UNITED COLORS OF BENETTON", "ONLY", "VERO MODA", "COVER STORY", "JACK & JONES", 
+      "FLYING MACHINE", "MUFTI", "KILLER", "WROGN", "FOREVER NEW", "HUNKEMOLLER", "FABINDIA", 
+      "JOMPERS", "KISAH", "MANYAVAR", "SAMAV", "SOJANYA", "VASTRAMAY", "BIBA", "AURELIA", 
+      "W", "SOCH", "JANASYA", "RANGMANCH BY PANTALOONS", "HAMMER", "NOISE", "BOAT", "CELLECOR", 
+      "PTRON", "ZEBRONICS", "PORTRONICS", "SKULLCANDY"
+    ];
 
     function safeDecode(s) {
       if (!s) return '';
@@ -509,14 +533,16 @@
     }
 
     function registerBrandSlugs(brands) {
+      if (!brands) return;
       brands.forEach(b => {
         const s = slugify(b);
         const n = normalizeSlug(b);
         const raw = b.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const low = b.toLowerCase().trim();
         brandSlugMap.set(s, b);
         brandSlugMap.set(n, b);
         brandSlugMap.set(raw, b);
-        brandSlugMap.set(b.toLowerCase(), b);
+        brandSlugMap.set(low, b);
       });
       // Custom Aliases
       brandSlugMap.set('us-polo-assn', 'U.S. POLO ASSN.');
@@ -525,10 +551,25 @@
       brandSlugMap.set('hm', 'H&M');
       brandSlugMap.set('handm', 'H&M');
       brandSlugMap.set('jack-jones', 'JACK & JONES');
+      brandSlugMap.set('jack-and-jones', 'JACK & JONES');
       brandSlugMap.set('levis', "LEVI'S");
       brandSlugMap.set('levi-s', "LEVI'S");
       brandSlugMap.set('buda-jeans', 'BUDA JEANS CO');
+      brandSlugMap.set('rare-rabbit', 'RARE RABBIT');
+      brandSlugMap.set('united-colors-of-benetton', 'UNITED COLORS OF BENETTON');
+      brandSlugMap.set('benetton', 'UNITED COLORS OF BENETTON');
+      brandSlugMap.set('flying-machine', 'FLYING MACHINE');
+      brandSlugMap.set('louis-philippe', 'LOUIS PHILIPPE');
+      brandSlugMap.set('allen-solly', 'ALLEN SOLLY');
+      brandSlugMap.set('tommy-hilfiger', 'TOMMY HILFIGER');
+      brandSlugMap.set('forever-new', 'FOREVER NEW');
+      brandSlugMap.set('armani-exchange', 'ARMANI EXCHANGE');
+      brandSlugMap.set('vero-moda', 'VERO MODA');
+      brandSlugMap.set('new-balance', 'NEW BALANCE');
     }
+
+    // Pre-seed known featured brand mappings immediately on startup
+    registerBrandSlugs(PRELOADED_FEATURED_BRANDS);
 
     function registerTaxonomySlugs(tax) {
       Object.keys(tax).forEach(dept => {
@@ -581,7 +622,23 @@
       const s = slugify(input);
       const n = normalizeSlug(input);
       const raw = input.toLowerCase().replace(/[^a-z0-9]/g, '');
-      return brandSlugMap.get(s) || brandSlugMap.get(n) || brandSlugMap.get(raw) || brandSlugMap.get(input.toLowerCase()) || null;
+      const low = input.toLowerCase().trim();
+
+      const hit = brandSlugMap.get(s) || brandSlugMap.get(n) || brandSlugMap.get(raw) || brandSlugMap.get(low);
+      if (hit) return hit;
+
+      // Search case-insensitively across registered brand values
+      if (availableBrands && availableBrands.length > 0) {
+        for (const b of availableBrands) {
+          if (slugify(b) === s || normalizeSlug(b) === n || b.toLowerCase().replace(/[^a-z0-9]/g, '') === raw || b.toLowerCase() === low) {
+            brandSlugMap.set(s, b);
+            return b;
+          }
+        }
+      }
+
+      // Robust fallback converting slug into Title Case
+      return input.replace(/-/g, ' ').trim().replace(/\b\w/g, l => l.toUpperCase());
     }
 
     function resolveCategory(input) {
@@ -704,11 +761,16 @@
       }
 
       // Unified Tier Resolution
+      let rawBoost = false;
       if (params.has('tier')) {
         const t = params.get('tier');
         if (t === 'standalone' || t === 'bogo') {
           rawStandalone = true;
           rawDiscount = null;
+        } else if (t === 'boost' || t === 'flash') {
+          rawBoost = true;
+          rawDiscount = null;
+          rawStandalone = false;
         } else {
           const td = parseFloat(t);
           if (!isNaN(td)) {
@@ -719,6 +781,10 @@
       } else if (params.has('standalone') || params.get('bogo') === '1') {
         rawStandalone = true;
         rawDiscount = null;
+      } else if (params.has('boost') || params.get('flash') === '1') {
+        rawBoost = true;
+        rawDiscount = null;
+        rawStandalone = false;
       } else if (params.has('discount') || params.has('min_discount')) {
         const d = parseFloat(params.get('discount') || params.get('min_discount'));
         if (!isNaN(d)) {
@@ -733,7 +799,7 @@
       }
       if (params.has('sort') || params.has('sort_by')) {
         const s = params.get('sort') || params.get('sort_by');
-        if (['discount_desc', 'skus_desc', 'price_asc', 'code_asc'].includes(s)) {
+        if (['discount_desc', 'boost_desc', 'price_asc', 'price_desc', 'base_desc', 'skus_desc', 'code_asc'].includes(s)) {
           rawSort = s;
         }
       }
@@ -746,6 +812,7 @@
         search: rawSearch,
         discount: rawDiscount,
         standalone: rawStandalone,
+        boost: rawBoost,
         only70: rawOnly70,
         sort: rawSort
       };
@@ -783,6 +850,7 @@
       searchQuery = (route.search || '').trim().toLowerCase();
       minDiscountFilter = route.discount;
       isStandaloneOnly = !!route.standalone;
+      isCouponBoostOnly = !!route.boost;
 
       // Sync DOM elements
       const searchInput = document.getElementById('searchInput');
@@ -803,11 +871,17 @@
 
       // Tier buttons DOM sync
       document.querySelectorAll('.tier-btn').forEach(b => {
-        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.remove('bg-sky-600', 'bg-amber-500', 'text-white', 'text-slate-950', 'font-bold', 'font-black', 'shadow-xs');
         b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
       });
 
-      if (isStandaloneOnly) {
+      if (isCouponBoostOnly) {
+        const boostBtn = document.getElementById('tier-boost');
+        if (boostBtn) {
+          boostBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+          boostBtn.classList.add('bg-amber-500', 'text-slate-950', 'font-black', 'shadow-xs');
+        }
+      } else if (isStandaloneOnly) {
         const bogoBtn = document.getElementById('tier-standalone');
         if (bogoBtn) {
           bogoBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
@@ -902,6 +976,9 @@
       }
       if (isStandaloneOnly) {
         qParams.set('tier', 'bogo');
+      }
+      if (isCouponBoostOnly) {
+        qParams.set('tier', 'boost');
       }
       const toggleOnly70 = document.getElementById('toggleOnly70')?.checked ?? true;
       if (!toggleOnly70) {
@@ -1158,7 +1235,7 @@
 
     async function loadProducts(cacheBust) {
       try {
-        let res = await fetch('/api/products?min_discount=70.0&limit=5000');
+        let res = await fetch('/api/products?min_discount=70.0&limit=25000');
         if (!res.ok) throw new Error('Fallback');
         masterProducts = await res.json();
       } catch (err) {
@@ -1899,8 +1976,9 @@
     function setDiscountFilter(val) {
       minDiscountFilter = val;
       isStandaloneOnly = false;
+      isCouponBoostOnly = false;
       document.querySelectorAll('.tier-btn').forEach(b => {
-        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.remove('bg-sky-600', 'bg-amber-500', 'text-white', 'text-slate-950', 'font-bold', 'font-black', 'shadow-xs');
         b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
       });
 
@@ -1913,11 +1991,33 @@
       applyFilters(false);
     }
 
+    function toggleCouponBoostFilter() {
+      isCouponBoostOnly = !isCouponBoostOnly;
+      if (isCouponBoostOnly) {
+        minDiscountFilter = null;
+        isStandaloneOnly = false;
+      }
+      document.querySelectorAll('.tier-btn').forEach(b => {
+        b.classList.remove('bg-sky-600', 'bg-amber-500', 'text-white', 'text-slate-950', 'font-bold', 'font-black', 'shadow-xs');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+      });
+      const btn = document.getElementById('tier-boost');
+      if (btn && isCouponBoostOnly) {
+        btn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+        btn.classList.add('bg-amber-500', 'text-slate-950', 'font-black', 'shadow-xs');
+      } else {
+        setDiscountFilter(null);
+        return;
+      }
+      applyFilters(false);
+    }
+
     function setStandaloneToggle() {
       isStandaloneOnly = !isStandaloneOnly;
       minDiscountFilter = null;
+      isCouponBoostOnly = false;
       document.querySelectorAll('.tier-btn').forEach(b => {
-        b.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+        b.classList.remove('bg-sky-600', 'bg-amber-500', 'text-white', 'text-slate-950', 'font-bold', 'font-black', 'shadow-xs');
         b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
       });
       if (isStandaloneOnly) {
@@ -1979,10 +2079,13 @@
         }
 
         if (selectedBrands.size > 0) {
-          const selBrandsLow = Array.from(selectedBrands).map(b => b.toLowerCase());
+          const selBrandCleanList = Array.from(selectedBrands).map(b => b.toLowerCase().replace(/[^a-z0-9]/g, ''));
           filtered = filtered.filter(c => {
-            const brandsStr = (c.brands || '').toLowerCase();
-            return selBrandsLow.some(b => brandsStr.includes(b));
+            const brandsStr = (c.brands || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const titleStr = (c.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const descStr = (c.description || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const fullText = `${brandsStr} ${titleStr} ${descStr}`;
+            return selBrandCleanList.some(b => fullText.includes(b));
           });
         }
 
@@ -2040,8 +2143,19 @@
         // Products View Filtering
         let filtered = masterProducts;
 
+        if (only70) {
+          filtered = filtered.filter(p => (p.net_discount_percent || 0) >= 70.0);
+        }
+
         if (minDiscountFilter) {
           filtered = filtered.filter(p => (p.net_discount_percent || 0) >= minDiscountFilter);
+        }
+
+        if (isCouponBoostOnly) {
+          filtered = filtered.filter(p => {
+            const boost = (p.net_discount_percent || 0) - (p.base_discount_percent || 0);
+            return boost >= 4.0 || ((p.base_discount_percent || 0) < 70 && (p.net_discount_percent || 0) >= 70);
+          });
         }
 
         if (activeDeptTab !== 'ALL') {
@@ -2054,10 +2168,10 @@
         }
 
         if (selectedBrands.size > 0) {
-          const selBrandsLow = Array.from(selectedBrands).map(b => b.toLowerCase());
+          const selBrandCleanList = Array.from(selectedBrands).map(b => b.toLowerCase().replace(/[^a-z0-9]/g, ''));
           filtered = filtered.filter(p => {
-            const pBrandLow = (p.brand || '').toLowerCase();
-            return selBrandsLow.some(b => pBrandLow === b || pBrandLow.includes(b) || b.includes(pBrandLow));
+            const pBrandClean = (p.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            return selBrandCleanList.some(b => pBrandClean === b || pBrandClean.includes(b) || b.includes(pBrandClean));
           });
         }
 
@@ -2121,8 +2235,19 @@
 
         if (sortBy === 'discount_desc') {
           filtered.sort((a, b) => (b.net_discount_percent || 0) - (a.net_discount_percent || 0));
+        } else if (sortBy === 'boost_desc') {
+          filtered.sort((a, b) => {
+            const boostA = (a.net_discount_percent || 0) - (a.base_discount_percent || 0);
+            const boostB = (b.net_discount_percent || 0) - (b.base_discount_percent || 0);
+            if (boostB !== boostA) return boostB - boostA;
+            return (b.net_discount_percent || 0) - (a.net_discount_percent || 0);
+          });
         } else if (sortBy === 'price_asc') {
           filtered.sort((a, b) => (a.final_price || 0) - (b.final_price || 0));
+        } else if (sortBy === 'price_desc') {
+          filtered.sort((a, b) => (b.final_price || 0) - (a.final_price || 0));
+        } else if (sortBy === 'base_desc') {
+          filtered.sort((a, b) => (b.base_discount_percent || 0) - (a.base_discount_percent || 0));
         } else if (sortBy === 'code_asc') {
           filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
         }
@@ -2281,19 +2406,25 @@
             </div>
 
             <!-- Action CTA -->
-            <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[120px]" title="${safeCuratedId}">${safeCuratedId}</span>
-              ${isVerifiedActive ? `
-                <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-sm shadow-sky-600/20">
-                  <span>View &ge;70% Deals</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                </a>
-              ` : `
-                <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% / catalog clearance items">
-                  <span>Check Ajio Storefront (0 &ge;70%)</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
-                </a>
-              `}
+            <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs gap-2 flex-wrap">
+              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[100px]" title="${safeCuratedId}">${safeCuratedId}</span>
+              <div class="flex items-center space-x-1.5">
+                <button type="button" onclick="viewCampaignProducts('${escapeHtml(safeCode)}', event)" class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 transition cursor-pointer" title="View matching products in AjioRadar">
+                  <i class="fa-solid fa-boxes-stacked text-[10px]"></i>
+                  <span>Products</span>
+                </button>
+                ${isVerifiedActive ? `
+                  <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-xs">
+                    <span>Ajio Page</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                ` : `
+                  <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% items">
+                    <span>Storefront</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
+                  </a>
+                `}
+              </div>
             </div>
           </div>
         `;
@@ -2313,10 +2444,13 @@
 
       emptyState.classList.add('hidden');
       container.innerHTML = products.map(p => {
-        const netD = Math.round(p.net_discount_percent);
-        const baseD = Math.round(p.base_discount_percent);
+        const netD = Math.round(p.net_discount_percent || 0);
+        const baseD = Math.round(p.base_discount_percent || 0);
+        const couponBoost = Math.max(0, Math.round(netD - baseD));
         const rawCode = p.coupon_code || '';
-        const codeLabel = rawCode === 'DIRECT_CLEARANCE' ? 'Clearance' : rawCode;
+        const codeLabel = rawCode === 'DIRECT_CLEARANCE' ? 'Direct Clearance' : (rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER' ? 'Instant Deal' : rawCode);
+        const isBoosted = couponBoost >= 4 || (baseD < 70 && netD >= 70);
+        const isInstant = rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER';
 
         const rawBrand = p.brand || '';
         const safeBrand = rawBrand.replace(/'/g, "\\'");
@@ -2329,6 +2463,21 @@
         const safeImg = escapeHtml(p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png');
         const safeProductUrl = escapeHtml(p.product_url || '#');
 
+        let boostBadgeHtml = '';
+        if (isBoosted && couponBoost > 0) {
+          boostBadgeHtml = `
+            <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+              <i class="fa-solid fa-bolt text-[9px]"></i>
+              <span>+${couponBoost}% Flash Code</span>
+            </div>`;
+        } else if (isInstant) {
+          boostBadgeHtml = `
+            <div class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+              <i class="fa-solid fa-tag text-[9px]"></i>
+              <span>Instant Offer</span>
+            </div>`;
+        }
+
         return `
           <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
             <!-- 3:4 Responsive Image Frame -->
@@ -2339,9 +2488,11 @@
                 ${netD}% NET OFF
               </div>
 
+              ${boostBadgeHtml}
+
               <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
                 <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono truncate text-sky-800 hover:text-sky-950 hover:underline transition cursor-pointer" title="Find items with voucher ${escapeHtml(rawCode)}">${escapeHtml(codeLabel)}</button>
-                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} OFF</span>
+                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Total Saved</span>
               </div>
             </div>
 
@@ -2355,14 +2506,22 @@
                   <span>&bull;</span>
                   <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter department: ${escapeHtml(rawDept)}">${escapeHtml(rawDept)}</button>
                 </div>
+                
+                <div class="mt-2 text-[10px] text-indigo-800 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100 flex items-center justify-between font-medium">
+                  <span class="truncate"><i class="fa-solid fa-wand-magic-sparkles mr-1 text-indigo-500"></i>${escapeHtml(p.formula_desc || (couponBoost > 0 ? `Base ${baseD}% + Flash Code ➔ ${netD}% Net` : `Direct Clearance ${netD}% Off`))}</span>
+                </div>
               </div>
 
               <!-- Buy Button -->
               <div class="pt-2 border-t border-slate-100">
-                <div class="flex items-baseline flex-wrap gap-1.5">
-                  <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
-                  <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
-                  ${baseD > 0 ? `<span class="text-[10px] text-sky-600 font-semibold">(${baseD}%)</span>` : ''}
+                <div class="flex items-baseline justify-between flex-wrap gap-1">
+                  <div class="flex items-baseline space-x-1.5">
+                    <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
+                    <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
+                  </div>
+                  <div class="text-[10px] font-semibold text-slate-500 font-mono" title="Catalog price before coupon code">
+                    Base: ₹${Math.round(p.selling_price)} <span class="text-sky-700 font-bold">(${baseD}%)</span>
+                  </div>
                 </div>
                 
                 <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2.5 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
@@ -2374,6 +2533,22 @@
           </div>
         `;
       }).join('');
+    }
+
+    function viewCampaignProducts(code, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const cleanCode = (code === 'DIRECT_CLEARANCE' ? '' : code).trim();
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.value = cleanCode;
+        searchQuery = cleanCode.toLowerCase();
+        document.getElementById('clearSearchBtn')?.classList.toggle('hidden', !cleanCode);
+      }
+      switchView('products', true);
+      if (cleanCode) showToast(`Filtered products for voucher: ${cleanCode}`, 'fa-boxes-stacked');
     }
 
     function copyToClipboard(text) {
