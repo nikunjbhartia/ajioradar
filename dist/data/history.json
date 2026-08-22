@@ -1,5 +1,26 @@
 [
   {
+    "sync_id": "sync_1787406613",
+    "timestamp": 1787406613.023388,
+    "formatted_time": "Aug 22, 07:20 PM",
+    "duration_seconds": 19.94,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 0,
+    "total_campaigns": 0,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 4924,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
+    "changes": []
+  },
+  {
     "sync_id": "sync_1787402505",
     "timestamp": 1787402505.542357,
     "formatted_time": "Aug 22, 06:11 PM IST",

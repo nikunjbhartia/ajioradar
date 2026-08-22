@@ -2439,11 +2439,10 @@
       container.innerHTML = products.map(p => {
         const netD = Math.round(p.net_discount_percent || 0);
         const baseD = Math.round(p.base_discount_percent || 0);
-        const couponBoost = Math.max(0, Math.round(netD - baseD));
         const rawCode = p.coupon_code || '';
-        const codeLabel = rawCode === 'DIRECT_CLEARANCE' ? 'Direct Clearance' : (rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER' ? 'Instant Deal' : rawCode);
-        const isBoosted = couponBoost >= 3 || (baseD < 70 && netD >= 70);
         const isInstant = rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER';
+        const isBXGY = rawCode.startsWith('BUY1GET') || rawCode === 'FREEDOM80';
+        const codeLabel = isInstant ? '⚡ Instant Offer' : (isBXGY ? '🎁 Buy 1 Get Free' : (rawCode === 'DIRECT_CLEARANCE' ? '🏷️ Direct Clearance' : rawCode));
 
         const rawBrand = p.brand || '';
         const safeBrand = rawBrand.replace(/'/g, "\\'");
@@ -2457,21 +2456,29 @@
         const safeProductUrl = escapeHtml(p.product_url || '#');
 
         let boostBadgeHtml = '';
-        if (isBoosted && couponBoost > 0) {
-          boostBadgeHtml = `
-            <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <i class="fa-solid fa-bolt text-[9px]"></i>
-              <span>+${couponBoost}% Coupon</span>
-            </div>`;
-        } else if (isInstant) {
+        if (isInstant) {
           boostBadgeHtml = `
             <div class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <i class="fa-solid fa-tag text-[9px]"></i>
+              <i class="fa-solid fa-bolt text-[9px]"></i>
               <span>Instant Offer</span>
+            </div>`;
+        } else if (isBXGY) {
+          boostBadgeHtml = `
+            <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+              <i class="fa-solid fa-gift text-[9px]"></i>
+              <span>Buy 1 Get Free</span>
+            </div>`;
+        } else {
+          boostBadgeHtml = `
+            <div class="absolute top-2 right-2 bg-sky-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+              <i class="fa-solid fa-tag text-[9px]"></i>
+              <span>Direct Clearance</span>
             </div>`;
         }
 
-        const formulaText = couponBoost > 0 ? `Base ${baseD}% + Code ➔ ${netD}% Net` : `Direct Flat ${netD}% Off`;
+        const formulaText = isInstant 
+          ? `⚡ Instant Deal: ₹${Math.round(p.final_price)} on PDP` 
+          : (isBXGY ? `🎁 ${codeLabel}: ${netD}% Off MRP` : `🏷️ Direct Flat ${netD}% Off on PDP`);
 
         return `
           <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
@@ -2480,13 +2487,13 @@
               <img src="${safeImg}" alt="${safeName}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
               
               <div class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
-                ${netD}% NET OFF
+                ${netD}% OFF
               </div>
 
               ${boostBadgeHtml}
 
               <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
-                <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono truncate text-sky-800 hover:text-sky-950 hover:underline transition cursor-pointer" title="Find items with voucher ${escapeHtml(rawCode)}">${escapeHtml(codeLabel)}</button>
+                <span class="font-medium text-slate-700 truncate">${escapeHtml(codeLabel)}</span>
                 <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Saved</span>
               </div>
             </div>
@@ -2504,8 +2511,8 @@
                 
                 <!-- Pricing Formula Banner (No truncation) -->
                 <div class="mt-1.5 text-[10px] text-indigo-900 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100/80 flex items-center justify-between font-medium">
-                  <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-500 text-[9px] shrink-0"></i><span>${escapeHtml(formulaText)}</span></span>
-                  <span class="text-[9px] text-slate-400 font-mono shrink-0 ml-1">Verified</span>
+                  <span class="truncate">${escapeHtml(formulaText)}</span>
+                  <span class="text-[9px] text-emerald-600 font-bold shrink-0 ml-1">Verified</span>
                 </div>
               </div>
 
@@ -2516,13 +2523,11 @@
                     <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
                     <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
                   </div>
-                  <div class="text-[10px] font-semibold text-slate-500 font-mono" title="Catalog price before coupon code">
-                    Base: ₹${Math.round(p.selling_price)} <span class="text-sky-700 font-bold">(${baseD}%)</span>
-                  </div>
+                  <span class="text-[10px] font-bold text-emerald-600 font-mono">(${netD}% Off)</span>
                 </div>
 
                 <div class="mt-1 flex items-center justify-between text-[10px] text-slate-400 font-medium">
-                  <span class="flex items-center gap-1 text-emerald-700 font-semibold"><i class="fa-solid fa-clock text-[9px]"></i>Added Today</span>
+                  <span class="flex items-center gap-1 text-emerald-700 font-semibold"><i class="fa-solid fa-circle-check text-[9px]"></i>Verified PDP Price</span>
                   <span class="text-slate-400">Stock Live</span>
                 </div>
                 

@@ -159,6 +159,7 @@ class DealValidatorEngine:
             for pid, it in entities.items():
                 mrp = float(it.get('wasPriceData', {}).get('value', 0) or 0)
                 price = float(it.get('price', {}).get('value', 0) or 0)
+                offer_price = float(it.get('offerPrice', {}).get('value', 0) or 0)
                 brand = it.get('fnlColorVariantData', {}).get('brandName') or it.get('brandTypeName', '')
                 cat = it.get('brickCategoryName') or 'Fashion'
                 p_name = it.get('name', '')
@@ -170,20 +171,30 @@ class DealValidatorEngine:
 
                 if mrp > 0 and price > 0:
                     base_d = max(0.0, min(100.0, ((mrp - price) / mrp) * 100.0))
-                    if parsed.get('is_markdown_collection'):
-                        final_p = price
-                        net_d = base_d
-                    elif is_standalone:
+                    
+                    # 1. Check if PDP has an active instant offerPrice (e.g. ₹1119 on MRP ₹3999 -> 72%)
+                    if offer_price > 0 and offer_price < price:
+                        final_p = offer_price
+                        net_d = max(0.0, min(100.0, ((mrp - final_p) / mrp) * 100.0))
+                        f_desc = f"Instant Offer: ₹{int(final_p)} on MRP ₹{int(mrp)} ({net_d:.0f}% Off)"
+                        item_code = "PREMIUM_OFFER"
+                    # 2. Check if standalone verified BXGY promotion (e.g. B1G4 -> 80% off)
+                    elif is_standalone and nominal_r >= 70.0:
                         final_p = mrp * (1.0 - (nominal_r / 100.0))
                         net_d = nominal_r
+                        f_desc = f"{parsed.get('promo_type', 'Promo')}: {net_d:.0f}% Off MRP"
+                        item_code = code
+                    # 3. Direct Markdown selling price on PDP
                     else:
-                        final_p = price * (1.0 - (nominal_r / 100.0))
-                        net_d = ((mrp - final_p) / mrp) * 100.0
+                        final_p = price
+                        net_d = base_d
+                        f_desc = f"Direct Clearance: {net_d:.0f}% Off"
+                        item_code = "DIRECT_CLEARANCE"
 
                     final_p = max(0.0, min(mrp, round(final_p, 2)))
                     net_d = max(0.0, min(100.0, round(net_d, 1)))
 
-                    # Strictly enforce >= 70% net savings threshold
+                    # Strictly enforce >= 70% net savings on the ACTUAL PDP price
                     if net_d >= 70.0:
                         realized_discounts.append(net_d)
                         effective_prices.append(final_p)
@@ -202,7 +213,8 @@ class DealValidatorEngine:
                             "final_price": final_p,
                             "base_discount_percent": round(base_d, 1),
                             "net_discount_percent": net_d,
-                            "coupon_code": code,
+                            "formula_desc": f_desc,
+                            "coupon_code": item_code,
                             "product_url": f"https://www.ajio.com/p/{sku}",
                             "image_url": img_url
                         })
