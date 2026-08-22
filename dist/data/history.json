@@ -1,155 +1,476 @@
 [
   {
-    "sync_id": "sync_1787401152",
-    "timestamp": 1787401152.395348,
-    "formatted_time": "Aug 22, 05:49 PM",
-    "duration_seconds": 15.24,
-    "added_coupons": [],
-    "updated_coupons": [],
+    "sync_id": "sync_1787402505",
+    "timestamp": 1787402505.542357,
+    "formatted_time": "Aug 22, 06:11 PM IST",
+    "duration_seconds": 173.0,
+    "added_coupons": [
+      "SUIT"
+    ],
+    "updated_coupons": [
+      "40TO80PERCENTOFF",
+      "DESIDRIP20",
+      "FASHIONATION5",
+      "FEASTSPL",
+      "FEASTSPL2",
+      "FLAT50PERCENTOFF",
+      "FREEDELKIDSWEAR",
+      "GLOWMAX",
+      "HELLOBEAUTY",
+      "KIDSFEST",
+      "LABELFIRST",
+      "MIN30PERCENTOFF",
+      "MIN55PERCENTOFF",
+      "MIN60",
+      "MOLCHA",
+      "NEWPREMIUM",
+      "PLUS20AURA"
+    ],
     "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
+    "added_count": 1,
+    "updated_count": 17,
     "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
+    "active_70_count": 456,
+    "total_campaigns": 607,
     "active_codes_count": 0,
     "total_codes_count": 0,
-    "total_deals": 6413,
+    "total_deals": 16104,
     "active_coupons": [],
     "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787398748",
-    "timestamp": 1787398748.578326,
-    "formatted_time": "Aug 22, 05:09 PM",
-    "duration_seconds": 16.4,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 6370,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787396708",
-    "timestamp": 1787396708.7476768,
-    "formatted_time": "Aug 22, 04:35 PM",
-    "duration_seconds": 15.31,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 4286,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787394655",
-    "timestamp": 1787394655.838342,
-    "formatted_time": "Aug 22, 04:00 PM",
-    "duration_seconds": 16.56,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 5684,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787392610",
-    "timestamp": 1787392610.0339358,
-    "formatted_time": "Aug 22, 03:26 PM",
-    "duration_seconds": 17.32,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 4573,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787388398",
-    "timestamp": 1787388398.668041,
-    "formatted_time": "Aug 22, 02:16 PM",
-    "duration_seconds": 16.21,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 4896,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
-  },
-  {
-    "sync_id": "sync_1787386307",
-    "timestamp": 1787386307.501884,
-    "formatted_time": "Aug 22, 01:41 PM",
-    "duration_seconds": 15.65,
-    "added_coupons": [],
-    "updated_coupons": [],
-    "removed_coupons": [],
-    "added_count": 0,
-    "updated_count": 0,
-    "removed_count": 0,
-    "active_70_count": 0,
-    "total_campaigns": 0,
-    "active_codes_count": 0,
-    "total_codes_count": 0,
-    "total_deals": 5657,
-    "active_coupons": [],
-    "department_breakdown": {},
-    "highlights": [],
-    "changes": []
+    "highlights": [
+      "\ud83d\udd25 Discovered 1 fresh promo vouchers: SUIT",
+      "\ud83d\udcc8 Re-priced & updated 46 promotional collections: 0, 40TO80PERCENTOFF, ASOS, BRAND +42 more"
+    ],
+    "changes": [
+      {
+        "type": "updated",
+        "code": "0",
+        "title": "0 To 2 Years 5719 53401",
+        "detail": "Catalog +30 deals (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "40TO80PERCENTOFF",
+        "title": "40TO80PERCENTOFF - Live Verified Clearance Collection",
+        "detail": "Catalog +45 deals (15 \u2192 60)",
+        "before": "97.4% (15 items)",
+        "after": "97.4% (60 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ASOS",
+        "title": "ASOS - Live Verified Clearance Collection",
+        "detail": "Catalog -30 deals (56 \u2192 26)",
+        "before": "89.0% (56 items)",
+        "after": "89.0% (26 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BRAND",
+        "title": "BRAND - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (70 \u2192 100)",
+        "before": "83.0% (70 items)",
+        "after": "83.0% (100 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "DESIDRIP20",
+        "title": "DESIDRIP20 - Get flat 20% off Upto 1000 Rs on Cart va",
+        "detail": "Catalog +30 deals (25 \u2192 55)",
+        "before": "97.6% (25 items)",
+        "after": "97.6% (55 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FASHIONATION5",
+        "title": "FASHIONATION5 - Get Extra 5% off upto 650 On cart value ",
+        "detail": "Catalog +30 deals (18 \u2192 48)",
+        "before": "90.2% (18 items)",
+        "after": "90.2% (48 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FEASTSPL",
+        "title": "FEASTSPL - Get Upto Extra 16% Off On Rs.4999 & Abov",
+        "detail": "Catalog +30 deals (16 \u2192 46)",
+        "before": "79.0% (16 items)",
+        "after": "79.0% (46 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FEASTSPL2",
+        "title": "FEASTSPL2 - Get Upto Extra 15% Off On Rs.4999 & Abov",
+        "detail": "Discount 79% \u2192 74% (-4%)",
+        "before": "78.8% (45 items)",
+        "after": "74.5% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLAT50PERCENTOFF",
+        "title": "FLAT50PERCENTOFF - Live Verified Clearance Collection",
+        "detail": "Discount 92% \u2192 90% (-2%)",
+        "before": "91.5% (56 items)",
+        "after": "89.8% (56 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FREEDELKIDSWEAR",
+        "title": "FREEDELKIDSWEAR - Get FREEDELIVERY on kidswear on a cart v",
+        "detail": "Catalog +30 deals (16 \u2192 46)",
+        "before": "94.4% (16 items)",
+        "after": "94.4% (46 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FUSION",
+        "title": "FUSION - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (71 \u2192 101)",
+        "before": "94.0% (71 items)",
+        "after": "94.0% (101 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GAS",
+        "title": "GAS - Live Verified Clearance Collection",
+        "detail": "Discount 79% \u2192 74% (-4%)",
+        "before": "78.8% (46 items)",
+        "after": "74.5% (46 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "GIRLS - Live Verified Clearance Collection",
+        "detail": "Discount 94% \u2192 93% (-1%)",
+        "before": "94.4% (489 items)",
+        "after": "93.4% (459 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GLOWMAX",
+        "title": "GLOWMAX - Get up to 35% off and Free Shipping. Min",
+        "detail": "Discount 80% \u2192 85% (+4%)",
+        "before": "80.5% (55 items)",
+        "after": "85.0% (55 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "HELLOBEAUTY",
+        "title": "HELLOBEAUTY - Live Verified Clearance Collection",
+        "detail": "Discount 89% \u2192 94% (+5%)",
+        "before": "89.2% (47 items)",
+        "after": "94.1% (47 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "JACK",
+        "title": "JACK - Live Verified Clearance Collection",
+        "detail": "Catalog -45 deals (55 \u2192 10)",
+        "before": "74.5% (55 items)",
+        "after": "74.5% (10 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "JEANS",
+        "title": "JEANS - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (30 \u2192 60)",
+        "before": "90.2% (30 items)",
+        "after": "90.2% (60 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDS",
+        "title": "KIDS - Live Verified Clearance Collection",
+        "detail": "Discount 94% \u2192 93% (-1%) \u00b7 Catalog +50 deals (215 \u2192 265)",
+        "before": "94.4% (215 items)",
+        "after": "93.4% (265 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDSFEST",
+        "title": "KIDSFEST - Live Verified Clearance Collection",
+        "detail": "Discount 92% \u2192 90% (-1%)",
+        "before": "91.5% (104 items)",
+        "after": "90.5% (104 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "LABELFIRST",
+        "title": "LABELFIRST - Get Additional 10% off on First Purchase",
+        "detail": "Catalog +30 deals (30 \u2192 60)",
+        "before": "76.6% (30 items)",
+        "after": "76.6% (60 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "LOUIS",
+        "title": "LOUIS - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (24 \u2192 54)",
+        "before": "72.7% (24 items)",
+        "after": "72.7% (54 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MARC",
+        "title": "MARC - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (24 \u2192 54)",
+        "before": "88.1% (24 items)",
+        "after": "88.1% (54 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MEN",
+        "title": "MEN - Live Verified Clearance Collection",
+        "detail": "Catalog +78 deals (257 \u2192 335)",
+        "before": "90.7% (257 items)",
+        "after": "90.7% (335 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MHP",
+        "title": "MHP - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (77 \u2192 107)",
+        "before": "93.1% (77 items)",
+        "after": "93.1% (107 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN30PERCENTOFF",
+        "title": "MIN30PERCENTOFF - Live Verified Clearance Collection",
+        "detail": "Discount 79% \u2192 75% (-4%)",
+        "before": "78.7% (54 items)",
+        "after": "74.9% (54 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN55PERCENTOFF",
+        "title": "MIN55PERCENTOFF - Live Verified Clearance Collection",
+        "detail": "Catalog -30 deals (48 \u2192 18)",
+        "before": "87.0% (48 items)",
+        "after": "87.0% (18 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "MIN60 - Live Verified Clearance Collection",
+        "detail": "Catalog +75 deals (298 \u2192 373)",
+        "before": "98.8% (298 items)",
+        "after": "98.4% (373 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MOLCHA",
+        "title": "MOLCHA - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (21 \u2192 51)",
+        "before": "88.9% (21 items)",
+        "after": "89.0% (51 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "NEWPREMIUM",
+        "title": "NEWPREMIUM - Get 20% off on premium brands on your fi",
+        "detail": "Catalog -30 deals (46 \u2192 16)",
+        "before": "84.7% (46 items)",
+        "after": "84.7% (16 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PLUS20AURA",
+        "title": "PLUS20AURA - Get 20% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog -30 deals (46 \u2192 16)",
+        "before": "93.6% (46 items)",
+        "after": "93.6% (16 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PRECIOUS",
+        "title": "PRECIOUS - Live Verified Clearance Collection",
+        "detail": "Catalog +59 deals (40 \u2192 99)",
+        "before": "86.4% (40 items)",
+        "after": "86.4% (99 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PUMA",
+        "title": "PUMA - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (81 \u2192 111)",
+        "before": "78.7% (81 items)",
+        "after": "78.7% (111 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "RAKHI300",
+        "title": "RAKHI300 - Get Extra 300 off  On cart value of 2890",
+        "detail": "Catalog +30 deals (30 \u2192 60)",
+        "before": "95.0% (30 items)",
+        "after": "95.0% (60 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "RED",
+        "title": "RED - Live Verified Clearance Collection",
+        "detail": "Catalog -30 deals (60 \u2192 30)",
+        "before": "89.8% (60 items)",
+        "after": "89.8% (30 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHAWLS",
+        "title": "SHAWLS - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (23 \u2192 53)",
+        "before": "91.3% (23 items)",
+        "after": "91.3% (53 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SKIRTS",
+        "title": "SKIRTS - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (28 \u2192 58)",
+        "before": "84.7% (28 items)",
+        "after": "84.7% (58 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SPORTSRUSH5",
+        "title": "SPORTSRUSH5 - Get Upto Extra 5% Off on 3990 and above.",
+        "detail": "Catalog -30 deals (54 \u2192 24)",
+        "before": "81.0% (54 items)",
+        "after": "81.0% (24 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STARTINGATRS249",
+        "title": "STARTINGATRS249 - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (25 \u2192 55)",
+        "before": "85.6% (25 items)",
+        "after": "85.6% (55 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STEVE",
+        "title": "STEVE - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (74 \u2192 104)",
+        "before": "74.5% (74 items)",
+        "after": "74.5% (104 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "new_campaign",
+        "code": "SUIT",
+        "title": "Suit Sets 5518 76521",
+        "detail": "Voucher boosted to \u226570%: 66% \u2192 74% (2 items \u226570%)",
+        "before": "66.0% (Sub-70%)",
+        "after": "74.5% (2 items)",
+        "badge": "NEW"
+      },
+      {
+        "type": "updated",
+        "code": "SUPERDRYBACK",
+        "title": "SUPERDRYBACK - Flat 300 offView All Products>",
+        "detail": "Catalog +30 deals (15 \u2192 45)",
+        "before": "72.7% (15 items)",
+        "after": "72.7% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "TOPS",
+        "title": "TOPS - Live Verified Clearance Collection",
+        "detail": "Discount 93% \u2192 91% (-3%)",
+        "before": "93.2% (105 items)",
+        "after": "90.6% (105 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "TREAT",
+        "title": "TREAT - Get Upto Extra 12% Off On Rs.2999 & Abov",
+        "detail": "Catalog -30 deals (46 \u2192 16)",
+        "before": "78.0% (46 items)",
+        "after": "78.0% (16 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "TRYBEAUTY",
+        "title": "TRYBEAUTY - Live Verified Clearance Collection",
+        "detail": "Discount 88% \u2192 91% (+3%)",
+        "before": "88.0% (48 items)",
+        "after": "91.2% (48 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "U",
+        "title": "U S Polo 3530 80091",
+        "detail": "Catalog -45 deals (90 \u2192 45)",
+        "before": "70.2% (90 items)",
+        "after": "70.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UCB",
+        "title": "UCB - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (18 \u2192 48)",
+        "before": "78.7% (18 items)",
+        "after": "78.7% (48 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WHP",
+        "title": "WHP - Live Verified Clearance Collection",
+        "detail": "Catalog +30 deals (28 \u2192 58)",
+        "before": "91.5% (28 items)",
+        "after": "91.5% (58 items)",
+        "badge": "UPDATED"
+      }
+    ]
   },
   {
     "sync_id": "sync_1787346529",
     "timestamp": 1787346529.560498,
-    "formatted_time": "Aug 22, 02:38 AM",
+    "formatted_time": "Aug 22, 02:38 AM IST",
     "duration_seconds": 14.8,
     "added_coupons": [],
     "updated_coupons": [],
@@ -161,38 +482,28 @@
     "total_campaigns": 591,
     "active_codes_count": 196,
     "total_codes_count": 286,
-    "total_deals": 9556,
+    "total_deals": 4794,
     "active_coupons": [
       "MIN60",
       "DESIDRIP20",
       "MIN40PERCENTOFF",
-      "ETHNIC",
       "MENDEAL",
       "WISHMAX",
       "WISH",
       "MIN50",
       "EOSS",
       "RAKHI300",
-      "WOMEN",
-      "SHOP",
-      "SAREES",
-      "MISS",
-      "INDIE",
       "ONAM300",
       "UNDERRS399",
       "NEW30",
       "KIDS30",
-      "KIDS",
-      "GIRLS",
       "FREEDELKIDSWEAR",
-      "FUSION",
       "ETHNICSPL",
       "PLUS20AURA",
       "COMFYNCHIC",
       "UNDERRS999",
       "UNDERRS499",
-      "TOPS",
-      "FRESH"
+      "TOPS"
     ],
     "department_breakdown": {
       "WOMEN": 2696,
@@ -216,7 +527,7 @@
   {
     "sync_id": "sync_1787345617",
     "timestamp": 1787345617.810526,
-    "formatted_time": "Aug 22, 02:23 AM",
+    "formatted_time": "Aug 22, 02:23 AM IST",
     "duration_seconds": 1.23,
     "added_coupons": [],
     "updated_coupons": [],
@@ -224,66 +535,1221 @@
     "added_count": 0,
     "updated_count": 0,
     "removed_count": 0,
-    "active_70_count": 440,
-    "total_campaigns": 591,
-    "active_codes_count": 196,
-    "total_codes_count": 286,
-    "total_deals": 9556,
-    "active_coupons": [
+    "active_70_count": 196,
+    "total_campaigns": 286,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 9451,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [
+      "\u2728 Catalog steady \u2014 verified 591 campaign collections with 0 delta shifts"
+    ],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787344572",
+    "timestamp": 1787344572.5014408,
+    "formatted_time": "Aug 22, 02:06 AM IST",
+    "duration_seconds": 128.05,
+    "added_coupons": [],
+    "updated_coupons": [
       "MIN60",
-      "DESIDRIP20",
-      "MIN40PERCENTOFF",
-      "ETHNIC",
-      "MENDEAL",
+      "40TO80PERCENTOFF",
       "WISHMAX",
       "WISH",
       "MIN50",
       "EOSS",
       "RAKHI300",
-      "WOMEN",
-      "SHOP",
-      "SAREES",
-      "MISS",
-      "INDIE",
       "ONAM300",
-      "UNDERRS399",
-      "NEW30",
-      "KIDS30",
-      "KIDS",
-      "GIRLS",
-      "FREEDELKIDSWEAR",
-      "FUSION",
       "ETHNICSPL",
       "PLUS20AURA",
+      "MIN40PERCENTOFF",
       "COMFYNCHIC",
+      "UNDERRS399",
       "UNDERRS999",
+      "FREEDELKIDSWEAR",
+      "AG15",
+      "UNDERRS699"
+    ],
+    "removed_coupons": [
+      "40TO80PERCENTOFF",
+      "WISHMAX",
+      "MIN60",
+      "RAKHI300",
+      "UNDERRS399",
+      "FREEDELKIDSWEAR",
+      "ETHNICSPL",
+      "PLUS20AURA",
+      "MIN50",
       "UNDERRS499",
-      "TOPS",
-      "FRESH"
+      "UNDERRS999",
+      "AG15",
+      "PLUS10AURA",
+      "COMFYNCHIC",
+      "ONAM300"
     ],
-    "department_breakdown": {
-      "WOMEN": 2696,
-      "HOME & KITCHEN": 2037,
-      "MEN": 1861,
-      "FOOTWEAR": 624,
-      "KIDS": 602,
-      "KIDS & INFANTS": 571,
-      "ACCESSORIES & LUGGAGE": 422,
-      "FASHION JEWELLERY": 250,
-      "BEAUTY": 237,
-      "GADGETS & TECH": 125,
-      "BEAUTY & GROOMING": 79,
-      "Multi-Category": 52
-    },
+    "added_count": 0,
+    "updated_count": 17,
+    "removed_count": 15,
+    "active_70_count": 280,
+    "total_campaigns": 430,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 10349,
+    "active_coupons": [],
+    "department_breakdown": {},
     "highlights": [
-      "\u2728 100% active integrity: 440/591 collections & 196/286 promo codes verified live (9,556 items \u226570%)"
+      "\ud83d\udcc8 Re-priced & updated 103 promotional collections: MIN60, 40TO80PERCENTOFF, WISHMAX, WISH +99 more",
+      "\ud83d\udcc9 175 promotions expired/sub-70%: DIRECT_CLEARANCE, 40TO80PERCENTOFF, WISHMAX, MIN60"
     ],
-    "changes": []
+    "changes": [
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 386485",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "98.8% (45 items)",
+        "after": "98.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "40TO80PERCENTOFF",
+        "title": "40To80Percentoff 383654",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "97.4% (45 items)",
+        "after": "97.4% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WISHMAX",
+        "title": "WISHMAX - Get 25% off on cart value of 1999 and ab",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "97.0% (15 items)",
+        "after": "97.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WISH",
+        "title": "WISH - Get 20% off on cart value of 1999 and ab",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "96.8% (15 items)",
+        "after": "96.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 374408",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "96.8% (15 items)",
+        "after": "96.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 221783",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "96.8% (45 items)",
+        "after": "96.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 373992",
+        "detail": "Discount 96.7% \u2192 96.0% (-0.7%)",
+        "before": "96.7% (45 items)",
+        "after": "96.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 374221",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "96.0% (45 items)",
+        "after": "96.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "EOSS",
+        "title": "Eoss Women Impulse Steal Dresses",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "95.7% (45 items)",
+        "after": "95.7% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "RAKHI300",
+        "title": "RAKHI300 - Get Extra 300 off  On cart value of 2890",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "95.0% (15 items)",
+        "after": "95.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SAREES",
+        "title": "Sarees Under 799",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "94.9% (45 items)",
+        "after": "94.9% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ONAM300",
+        "title": "ONAM300 - 300 off on 2890 only on app",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.6% (15 items)",
+        "after": "94.6% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WOMEN",
+        "title": "Women Impulse Steals Tops",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.0% (15 items)",
+        "after": "94.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FUSION",
+        "title": "Fusion Kurtis And Tunics 3650 1875",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "94.0% (45 items)",
+        "after": "94.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ETHNICSPL",
+        "title": "ETHNICSPL - Additional 23% off on Cart Value of 1999",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.8% (15 items)",
+        "after": "93.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PLUS20AURA",
+        "title": "PLUS20AURA - Get 20% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.6% (15 items)",
+        "after": "93.6% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 380992",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.5% (15 items)",
+        "after": "93.5% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN40PERCENTOFF",
+        "title": "Min40Percentoff 382696",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.5% (45 items)",
+        "after": "93.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "COMFYNCHIC",
+        "title": "COMFYNCHIC - Get upto 15% off on purchase of Rs. 599 ",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.5% (45 items)",
+        "after": "93.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHOP",
+        "title": "Shop By Age 3844 11112",
+        "detail": "Discount 94.4% \u2192 93.4% (-1.0%)",
+        "before": "94.4% (45 items)",
+        "after": "93.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls",
+        "detail": "Discount 94.4% \u2192 93.4% (-1.0%)",
+        "before": "94.4% (45 items)",
+        "after": "93.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDS",
+        "title": "Kids Footwear Accessories",
+        "detail": "Discount 94.4% \u2192 93.4% (-1.0%) \u00b7 Catalog -30 items (45 \u2192 15)",
+        "before": "94.4% (45 items)",
+        "after": "93.4% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UNDERRS399",
+        "title": "Underrs399 373991",
+        "detail": "Discount 94.4% \u2192 93.3% (-1.1%)",
+        "before": "94.4% (45 items)",
+        "after": "93.3% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UNDERRS399",
+        "title": "Underrs399 373990",
+        "detail": "Discount 94.4% \u2192 93.3% (-1.1%)",
+        "before": "94.4% (45 items)",
+        "after": "93.3% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UNDERRS999",
+        "title": "Underrs999 362686",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.3% (45 items)",
+        "after": "93.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FREEDELKIDSWEAR",
+        "title": "FREEDELKIDSWEAR - Get FREEDELIVERY on kidswear on a cart v",
+        "detail": "Discount 94.4% \u2192 93.2% (-1.2%)",
+        "before": "94.4% (45 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls Collection 3844 11111",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys Joggers Track Pants",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys 2 5 Years",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "AG15",
+        "title": "AG15 - Get 15% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls 5 10 Years",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "3",
+        "title": "3 To 5 Years 5719 53401",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UNDERRS699",
+        "title": "Underrs699 386482",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "92.3% (15 items)",
+        "after": "92.3% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FOOTWEAR",
+        "title": "Footwear 4792 56591",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.3% (45 items)",
+        "after": "92.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MENS",
+        "title": "Mens Footwear Under 1499",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.3% (45 items)",
+        "after": "92.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ATHLEISURE",
+        "title": "Athleisure 3683 44441",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "92.0% (15 items)",
+        "after": "92.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WHP",
+        "title": "Whp Sunglasses And Frames 4119 33681",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "91.5% (15 items)",
+        "after": "91.5% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MHP",
+        "title": "Mhp Sunglasses And Frames 4119 33682",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.5% (45 items)",
+        "after": "91.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FUSION",
+        "title": "Fusion Kurtas 3650 1875",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.5% (45 items)",
+        "after": "91.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLASHSALE",
+        "title": "FLASHSALE - Get Extra 400 off  On cart value of 3190",
+        "detail": "Discount 91.4% \u2192 91.3% (-0.1%) \u00b7 Catalog +30 items (15 \u2192 45)",
+        "before": "91.4% (15 items)",
+        "after": "91.3% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "TRYBEAUTY",
+        "title": "TRYBEAUTY - One time offer. Get Flat 100 off & Free ",
+        "detail": "Discount 88.0% \u2192 91.2% (+3.2%) \u00b7 Catalog -30 items (45 \u2192 15)",
+        "before": "88.0% (45 items)",
+        "after": "91.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STEALDEAL",
+        "title": "STEALDEAL - Get 10% off upto Rs 1000 on cart value o",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "91.0% (15 items)",
+        "after": "91.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHORTS",
+        "title": "Shorts Three Fourths Under 699",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "90.7% (15 items)",
+        "after": "90.7% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls Tops Tshirts",
+        "detail": "Discount 93.2% \u2192 90.7% (-2.5%)",
+        "before": "93.2% (15 items)",
+        "after": "90.7% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN40PERCENTOFF",
+        "title": "Min40Percentoff 386480",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.7% (45 items)",
+        "after": "90.7% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "TOPS",
+        "title": "Tops Under 399",
+        "detail": "Discount 93.2% \u2192 90.6% (-2.6%)",
+        "before": "93.2% (45 items)",
+        "after": "90.6% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WALLETS",
+        "title": "Wallets 3560 19911",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.6% (45 items)",
+        "after": "90.6% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GENTLEMENFRIDAY",
+        "title": "GENTLEMENFRIDAY - Up to 35% off on orders of 1499+. Save u",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "90.2% (15 items)",
+        "after": "90.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "JEANS",
+        "title": "Jeans Under 1199",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.2% (45 items)",
+        "after": "90.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FRESH",
+        "title": "Fresh Arrivals Accessories And Footwear 4111 71",
+        "detail": "Discount 90.3% \u2192 90.1% (-0.2%)",
+        "before": "90.3% (45 items)",
+        "after": "90.1% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDS",
+        "title": "Kids Fashion Shirts Under 599",
+        "detail": "Discount 91.9% \u2192 89.8% (-2.1%)",
+        "before": "91.9% (45 items)",
+        "after": "89.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLAT50PERCENTOFF",
+        "title": "Flat50Percentoff 362685",
+        "detail": "Discount 91.5% \u2192 89.8% (-1.7%) \u00b7 Catalog +30 items (15 \u2192 45)",
+        "before": "91.5% (15 items)",
+        "after": "89.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys Shirts",
+        "detail": "Discount 91.9% \u2192 89.8% (-2.1%) \u00b7 Catalog -30 items (45 \u2192 15)",
+        "before": "91.9% (45 items)",
+        "after": "89.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 374402",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "89.0% (15 items)",
+        "after": "89.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MISS",
+        "title": "Miss Selfridge 5533 71251",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "89.0% (45 items)",
+        "after": "89.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls Outerwear",
+        "detail": "Discount 91.7% \u2192 88.9% (-2.8%)",
+        "before": "91.7% (45 items)",
+        "after": "88.9% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MOLCHA",
+        "title": "Molcha 3678 66671",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "88.9% (45 items)",
+        "after": "88.9% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDSFEST",
+        "title": "Kidsfest 386096",
+        "detail": "Discount 91.5% \u2192 88.1% (-3.4%)",
+        "before": "91.5% (45 items)",
+        "after": "88.1% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDSFEST",
+        "title": "Kidsfest 386093",
+        "detail": "Discount 91.5% \u2192 88.1% (-3.4%) \u00b7 Catalog -30 items (45 \u2192 15)",
+        "before": "91.5% (45 items)",
+        "after": "88.1% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "DENIMS",
+        "title": "Denims Under 799",
+        "detail": "Discount 89.8% \u2192 87.3% (-2.5%)",
+        "before": "89.8% (45 items)",
+        "after": "87.3% (45 items)",
+        "badge": "UPDATED"
+      }
+    ]
+  },
+  {
+    "sync_id": "sync_1787343888",
+    "timestamp": 1787343888.243376,
+    "formatted_time": "Aug 22, 01:54 AM IST",
+    "duration_seconds": 116.92,
+    "added_coupons": [],
+    "updated_coupons": [
+      "MIN60",
+      "DESIDRIP20",
+      "40TO80PERCENTOFF",
+      "WISHMAX",
+      "WISH",
+      "ONAM300",
+      "FREEDELKIDSWEAR",
+      "ETHNICSPL",
+      "PLUS20AURA",
+      "MIN40PERCENTOFF",
+      "MIN50",
+      "AG15",
+      "PLUS10AURA",
+      "UNDERRS699",
+      "FLAT50PERCENTOFF",
+      "FASHIONPARADE"
+    ],
+    "removed_coupons": [
+      "40TO80PERCENTOFF",
+      "STEVEMADDENBACK",
+      "UNDERRS399",
+      "UPTO50PERCENTOFF",
+      "WISHMAX",
+      "GLAM",
+      "MIN60",
+      "RAKHI300",
+      "ETHNICSPL",
+      "PLUS20AURA",
+      "MIN50",
+      "UNDERRS499",
+      "UNDERRS999",
+      "PLUS10AURA",
+      "COMFYNCHIC",
+      "DESIDRIP20",
+      "ONAM300"
+    ],
+    "added_count": 0,
+    "updated_count": 16,
+    "removed_count": 17,
+    "active_70_count": 280,
+    "total_campaigns": 430,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 10799,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [
+      "\ud83d\udcc8 Re-priced & updated 95 promotional collections: MIN60, DESIDRIP20, 40TO80PERCENTOFF, ETHNIC +91 more",
+      "\ud83d\udcc9 169 promotions expired/sub-70%: 40TO80PERCENTOFF, GAS, STEVEMADDENBACK, UNDERRS399"
+    ],
+    "changes": [
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 386485",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "98.8% (15 items)",
+        "after": "98.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "DESIDRIP20",
+        "title": "DESIDRIP20 - Get flat 20% off Upto 1000 Rs on Cart va",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "97.6% (15 items)",
+        "after": "97.6% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "40TO80PERCENTOFF",
+        "title": "40To80Percentoff 383654",
+        "detail": "Discount 15.0% \u2192 97.4% (+82.4%) \u00b7 Catalog +45 items (0 \u2192 45)",
+        "before": "15.0% (0 items)",
+        "after": "97.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ETHNIC",
+        "title": "Ethnic And Festive Collections",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "97.4% (45 items)",
+        "after": "97.4% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WISHMAX",
+        "title": "WISHMAX - Get 25% off on cart value of 1999 and ab",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "97.0% (45 items)",
+        "after": "97.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 221783",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "96.8% (15 items)",
+        "after": "96.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 374219",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "96.8% (15 items)",
+        "after": "96.8% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WISH",
+        "title": "WISH - Get 20% off on cart value of 1999 and ab",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "96.8% (45 items)",
+        "after": "96.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 221785",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "96.8% (45 items)",
+        "after": "96.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 374408",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "96.8% (45 items)",
+        "after": "96.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN60",
+        "title": "Min60Percentoff 386486",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "96.4% (15 items)",
+        "after": "96.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "INDIE",
+        "title": "Indie Clothing",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.9% (15 items)",
+        "after": "94.9% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ONAM300",
+        "title": "ONAM300 - 300 off on 2890 only on app",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "94.6% (45 items)",
+        "after": "94.6% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.4% (15 items)",
+        "after": "94.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FREEDELKIDSWEAR",
+        "title": "FREEDELKIDSWEAR - Get FREEDELIVERY on kidswear on a cart v",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.4% (15 items)",
+        "after": "94.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FUSION",
+        "title": "Fusion Kurtis And Tunics 3650 1875",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "94.0% (15 items)",
+        "after": "94.0% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WOMEN",
+        "title": "Women Impulse Steals Tops",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "94.0% (45 items)",
+        "after": "94.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ETHNICSPL",
+        "title": "ETHNICSPL - Additional 23% off on Cart Value of 1999",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.8% (45 items)",
+        "after": "93.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PLUS20AURA",
+        "title": "PLUS20AURA - Get 20% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.6% (45 items)",
+        "after": "93.6% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN40PERCENTOFF",
+        "title": "Min40Percentoff 382696",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.5% (15 items)",
+        "after": "93.5% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 380992",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.5% (45 items)",
+        "after": "93.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "0",
+        "title": "0 To 2 Years 5719 53401",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys 10 14 Years",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.2% (15 items)",
+        "after": "93.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls Collection 3844 11111",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GIRLS",
+        "title": "Girls Tops Tshirts",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys Joggers Track Pants",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "6",
+        "title": "6 To 8 Years 5719 53401",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "9",
+        "title": "9 To 12 Years 5719 53401",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FRESH",
+        "title": "Fresh Shops 0 2",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "AG15",
+        "title": "AG15 - Get 15% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "93.2% (45 items)",
+        "after": "93.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MHP",
+        "title": "Mhp Accessories 4118 75202",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "93.1% (15 items)",
+        "after": "93.1% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PLUS10AURA",
+        "title": "PLUS10AURA - Get 10% off on Minimum purchase of Rs. 1",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.8% (45 items)",
+        "after": "92.8% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "WOMEN",
+        "title": "Women Skirts And Shorts 3621 51391",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "92.4% (15 items)",
+        "after": "92.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FRESH",
+        "title": "Fresh Arrivals Clothing For Kids 4111 71",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.3% (45 items)",
+        "after": "92.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "UNDERRS699",
+        "title": "Underrs699 386482",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.3% (45 items)",
+        "after": "92.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "ATHLEISURE",
+        "title": "Athleisure 3683 44441",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "92.0% (45 items)",
+        "after": "92.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "KIDS",
+        "title": "Kids Fashion Shirts Under 599",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "91.9% (15 items)",
+        "after": "91.9% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys Shorts",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.5% (45 items)",
+        "after": "91.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLAT50PERCENTOFF",
+        "title": "Flat50Percentoff 362685",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.5% (45 items)",
+        "after": "91.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FASHIONPARADE",
+        "title": "FASHIONPARADE - Get Extra 400 off  On cart value of 3190",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.4% (45 items)",
+        "after": "91.4% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLASHSALE",
+        "title": "FLASHSALE - Get Extra 400 off  On cart value of 3190",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.4% (45 items)",
+        "after": "91.4% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHAWLS",
+        "title": "Shawls And Wraps",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "91.3% (15 items)",
+        "after": "91.3% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STEALDEAL",
+        "title": "STEALDEAL - Get 10% off upto Rs 1000 on cart value o",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "91.0% (45 items)",
+        "after": "91.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MEN",
+        "title": "Men Trunks Boxers",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "90.7% (15 items)",
+        "after": "90.7% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHORTS",
+        "title": "Shorts Three Fourths Under 699",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.7% (45 items)",
+        "after": "90.7% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SANDALS",
+        "title": "Sandals 3486 32871",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "90.6% (15 items)",
+        "after": "90.6% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BAGS",
+        "title": "Bags 3560 19911",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.6% (45 items)",
+        "after": "90.6% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "SHADELOVE1",
+        "title": "SHADELOVE1 - Get up to 37% off and Free Shipping. Min",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.5% (45 items)",
+        "after": "90.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "JEANS",
+        "title": "Jeans Under 1199",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "90.2% (15 items)",
+        "after": "90.2% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "GENTLEMENFRIDAY",
+        "title": "GENTLEMENFRIDAY - Up to 35% off on orders of 1499+. Save u",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.2% (45 items)",
+        "after": "90.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 221782",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "90.0% (45 items)",
+        "after": "90.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "DRESSES",
+        "title": "Dresses 5518 76521",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "89.0% (45 items)",
+        "after": "89.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MIN50",
+        "title": "Min50Percentoff 374402",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "89.0% (45 items)",
+        "after": "89.0% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MOLCHA",
+        "title": "Molcha 3678 66671",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "88.9% (15 items)",
+        "after": "88.9% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "BOYS",
+        "title": "Boys Denims Trousers",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "88.2% (45 items)",
+        "after": "88.2% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "MARC",
+        "title": "Marc Loire 4042 53541",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "88.1% (15 items)",
+        "after": "88.1% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STARTINGATRS199",
+        "title": "Startingatrs199 374406",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "87.3% (45 items)",
+        "after": "87.3% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "FLARE10",
+        "title": "FLARE10 - Extra Upto 10% Off on 2000 and Above. Ma",
+        "detail": "Catalog -30 items (45 \u2192 15)",
+        "before": "86.5% (45 items)",
+        "after": "86.5% (15 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "PRECIOUS",
+        "title": "Precious Jewellery 4119 63401",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "86.4% (15 items)",
+        "after": "86.4% (45 items)",
+        "badge": "UPDATED"
+      },
+      {
+        "type": "updated",
+        "code": "STARTINGATRS249",
+        "title": "Startingatrs249 221787",
+        "detail": "Catalog +30 items (15 \u2192 45)",
+        "before": "85.6% (15 items)",
+        "after": "85.6% (45 items)",
+        "badge": "UPDATED"
+      }
+    ]
   },
   {
     "sync_id": "sync_1787343699",
     "timestamp": 1787343699.6305861,
-    "formatted_time": "Aug 22, 01:51 AM",
+    "formatted_time": "Aug 22, 01:51 AM IST",
     "duration_seconds": 14.2,
     "added_coupons": [],
     "updated_coupons": [],
@@ -293,58 +1759,156 @@
     "removed_count": 0,
     "active_70_count": 440,
     "total_campaigns": 591,
-    "active_codes_count": 196,
-    "total_codes_count": 286,
-    "total_deals": 9556,
-    "active_coupons": [
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 9451,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [
+      "\u2728 Catalog steady \u2014 verified 591 campaign collections & active clearance inventory"
+    ],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787343531",
+    "timestamp": 1787343531.3971016,
+    "formatted_time": "Aug 22, 01:48 AM IST",
+    "duration_seconds": 106.05,
+    "added_coupons": [],
+    "updated_coupons": [
+      "MIN60",
+      "40TO80PERCENTOFF",
+      "MENDEAL",
+      "RAKHI300",
+      "FREEDELKIDSWEAR",
+      "NEW30",
+      "MIN40PERCENTOFF",
+      "TOPS",
+      "KIDSFEST",
+      "SHAWLS",
+      "SANDALS",
+      "FASHIONATION5",
+      "GLAM",
+      "MOLCHA"
+    ],
+    "removed_coupons": [
+      "MIN50",
+      "HELLOBEAUTY"
+    ],
+    "added_count": 0,
+    "updated_count": 14,
+    "removed_count": 2,
+    "active_70_count": 278,
+    "total_campaigns": 430,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 9782,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787342844",
+    "timestamp": 1787342844.6188056,
+    "formatted_time": "Aug 22, 01:37 AM IST",
+    "duration_seconds": 123.52,
+    "added_coupons": [
       "MIN60",
       "DESIDRIP20",
       "MIN40PERCENTOFF",
-      "ETHNIC",
       "MENDEAL",
       "WISHMAX",
       "WISH",
       "MIN50",
       "EOSS",
       "RAKHI300",
-      "WOMEN",
-      "SHOP",
-      "SAREES",
-      "MISS",
-      "INDIE",
       "ONAM300",
       "UNDERRS399",
       "NEW30",
       "KIDS30",
-      "KIDS",
-      "GIRLS",
       "FREEDELKIDSWEAR",
-      "FUSION",
       "ETHNICSPL",
       "PLUS20AURA",
       "COMFYNCHIC",
-      "UNDERRS999",
-      "UNDERRS499",
-      "TOPS",
-      "FRESH"
+      "UNDERRS999"
     ],
-    "department_breakdown": {
-      "WOMEN": 2696,
-      "HOME & KITCHEN": 2037,
-      "MEN": 1861,
-      "FOOTWEAR": 624,
-      "KIDS": 602,
-      "KIDS & INFANTS": 571,
-      "ACCESSORIES & LUGGAGE": 422,
-      "FASHION JEWELLERY": 250,
-      "BEAUTY": 237,
-      "GADGETS & TECH": 125,
-      "BEAUTY & GROOMING": 79,
-      "Multi-Category": 52
-    },
-    "highlights": [
-      "\u2728 100% active integrity: 440/591 collections & 196/286 promo codes verified live (9,556 items \u226570%)"
-    ],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 18,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 279,
+    "total_campaigns": 430,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 9674,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787342176",
+    "timestamp": 1787342176.3837385,
+    "formatted_time": "Aug 22, 01:26 AM IST",
+    "duration_seconds": 42.37,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 0,
+    "total_campaigns": 0,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 9810,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787341438",
+    "timestamp": 1787341438.5228817,
+    "formatted_time": "Aug 22, 01:13 AM IST",
+    "duration_seconds": 36.47,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 0,
+    "total_campaigns": 0,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 6255,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
+    "changes": []
+  },
+  {
+    "sync_id": "sync_1787340594",
+    "timestamp": 1787340594.9620073,
+    "formatted_time": "Aug 22, 12:59 AM IST",
+    "duration_seconds": 3.03,
+    "added_coupons": [],
+    "updated_coupons": [],
+    "removed_coupons": [],
+    "added_count": 0,
+    "updated_count": 0,
+    "removed_count": 0,
+    "active_70_count": 0,
+    "total_campaigns": 0,
+    "active_codes_count": 0,
+    "total_codes_count": 0,
+    "total_deals": 5137,
+    "active_coupons": [],
+    "department_breakdown": {},
+    "highlights": [],
     "changes": []
   }
 ]

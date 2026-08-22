@@ -133,6 +133,21 @@ class DealStorage:
         with self._get_conn() as conn:
             cursor = conn.cursor()
             
+            NON_VOUCHER_PATTERNS = {
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
+                'DIRECT_CLEARANCE', 'PREMIUM_OFFER', 'INSTANT_OFFER', 'FLASH_STACK_20', 'FLASH_STACK_25', 'FLASH_STACK_30',
+                'WOMEN', 'MEN', 'MENS', 'KIDS', 'BOYS', 'GIRLS', 'INFANTS', 'SHOP', 'FOOTWEAR', 'ATHLEISURE',
+                'ETHNIC', 'FUSION', 'SAREES', 'JEANS', 'GAS', 'ASOS', 'JACK', 'LOUIS', 'MARC', 'BRAND',
+                'PLUS', 'MISS', 'FRESH', 'WHP', 'MHP', 'FLASHSALE', 'INDIE', 'HOME', 'BEAUTY', 'TECH',
+                'CLOTHING', 'ACCESSORIES', 'BAGS', 'SHOES', 'SALE', 'DEALS', 'OFFER', 'SPECIAL', 'PROMO', 'COLLECTION'
+            }
+
+            def is_valid_voucher(c_name: str) -> bool:
+                if not c_name:
+                    return False
+                c_up = str(c_name).strip().upper()
+                return len(c_up) >= 3 and not c_up.isdigit() and c_up not in NON_VOUCHER_PATTERNS
+
             # 1. Fetch previous baseline state aggregated per clean coupon code
             previous_coupons = {}
             try:
@@ -148,13 +163,15 @@ class DealStorage:
                     GROUP BY clean_code
                 ''')
                 for r in cursor.fetchall():
-                    previous_coupons[r['clean_code']] = {
-                        'code': r['clean_code'],
-                        'has_70': bool(r['has_70']),
-                        'max_disc': float(r['max_disc'] or 0.0),
-                        'skus': int(r['skus'] or 0),
-                        'title': r['title'] or r['clean_code']
-                    }
+                    code_name = r['clean_code']
+                    if is_valid_voucher(code_name):
+                        previous_coupons[code_name] = {
+                            'code': code_name,
+                            'has_70': bool(r['has_70']),
+                            'max_disc': float(r['max_disc'] or 0.0),
+                            'skus': int(r['skus'] or 0),
+                            'title': r['title'] or code_name
+                        }
             except Exception as e:
                 logger.debug(f"Delta baseline fetch error: {e}")
 
@@ -191,24 +208,23 @@ class DealStorage:
                 GROUP BY clean_code
             ''')
             for r in cursor.fetchall():
-                current_coupons[r['clean_code']] = {
-                    'code': r['clean_code'],
-                    'has_70': bool(r['has_70']),
-                    'max_disc': float(r['max_disc'] or 0.0),
-                    'skus': int(r['skus'] or 0),
-                    'title': r['title'] or r['clean_code']
-                }
+                code_name = r['clean_code']
+                if is_valid_voucher(code_name):
+                    current_coupons[code_name] = {
+                        'code': code_name,
+                        'has_70': bool(r['has_70']),
+                        'max_disc': float(r['max_disc'] or 0.0),
+                        'skus': int(r['skus'] or 0),
+                        'title': r['title'] or code_name
+                    }
 
-            SYSTEM_EXCLUDED_CODES = {'DIRECT_CLEARANCE', 'PREMIUM_OFFER', 'FLASH_STACK_20', 'FLASH_STACK_25', 'FLASH_STACK_30', 'INSTANT_OFFER'}
             added_codes = []
             updated_codes = []
             removed_codes = []
             detailed_changes = []
 
-            # Compare deltas only on meaningful shifts
+            # Compare deltas strictly across genuine promo voucher codes
             for code, curr in current_coupons.items():
-                if code in SYSTEM_EXCLUDED_CODES:
-                    continue
                 prev = previous_coupons.get(code)
                 if prev is None:
                     if curr['has_70']:
@@ -217,8 +233,8 @@ class DealStorage:
                             "type": "new_campaign",
                             "code": code,
                             "title": curr['title'],
-                            "detail": f"Discovered new collection ({curr['max_disc']:.0f}% max off, {curr['skus']} verified deals)",
-                            "before": "New Code",
+                            "detail": f"Discovered new active voucher ({curr['max_disc']:.0f}% max savings, {curr['skus']} items verified ≥70%)",
+                            "before": "New Promo Code",
                             "after": f"{curr['max_disc']:.1f}% ({curr['skus']} items)",
                             "badge": "NEW"
                         })
@@ -229,7 +245,7 @@ class DealStorage:
                             "type": "new_campaign",
                             "code": code,
                             "title": curr['title'],
-                            "detail": f"Voucher boosted to ≥70%: {prev['max_disc']:.0f}% → {curr['max_disc']:.0f}% ({curr['skus']} items ≥70%)",
+                            "detail": f"Voucher elevated to ≥70%: {prev['max_disc']:.0f}% → {curr['max_disc']:.0f}% ({curr['skus']} items ≥70%)",
                             "before": f"{prev['max_disc']:.1f}% (Sub-70%)",
                             "after": f"{curr['max_disc']:.1f}% ({curr['skus']} items)",
                             "badge": "NEW"
@@ -237,13 +253,13 @@ class DealStorage:
                     elif prev['has_70'] and not curr['has_70']:
                         removed_codes.append(code)
                         detailed_changes.append({
-                            "type": "expired",
+                            "type": "sub_70",
                             "code": code,
                             "title": curr['title'],
-                            "detail": f"Discount fell below 70% threshold ({prev['max_disc']:.0f}% → {curr['max_disc']:.0f}%, 0 qualifying steals)",
+                            "detail": f"Voucher items currently sitting below 70% discount threshold ({curr['max_disc']:.0f}% current max off — 0 items ≥70%)",
                             "before": f"{prev['max_disc']:.1f}% ({prev['skus']} items)",
-                            "after": f"{curr['max_disc']:.1f}% (Sub-70% / Expired)",
-                            "badge": "EXPIRED"
+                            "after": f"{curr['max_disc']:.1f}% (Sub-70% Tier)",
+                            "badge": "SUB-70%"
                         })
                     elif prev['has_70'] and curr['has_70']:
                         disc_diff = curr['max_disc'] - prev['max_disc']
@@ -256,7 +272,7 @@ class DealStorage:
                             if is_material_disc:
                                 diff_parts.append(f"Discount {prev['max_disc']:.0f}% → {curr['max_disc']:.0f}% ({'+' if disc_diff > 0 else ''}{disc_diff:.0f}%)")
                             if is_material_sku:
-                                diff_parts.append(f"Catalog {'+' if sku_diff > 0 else ''}{sku_diff} deals ({prev['skus']} → {curr['skus']})")
+                                diff_parts.append(f"Inventory {'+' if sku_diff > 0 else ''}{sku_diff} deals ({prev['skus']} → {curr['skus']})")
                             detailed_changes.append({
                                 "type": "updated",
                                 "code": code,
@@ -268,15 +284,13 @@ class DealStorage:
                             })
 
             for code, prev in previous_coupons.items():
-                if code in SYSTEM_EXCLUDED_CODES:
-                    continue
                 if code not in current_coupons and prev['has_70'] and code not in removed_codes and code not in added_codes and code not in updated_codes:
                     removed_codes.append(code)
                     detailed_changes.append({
-                        "type": "expired",
+                        "type": "delisted",
                         "code": code,
                         "title": prev['title'],
-                        "detail": "Promotion no longer active on Ajio (delisted / inactive)",
+                        "detail": "Promotion collection delisted or campaign inactive on Ajio",
                         "before": f"{prev['max_disc']:.1f}% ({prev['skus']} items)",
                         "after": "Delisted / Inactive",
                         "badge": "DELISTED"
@@ -305,14 +319,13 @@ class DealStorage:
                 cursor.execute('''
                     SELECT DISTINCT UPPER(TRIM(code)) as clean_code, MAX(max_realized_discount) as max_disc
                     FROM filtered_campaigns 
-                    WHERE has_70_plus_verified = 1 AND code IS NOT NULL AND TRIM(code) != '' AND code != 'DIRECT_CLEARANCE'
+                    WHERE has_70_plus_verified = 1 AND code IS NOT NULL AND TRIM(code) != ''
                     GROUP BY clean_code
                     ORDER BY max_disc DESC
-                    LIMIT 30
                 ''')
-                active_coupons_list = [r[0] for r in cursor.fetchall() if r[0]]
+                active_coupons_list = [r[0] for r in cursor.fetchall() if r[0] and is_valid_voucher(r[0])]
             except Exception:
-                active_coupons_list = [code for code, c in current_coupons.items() if c['has_70']][:30]
+                active_coupons_list = [code for code, c in current_coupons.items() if c['has_70'] and is_valid_voucher(code)]
 
             try:
                 cursor.execute('''
@@ -333,14 +346,16 @@ class DealStorage:
             if updated_codes:
                 highlights.append(f"📈 Re-priced & updated {len(updated_codes)} promotional collections: {', '.join(updated_codes[:4])}{' +' + str(len(updated_codes)-4) + ' more' if len(updated_codes) > 4 else ''}")
             if removed_codes:
-                highlights.append(f"📉 {len(removed_codes)} promotions expired/sub-70%: {', '.join(removed_codes[:4])}")
+                highlights.append(f"📉 {len(removed_codes)} promotions shifted to sub-70% tier: {', '.join(removed_codes[:4])}")
             if not added_codes and not updated_codes and not removed_codes:
                 highlights.append(f"✨ 100% active integrity: {active_collections}/{total_collections} collections & {active_codes_count}/{total_codes_count} promo codes verified live ({total_verified_deals:,} items ≥70%)")
 
-            # 4. Record sync history event
+            # 4. Record sync history event in Indian Standard Time (IST - UTC+5:30)
             now = time.time()
             sync_id = f"sync_{int(now)}"
-            formatted_time = time.strftime("%b %d, %I:%M %p", time.localtime(now))
+            ist_offset = 5.5 * 3600
+            ist_struct = time.gmtime(now + ist_offset)
+            formatted_time = time.strftime("%b %d, %I:%M %p IST", ist_struct)
 
             delta_record = SyncHistoryItem(
                 sync_id=sync_id,
@@ -358,7 +373,7 @@ class DealStorage:
                 active_codes_count=active_codes_count,
                 total_codes_count=total_codes_count,
                 total_deals=total_verified_deals,
-                active_coupons=active_coupons_list,
+                active_coupons=active_coupons_list[:40],
                 department_breakdown=dept_breakdown,
                 highlights=highlights,
                 changes=detailed_changes[:60]

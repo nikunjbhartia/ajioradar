@@ -1517,18 +1517,18 @@
           : '<span class="text-slate-400 text-[11px] italic">No newly added codes</span>';
 
         const updatedBadges = h.updated_coupons && h.updated_coupons.length > 0
-          ? h.updated_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-mono text-[11px] font-bold hover:bg-sky-100 transition cursor-pointer" title="Find deals for ${escapeHtml(c)}">~ ${escapeHtml(c)}</button>`).join(' ')
+          ? h.updated_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-mono text-[11px] font-bold hover:bg-sky-100 transition cursor-pointer" title="Find deals for promo voucher ${escapeHtml(c)}">~ ${escapeHtml(c)}</button>`).join(' ')
           : '<span class="text-slate-400 text-[11px] italic">Discounts steady</span>';
 
         const removedBadges = h.removed_coupons && h.removed_coupons.length > 0
-          ? h.removed_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-200 font-mono text-[11px] font-bold line-through hover:bg-rose-100 transition cursor-pointer" title="Check expired / sub-70% code: ${escapeHtml(c)}">- ${escapeHtml(c)}</button>`).join(' ')
-          : '<span class="text-slate-400 text-[11px] italic">Zero expired</span>';
+          ? h.removed_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-mono text-[11px] font-bold line-through hover:bg-amber-100 transition cursor-pointer" title="Voucher deals currently below 70% discount threshold or delisted: ${escapeHtml(c)}">- ${escapeHtml(c)}</button>`).join(' ')
+          : '<span class="text-slate-400 text-[11px] italic">Zero discount drops</span>';
 
         const activeCamps = h.active_70_count || 0;
         const totalCamps = h.total_campaigns || 0;
         const activeCodes = h.active_codes_count || (h.active_coupons ? h.active_coupons.length : 0) || 0;
         const totalCodes = h.total_codes_count || 0;
-        const totalDeals = (h.total_deals || (masterProducts ? masterProducts.length : 9451)).toLocaleString();
+        const totalDeals = (h.total_deals || (masterProducts ? masterProducts.length : 16104)).toLocaleString();
 
         const activeCouponsHtml = (h.active_coupons && h.active_coupons.length > 0)
           ? h.active_coupons.map(c => `<button type="button" onclick="navigateByCode('${escapeHtml(c)}', event)" class="px-2 py-0.5 rounded-md bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-mono text-[11px] font-bold transition cursor-pointer" title="Inspect live deals for voucher ${escapeHtml(c)}">${escapeHtml(c)}</button>`).join(' ')
@@ -1586,7 +1586,7 @@
 
                 <div class="bg-slate-50/70 p-3 rounded-xl border border-slate-100 space-y-1.5">
                   <div class="flex items-center justify-between text-[11px] font-bold text-slate-700">
-                    <span class="text-rose-700"><i class="fa-solid fa-circle-xmark mr-1"></i>Purged / Expired</span>
+                    <span class="text-amber-800"><i class="fa-solid fa-arrow-trend-down mr-1 text-amber-600"></i>Sub-70% / Delisted</span>
                     <span class="font-mono">${h.removed_count || 0}</span>
                   </div>
                   <div class="flex flex-wrap gap-1">${removedBadges}</div>
@@ -1653,6 +1653,7 @@
                             <button type="button" onclick="navigateByCode('${safeChCode}', event)" class="px-1.5 py-0.5 text-[9px] font-bold rounded font-mono hover:opacity-80 transition cursor-pointer ${
                               ch.badge === 'NEW' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
                               ch.badge === 'UPDATED' ? 'bg-sky-100 text-sky-800 border border-sky-300' :
+                              ch.badge === 'SUB-70%' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
                               'bg-rose-100 text-rose-800 border border-rose-300'
                             }">${escapeHtml(ch.badge || 'INFO')} · ${safeChCode}</button>
                             <span class="font-bold text-slate-800 text-xs">${escapeHtml(ch.title || safeChCode)}</span>

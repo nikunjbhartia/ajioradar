@@ -74,6 +74,15 @@ class CampaignHarvester:
         except Exception as e:
             logger.warning(f"Baseline seed load note: {e}")
 
+        NON_VOUCHER = {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
+            'DIRECT_CLEARANCE', 'PREMIUM_OFFER', 'INSTANT_OFFER', 'FLASH_STACK_20', 'FLASH_STACK_25', 'FLASH_STACK_30',
+            'WOMEN', 'MEN', 'MENS', 'KIDS', 'BOYS', 'GIRLS', 'INFANTS', 'SHOP', 'FOOTWEAR', 'ATHLEISURE',
+            'ETHNIC', 'FUSION', 'SAREES', 'JEANS', 'GAS', 'ASOS', 'JACK', 'LOUIS', 'MARC', 'BRAND',
+            'PLUS', 'MISS', 'FRESH', 'WHP', 'MHP', 'FLASHSALE', 'INDIE', 'HOME', 'BEAUTY', 'TECH',
+            'CLOTHING', 'ACCESSORIES', 'BAGS', 'SHOES', 'SALE', 'DEALS', 'OFFER', 'SPECIAL', 'PROMO', 'COLLECTION'
+        }
+
         # 1. Harvest from Sitemap Landing XML (authoritative fast feed)
         try:
             r_sitemap = session.get("https://www.ajio.com/sitemap_landing.xml", headers=headers, timeout=6)
@@ -84,8 +93,12 @@ class CampaignHarvester:
                     loc = url_elem.find('sm:loc', ns)
                     if loc is not None and loc.text and '/s/' in loc.text:
                         slug = loc.text.split('/s/')[-1].strip('/')
-                        tokens = re.findall(r'[A-Za-z]+', slug)
-                        code = tokens[0].upper() if tokens else "FLASHDEAL"
+                        code = ""
+                        promo_m = re.match(r'^(?:promo-|coupon-|voucher-)?([A-Za-z0-9]{3,20})(?:-\d+)?$', slug, re.IGNORECASE)
+                        if promo_m:
+                            candidate = promo_m.group(1).upper()
+                            if candidate not in NON_VOUCHER and not candidate.isdigit() and len(candidate) >= 3:
+                                code = candidate
                         discovered[slug] = {
                             "code": code,
                             "slug": slug,
