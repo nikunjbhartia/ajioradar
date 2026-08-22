@@ -366,6 +366,14 @@
       <div class="h-44 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
       <div class="h-44 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
     </section>
+    <!-- Infinite Scroll Container for Campaigns -->
+    <div id="campaignPaginationContainer" class="hidden text-center py-6">
+      <button id="loadMoreCampaignsBtn" onclick="loadMoreCampaigns()" class="px-6 py-2.5 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:bg-sky-50 text-slate-800 font-bold text-xs shadow-xs transition inline-flex items-center gap-2 cursor-pointer active:scale-98">
+        <i class="fa-solid fa-spinner fa-spin text-sky-600 hidden" id="loadMoreCampSpinner"></i>
+        <span id="loadMoreCampText">Load More Collections</span>
+      </button>
+      <div id="campaignSentinel" class="h-4 w-full"></div>
+    </div>
 
     <!-- View 2: Verified 70%+ Products View Grid (Mobile 2-Cols, Desktop 4/5-Cols) -->
     <section id="productsGrid" class="hidden grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
@@ -374,6 +382,14 @@
       <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
       <div class="h-64 rounded-2xl bg-white border border-slate-200 animate-pulse p-4"></div>
     </section>
+    <!-- Infinite Scroll Container for Products -->
+    <div id="productPaginationContainer" class="hidden text-center py-6">
+      <button id="loadMoreProductsBtn" onclick="loadMoreProducts()" class="px-6 py-2.5 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:bg-sky-50 text-slate-800 font-bold text-xs shadow-xs transition inline-flex items-center gap-2 cursor-pointer active:scale-98">
+        <i class="fa-solid fa-spinner fa-spin text-sky-600 hidden" id="loadMoreProdSpinner"></i>
+        <span id="loadMoreProdText">Load More Deals</span>
+      </button>
+      <div id="productSentinel" class="h-4 w-full"></div>
+    </div>
 
     <!-- View 3: Sync Audit & Changelog Feed (Last 7 Days) -->
     <section id="historySection" class="hidden space-y-3 sm:space-y-4">
@@ -2026,15 +2042,35 @@
     }
 
     function resetAllFilters() {
-      clearSearch();
-      selectAllBrands(false);
-      clearAllCategories();
+      searchQuery = '';
+      const sInput = document.getElementById('globalSearchInput');
+      if (sInput) sInput.value = '';
+      document.getElementById('clearSearchBtn')?.classList.add('hidden');
+      selectedBrands.clear();
+      updateBrandDropdownUI();
+      renderBrandList(availableBrands);
+      selectedCategories.clear();
+      updateCategoryDropdownUI();
+      renderCategoryTree();
       activeDeptTab = 'ALL';
       selectTaxDept('ALL');
-      document.getElementById('sortSelect').value = 'discount_desc';
-      document.getElementById('toggleOnly70').checked = true;
-      setDiscountFilter(null);
-      updateUrl(true);
+      const sortElem = document.getElementById('sortSelect');
+      if (sortElem) sortElem.value = 'discount_desc';
+      const toggle70Elem = document.getElementById('toggleOnly70');
+      if (toggle70Elem) toggle70Elem.checked = true;
+      minDiscountFilter = null;
+      isStandaloneOnly = false;
+      isCouponBoostOnly = false;
+      document.querySelectorAll('.tier-btn').forEach(b => {
+        b.classList.remove('bg-sky-600', 'bg-amber-500', 'text-white', 'text-slate-950', 'font-bold', 'font-black', 'shadow-xs');
+        b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+      });
+      const allBtn = document.getElementById('tier-all');
+      if (allBtn) {
+        allBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-700');
+        allBtn.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-xs');
+      }
+      applyFilters(true);
     }
 
     function handleFilterChange() {
@@ -2316,230 +2352,327 @@
       return 'Direct Clearance & Instant Discounts';
     }
 
-    function renderCampaignsGrid(campaigns) {
+    const PRODUCT_CHUNK_SIZE = 36;
+    const CAMPAIGN_CHUNK_SIZE = 24;
+
+    let currentProductsList = [];
+    let renderedProductsCount = 0;
+    let currentCampaignsList = [];
+    let renderedCampaignsCount = 0;
+
+    let productObserver = null;
+    let campaignObserver = null;
+
+    function renderSingleCampaignCard(c) {
+      const maxDisc = Math.round(c.max_realized_discount || 0);
+      const minDisc = Math.round(c.min_realized_discount || 0);
+      
+      let rangeBadge = `${minDisc}% – ${maxDisc}% OFF`;
+      if (minDisc === maxDisc || minDisc === 0) rangeBadge = `${maxDisc}% NET OFF`;
+
+      let discountColor = 'bg-slate-100 text-slate-700 border-slate-200';
+      if (maxDisc >= 85) discountColor = 'bg-amber-50 text-amber-800 border-amber-200 font-extrabold';
+      else if (maxDisc >= 80) discountColor = 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
+      else if (maxDisc >= 70) discountColor = 'bg-sky-50 text-sky-800 border-sky-200 font-bold';
+
+      const minP = Math.round(c.min_price || 0);
+      const maxP = Math.round(c.max_price || 0);
+      let priceRangeLabel = 'Price Verified at Checkout';
+      if (minP > 0 && maxP > 0) {
+        priceRangeLabel = (maxP > minP) ? `₹${minP} – ₹${maxP}` : `₹${minP}`;
+      } else if (minP > 0) {
+        priceRangeLabel = `From ₹${minP}`;
+      }
+
+      const isVerifiedActive = c.has_70_plus_verified && (c.total_verified_skus || 0) > 0;
+      const rawCode = c.code || '';
+      const safeCode = rawCode.replace(/'/g, "\\'");
+      const rawDept = c.department || 'Multi-Category';
+      const safeDept = rawDept.replace(/'/g, "\\'");
+      const cleanOffer = getCleanDealOffer(c);
+      const outboundAjioUrl = getOutboundCampaignUrl(c);
+
+      return `
+        <div class="deal-card bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs hover:border-sky-300 transition min-w-0">
+          <div>
+            <!-- Row 1: Code + Copy Icon + Net Discount % Badge -->
+            <div class="flex items-center justify-between gap-2 mb-2.5">
+              <div class="flex items-center space-x-1.5 min-w-0">
+                <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 tracking-wider transition cursor-pointer truncate" title="Filter deals for ${escapeHtml(rawCode || 'Clearance')}">
+                  ${escapeHtml(rawCode || 'CLEARANCE')}
+                </button>
+                ${rawCode ? `
+                  <button onclick="copyToClipboard('${escapeHtml(safeCode)}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs cursor-pointer shrink-0">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                ` : ''}
+              </div>
+
+              <span class="text-[11px] uppercase px-2.5 py-0.5 rounded-full border ${discountColor} shrink-0">
+                ${rangeBadge}
+              </span>
+            </div>
+
+            <!-- Row 2: Exact Deal Offer Text -->
+            <p class="text-xs font-semibold text-slate-800 leading-snug line-clamp-2" title="${escapeHtml(cleanOffer)}">
+              ${escapeHtml(cleanOffer)}
+            </p>
+
+            <!-- Row 3: Effective Final Price Range (Start & End) -->
+            <div class="mt-3 flex items-center justify-between gap-2 bg-slate-50 border border-slate-100/90 px-3 py-2 rounded-xl text-xs">
+              <span class="text-slate-500 font-medium text-[11px] flex items-center gap-1.5">
+                <i class="fa-solid fa-tags text-emerald-600 text-[10px]"></i>
+                <span>Effective Price:</span>
+              </span>
+              <span class="font-extrabold font-mono text-xs text-emerald-700">
+                ${priceRangeLabel}
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 4: Verified Deals Count + Action CTAs -->
+          <div class="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+            <span class="text-[11px] font-medium text-slate-500 truncate">
+              ${isVerifiedActive ? `<strong>${c.total_verified_skus}</strong> verified deals` : '<span class="text-amber-700">Sub-70% Tier</span>'}
+            </span>
+
+            <div class="flex items-center space-x-1.5 shrink-0">
+              <button type="button" onclick="viewCampaignProducts('${escapeHtml(safeCode)}', event)" class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 transition cursor-pointer" title="View matching products in AjioRadar">
+                <i class="fa-solid fa-boxes-stacked text-[10px]"></i>
+                <span>Products</span>
+              </button>
+              ${isVerifiedActive ? `
+                <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-xs">
+                  <span>Ajio Page</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                </a>
+              ` : `
+                <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% items">
+                  <span>Storefront</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
+                </a>
+              `}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCampaignsGrid(campaigns, reset = true) {
       const container = document.getElementById('campaignsGrid');
       const emptyState = document.getElementById('emptyState');
+      const paginationContainer = document.getElementById('campaignPaginationContainer');
 
       if (!campaigns || campaigns.length === 0) {
         container.innerHTML = '';
         emptyState.classList.remove('hidden');
+        if (paginationContainer) paginationContainer.classList.add('hidden');
         updateEmptyState('campaigns');
         return;
       }
 
       emptyState.classList.add('hidden');
-      container.innerHTML = campaigns.map(c => {
-        const maxDisc = Math.round(c.max_realized_discount || 0);
-        const minDisc = Math.round(c.min_realized_discount || 0);
-        
-        let rangeBadge = `${minDisc}% – ${maxDisc}% OFF`;
-        if (minDisc === maxDisc || minDisc === 0) rangeBadge = `${maxDisc}% NET OFF`;
 
-        let discountColor = 'bg-slate-100 text-slate-700 border-slate-200';
-        if (maxDisc >= 85) discountColor = 'bg-amber-50 text-amber-800 border-amber-200 font-extrabold';
-        else if (maxDisc >= 80) discountColor = 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
-        else if (maxDisc >= 70) discountColor = 'bg-sky-50 text-sky-800 border-sky-200 font-bold';
+      if (reset) {
+        currentCampaignsList = campaigns;
+        renderedCampaignsCount = 0;
+        container.innerHTML = '';
+      }
 
-        const minP = Math.round(c.min_price || 0);
-        const maxP = Math.round(c.max_price || 0);
-        let priceRangeLabel = 'Price Verified at Checkout';
-        if (minP > 0 && maxP > 0) {
-          priceRangeLabel = (maxP > minP) ? `₹${minP} – ₹${maxP}` : `₹${minP}`;
-        } else if (minP > 0) {
-          priceRangeLabel = `From ₹${minP}`;
+      const nextBatch = currentCampaignsList.slice(renderedCampaignsCount, renderedCampaignsCount + CAMPAIGN_CHUNK_SIZE);
+      const html = nextBatch.map(renderSingleCampaignCard).join('');
+      container.insertAdjacentHTML('beforeend', html);
+      renderedCampaignsCount += nextBatch.length;
+
+      if (paginationContainer) {
+        if (renderedCampaignsCount < currentCampaignsList.length) {
+          paginationContainer.classList.remove('hidden');
+          const txt = document.getElementById('loadMoreCampText');
+          if (txt) txt.innerText = `Load More Collections (${renderedCampaignsCount} of ${currentCampaignsList.length})`;
+          setupCampaignObserver();
+        } else {
+          paginationContainer.classList.add('hidden');
         }
-
-        const isVerifiedActive = c.has_70_plus_verified && (c.total_verified_skus || 0) > 0;
-        const rawCode = c.code || '';
-        const safeCode = rawCode.replace(/'/g, "\\'");
-        const rawDept = c.department || 'Multi-Category';
-        const safeDept = rawDept.replace(/'/g, "\\'");
-        const cleanOffer = getCleanDealOffer(c);
-        const outboundAjioUrl = getOutboundCampaignUrl(c);
-
-        return `
-          <div class="deal-card bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs hover:border-sky-300 transition min-w-0">
-            <div>
-              <!-- Row 1: Code + Copy Icon + Net Discount % Badge -->
-              <div class="flex items-center justify-between gap-2 mb-2.5">
-                <div class="flex items-center space-x-1.5 min-w-0">
-                  <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 tracking-wider transition cursor-pointer truncate" title="Filter deals for ${escapeHtml(rawCode || 'Clearance')}">
-                    ${escapeHtml(rawCode || 'CLEARANCE')}
-                  </button>
-                  ${rawCode ? `
-                    <button onclick="copyToClipboard('${escapeHtml(safeCode)}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs cursor-pointer shrink-0">
-                      <i class="fa-regular fa-copy"></i>
-                    </button>
-                  ` : ''}
-                </div>
-
-                <span class="text-[11px] uppercase px-2.5 py-0.5 rounded-full border ${discountColor} shrink-0">
-                  ${rangeBadge}
-                </span>
-              </div>
-
-              <!-- Row 2: Exact Deal Offer Text -->
-              <p class="text-xs font-semibold text-slate-800 leading-snug line-clamp-2" title="${escapeHtml(cleanOffer)}">
-                ${escapeHtml(cleanOffer)}
-              </p>
-
-              <!-- Row 3: Effective Final Price Range (Start & End) -->
-              <div class="mt-3 flex items-center justify-between gap-2 bg-slate-50 border border-slate-100/90 px-3 py-2 rounded-xl text-xs">
-                <span class="text-slate-500 font-medium text-[11px] flex items-center gap-1.5">
-                  <i class="fa-solid fa-tags text-emerald-600 text-[10px]"></i>
-                  <span>Effective Price:</span>
-                </span>
-                <span class="font-extrabold font-mono text-xs text-emerald-700">
-                  ${priceRangeLabel}
-                </span>
-              </div>
-            </div>
-
-            <!-- Row 4: Verified Deals Count + Action CTAs -->
-            <div class="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-              <span class="text-[11px] font-medium text-slate-500 truncate">
-                ${isVerifiedActive ? `<strong>${c.total_verified_skus}</strong> verified deals` : '<span class="text-amber-700">Sub-70% Tier</span>'}
-              </span>
-
-              <div class="flex items-center space-x-1.5 shrink-0">
-                <button type="button" onclick="viewCampaignProducts('${escapeHtml(safeCode)}', event)" class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 transition cursor-pointer" title="View matching products in AjioRadar">
-                  <i class="fa-solid fa-boxes-stacked text-[10px]"></i>
-                  <span>Products</span>
-                </button>
-                ${isVerifiedActive ? `
-                  <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-xs">
-                    <span>Ajio Page</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                  </a>
-                ` : `
-                  <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% items">
-                    <span>Storefront</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
-                  </a>
-                `}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
+      }
     }
 
-    function renderProductsGrid(products) {
+    function loadMoreCampaigns() {
+      if (renderedCampaignsCount < currentCampaignsList.length) {
+        renderCampaignsGrid(currentCampaignsList, false);
+      }
+    }
+
+    function setupCampaignObserver() {
+      if (campaignObserver) campaignObserver.disconnect();
+      const sentinel = document.getElementById('campaignSentinel');
+      if (!sentinel) return;
+      campaignObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && renderedCampaignsCount < currentCampaignsList.length) {
+          loadMoreCampaigns();
+        }
+      }, { rootMargin: '400px' });
+      campaignObserver.observe(sentinel);
+    }
+
+    function renderSingleProductCard(p) {
+      const netD = Math.round(p.net_discount_percent || 0);
+      const baseD = Math.round(p.base_discount_percent || 0);
+      const rawCode = p.coupon_code || '';
+      const isInstant = rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER';
+      const isBXGY = rawCode.startsWith('BUY1GET') || rawCode === 'FREEDOM80';
+      const codeLabel = isInstant ? '⚡ Instant Offer' : (isBXGY ? '🎁 Buy 1 Get Free' : (rawCode === 'DIRECT_CLEARANCE' ? '🏷️ Direct Clearance' : rawCode));
+
+      const rawBrand = p.brand || '';
+      const safeBrand = rawBrand.replace(/'/g, "\\'");
+      const rawCat = p.category || '';
+      const safeCat = rawCat.replace(/'/g, "\\'");
+      const rawDept = p.department || 'General';
+      const safeDept = rawDept.replace(/'/g, "\\'");
+      const safeCode = rawCode.replace(/'/g, "\\'");
+      const safeName = escapeHtml(p.name || '');
+      const safeImg = escapeHtml(p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png');
+      const safeProductUrl = escapeHtml(p.product_url || '#');
+
+      let boostBadgeHtml = '';
+      if (isInstant) {
+        boostBadgeHtml = `
+          <div class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-[9px]"></i>
+            <span>Instant Offer</span>
+          </div>`;
+      } else if (isBXGY) {
+        boostBadgeHtml = `
+          <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+            <i class="fa-solid fa-gift text-[9px]"></i>
+            <span>Buy 1 Get Free</span>
+          </div>`;
+      } else {
+        boostBadgeHtml = `
+          <div class="absolute top-2 right-2 bg-sky-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
+            <i class="fa-solid fa-tag text-[9px]"></i>
+            <span>Direct Clearance</span>
+          </div>`;
+      }
+
+      const formulaText = isInstant 
+        ? `⚡ Instant Deal: ₹${Math.round(p.final_price)} on PDP` 
+        : (isBXGY ? `🎁 ${codeLabel}: ${netD}% Off MRP` : `🏷️ Direct Flat ${netD}% Off on PDP`);
+
+      return `
+        <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
+          <!-- 3:4 Responsive Image Frame -->
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
+            <img src="${safeImg}" alt="${safeName}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
+            
+            <div class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
+              ${netD}% OFF
+            </div>
+
+            ${boostBadgeHtml}
+
+            <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
+              <span class="font-medium text-slate-700 truncate">${escapeHtml(codeLabel)}</span>
+              <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Saved</span>
+            </div>
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-2.5 sm:p-3.5 space-y-2 flex-1 flex flex-col justify-between min-w-0">
+            <div class="min-w-0">
+              <button type="button" onclick="navigateByBrand('${escapeHtml(safeBrand)}', event)" class="text-[11px] font-bold text-slate-500 hover:text-sky-600 uppercase tracking-wider truncate block transition text-left cursor-pointer" title="Filter brand: ${escapeHtml(rawBrand)}">${escapeHtml(rawBrand)}</button>
+              <h4 class="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mt-0.5 min-w-0" title="${safeName}">${safeName}</h4>
+              <div class="text-[10px] text-slate-400 mt-0.5 truncate space-x-1">
+                <button type="button" onclick="navigateByCategory('${escapeHtml(safeCat)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter category: ${escapeHtml(rawCat)}">${escapeHtml(rawCat)}</button>
+                <span>&bull;</span>
+                <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter department: ${escapeHtml(rawDept)}">${escapeHtml(rawDept)}</button>
+              </div>
+              
+              <!-- Pricing Formula Banner (No truncation) -->
+              <div class="mt-1.5 text-[10px] text-indigo-900 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100/80 flex items-center justify-between font-medium">
+                <span class="truncate">${escapeHtml(formulaText)}</span>
+                <span class="text-[9px] text-emerald-600 font-bold shrink-0 ml-1">Verified</span>
+              </div>
+            </div>
+
+            <!-- Buy Button & Pricing Row -->
+            <div class="pt-2 border-t border-slate-100">
+              <div class="flex items-baseline justify-between flex-wrap gap-1">
+                <div class="flex items-baseline space-x-1.5">
+                  <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
+                  <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-600 font-mono">(${netD}% Off)</span>
+              </div>
+
+              <div class="mt-1 flex items-center justify-between text-[10px] text-slate-400 font-medium">
+                <span class="flex items-center gap-1 text-emerald-700 font-semibold"><i class="fa-solid fa-circle-check text-[9px]"></i>Verified PDP Price</span>
+                <span class="text-slate-400">Stock Live</span>
+              </div>
+              
+              <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
+                <span>Buy on Ajio</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderProductsGrid(products, reset = true) {
       const container = document.getElementById('productsGrid');
       const emptyState = document.getElementById('emptyState');
+      const paginationContainer = document.getElementById('productPaginationContainer');
 
       if (!products || products.length === 0) {
         container.innerHTML = '';
         emptyState.classList.remove('hidden');
+        if (paginationContainer) paginationContainer.classList.add('hidden');
         updateEmptyState('products');
         return;
       }
 
       emptyState.classList.add('hidden');
-      container.innerHTML = products.map(p => {
-        const netD = Math.round(p.net_discount_percent || 0);
-        const baseD = Math.round(p.base_discount_percent || 0);
-        const rawCode = p.coupon_code || '';
-        const isInstant = rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER';
-        const isBXGY = rawCode.startsWith('BUY1GET') || rawCode === 'FREEDOM80';
-        const codeLabel = isInstant ? '⚡ Instant Offer' : (isBXGY ? '🎁 Buy 1 Get Free' : (rawCode === 'DIRECT_CLEARANCE' ? '🏷️ Direct Clearance' : rawCode));
 
-        const rawBrand = p.brand || '';
-        const safeBrand = rawBrand.replace(/'/g, "\\'");
-        const rawCat = p.category || '';
-        const safeCat = rawCat.replace(/'/g, "\\'");
-        const rawDept = p.department || 'General';
-        const safeDept = rawDept.replace(/'/g, "\\'");
-        const safeCode = rawCode.replace(/'/g, "\\'");
-        const safeName = escapeHtml(p.name || '');
-        const safeImg = escapeHtml(p.image_url || 'https://assets.ajio.com/medias/sys_master/root/ajio/placeholder.png');
-        const safeProductUrl = escapeHtml(p.product_url || '#');
+      if (reset) {
+        currentProductsList = products;
+        renderedProductsCount = 0;
+        container.innerHTML = '';
+      }
 
-        let boostBadgeHtml = '';
-        if (isInstant) {
-          boostBadgeHtml = `
-            <div class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <i class="fa-solid fa-bolt text-[9px]"></i>
-              <span>Instant Offer</span>
-            </div>`;
-        } else if (isBXGY) {
-          boostBadgeHtml = `
-            <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <i class="fa-solid fa-gift text-[9px]"></i>
-              <span>Buy 1 Get Free</span>
-            </div>`;
+      const nextBatch = currentProductsList.slice(renderedProductsCount, renderedProductsCount + PRODUCT_CHUNK_SIZE);
+      const html = nextBatch.map(renderSingleProductCard).join('');
+      container.insertAdjacentHTML('beforeend', html);
+      renderedProductsCount += nextBatch.length;
+
+      if (paginationContainer) {
+        if (renderedProductsCount < currentProductsList.length) {
+          paginationContainer.classList.remove('hidden');
+          const txt = document.getElementById('loadMoreProdText');
+          if (txt) txt.innerText = `Load More Deals (${renderedProductsCount} of ${currentProductsList.length})`;
+          setupProductObserver();
         } else {
-          boostBadgeHtml = `
-            <div class="absolute top-2 right-2 bg-sky-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <i class="fa-solid fa-tag text-[9px]"></i>
-              <span>Direct Clearance</span>
-            </div>`;
+          paginationContainer.classList.add('hidden');
         }
+      }
+    }
 
-        const formulaText = isInstant 
-          ? `⚡ Instant Deal: ₹${Math.round(p.final_price)} on PDP` 
-          : (isBXGY ? `🎁 ${codeLabel}: ${netD}% Off MRP` : `🏷️ Direct Flat ${netD}% Off on PDP`);
+    function loadMoreProducts() {
+      if (renderedProductsCount < currentProductsList.length) {
+        renderProductsGrid(currentProductsList, false);
+      }
+    }
 
-        return `
-          <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
-            <!-- 3:4 Responsive Image Frame -->
-            <div class="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
-              <img src="${safeImg}" alt="${safeName}" class="absolute inset-0 h-full w-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" decoding="async">
-              
-              <div class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-md">
-                ${netD}% OFF
-              </div>
-
-              ${boostBadgeHtml}
-
-              <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
-                <span class="font-medium text-slate-700 truncate">${escapeHtml(codeLabel)}</span>
-                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Saved</span>
-              </div>
-            </div>
-
-            <!-- Card Content -->
-            <div class="p-2.5 sm:p-3.5 space-y-2 flex-1 flex flex-col justify-between min-w-0">
-              <div class="min-w-0">
-                <button type="button" onclick="navigateByBrand('${escapeHtml(safeBrand)}', event)" class="text-[11px] font-bold text-slate-500 hover:text-sky-600 uppercase tracking-wider truncate block transition text-left cursor-pointer" title="Filter brand: ${escapeHtml(rawBrand)}">${escapeHtml(rawBrand)}</button>
-                <h4 class="text-xs font-bold text-slate-900 line-clamp-2 leading-snug mt-0.5 min-w-0" title="${safeName}">${safeName}</h4>
-                <div class="text-[10px] text-slate-400 mt-0.5 truncate space-x-1">
-                  <button type="button" onclick="navigateByCategory('${escapeHtml(safeCat)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter category: ${escapeHtml(rawCat)}">${escapeHtml(rawCat)}</button>
-                  <span>&bull;</span>
-                  <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter department: ${escapeHtml(rawDept)}">${escapeHtml(rawDept)}</button>
-                </div>
-                
-                <!-- Pricing Formula Banner (No truncation) -->
-                <div class="mt-1.5 text-[10px] text-indigo-900 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100/80 flex items-center justify-between font-medium">
-                  <span class="truncate">${escapeHtml(formulaText)}</span>
-                  <span class="text-[9px] text-emerald-600 font-bold shrink-0 ml-1">Verified</span>
-                </div>
-              </div>
-
-              <!-- Buy Button & Pricing Row -->
-              <div class="pt-2 border-t border-slate-100">
-                <div class="flex items-baseline justify-between flex-wrap gap-1">
-                  <div class="flex items-baseline space-x-1.5">
-                    <span class="text-base font-extrabold text-slate-900 font-mono">₹${Math.round(p.final_price)}</span>
-                    <span class="text-xs text-slate-400 line-through font-mono">₹${Math.round(p.mrp)}</span>
-                  </div>
-                  <span class="text-[10px] font-bold text-emerald-600 font-mono">(${netD}% Off)</span>
-                </div>
-
-                <div class="mt-1 flex items-center justify-between text-[10px] text-slate-400 font-medium">
-                  <span class="flex items-center gap-1 text-emerald-700 font-semibold"><i class="fa-solid fa-circle-check text-[9px]"></i>Verified PDP Price</span>
-                  <span class="text-slate-400">Stock Live</span>
-                </div>
-                
-                <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
-                  <span>Buy on Ajio</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
+    function setupProductObserver() {
+      if (productObserver) productObserver.disconnect();
+      const sentinel = document.getElementById('productSentinel');
+      if (!sentinel) return;
+      productObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && renderedProductsCount < currentProductsList.length) {
+          loadMoreProducts();
+        }
+      }, { rootMargin: '600px' });
+      productObserver.observe(sentinel);
     }
 
     function viewCampaignProducts(code, e) {
