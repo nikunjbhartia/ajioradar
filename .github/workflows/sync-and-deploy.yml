@@ -55,6 +55,15 @@ jobs:
         run: |
           python3 backend/pull_live_data.py || true
 
+      - name: Forensic Database Sanitization Pass
+        run: |
+          cd backend
+          python -c "
+          import sys; sys.path.insert(0, '.')
+          from app.database.storage import DealStorage
+          DealStorage('deals.db').sanitize_database()
+          "
+
       - name: Run Live Validation & Category Sweeps
         env:
           PYTHONPATH: backend

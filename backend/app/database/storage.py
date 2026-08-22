@@ -443,8 +443,47 @@ class DealStorage:
         # 1. Prune expired or out-of-stock items unseen for > 7 days
         self.prune_stale_deals(max_age_days=7)
 
-        # 2. Dynamically synthesize campaign collections from newly scanned products
+        # 2. Forensic Sanitization Pass (Deletes fabricated/corrupt deals)
+        self.sanitize_database()
+
+        # 3. Dynamically synthesize campaign collections from newly scanned products
         self.synthesize_campaigns_from_products()
+
+    def sanitize_database(self):
+        """
+        Forensically sanitizes all deal tables:
+        1. Removes any deals where net_discount_percent < 70.0 OR (mrp - final_price)/mrp < 0.699
+        2. Deletes corrupt markdown tier tokens where final_price was falsely halved (e.g. MIN50, MIN60, 40TO80PERCENTOFF, etc.)
+        3. Removes fabricated FLASH_STACK_20 deals
+        """
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            
+            # 1. Delete fabricated FLASH_STACK_20 deals
+            cursor.execute("DELETE FROM verified_products WHERE coupon_code = 'FLASH_STACK_20'")
+            
+            # 2. Delete corrupt markdown tier tokens where final_price was falsely halved
+            non_vouchers = [
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'MIN50', 'MIN60', 'MIN40PERCENTOFF', 'MIN30PERCENTOFF', '40TO80PERCENTOFF', 'FLAT50PERCENTOFF',
+                'UPTO70PERCENTOFF', 'UPTO80PERCENTOFF', 'MIN45PERCENTOFF', 'MIN65PERCENTOFF', 'MIN75', 'MIN80',
+                'UPTO60PERCENTOFF', 'MIN55PERCENTOFF', 'GIRLS', 'WOMEN', 'FRESH', 'KIDS', 'FUSION', 'TOPS',
+                'MISS', 'BAGS', 'REEBOK', 'PANTS', 'DUNE', 'SKIRTS', 'PRECIOUS', 'PLUS', 'JUTTIS', 'ISHIN',
+                'HI', 'UCB', 'MARC', 'JAIPUR', 'BRAND', 'SHIRTS', 'TSHIRTS', 'MEN', 'SWEATERS', 'F', 'OOTD',
+                'JACKET', 'MARKS', 'NETWORK', 'JEANS', 'EOSS', 'UNITED', 'BOYS', 'SUPERDRYBACK', 'SCOTCH',
+                'SHORTS', 'JACK', 'STEVE', 'SHOP', 'HUBBERHOLME', 'NETPLAY', 'CATWALK', 'ZIVAME', 'WHP',
+                'WATCHES', 'WALLETS', 'WAISCOATS', 'UPTO', 'PETER', 'OFFERS', 'HIDESIGN', 'GAP', 'FLIP',
+                'EXCLUSIVE', 'DUPATTAS', 'ATHLEISURE', 'ARMANI', 'ALLEN', 'ADIDAS', 'WOODLAND', 'ALENA',
+                'SUPERDRY', 'JEWELLERY', 'CLOTHING', 'MIN', 'MHP', 'BEAUTYPROMO', 'TALLY', 'INDIE', 'GUESS',
+                'ADIDASFRESH', 'PUMA', 'ANCESTRY', 'ASOS', 'ZAVERI', 'TOMMY', 'SUIT', 'FOOTWEAR', 'FIRST',
+                'FEATURED', 'LOUIS', 'JOHN', 'GAS', 'CLOSET', 'BRAVE'
+            ]
+            q = f"DELETE FROM verified_products WHERE coupon_code IN ({','.join(['?']*len(non_vouchers))})"
+            cursor.execute(q, non_vouchers)
+            
+            # 3. Delete any product where net_discount_percent < 70.0
+            cursor.execute("DELETE FROM verified_products WHERE net_discount_percent < 70.0 OR ((mrp - final_price)/mrp) < 0.699")
+            conn.commit()
 
     def prune_stale_deals(self, max_age_days: int = 7):
         """

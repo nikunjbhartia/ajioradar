@@ -42,10 +42,31 @@ def pull_live_data():
         conn = sqlite3.connect(db_path)
         cur = conn.cursor()
 
-        # Import products
+        # Import products (Strictly authenticated >= 70% deals only)
+        non_vouchers = {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'MIN50', 'MIN60', 'MIN40PERCENTOFF', 'MIN30PERCENTOFF', '40TO80PERCENTOFF', 'FLAT50PERCENTOFF',
+            'UPTO70PERCENTOFF', 'UPTO80PERCENTOFF', 'MIN45PERCENTOFF', 'MIN65PERCENTOFF', 'MIN75', 'MIN80',
+            'UPTO60PERCENTOFF', 'MIN55PERCENTOFF', 'FLASH_STACK_20', 'GIRLS', 'WOMEN', 'FRESH', 'KIDS', 'FUSION', 'TOPS',
+            'MISS', 'BAGS', 'REEBOK', 'PANTS', 'DUNE', 'SKIRTS', 'PRECIOUS', 'PLUS', 'JUTTIS', 'ISHIN',
+            'HI', 'UCB', 'MARC', 'JAIPUR', 'BRAND', 'SHIRTS', 'TSHIRTS', 'MEN', 'SWEATERS', 'F', 'OOTD',
+            'JACKET', 'MARKS', 'NETWORK', 'JEANS', 'EOSS', 'UNITED', 'BOYS', 'SUPERDRYBACK', 'SCOTCH',
+            'SHORTS', 'JACK', 'STEVE', 'SHOP', 'HUBBERHOLME', 'NETPLAY', 'CATWALK', 'ZIVAME', 'WHP',
+            'WATCHES', 'WALLETS', 'WAISCOATS', 'UPTO', 'PETER', 'OFFERS', 'HIDESIGN', 'GAP', 'FLIP',
+            'EXCLUSIVE', 'DUPATTAS', 'ATHLEISURE', 'ARMANI', 'ALLEN', 'ADIDAS', 'WOODLAND', 'ALENA',
+            'SUPERDRY', 'JEWELLERY', 'CLOTHING', 'MIN', 'MHP', 'BEAUTYPROMO', 'TALLY', 'INDIE', 'GUESS',
+            'ADIDASFRESH', 'PUMA', 'ANCESTRY', 'ASOS', 'ZAVERI', 'TOMMY', 'SUIT', 'FOOTWEAR', 'FIRST',
+            'FEATURED', 'LOUIS', 'JOHN', 'GAS', 'CLOSET', 'BRAVE'
+        }
         products = pulled_data.get("products.json", [])
         if isinstance(products, list):
             for p in products:
+                c_code = (p.get('coupon_code') or '').strip().upper()
+                net_d = float(p.get('net_discount_percent') or 0.0)
+                mrp = float(p.get('mrp') or 0.0)
+                final_p = float(p.get('final_price') or 0.0)
+                if net_d < 70.0 or c_code in non_vouchers or (mrp > 0 and (mrp - final_p)/mrp < 0.699):
+                    continue
                 cur.execute('''
                     INSERT OR REPLACE INTO verified_products (
                         id, name, brand, category, department, mrp, selling_price,

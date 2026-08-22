@@ -37,7 +37,10 @@ class ContinuousSyncDaemon:
             # 2. Universal Navigation Category Sweep across all 498 subcategory seeds
             cat_deals = self.category_crawler.run_full_category_sweep(max_workers=15)
             
-            # 3. Pull merged products from storage
+            # 3. Forensic database sanitization
+            self.storage.sanitize_database()
+
+            # 4. Pull merged products from storage
             merged_deals = self.storage.get_verified_products(min_discount=70.0, limit=25000)
 
             self.in_memory_campaigns = res['campaigns']

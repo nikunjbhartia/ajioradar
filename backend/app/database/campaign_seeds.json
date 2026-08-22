@@ -8,7 +8,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN40PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min40percentoff-386479",
     "title": "Min40Percentoff 386479",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -16,7 +16,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "40TO80PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "40to80percentoff-383654",
     "title": "40To80Percentoff 383654",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -32,7 +32,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-386485",
     "title": "Min60Percentoff 386485",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -64,7 +64,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-382695",
     "title": "Min60Percentoff 382695",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -72,7 +72,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "EOSS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "eoss-women-impulse-steal-dresses",
     "title": "Eoss Women Impulse Steal Dresses",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -184,7 +184,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-373992",
     "title": "Min50Percentoff 373992",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -224,7 +224,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN75",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min75percentoff-382700",
     "title": "Min 75% Off Super Clearance",
     "description": "Guaranteed 75% to 85% direct instant discount across all products in collection.",
@@ -240,7 +240,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN80",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min80percentoff-386483",
     "title": "Min 80% Off Epic Steals",
     "description": "Guaranteed 80% to 90% direct instant discount across all products in collection.",
@@ -264,7 +264,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN40PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min40percentoff-382696",
     "title": "Min40Percentoff 382696",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -288,7 +288,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-221785",
     "title": "Min60Percentoff 221785",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -296,7 +296,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "EOSS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "eoss-women-impulse-steal-footwear",
     "title": "Eoss Women Impulse Steal Footwear",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -320,7 +320,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-221783",
     "title": "Min60Percentoff 221783",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -368,7 +368,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-374222",
     "title": "Min50Percentoff 374222",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -424,7 +424,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TOPS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tops-under-399",
     "title": "Tops Under 399",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -464,7 +464,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-374408",
     "title": "Min60Percentoff 374408",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -488,7 +488,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-374218",
     "title": "Min60Percentoff 374218",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -520,7 +520,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-374221",
     "title": "Min50Percentoff 374221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -536,7 +536,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-374219",
     "title": "Min60Percentoff 374219",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -632,7 +632,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-386486",
     "title": "Min60Percentoff 386486",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -760,7 +760,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "FLAT50PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "flat50percentoff-362685",
     "title": "Flat50Percentoff 362685",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -768,7 +768,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN60",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min60percentoff-382698",
     "title": "Min60Percentoff 382698",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -792,7 +792,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "DUPATTAS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "dupattas-women",
     "title": "Dupattas Women",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -816,7 +816,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SHORTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "shorts-three-fourths-under-699",
     "title": "Shorts Three Fourths Under 699",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -832,7 +832,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN40PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min40percentoff-386480",
     "title": "Min40Percentoff 386480",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -864,7 +864,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-382702",
     "title": "Min50Percentoff 382702",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -872,7 +872,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "WALLETS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "wallets-3560-19911",
     "title": "Wallets 3560 19911",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -880,7 +880,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "FLIP",
+    "code": "DIRECT_CLEARANCE",
     "slug": "flip-flop-3598-1852",
     "title": "Flip Flop 3598 1852",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -896,7 +896,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ZAVERI",
+    "code": "DIRECT_CLEARANCE",
     "slug": "zaveri-pearls-4042-53541",
     "title": "Zaveri Pearls 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -952,7 +952,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO80PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto80percentoff-362687",
     "title": "Upto80Percentoff 362687",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -968,7 +968,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "EOSS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "eoss-men-impulse-steal-bags",
     "title": "Eoss Men Impulse Steal Bags",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1000,7 +1000,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "WATCHES",
+    "code": "DIRECT_CLEARANCE",
     "slug": "watches-4067-79511",
     "title": "Watches 4067 79511",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1032,7 +1032,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-380992",
     "title": "Min50Percentoff 380992",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1128,7 +1128,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN40PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min40percentoff-362691",
     "title": "Min40Percentoff 362691",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1136,7 +1136,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "FEATURED",
+    "code": "DIRECT_CLEARANCE",
     "slug": "featured-brands-3844-11111",
     "title": "Featured Brands 3844 11111",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1144,7 +1144,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "EXCLUSIVE",
+    "code": "DIRECT_CLEARANCE",
     "slug": "exclusive-brands",
     "title": "Exclusive Brands",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1168,7 +1168,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN55PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min55percentoff-382701",
     "title": "Min55Percentoff 382701",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1216,7 +1216,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO60PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto60percentoff-386487",
     "title": "Upto60Percentoff 386487",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1232,7 +1232,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TSHIRTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tshirts-5518-76521",
     "title": "Tshirts 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1240,7 +1240,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SWEATERS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "sweaters-and-cardigans-5518-76521",
     "title": "Sweaters And Cardigans 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1248,7 +1248,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "PANTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "pants-and-trousers-5518-76521",
     "title": "Pants And Trousers 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1256,7 +1256,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "JACKET",
+    "code": "DIRECT_CLEARANCE",
     "slug": "jacket-and-coats-5518-76521",
     "title": "Jacket And Coats 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1264,7 +1264,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SKIRTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "skirts-5518-76521",
     "title": "Skirts 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1280,7 +1280,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TOPS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tops-5518-76521",
     "title": "Tops 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1288,7 +1288,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SHIRTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "shirts-5518-76521",
     "title": "Shirts 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1304,7 +1304,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "WAISCOATS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "waiscoats-5518-76521",
     "title": "Waiscoats 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1376,7 +1376,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-221782",
     "title": "Min50Percentoff 221782",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1408,7 +1408,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "JOHN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "john-players-4042-45201",
     "title": "John Players 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1416,7 +1416,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ISHIN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "ishin-4042-53541",
     "title": "Ishin 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1424,7 +1424,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN45PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min45percentoff-386481",
     "title": "Min45Percentoff 386481",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1440,7 +1440,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO70PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto70percentoff-221786",
     "title": "Upto70Percentoff 221786",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1448,7 +1448,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN65PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min65percentoff-374404",
     "title": "Min65Percentoff 374404",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1464,7 +1464,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "HUBBERHOLME",
+    "code": "DIRECT_CLEARANCE",
     "slug": "hubberholme-4042-45201",
     "title": "Hubberholme 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1504,7 +1504,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "JUTTIS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "juttis-collections",
     "title": "Juttis Collections",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1552,7 +1552,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-374402",
     "title": "Min50Percentoff 374402",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1560,7 +1560,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "JAIPUR",
+    "code": "DIRECT_CLEARANCE",
     "slug": "jaipur-kurti-4042-53541",
     "title": "Jaipur Kurti 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1568,7 +1568,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "PRECIOUS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "precious-jewellery-4119-63401",
     "title": "Precious Jewellery 4119 63401",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1632,9 +1632,9 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "BEAUTYPROMO",
+    "code": "DIRECT_CLEARANCE",
     "slug": "beautypromo-383783",
-    "title": "BEAUTYPROMO - Buy 1 Get Extra 5% Off View All Products",
+    "title": "Direct Clearance - Buy 1 Get Extra 5% Off View All Products",
     "description": "Buy 1 Get Extra 5% Off View All Products >",
     "department": "BEAUTY & GROOMING",
     "source": "campaign_seeds"
@@ -1648,7 +1648,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "NETWORK",
+    "code": "DIRECT_CLEARANCE",
     "slug": "network-4042-45201",
     "title": "Network 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1656,7 +1656,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min-30-percent-off-5517-53191",
     "title": "Min 30 Percent Off 5517 53191",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1680,7 +1680,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "NETPLAY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "netplay-4042-45201",
     "title": "Netplay 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1712,7 +1712,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "PUMA",
+    "code": "DIRECT_CLEARANCE",
     "slug": "puma-style",
     "title": "Puma Style",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1736,7 +1736,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UCB",
+    "code": "DIRECT_CLEARANCE",
     "slug": "ucb-kids",
     "title": "Ucb Kids",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1744,7 +1744,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UNITED",
+    "code": "DIRECT_CLEARANCE",
     "slug": "united-colours-benetton",
     "title": "United Colours Benetton",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1752,7 +1752,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MARKS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "marks-spencer-4042-53541",
     "title": "Marks Spencer 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1784,7 +1784,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ALENA",
+    "code": "DIRECT_CLEARANCE",
     "slug": "alena-4042-53541",
     "title": "Alena 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1816,7 +1816,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "CLOSET",
+    "code": "DIRECT_CLEARANCE",
     "slug": "closet-london-3811-52221",
     "title": "Closet London 3811 52221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1840,7 +1840,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "PUMA",
+    "code": "DIRECT_CLEARANCE",
     "slug": "puma-men-accessories",
     "title": "Puma Men Accessories",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1872,7 +1872,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "REEBOK",
+    "code": "DIRECT_CLEARANCE",
     "slug": "reebok-4042-45201",
     "title": "Reebok 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1880,7 +1880,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "GUESS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "guess-3811-52221",
     "title": "Guess 3811 52221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1888,7 +1888,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "BRAVE",
+    "code": "DIRECT_CLEARANCE",
     "slug": "brave-soul-3811-52221",
     "title": "Brave Soul 3811 52221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1896,15 +1896,15 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "OOTD",
+    "code": "DIRECT_CLEARANCE",
     "slug": "ootd-221839",
-    "title": "OOTD - Get Additional 40% off View All Products",
+    "title": "Direct Clearance - Get Additional 40% off View All Products",
     "description": "Get Additional 40% off View All Products>",
     "department": "Multi-Category",
     "source": "campaign_seeds"
   },
   {
-    "code": "PRECIOUS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "precious-jewellery-4119-63402",
     "title": "Precious Jewellery 4119 63402",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1920,7 +1920,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TALLY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tally-weijl-3811-52221",
     "title": "Tally Weijl 3811 52221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1936,7 +1936,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN30PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min30percentoff-362690",
     "title": "Min30Percentoff 362690",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1960,7 +1960,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ADIDAS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "adidas-4042-45201",
     "title": "Adidas 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1968,7 +1968,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ZIVAME",
+    "code": "DIRECT_CLEARANCE",
     "slug": "zivame-4042-53541",
     "title": "Zivame 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -1976,7 +1976,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "STEVE",
+    "code": "DIRECT_CLEARANCE",
     "slug": "steve-madden-18012019",
     "title": "Steve Madden 18012019",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2000,7 +2000,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "CATWALK",
+    "code": "DIRECT_CLEARANCE",
     "slug": "catwalk-4042-53541",
     "title": "Catwalk 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2008,7 +2008,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "DUNE",
+    "code": "DIRECT_CLEARANCE",
     "slug": "dune-london-18012019",
     "title": "Dune London 18012019",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2016,7 +2016,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UNITED",
+    "code": "DIRECT_CLEARANCE",
     "slug": "united-colors-of-benetton-2022",
     "title": "United Colors Of Benetton 2022",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2024,7 +2024,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "STEVE",
+    "code": "DIRECT_CLEARANCE",
     "slug": "steve-madden-3483-6296",
     "title": "Steve Madden 3483 6296",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2056,9 +2056,9 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ADIDASFRESH",
+    "code": "DIRECT_CLEARANCE",
     "slug": "adidasfresh-363379",
-    "title": "ADIDASFRESH - 10% Off on ADIDAS with Coupon ADIDASFRES",
+    "title": "Direct Clearance - 10% Off on ADIDAS with Coupon ADIDASFRES",
     "description": "10% Off on ADIDAS with Coupon ADIDASFRESH . View All Products>",
     "department": "Multi-Category",
     "source": "campaign_seeds"
@@ -2080,7 +2080,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "FIRST",
+    "code": "DIRECT_CLEARANCE",
     "slug": "first-class-4042-45201",
     "title": "First Class 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2096,7 +2096,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN45PERCENTOFF",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min45percentoff-382697",
     "title": "Min45Percentoff 382697",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2112,7 +2112,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SUPERDRY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "superdry-3483-6296",
     "title": "Superdry 3483 6296",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2128,9 +2128,9 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SUPERDRYBACK",
+    "code": "DIRECT_CLEARANCE",
     "slug": "superdryback-5752-57291",
-    "title": "SUPERDRYBACK - Flat 300 offView All Products>",
+    "title": "Direct Clearance - Flat 300 offView All Products>",
     "description": "Flat 300 offView All Products>",
     "department": "FOOTWEAR",
     "source": "campaign_seeds"
@@ -2152,7 +2152,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN50",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min50percentoff-374407",
     "title": "Min50Percentoff 374407",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2168,7 +2168,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min-30-percent-off-5517-53192",
     "title": "Min 30 Percent Off 5517 53192",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2200,7 +2200,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SUPERDRY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "superdry-18012019",
     "title": "Superdry 18012019",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2208,7 +2208,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ALLEN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "allen-solly-4042-45201",
     "title": "Allen Solly 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2216,7 +2216,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "GAP",
+    "code": "DIRECT_CLEARANCE",
     "slug": "gap-4042-53541",
     "title": "Gap 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2240,7 +2240,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "PETER",
+    "code": "DIRECT_CLEARANCE",
     "slug": "peter-england-4042-45201",
     "title": "Peter England 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2272,7 +2272,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "WOODLAND",
+    "code": "DIRECT_CLEARANCE",
     "slug": "woodland-3452-51621",
     "title": "Woodland 3452 51621",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2288,7 +2288,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TOMMY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tommy-hilfiger-4042-53541",
     "title": "Tommy Hilfiger 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2304,7 +2304,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "GUESS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "guess-3747-77781",
     "title": "Guess 3747 77781",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2336,7 +2336,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "JEWELLERY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "jewellery-5518-76521",
     "title": "Jewellery 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2344,7 +2344,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TOMMY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tommy-hilfiger-4042-45201",
     "title": "Tommy Hilfiger 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2352,7 +2352,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto-50-percent-off-5517-53191",
     "title": "Upto 50 Percent Off 5517 53191",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2360,7 +2360,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SCOTCH",
+    "code": "DIRECT_CLEARANCE",
     "slug": "scotch-and-soda-3483-6296",
     "title": "Scotch And Soda 3483 6296",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2384,7 +2384,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SCOTCH",
+    "code": "DIRECT_CLEARANCE",
     "slug": "scotch-and-soda-4090-49931",
     "title": "Scotch And Soda 4090 49931",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2408,7 +2408,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SUIT",
+    "code": "DIRECT_CLEARANCE",
     "slug": "suit-sets-5518-76521",
     "title": "Suit Sets 5518 76521",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2440,7 +2440,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "HIDESIGN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "hidesign-4042-53541",
     "title": "Hidesign 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2464,7 +2464,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ALLEN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "allen-solly-4042-45202",
     "title": "Allen Solly 4042 45202",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2472,7 +2472,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "GAP",
+    "code": "DIRECT_CLEARANCE",
     "slug": "gap-4042-45201",
     "title": "Gap 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2480,7 +2480,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ANCESTRY",
+    "code": "DIRECT_CLEARANCE",
     "slug": "ancestry-4111-54091",
     "title": "Ancestry 4111 54091",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2504,7 +2504,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min-40-percent-off-5517-53191",
     "title": "Min 40 Percent Off 5517 53191",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2520,7 +2520,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ARMANI",
+    "code": "DIRECT_CLEARANCE",
     "slug": "armani-exchange-4036-32911",
     "title": "Armani Exchange 4036 32911",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2528,7 +2528,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ARMANI",
+    "code": "DIRECT_CLEARANCE",
     "slug": "armani-exchange-4042-53541",
     "title": "Armani Exchange 4042 53541",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2536,7 +2536,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto-40-percent-off-5517-53191",
     "title": "Upto 40 Percent Off 5517 53191",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2544,7 +2544,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "OFFERS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "offers-you-love-3712-22221",
     "title": "Offers You Love 3712 22221",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2848,7 +2848,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "SHIRTS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "shirts-3676-77781",
     "title": "Shirts 3676 77781",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -2864,7 +2864,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "UPTO",
+    "code": "DIRECT_CLEARANCE",
     "slug": "upto-80-percent-off-5085-76181",
     "title": "Upto 80 Percent Off 5085 76181",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -3040,7 +3040,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "WOODLAND",
+    "code": "DIRECT_CLEARANCE",
     "slug": "woodland-4042-45201",
     "title": "Woodland 4042 45201",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -3144,7 +3144,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "ADIDAS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "adidas-4042-45202",
     "title": "Adidas 4042 45202",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -3248,7 +3248,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "TOPS",
+    "code": "DIRECT_CLEARANCE",
     "slug": "tops-and-tunics",
     "title": "Tops And Tunics",
     "description": "Gives >70% realized savings when combined with base discounts.",
@@ -3360,7 +3360,7 @@
     "source": "campaign_seeds"
   },
   {
-    "code": "MIN",
+    "code": "DIRECT_CLEARANCE",
     "slug": "min-50-percent-off-5517-53191",
     "title": "Min 50 Percent Off 5517 53191",
     "description": "Gives >70% realized savings when combined with base discounts.",

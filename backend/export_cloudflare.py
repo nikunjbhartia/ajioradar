@@ -22,6 +22,7 @@ def export_for_cloudflare():
     valid_db = next((p for p in candidates if os.path.exists(p) and os.path.getsize(p) > 5000), os.path.join(backend_dir, "deals.db"))
     print(f"[*] Reading dataset from: {valid_db} ({os.path.getsize(valid_db) if os.path.exists(valid_db) else 0} bytes)")
     storage = DealStorage(valid_db)
+    storage.sanitize_database()
     
     # 1. Fetch campaigns, products, brands, departments, stats
     campaigns = storage.get_filtered_campaigns(only_verified_70=False)
