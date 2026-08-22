@@ -319,11 +319,11 @@
         <div class="sm:col-span-2 md:col-span-2">
           <select id="sortSelect" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3 py-2.5 rounded-xl focus:outline-none focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-500/10">
             <option value="discount_desc">Sort: Highest Net % Off</option>
-            <option value="boost_desc">⚡ Sort: Biggest Flash Code Boost (Base vs Final)</option>
-            <option value="price_asc">Sort: Lowest Final Price (₹)</option>
-            <option value="price_desc">Sort: Highest Final Price (₹)</option>
-            <option value="base_desc">Sort: Highest Base Markdown %</option>
-            <option value="skus_desc">Sort: Most Deals Found</option>
+            <option value="boost_desc">Sort: Biggest Coupon Boost</option>
+            <option value="price_asc">Sort: Price: Low to High</option>
+            <option value="price_desc">Sort: Price: High to Low</option>
+            <option value="base_desc">Sort: Base Markdown %</option>
+            <option value="skus_desc">Sort: Deal Count</option>
             <option value="code_asc">Sort: Name (A-Z)</option>
           </select>
         </div>
@@ -334,23 +334,23 @@
 
       <!-- Discount Tier Chips -->
       <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 custom-scrollbar text-xs flex-nowrap -mx-1 px-1">
-        <button onclick="setDiscountFilter(null)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-sky-600 text-white font-bold transition whitespace-nowrap shadow-xs text-xs" id="tier-all">
-          All Verified 70%+ Deals
+        <button onclick="setDiscountFilter(null)" class="tier-btn px-3 py-1.5 rounded-lg bg-sky-600 text-white font-bold transition whitespace-nowrap shadow-xs text-xs" id="tier-all">
+          All 70%+ Deals
         </button>
-        <button onclick="toggleCouponBoostFilter()" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-boost">
-          <i class="fa-solid fa-bolt text-amber-500 mr-1"></i> ⚡ Flash Code Boosts
+        <button onclick="toggleCouponBoostFilter()" class="tier-btn px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-boost">
+          <i class="fa-solid fa-bolt text-amber-500 mr-1"></i> Coupon Boosts
         </button>
-        <button onclick="setDiscountFilter(85)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-85">
-          <i class="fa-solid fa-fire text-amber-500 mr-1"></i> &ge;85% Epic Clearance
+        <button onclick="setDiscountFilter(85)" class="tier-btn px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-85">
+          <i class="fa-solid fa-fire text-amber-500 mr-1"></i> &ge;85% Epic Deals
         </button>
-        <button onclick="setDiscountFilter(80)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-80">
-          <i class="fa-solid fa-tag text-emerald-600 mr-1"></i> &ge;80% Realized Off
+        <button onclick="setDiscountFilter(80)" class="tier-btn px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-80">
+          <i class="fa-solid fa-tag text-emerald-600 mr-1"></i> &ge;80% Off
         </button>
-        <button onclick="setDiscountFilter(75)" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-75">
-          <i class="fa-solid fa-star text-sky-500 mr-1"></i> &ge;75% Super Steals
+        <button onclick="setDiscountFilter(75)" class="tier-btn px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-75">
+          <i class="fa-solid fa-star text-sky-500 mr-1"></i> &ge;75% Steals
         </button>
-        <button onclick="setStandaloneToggle()" class="tier-btn px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-standalone">
-          <i class="fa-solid fa-gift text-indigo-500 mr-1"></i> Buy 1 Get 5 / 4 / 3 Free
+        <button onclick="setStandaloneToggle()" class="tier-btn px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold transition whitespace-nowrap text-xs" id="tier-standalone">
+          <i class="fa-solid fa-gift text-indigo-500 mr-1"></i> Buy 1 Get Free
         </button>
       </div>
     </section>
@@ -2290,6 +2290,20 @@
       }
     }
 
+    function getOutboundCampaignUrl(c) {
+      let url = c.details_url || `https://www.ajio.com/s/${c.curated_id || c.slug}?query=:discount-desc`;
+      if (selectedBrands.size === 1) {
+        const singleBrand = Array.from(selectedBrands)[0];
+        const encodedBrand = encodeURIComponent(singleBrand.toUpperCase());
+        if (url.includes('query=')) {
+          url += `:brand:${encodedBrand}`;
+        } else {
+          url += `?query=:discount-desc:brand:${encodedBrand}`;
+        }
+      }
+      return url;
+    }
+
     function renderCampaignsGrid(campaigns) {
       const container = document.getElementById('campaignsGrid');
       const emptyState = document.getElementById('emptyState');
@@ -2307,7 +2321,7 @@
         const minDisc = Math.round(c.min_realized_discount || 0);
         
         let rangeBadge = `${minDisc}% - ${maxDisc}% OFF`;
-        if (minDisc === maxDisc || minDisc === 0) rangeBadge = `${maxDisc}% REALIZED OFF`;
+        if (minDisc === maxDisc || minDisc === 0) rangeBadge = `${maxDisc}% NET OFF`;
 
         let discountColor = 'bg-slate-100 text-slate-700 border-slate-200';
         if (maxDisc >= 85) discountColor = 'bg-amber-50 text-amber-800 border-amber-200 font-extrabold';
@@ -2323,7 +2337,7 @@
           }).join(', ');
 
           brandsSnippet = `
-            <div class="mt-2.5 text-[11px] text-slate-500 flex items-center gap-1.5 truncate">
+            <div class="mt-2 text-[11px] text-slate-500 flex items-center gap-1.5 min-w-0">
               <i class="fa-solid fa-award text-amber-500 text-[10px] shrink-0"></i>
               <span class="font-semibold text-slate-700 shrink-0">Brands:</span>
               <span class="truncate text-slate-600">${brandChips}</span>
@@ -2339,14 +2353,14 @@
             : `From ₹${minP}`;
 
           priceRangeSnippet = `
-            <div class="mt-2.5 flex items-center justify-between gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-100" title="Verified clearance items start from ₹${minP} after applying promo discount at checkout.">
-              <span class="flex items-center gap-1.5 text-slate-600 truncate">
+            <div class="mt-2 flex items-center justify-between gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-100" title="Verified clearance items start from ₹${minP} after applying promo discount at checkout.">
+              <span class="flex items-center gap-1.5 text-slate-600">
                 <i class="fa-solid fa-tags text-emerald-600 text-[10px] shrink-0"></i>
-                <span>Post-Coupon Deals:</span>
+                <span>Checkout Deals:</span>
               </span>
               <div class="flex items-baseline space-x-1 shrink-0">
                 <span class="text-emerald-700 font-extrabold font-mono text-xs">${priceLabel}</span>
-                <span class="text-[9px] text-slate-400 font-normal">(At Checkout)</span>
+                <span class="text-[9px] text-slate-400 font-normal">(Final)</span>
               </div>
             </div>`;
         }
@@ -2354,11 +2368,14 @@
         const isVerifiedActive = c.has_70_plus_verified && (c.total_verified_skus || 0) > 0;
 
         const filterRuleBanner = isVerifiedActive ? `
-          <div class="mt-2.5 p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-[11px] leading-relaxed text-emerald-900 flex items-start gap-1.5">
-            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5 text-[10px] shrink-0"></i>
-            <span class="truncate">Pre-filtered for <strong>${escapeHtml(c.applied_filter_tier || 'Verified')}</strong> (${c.total_verified_skus} verified deals)</span>
+          <div class="mt-2 p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-[11px] leading-relaxed text-emerald-900 flex items-center justify-between gap-1.5">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-[10px] shrink-0"></i>
+              <span class="truncate font-medium"><strong>${c.total_verified_skus}</strong> deals verified $\\ge$70%</span>
+            </div>
+            <span class="text-[9px] text-emerald-700 font-mono font-bold shrink-0 bg-emerald-100/70 px-1.5 py-0.5 rounded">Verified</span>
           </div>` : `
-          <div class="mt-2.5 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] leading-relaxed text-amber-900 flex items-start gap-1.5">
+          <div class="mt-2 p-2 rounded-xl bg-amber-50 border border-amber-200 text-[11px] leading-relaxed text-amber-900 flex items-start gap-1.5">
             <i class="fa-solid fa-circle-exclamation text-amber-600 mt-0.5 text-[10px] shrink-0"></i>
             <span>0 current items reach &ge;70% net savings. Promotion sits sub-70% or expired.</span>
           </div>`;
@@ -2371,6 +2388,7 @@
         const safeDesc = escapeHtml(c.description || '');
         const safeCuratedId = escapeHtml(c.curated_id || '');
         const safePromoType = escapeHtml(c.promo_type || 'Promo Voucher');
+        const outboundAjioUrl = getOutboundCampaignUrl(c);
 
         return `
           <div class="deal-card bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs min-w-0">
@@ -2378,11 +2396,13 @@
               <div class="flex items-center justify-between gap-2 mb-2.5">
                 <div class="flex items-center space-x-1.5">
                   <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 tracking-wider transition cursor-pointer" title="Find deals using code ${escapeHtml(rawCode)}">
-                    ${escapeHtml(rawCode)}
+                    ${escapeHtml(rawCode || 'CLEARANCE')}
                   </button>
-                  <button onclick="copyToClipboard('${escapeHtml(safeCode)}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs cursor-pointer">
-                    <i class="fa-regular fa-copy"></i>
-                  </button>
+                  ${rawCode ? `
+                    <button onclick="copyToClipboard('${escapeHtml(safeCode)}')" title="Copy coupon" class="text-slate-400 hover:text-sky-600 transition p-1 text-xs cursor-pointer">
+                      <i class="fa-regular fa-copy"></i>
+                    </button>
+                  ` : ''}
                 </div>
 
                 <span class="text-[11px] uppercase px-2.5 py-0.5 rounded-full border ${discountColor} shrink-0">
@@ -2390,12 +2410,15 @@
                 </span>
               </div>
 
-              <div class="flex flex-wrap items-center gap-1.5 mb-2.5">
+              <div class="flex flex-wrap items-center gap-1.5 mb-2">
                 <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer" title="Filter by ${escapeHtml(rawDept)}">
                   ${escapeHtml(rawDept)}
                 </button>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-slate-600 truncate">
                   ${safePromoType}
+                </span>
+                <span class="text-[9px] font-medium px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0 ml-auto">
+                  <i class="fa-solid fa-clock mr-1 text-[8px]"></i>Added Today
                 </span>
               </div>
 
@@ -2407,20 +2430,20 @@
             </div>
 
             <!-- Action CTA -->
-            <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs gap-2 flex-wrap">
-              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[100px]" title="${safeCuratedId}">${safeCuratedId}</span>
+            <div class="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs gap-2 flex-wrap">
+              <span class="text-slate-400 font-mono text-[10px] truncate max-w-[90px]" title="${safeCuratedId}">${safeCuratedId}</span>
               <div class="flex items-center space-x-1.5">
                 <button type="button" onclick="viewCampaignProducts('${escapeHtml(safeCode)}', event)" class="inline-flex items-center space-x-1 text-xs font-bold px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 transition cursor-pointer" title="View matching products in AjioRadar">
                   <i class="fa-solid fa-boxes-stacked text-[10px]"></i>
                   <span>Products</span>
                 </button>
                 ${isVerifiedActive ? `
-                  <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-xs">
+                  <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white transition shadow-xs">
                     <span>Ajio Page</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                   </a>
                 ` : `
-                  <a href="${c.details_url}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% items">
+                  <a href="${outboundAjioUrl}" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 shadow-2xs" title="Check Ajio for sub-70% items">
                     <span>Storefront</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400"></i>
                   </a>
@@ -2450,7 +2473,7 @@
         const couponBoost = Math.max(0, Math.round(netD - baseD));
         const rawCode = p.coupon_code || '';
         const codeLabel = rawCode === 'DIRECT_CLEARANCE' ? 'Direct Clearance' : (rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER' ? 'Instant Deal' : rawCode);
-        const isBoosted = couponBoost >= 4 || (baseD < 70 && netD >= 70);
+        const isBoosted = couponBoost >= 3 || (baseD < 70 && netD >= 70);
         const isInstant = rawCode === 'PREMIUM_OFFER' || rawCode === 'INSTANT_OFFER';
 
         const rawBrand = p.brand || '';
@@ -2469,7 +2492,7 @@
           boostBadgeHtml = `
             <div class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-md flex items-center gap-1">
               <i class="fa-solid fa-bolt text-[9px]"></i>
-              <span>+${couponBoost}% Flash Code</span>
+              <span>+${couponBoost}% Coupon</span>
             </div>`;
         } else if (isInstant) {
           boostBadgeHtml = `
@@ -2478,6 +2501,8 @@
               <span>Instant Offer</span>
             </div>`;
         }
+
+        const formulaText = couponBoost > 0 ? `Base ${baseD}% + Code ➔ ${netD}% Net` : `Direct Flat ${netD}% Off`;
 
         return `
           <div class="deal-card group bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs min-w-0">
@@ -2493,7 +2518,7 @@
 
               <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-white/95 backdrop-blur-xs px-2 py-1 rounded-lg text-[10px] font-bold text-slate-800 flex items-center justify-between shadow-xs">
                 <button type="button" onclick="navigateByCode('${escapeHtml(safeCode)}', event)" class="font-mono truncate text-sky-800 hover:text-sky-950 hover:underline transition cursor-pointer" title="Find items with voucher ${escapeHtml(rawCode)}">${escapeHtml(codeLabel)}</button>
-                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Total Saved</span>
+                <span class="text-emerald-700 font-extrabold ml-1 shrink-0">₹${Math.round(p.mrp - p.final_price)} Saved</span>
               </div>
             </div>
 
@@ -2508,12 +2533,14 @@
                   <button type="button" onclick="navigateByDept('${escapeHtml(safeDept)}', event)" class="hover:text-sky-600 hover:underline transition cursor-pointer" title="Filter department: ${escapeHtml(rawDept)}">${escapeHtml(rawDept)}</button>
                 </div>
                 
-                <div class="mt-2 text-[10px] text-indigo-800 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100 flex items-center justify-between font-medium">
-                  <span class="truncate"><i class="fa-solid fa-wand-magic-sparkles mr-1 text-indigo-500"></i>${escapeHtml(p.formula_desc || (couponBoost > 0 ? `Base ${baseD}% + Flash Code ➔ ${netD}% Net` : `Direct Clearance ${netD}% Off`))}</span>
+                <!-- Pricing Formula Banner (No truncation) -->
+                <div class="mt-1.5 text-[10px] text-indigo-900 bg-indigo-50/90 px-2 py-1 rounded-lg border border-indigo-100/80 flex items-center justify-between font-medium">
+                  <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-500 text-[9px] shrink-0"></i><span>${escapeHtml(formulaText)}</span></span>
+                  <span class="text-[9px] text-slate-400 font-mono shrink-0 ml-1">Verified</span>
                 </div>
               </div>
 
-              <!-- Buy Button -->
+              <!-- Buy Button & Pricing Row -->
               <div class="pt-2 border-t border-slate-100">
                 <div class="flex items-baseline justify-between flex-wrap gap-1">
                   <div class="flex items-baseline space-x-1.5">
@@ -2524,8 +2551,13 @@
                     Base: ₹${Math.round(p.selling_price)} <span class="text-sky-700 font-bold">(${baseD}%)</span>
                   </div>
                 </div>
+
+                <div class="mt-1 flex items-center justify-between text-[10px] text-slate-400 font-medium">
+                  <span class="flex items-center gap-1 text-emerald-700 font-semibold"><i class="fa-solid fa-clock text-[9px]"></i>Added Today</span>
+                  <span class="text-slate-400">Stock Live</span>
+                </div>
                 
-                <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2.5 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
+                <a href="${safeProductUrl}" target="_blank" rel="noopener" class="mt-2 w-full inline-flex items-center justify-center space-x-1.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white text-xs font-bold transition shadow-xs">
                   <span>Buy on Ajio</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
@@ -2548,8 +2580,17 @@
         searchQuery = cleanCode.toLowerCase();
         document.getElementById('clearSearchBtn')?.classList.toggle('hidden', !cleanCode);
       }
+      
+      // Switch view to products while keeping all selected categories, brands, and department active
       switchView('products', true);
-      if (cleanCode) showToast(`Filtered products for voucher: ${cleanCode}`, 'fa-boxes-stacked');
+      
+      const activeFilters = [];
+      if (selectedBrands.size > 0) activeFilters.push(`${selectedBrands.size} brands`);
+      if (selectedCategories.size > 0) activeFilters.push(`${selectedCategories.size} categories`);
+      if (activeDeptTab !== 'ALL') activeFilters.push(activeDeptTab);
+      
+      const filterDesc = activeFilters.length > 0 ? ` (preserving ${activeFilters.join(', ')})` : '';
+      showToast(`Showing products for ${cleanCode || 'clearance'}${filterDesc}`, 'fa-boxes-stacked');
     }
 
     function copyToClipboard(text) {
